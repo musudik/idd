@@ -343,47 +343,83 @@ function renderVereine() {
     const membersLabel = { en:'Members', de:'Mitglieder', hi:'सदस्य' };
     const personsLabel = { en:'Key Persons', de:'Schlüsselpersonen', hi:'प्रमुख व्यक्ति' };
     const visitLabel   = { en:'Visit Website ↗', de:'Website besuchen ↗', hi:'वेबसाइट देखें ↗' };
+    const aboutLabel   = { en:'About', de:'Über', hi:'के बारे में' };
+    const contactLabel = { en:'Get in Touch', de:'Kontakt', hi:'संपर्क करें' };
+
+    // Unique animation theme per verein (deterministic from id hash)
+    const hash = vereinId.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
+    const themes = ['theme-wave', 'theme-glow', 'theme-prism', 'theme-aurora', 'theme-ember'];
+    const theme = themes[hash % themes.length];
+    const patterns = ['◆', '✦', '◈', '❋', '✧', '◎', '▣', '◉'];
+    const pattern = patterns[hash % patterns.length];
 
     detailCol.innerHTML = `
-      <div class="verein-detail">
-        ${v.logo ? `
-          <div class="detail-logo-wrap">
-            <img src="${v.logo}" alt="${v.name} logo" class="detail-logo" loading="lazy"
-                 onerror="this.parentElement.style.display='none'" />
-          </div>
-        ` : `<div class="detail-logo-placeholder" style="background:${v.color}22; border-color:${v.color}44">
-          <span style="color:${v.color}; font-size:28px">✦</span>
-        </div>`}
-        <div class="detail-category" style="color:${v.color}">
-          <span>${t(v.category)}</span>
-        </div>
-        <h2 class="detail-name">${v.name}</h2>
-        <div class="detail-city">📍 ${v.city}</div>
-        <div class="detail-divider"></div>
-        <p class="detail-desc">${t(v.description)}</p>
-        <div class="detail-meta">
-          <div class="meta-item">
-            <span>${foundedLabel[lang]}</span>
-            <span>${v.founded}</span>
-          </div>
-          <div class="meta-item">
-            <span>${membersLabel[lang]}</span>
-            <span>${v.members.toLocaleString()}</span>
+      <div class="verein-detail ${theme}" style="--accent:${v.color}">
+        <!-- Hero stripe -->
+        <div class="detail-hero-stripe">
+          <div class="stripe-bg"></div>
+          <div class="stripe-pattern">${(pattern + ' ').repeat(20)}</div>
+          <div class="stripe-content">
+            ${v.logo ? `
+              <div class="detail-logo-wrap">
+                <img src="${v.logo}" alt="${v.name} logo" class="detail-logo" loading="lazy"
+                     onerror="this.parentElement.innerHTML='<span class=\\'logo-fallback\\' style=\\'color:${v.color}\\'>${pattern}</span>'" />
+              </div>
+            ` : `<div class="detail-logo-wrap">
+              <span class="logo-fallback" style="color:${v.color}">${pattern}</span>
+            </div>`}
           </div>
         </div>
-        ${v.keyPersons && v.keyPersons.length ? `
-          <div class="detail-persons">
-            <div class="detail-persons-title">${personsLabel[lang]}</div>
-            ${v.keyPersons.map(p => `
-              <span class="person-tag"><strong>${p.name}</strong> · ${t(p.role)}</span>
-            `).join('')}
+
+        <!-- Body -->
+        <div class="detail-body">
+          <div class="detail-category" style="color:${v.color}">
+            <span>${t(v.category)}</span>
           </div>
-        ` : ''}
-        <div class="detail-divider"></div>
-        <a href="${v.website}" target="_blank" rel="noopener" class="detail-link"
-           style="color:${v.color}; border-color:${v.color}">
-          ${visitLabel[lang]}
-        </a>
+          <h2 class="detail-name">${v.name}</h2>
+          <div class="detail-city">📍 ${v.city}</div>
+
+          <div class="detail-stats-row">
+            ${v.founded ? `<div class="detail-stat" style="--accent:${v.color}">
+              <div class="detail-stat-value">${v.founded}</div>
+              <div class="detail-stat-label">${foundedLabel[lang]}</div>
+            </div>` : ''}
+            <div class="detail-stat" style="--accent:${v.color}">
+              <div class="detail-stat-value">${v.members > 0 ? v.members.toLocaleString() : '—'}</div>
+              <div class="detail-stat-label">${membersLabel[lang]}</div>
+            </div>
+          </div>
+
+          <div class="detail-section">
+            <div class="detail-section-title">${aboutLabel[lang]}</div>
+            <p class="detail-desc">${t(v.description)}</p>
+          </div>
+
+          ${v.keyPersons && v.keyPersons.length ? `
+            <div class="detail-section">
+              <div class="detail-section-title">${personsLabel[lang]}</div>
+              <div class="detail-persons-grid">
+                ${v.keyPersons.map(p => `
+                  <div class="person-card" style="--accent:${v.color}">
+                    <div class="person-avatar" style="background:${v.color}">${p.name.charAt(0)}</div>
+                    <strong>${p.name}</strong>
+                    <span>${t(p.role)}</span>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          ` : ''}
+
+          ${v.website && v.website !== 'https://example.com' ? `
+            <div class="detail-section">
+              <div class="detail-section-title">${contactLabel[lang]}</div>
+              <a href="${v.website}" target="_blank" rel="noopener" class="detail-cta"
+                 style="background:${v.color}; border-color:${v.color}">
+                ${visitLabel[lang]}
+              </a>
+            </div>
+          ` : ''}
+        </div>
       </div>
     `;
 
