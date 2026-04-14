@@ -1781,24 +1781,6 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 }
 
 /* -- Verein Logo ------------------------------------------- */
-.detail-logo-wrap {
-  width: 120px; height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-  border-radius: 4px;
-  padding: 10px;
-  margin-bottom: 24px;
-  border: 1px solid var(--border);
-}
-
-.detail-logo {
-  max-width: 100%; max-height: 100%;
-  width: auto; height: auto;
-  object-fit: contain;
-}
-
 .detail-logo-placeholder {
   width: 80px; height: 80px;
   border-radius: 4px;
