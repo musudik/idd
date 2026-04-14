@@ -29,10 +29,10 @@
   --text-secondary: #4A4035;
   --text-muted:     #8A7E70;
 
-  /* Sidebar — deep black with gold accent */
-  --sidebar-bg:     #111111;
-  --sidebar-text:   #C0B8A8;
-  --sidebar-border: rgba(255, 204, 0, 0.08);
+  /* Sidebar — clean white with Indo-German accents (igod.gov.in inspired) */
+  --sidebar-bg:     #FFFFFF;
+  --sidebar-text:   #3C3C3C;
+  --sidebar-border: #E0E0E0;
 
   /* Card shadow */
   --shadow-sm:      0 1px 4px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04);
@@ -85,6 +85,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   width: var(--sidebar-w);
   background: var(--sidebar-bg);
   border-right: 1px solid var(--sidebar-border);
+  box-shadow: 2px 0 8px rgba(0,0,0,0.06);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -97,6 +98,15 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 .sidebar:hover {
   width: var(--sidebar-hover);
   align-items: flex-start;
+}
+
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #FF9933 0%, #FF9933 20%, #FFFFFF 20%, #FFFFFF 40%, #138808 40%, #138808 60%, #000000 60%, #000000 73%, #DD0000 73%, #DD0000 87%, #FFCC00 87%, #FFCC00 100%);
+  z-index: 1;
 }
 
 .main-content {
@@ -117,16 +127,18 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 }
 
 .sidebar-logo-img {
-  width: 140px;
-  height: 140px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
   flex-shrink: 0;
-  filter: brightness(1.1) drop-shadow(0 2px 8px rgba(255,204,0,0.15));
-  transition: transform var(--dur);
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.1));
+  transition: width var(--dur-slow) var(--ease), height var(--dur-slow) var(--ease), transform var(--dur);
 }
 
 .sidebar:hover .sidebar-logo-img {
-  transform: scale(1.06);
+  width: 120px;
+  height: 120px;
+  transform: scale(1.03);
 }
 
 .mobile-logo-img {
@@ -140,7 +152,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   font-size: 22px;
   font-weight: 600;
   letter-spacing: 0.12em;
-  color: #F0EDE8;
+  color: var(--text-primary);
   opacity: 0;
   transition: opacity var(--dur) var(--ease);
 }
@@ -186,9 +198,9 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 
 .sidebar-nav li a:hover,
 .sidebar-nav li a.active {
-  color: var(--saffron);
+  color: #FF6600;
   border-left-color: var(--saffron);
-  background: rgba(255,153,51,0.06);
+  background: rgba(255,153,51,0.08);
 }
 
 /* -- Sidebar Footer / Lang Switcher ---- */
@@ -227,9 +239,9 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 }
 
 .lang-btn:hover, .lang-btn.active {
-  color: var(--german-gold);
-  border-color: var(--german-gold);
-  background: rgba(255,204,0,0.1);
+  color: #D97706;
+  border-color: #D97706;
+  background: rgba(255,153,51,0.12);
 }
 
 /* -- Mobile Header ------------------------------------------ */
@@ -240,6 +252,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   height: 56px;
   background: var(--sidebar-bg);
   border-bottom: 1px solid var(--sidebar-border);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
   z-index: 300;
   align-items: center;
   justify-content: space-between;
@@ -262,7 +275,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 0.1em;
-  color: #F0EDE8;
+  color: var(--text-primary);
 }
 
 .mobile-nav-right {
@@ -272,7 +285,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 }
 
 .mobile-header .lang-switcher { gap: 2px; }
-.mobile-header .lang-btn { padding: 3px 5px; font-size: 9px; }
+.mobile-header .lang-btn { padding: 3px 5px; font-size: 9px; color: var(--text-secondary); border-color: var(--sidebar-border); }
 
 .hamburger {
   display: flex;
@@ -284,7 +297,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 .hamburger span {
   display: block;
   width: 22px; height: 1.5px;
-  background: #F0EDE8;
+  background: var(--text-primary);
   transition: all var(--dur);
 }
 
@@ -299,6 +312,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   top: 56px; left: 0; right: 0;
   background: var(--sidebar-bg);
   border-bottom: 1px solid var(--sidebar-border);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   z-index: 299;
   transform: translateY(-100%);
   transition: transform var(--dur-slow) var(--ease-out);
@@ -321,9 +335,9 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 
 .mobile-nav-list li a:hover,
 .mobile-nav-list li a.active {
-  color: var(--saffron);
+  color: #FF6600;
   border-left-color: var(--saffron);
-  background: rgba(255,153,51,0.04);
+  background: rgba(255,153,51,0.08);
 }
 
 .drawer-overlay {
@@ -496,6 +510,25 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   border-left: none;
   position: relative;
   overflow: hidden;
+}
+
+.hero-main-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 260px;
+  height: 260px;
+  object-fit: contain;
+  z-index: 3;
+  filter: drop-shadow(0 8px 32px rgba(0,0,0,0.12));
+  animation: heroLogoPulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes heroLogoPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); filter: drop-shadow(0 8px 32px rgba(0,0,0,0.12)); }
+  50%      { transform: translate(-50%, -50%) scale(1.04); filter: drop-shadow(0 12px 40px rgba(255,153,51,0.2)); }
 }
 
 .hero-visual::before {
@@ -1058,12 +1091,8 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 }
 
 .stripe-content .detail-logo-wrap {
-  width: 120px; height: 120px;
+  width: 220px; height: 220px;
   margin: 0 auto;
-  background: rgba(255,255,255,0.92);
-  border-radius: 16px;
-  padding: 12px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.25);
 }
 
 .logo-fallback {
@@ -1979,6 +2008,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   .hero-sub     { font-size: 11px; }
   .hero-intro   { font-size: 15px; }
   .hero-ctas    { flex-direction: column; gap: 10px; }
+  .hero-main-logo { width: 160px; height: 160px; }
   .btn          { justify-content: center; width: 100%; max-width: 280px; }
 
   /* ── Hero Logo Grid (mobile) ── */
