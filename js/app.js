@@ -173,12 +173,24 @@ function renderHome() {
       </div>
     `).join('') + `</div>`;
 
+  // ── Home Logo Constellation ──
+  buildLogoConstellation();
+
   // Responsive padding for featured section
   const homeSection = document.querySelector('.page-home .section');
   if (homeSection) {
     const isMobile = window.innerWidth <= 768;
     homeSection.style.padding = isMobile ? '0 0 56px' : '0 64px 64px';
   }
+
+  // Card glow tracking
+  document.querySelectorAll('.verein-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100) + '%');
+      card.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100) + '%');
+    });
+  });
 }
 
 // ── ABOUT ────────────────────────────────────────────────────
@@ -282,11 +294,17 @@ function renderVereine() {
     if (!state) return;
     activeStateName = state.name;
 
-    vereineCol.innerHTML = state.vereine.map(v => `
+    // Sort vereine alphabetically by name
+    const sortedVereine = [...state.vereine].sort((a, b) => a.name.localeCompare(b.name));
+
+    vereineCol.innerHTML = sortedVereine.map(v => `
       <div class="verein-row" data-verein="${v.id}"
            style="--accent-color:${v.color}" tabindex="0" role="button">
-        <div class="verein-row-name">${v.name}</div>
-        <div class="verein-row-city">${v.city}</div>
+        ${v.logo ? `<div class="verein-row-logo"><img src="${v.logo}" alt="" loading="lazy" onerror="this.parentElement.style.display='none'" /></div>` : ''}
+        <div class="verein-row-info">
+          <div class="verein-row-name">${v.name}</div>
+          <div class="verein-row-city">${v.city}</div>
+        </div>
       </div>
     `).join('');
 
@@ -706,6 +724,52 @@ function handleContactSubmit(e) {
     btn.style.background = '';
     e.target.reset();
   }, 3000);
+}
+
+// ── Logo Constellation (Home Hero) ───────────────────────────
+function buildLogoConstellation() {
+  const container = document.getElementById('logo-constellation');
+  if (!container) return;
+
+  const allVereine = VEREINE.states.flatMap(s => s.vereine).filter(v => v.logo);
+  // Shuffle and pick up to 40 logos
+  const shuffled = allVereine.sort(() => Math.random() - 0.5).slice(0, 40);
+
+  container.innerHTML = '';
+
+  // Create floating logo orbs
+  shuffled.forEach((v, i) => {
+    const orb = document.createElement('div');
+    orb.className = 'logo-orb';
+    orb.style.setProperty('--delay', `${i * 0.15}s`);
+    orb.style.setProperty('--duration', `${18 + Math.random() * 22}s`);
+    orb.style.setProperty('--x-start', `${Math.random() * 100}%`);
+    orb.style.setProperty('--y-start', `${Math.random() * 100}%`);
+    orb.style.setProperty('--float-x', `${(Math.random() - 0.5) * 120}px`);
+    orb.style.setProperty('--float-y', `${(Math.random() - 0.5) * 80}px`);
+    orb.innerHTML = `
+      <div class="logo-orb-inner">
+        <img src="${v.logo}" alt="${v.name}" loading="lazy"
+             onerror="this.closest('.logo-orb').remove()" />
+      </div>
+      <div class="logo-orb-tooltip">${v.name}</div>
+    `;
+    container.appendChild(orb);
+  });
+
+  // Create the orbiting ring of logos
+  const ringContainer = document.getElementById('logo-ring');
+  if (!ringContainer) return;
+  const ringLogos = allVereine.slice(0, 16);
+  ringContainer.innerHTML = '';
+  ringLogos.forEach((v, i) => {
+    const item = document.createElement('div');
+    item.className = 'ring-logo-item';
+    item.style.setProperty('--angle', `${(i / ringLogos.length) * 360}deg`);
+    item.innerHTML = `<img src="${v.logo}" alt="${v.name}" loading="lazy"
+      onerror="this.closest('.ring-logo-item').remove()" />`;
+    ringContainer.appendChild(item);
+  });
 }
 
 // ── Utility ──────────────────────────────────────────────────

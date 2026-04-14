@@ -515,6 +515,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 .hero-mandala {
   position: relative;
   width: 320px; height: 320px;
+  z-index: 3;
 }
 
 .mandala-ring {
@@ -902,13 +903,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   line-height: 1.7;
 }
 
-.verein-row {
-  padding: 22px 28px;
-  cursor: pointer;
-  border-bottom: 1px solid var(--border);
-  transition: all var(--dur);
-  border-left: 3px solid transparent;
-}
+/* verein-row base overridden below in new section */
 
 .verein-row:hover,
 .verein-row.active {
@@ -1571,12 +1566,256 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 
 /* -- Verein card logo --------------------------------------- */
 .verein-card-logo {
-  width: 44px; height: 44px;
-  background: #fff;
-  border-radius: 3px;
+  width: 56px; height: 56px;
+  background: transparent;
+  border-radius: 50%;
   padding: 4px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+}
+
+.verein-card-logo img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+  transition: transform 0.5s var(--ease), filter 0.5s var(--ease);
+}
+
+.verein-card:hover .verein-card-logo {
+  transform: scale(1.15);
+  box-shadow: 0 8px 32px rgba(217,107,12,0.18);
+}
+
+.verein-card:hover .verein-card-logo img {
+  transform: scale(1.08);
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+}
+
+/* -- Detail logo transparent -------------------------------- */
+.detail-logo-wrap {
+  width: 100px; height: 100px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: visible;
+}
+
+.detail-logo {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.12));
+  transition: transform 0.6s var(--ease), filter 0.6s var(--ease);
+}
+
+.detail-logo-wrap:hover .detail-logo {
+  transform: scale(1.2) translateY(-8px);
+  filter: drop-shadow(0 12px 40px rgba(217,107,12,0.25));
+}
+
+/* -- Verein Row with Logo ----------------------------------- */
+.verein-row {
+  padding: 16px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border);
+  transition: all var(--dur);
+  border-left: 3px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.verein-row-logo {
+  width: 38px; height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+
+.verein-row-logo img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.1));
+  transition: transform 0.4s var(--ease);
+}
+
+.verein-row:hover .verein-row-logo {
+  transform: scale(1.2);
+  box-shadow: 0 4px 16px rgba(217,107,12,0.15);
+}
+
+.verein-row:hover .verein-row-logo img {
+  transform: scale(1.1);
+}
+
+.verein-row-info {
+  flex: 1;
+  min-width: 0;
+}
+
+/* -- Logo Constellation (Home Hero) ------------------------- */
+.logo-constellation {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.logo-orb {
+  position: absolute;
+  left: var(--x-start);
+  top: var(--y-start);
+  width: 48px; height: 48px;
+  opacity: 0;
+  animation: logoFloat var(--duration) var(--delay) ease-in-out infinite,
+             logoFadeIn 1.5s var(--delay) ease-out forwards;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.logo-orb-inner {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s var(--ease), background 0.5s var(--ease),
+              box-shadow 0.5s var(--ease), border-color 0.5s var(--ease);
+  overflow: hidden;
+}
+
+.logo-orb-inner img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1) opacity(0.5);
+  transition: filter 0.5s var(--ease), transform 0.5s var(--ease);
+}
+
+.logo-orb:hover .logo-orb-inner {
+  transform: scale(2.2);
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 8px 48px rgba(217,107,12,0.35), 0 0 80px rgba(255,153,51,0.15);
+  border-color: rgba(217,107,12,0.4);
+  z-index: 100;
+}
+
+.logo-orb:hover .logo-orb-inner img {
+  filter: none;
+  transform: scale(1.1);
+}
+
+.logo-orb-tooltip {
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: #FFB060;
+  background: rgba(26,18,8,0.85);
+  padding: 4px 10px;
+  border-radius: 3px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.logo-orb:hover .logo-orb-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translate(0, 0); }
+  25%      { transform: translate(var(--float-x), calc(var(--float-y) * -1)); }
+  50%      { transform: translate(calc(var(--float-x) * -0.5), var(--float-y)); }
+  75%      { transform: translate(calc(var(--float-x) * 0.7), calc(var(--float-y) * -0.5)); }
+}
+
+@keyframes logoFadeIn {
+  from { opacity: 0; transform: scale(0.4); }
+  to   { opacity: 0.7; transform: scale(1); }
+}
+
+/* -- Logo Ring (orbiting logos around mandala) --------------- */
+.logo-ring {
+  position: absolute;
+  width: 420px; height: 420px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ringRotate 80s linear infinite;
+  z-index: 2;
+}
+
+.ring-logo-item {
+  position: absolute;
+  width: 36px; height: 36px;
+  top: 50%; left: 50%;
+  transform: rotate(var(--angle)) translate(210px) rotate(calc(-1 * var(--angle)));
+  transform-origin: 0 0;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 5px;
+  transition: transform 0.4s, background 0.4s, box-shadow 0.4s;
+}
+
+.ring-logo-item img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1) opacity(0.4);
+  transition: filter 0.4s;
+}
+
+.ring-logo-item:hover {
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 4px 24px rgba(217,107,12,0.3);
+  transform: rotate(var(--angle)) translate(210px) rotate(calc(-1 * var(--angle))) scale(1.8);
+  z-index: 10;
+}
+
+.ring-logo-item:hover img {
+  filter: none;
+}
+
+@keyframes ringRotate { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+/* -- Godet-style hover for verein cards --------------------- */
+.verein-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.verein-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%),
+    rgba(217,107,12,0.08) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.verein-card:hover::after { opacity: 1; }
   align-items: center;
   justify-content: center;
   overflow: hidden;
