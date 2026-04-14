@@ -5,36 +5,38 @@
 
 /* -- Design Tokens ------------------------------------------ */
 :root {
-  /* Tricolor palette — deepened for light-bg contrast */
-  --saffron:        #D96B0C;
-  --saffron-light:  #F08030;
-  --saffron-dark:   #A84F08;
-  --german-gold:    #C89A00;
-  --german-red:     #B00000;
-  --india-green:    #0A6B04;
-  --india-green-lt: #138808;
+  /* Indo-German palette — Indian saffron/green + German black/red/gold */
+  --saffron:        #FF9933;
+  --saffron-light:  #FFB347;
+  --saffron-dark:   #E07800;
+  --german-gold:    #FFCC00;
+  --german-red:     #DD0000;
+  --german-black:   #1A1A1A;
+  --india-green:    #138808;
+  --india-green-lt: #1DA00E;
+  --india-blue:     #000080;
 
-  /* Base — warm cream / light */
-  --bg:             #FAF8F3;
+  /* Base — warm cream */
+  --bg:             #FDFBF7;
   --bg-2:           #FFFFFF;
-  --bg-3:           #F3F0E8;
-  --bg-4:           #EAE6DC;
+  --bg-3:           #F7F3EB;
+  --bg-4:           #EEE8DA;
   --border:         rgba(26, 18, 8, 0.10);
-  --border-warm:    rgba(217, 107, 12, 0.22);
+  --border-warm:    rgba(255, 153, 51, 0.20);
 
-  /* Text — warm dark scale */
-  --text-primary:   #1C1410;
-  --text-secondary: #5C5040;
-  --text-muted:     #A09080;
+  /* Text */
+  --text-primary:   #1A1A1A;
+  --text-secondary: #4A4035;
+  --text-muted:     #8A7E70;
 
-  /* Sidebar — intentionally dark for contrast */
-  --sidebar-bg:     #18130E;
-  --sidebar-text:   #B0A898;
-  --sidebar-border: rgba(255, 255, 255, 0.07);
+  /* Sidebar — deep black with gold accent */
+  --sidebar-bg:     #111111;
+  --sidebar-text:   #C0B8A8;
+  --sidebar-border: rgba(255, 204, 0, 0.08);
 
   /* Card shadow */
-  --shadow-sm:      0 1px 4px rgba(26,18,8,0.07), 0 0 0 1px rgba(26,18,8,0.06);
-  --shadow-md:      0 4px 16px rgba(26,18,8,0.09), 0 0 0 1px rgba(26,18,8,0.06);
+  --shadow-sm:      0 1px 4px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04);
+  --shadow-md:      0 4px 16px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04);
 
   /* Sidebar */
   --sidebar-w:      72px;
@@ -108,35 +110,29 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 0 16px;
+  padding: 0 12px;
   margin-bottom: 40px;
   white-space: nowrap;
   overflow: hidden;
 }
 
-.logo-emblem {
-  position: relative;
-  width: 40px; height: 40px;
+.sidebar-logo-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
   flex-shrink: 0;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 1.5px solid var(--border-warm);
+  filter: brightness(1.2);
+  transition: transform var(--dur);
 }
 
-.emblem-saffron, .emblem-white, .emblem-green {
-  position: absolute; left: 0; right: 0;
-  height: 33.33%;
+.sidebar:hover .sidebar-logo-img {
+  transform: scale(1.08);
 }
-.emblem-saffron  { top: 0;     background: var(--saffron); }
-.emblem-white    { top: 33.33%; background: #EEEECC; }
-.emblem-green    { bottom: 0;   background: var(--india-green); }
-.emblem-chakra {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 14px;
-  color: #003380;
-  line-height: 1;
+
+.mobile-logo-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
 }
 
 .sidebar-brand {
@@ -231,9 +227,9 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 }
 
 .lang-btn:hover, .lang-btn.active {
-  color: var(--saffron);
-  border-color: var(--saffron);
-  background: rgba(255,153,51,0.1);
+  color: var(--german-gold);
+  border-color: var(--german-gold);
+  background: rgba(255,204,0,0.1);
 }
 
 /* -- Mobile Header ------------------------------------------ */
@@ -364,7 +360,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 .page-header-line {
   width: 3px;
   height: 48px;
-  background: linear-gradient(to bottom, var(--saffron), var(--india-green));
+  background: linear-gradient(to bottom, var(--saffron), var(--german-gold), var(--german-red), var(--india-green));
   flex-shrink: 0;
 }
 
@@ -465,8 +461,8 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 
 .hero-headline .line { display: block; }
 .hero-headline .line:nth-child(1) { color: var(--saffron); }
-.hero-headline .line:nth-child(2) { color: var(--text-primary); }
-.hero-headline .line:nth-child(3) { color: var(--india-green-lt); }
+.hero-headline .line:nth-child(2) { color: var(--german-gold); }
+.hero-headline .line:nth-child(3) { color: var(--india-green); }
 
 .hero-sub {
   font-size: 13px;
@@ -496,7 +492,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: #080808;
+  background: linear-gradient(145deg, #0A0A0A 0%, #1A1005 30%, #0A1205 60%, #0D0808 100%);
   border-left: none;
   position: relative;
   overflow: hidden;
@@ -630,7 +626,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 
 /* -- Stats Strip -------------------------------------------- */
 .stats-strip {
-  background: linear-gradient(135deg, #2A1A08 0%, #1A2B0A 100%);
+  background: linear-gradient(135deg, var(--german-black) 0%, #1A1005 50%, #0A1205 100%);
   border-top: none;
   border-bottom: none;
 }
@@ -652,7 +648,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   font-family: 'Cormorant Garamond', serif;
   font-size: 52px;
   font-weight: 300;
-  color: #FFB060;
+  color: var(--german-gold);
   line-height: 1;
   display: block;
 }
@@ -775,7 +771,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   width: 2px;
   height: 100%;
   min-height: 120px;
-  background: linear-gradient(to bottom, var(--saffron), transparent);
+  background: linear-gradient(to bottom, var(--saffron), var(--german-gold), var(--india-green));
 }
 
 .story-content h3 {
@@ -834,7 +830,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 .chair-avatar {
   width: 48px; height: 48px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--saffron), var(--india-green));
+  background: linear-gradient(135deg, var(--saffron), var(--german-gold), var(--india-green));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -878,7 +874,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 .leader-initials {
   width: 44px; height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--saffron-dark), var(--india-green));
+  background: linear-gradient(135deg, var(--saffron), var(--german-gold), var(--india-green));
   display: flex;
   align-items: center;
   justify-content: center;
