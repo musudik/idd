@@ -788,31 +788,61 @@ function buildLogoConstellation() {
   }
   setTimeout(cycleLogos, 2500);
 
-  // ── RGB light pan across grid ──
-  let rgbAngle = 0;
-  function rgbPan() {
-    rgbAngle = (rgbAngle + 0.8) % 360;
+  // ── Indo-German flag color wave across grid ──
+  // Indian: saffron #FF9933, white, green #138808
+  // German: black #1A1A1A, red #DD0000, gold #FFCC00
+  const flagColors = [
+    { r:255, g:153, b:51  }, // saffron
+    { r:255, g:204, b:0   }, // german gold
+    { r:221, g:0,   b:0   }, // german red
+    { r:19,  g:136, b:8   }, // india green
+    { r:0,   g:0,   b:128 }, // india navy
+    { r:255, g:153, b:51  }, // saffron (loop)
+  ];
+
+  function lerpColor(c1, c2, t) {
+    return {
+      r: Math.round(c1.r + (c2.r - c1.r) * t),
+      g: Math.round(c1.g + (c2.g - c1.g) * t),
+      b: Math.round(c1.b + (c2.b - c1.b) * t),
+    };
+  }
+
+  function getFlagColor(t) {
+    // t is 0..1, maps across the color stops
+    const scaled = t * (flagColors.length - 1);
+    const idx = Math.floor(scaled);
+    const frac = scaled - idx;
+    const c1 = flagColors[Math.min(idx, flagColors.length - 1)];
+    const c2 = flagColors[Math.min(idx + 1, flagColors.length - 1)];
+    return lerpColor(c1, c2, frac);
+  }
+
+  let waveOffset = 0;
+  function flagWave() {
+    waveOffset += 0.003;
+    if (waveOffset > 1) waveOffset -= 1;
     const cols = 6;
+    const maxDiag = cols + Math.ceil(totalCells / cols);
     cells.forEach((cell, i) => {
       const row = Math.floor(i / cols);
       const col = i % cols;
-      // Diagonal wave position
-      const pos = (row + col) / (cols + Math.ceil(totalCells / cols));
-      // Phase offset creates traveling wave
-      const phase = (pos * 360 + rgbAngle) % 360;
-      const hue = phase;
-      const intensity = 0.5 + 0.5 * Math.sin((phase * Math.PI) / 180);
+      const diag = (row + col) / maxDiag;
+      const t = (diag + waveOffset) % 1;
+      const c = getFlagColor(t);
+      const intensity = 0.5 + 0.5 * Math.sin(t * Math.PI * 2);
       const glowEl = cell.querySelector('.grid-cell-glow');
       if (glowEl) {
-        const alpha = 0.04 + intensity * 0.08;
-        const borderAlpha = 0.05 + intensity * 0.12;
-        glowEl.style.background = `radial-gradient(circle, hsla(${hue},80%,60%,${alpha}) 0%, transparent 70%)`;
-        cell.style.borderColor = `hsla(${hue},70%,50%,${borderAlpha})`;
+        const alpha = 0.06 + intensity * 0.14;
+        const borderAlpha = 0.1 + intensity * 0.2;
+        glowEl.style.background = `radial-gradient(circle, rgba(${c.r},${c.g},${c.b},${alpha}) 0%, transparent 70%)`;
+        cell.style.borderColor = `rgba(${c.r},${c.g},${c.b},${borderAlpha})`;
+        cell.style.boxShadow = `inset 0 0 20px rgba(${c.r},${c.g},${c.b},${alpha * 0.5})`;
       }
     });
-    requestAnimationFrame(rgbPan);
+    requestAnimationFrame(flagWave);
   }
-  requestAnimationFrame(rgbPan);
+  requestAnimationFrame(flagWave);
 }
 
 // ── Utility ──────────────────────────────────────────────────

@@ -492,7 +492,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: linear-gradient(145deg, #0A0A0A 0%, #1A1005 30%, #0A1205 60%, #0D0808 100%);
+  background: #F5F2EC;
   border-left: none;
   position: relative;
   overflow: hidden;
@@ -508,7 +508,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 .hero-grid-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(8,8,8,0.15) 0%, transparent 20%, transparent 80%, rgba(8,8,8,0.2) 100%);
+  background: linear-gradient(180deg, rgba(245,242,236,0.2) 0%, transparent 15%, transparent 85%, rgba(245,242,236,0.25) 100%);
   pointer-events: none;
   z-index: 2;
 }
@@ -530,8 +530,8 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(0,0,0,0.06);
   padding: 12px;
   overflow: hidden;
   opacity: 0;
@@ -552,7 +552,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   width: 80%;
   height: 80%;
   object-fit: contain;
-  filter: brightness(1.1) contrast(1.05) drop-shadow(0 0 6px rgba(255,255,255,0.15));
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
   transition: filter 0.4s ease, transform 0.4s ease, opacity 0.4s ease;
 }
 
@@ -561,7 +561,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
+  color: rgba(0,0,0,0.45);
   text-align: center;
   margin-top: 4px;
   white-space: nowrap;
@@ -598,10 +598,10 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 
 /* Hover — pop out full color */
 .grid-logo-cell:hover {
-  background: rgba(255,255,255,0.95);
-  border-color: rgba(255,255,255,0.3);
+  background: #FFFFFF;
+  border-color: rgba(255,153,51,0.3);
   z-index: 10;
-  box-shadow: 0 0 30px rgba(255,255,255,0.15), 0 0 60px rgba(217,107,12,0.1);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12), 0 0 40px rgba(255,153,51,0.1);
   transform: scale(1.08);
 }
 
