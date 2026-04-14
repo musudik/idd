@@ -726,50 +726,61 @@ function handleContactSubmit(e) {
   }, 3000);
 }
 
-// ── Logo Constellation (Home Hero) ───────────────────────────
+// ── Logo Grid (Home Hero) ────────────────────────────────────
 function buildLogoConstellation() {
-  const container = document.getElementById('logo-constellation');
+  const container = document.getElementById('hero-logo-grid');
   if (!container) return;
 
   const allVereine = VEREINE.states.flatMap(s => s.vereine).filter(v => v.logo);
-  // Shuffle and pick up to 40 logos
-  const shuffled = allVereine.sort(() => Math.random() - 0.5).slice(0, 40);
+  // Fill grid — repeat logos if needed to fill ~36 cells
+  const gridSize = 36;
+  const shuffled = allVereine.sort(() => Math.random() - 0.5);
+  const logos = [];
+  while (logos.length < gridSize) {
+    logos.push(...shuffled.slice(0, gridSize - logos.length));
+  }
 
   container.innerHTML = '';
-
-  // Create floating logo orbs
-  shuffled.forEach((v, i) => {
-    const orb = document.createElement('div');
-    orb.className = 'logo-orb';
-    orb.style.setProperty('--delay', `${i * 0.15}s`);
-    orb.style.setProperty('--duration', `${18 + Math.random() * 22}s`);
-    orb.style.setProperty('--x-start', `${Math.random() * 100}%`);
-    orb.style.setProperty('--y-start', `${Math.random() * 100}%`);
-    orb.style.setProperty('--float-x', `${(Math.random() - 0.5) * 120}px`);
-    orb.style.setProperty('--float-y', `${(Math.random() - 0.5) * 80}px`);
-    orb.innerHTML = `
-      <div class="logo-orb-inner">
-        <img src="${v.logo}" alt="${v.name}" loading="lazy"
-             onerror="this.closest('.logo-orb').remove()" />
-      </div>
-      <div class="logo-orb-tooltip">${v.name}</div>
+  logos.slice(0, gridSize).forEach((v, i) => {
+    const cell = document.createElement('div');
+    cell.className = 'grid-logo-cell';
+    cell.style.setProperty('--i', i);
+    cell.innerHTML = `
+      <img src="${v.logo}" alt="${v.name}" loading="lazy"
+           onerror="this.style.display='none'" />
+      <div class="grid-cell-glow"></div>
     `;
-    container.appendChild(orb);
+    container.appendChild(cell);
   });
 
-  // Create the orbiting ring of logos
-  const ringContainer = document.getElementById('logo-ring');
-  if (!ringContainer) return;
-  const ringLogos = allVereine.slice(0, 16);
-  ringContainer.innerHTML = '';
-  ringLogos.forEach((v, i) => {
-    const item = document.createElement('div');
-    item.className = 'ring-logo-item';
-    item.style.setProperty('--angle', `${(i / ringLogos.length) * 360}deg`);
-    item.innerHTML = `<img src="${v.logo}" alt="${v.name}" loading="lazy"
-      onerror="this.closest('.ring-logo-item').remove()" />`;
-    ringContainer.appendChild(item);
-  });
+  // Progressive light sweep animation
+  let lightIndex = 0;
+  const cells = container.querySelectorAll('.grid-logo-cell');
+  const totalCells = cells.length;
+
+  function sweepLight() {
+    cells.forEach((cell, i) => {
+      cell.classList.remove('lit');
+    });
+    // Light a cluster of 3-5 cells around the current index
+    const clusterSize = 3 + Math.floor(Math.random() * 3);
+    for (let j = 0; j < clusterSize; j++) {
+      const idx = (lightIndex + j) % totalCells;
+      cells[idx].classList.add('lit');
+    }
+    lightIndex = (lightIndex + 1) % totalCells;
+    setTimeout(sweepLight, 600 + Math.random() * 400);
+  }
+  setTimeout(sweepLight, 1500);
+
+  // Random subtle pulse on individual logos
+  function randomPulse() {
+    const idx = Math.floor(Math.random() * totalCells);
+    cells[idx].classList.add('pulse-once');
+    setTimeout(() => cells[idx].classList.remove('pulse-once'), 1200);
+    setTimeout(randomPulse, 2000 + Math.random() * 3000);
+  }
+  setTimeout(randomPulse, 3000);
 }
 
 // ── Utility ──────────────────────────────────────────────────

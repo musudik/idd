@@ -152,48 +152,6 @@
           "color": "#1D3557"
         },
         {
-          "id": "by-diga",
-          "name": "DIGA München e.V.",
-          "city": "München",
-          "logo": "germany/Bayern/Logos/n0d6uhbn6scscfufpn0d6uhjysh7hhd8/219b8559eec9-DIGA_LOGO.png",
-          "category": {
-            "en": "Cultural & Networking",
-            "de": "Kulturell & Netzwerk",
-            "hi": "सांस्कृतिक और नेटवर्किंग"
-          },
-          "description": {
-            "en": "A dynamic networking and cultural platform for Indian professionals and families in München, known for its monthly community meetups.",
-            "de": "Eine dynamische Vernetzungs- und Kulturplattform für indische Fachleute und Familien in München, bekannt für monatliche Gemeinschaftstreffen.",
-            "hi": "म्यूनिख में भारतीय पेशेवरों और परिवारों के लिए एक गतिशील नेटवर्किंग और सांस्कृतिक मंच, अपनी मासिक सामुदायिक बैठकों के लिए जाना जाता है।"
-          },
-          "founded": "2012",
-          "members": 250,
-          "keyPersons": [],
-          "website": "https://example.com",
-          "color": "#CC0000"
-        },
-        {
-          "id": "by-xorai",
-          "name": "Xorai München e.V.",
-          "city": "München",
-          "logo": "germany/Bayern/Logos/rkum03rvft4t59xyt3rkum03qwqdota6/1e2bf16ff51d-Logo_Xorai_Munich_eV.png",
-          "category": {
-            "en": "Regional Cultural",
-            "de": "Regionale Kultur",
-            "hi": "क्षेत्रीय सांस्कृतिक"
-          },
-          "description": {
-            "en": "Celebrating the rich heritage of Assam and Northeast India in München — Bihu, Sattriya dance, and the unique culture of India's northeast.",
-            "de": "Feier des reichen Erbes von Assam und Nordostindien in München — Bihu, Sattriya-Tanz und die einzigartige Kultur des indischen Nordostens.",
-            "hi": "म्यूनिख में असम और उत्तरपूर्व भारत की समृद्ध विरासत का जश्न — बिहू, सत्रिया नृत्य और भारत के उत्तरपूर्व की अनूठी संस्कृति।"
-          },
-          "founded": "2016",
-          "members": 85,
-          "keyPersons": [],
-          "website": "https://example.com",
-          "color": "#FF9933"
-        },
-        {
           "id": "by-mgs",
           "name": "MGS Bayern e.V.",
           "city": "München",
@@ -234,27 +192,6 @@
           "keyPersons": [],
           "website": "https://example.com",
           "color": "#E76F51"
-        },
-        {
-          "id": "by-up",
-          "name": "UP Verein Bayern e.V.",
-          "city": "München",
-          "logo": "germany/Bayern/Logos/y0dqkxdk9etqvkdudwy0dq5t1hbepizo/6dab13f094f3-UPVerienLogo.JPG",
-          "category": {
-            "en": "Regional Cultural",
-            "de": "Regionale Kultur",
-            "hi": "क्षेत्रीय सांस्कृतिक"
-          },
-          "description": {
-            "en": "Representing the culture, cuisine, and traditions of Uttar Pradesh in Bayern — celebrating Holi, Diwali, and Chhath Puja with great fervour.",
-            "de": "Vertretung der Kultur, Küche und Traditionen von Uttar Pradesh in Bayern — Feier von Holi, Diwali und Chhath Puja mit großem Enthusiasmus.",
-            "hi": "बावेरिया में उत्तर प्रदेश की संस्कृति, व्यंजन और परंपराओं का प्रतिनिधित्व — होली, दिवाली और छठ पूजा को बड़े उत्साह से मनाता है।"
-          },
-          "founded": "2013",
-          "members": 110,
-          "keyPersons": [],
-          "website": "https://example.com",
-          "color": "#F4A261"
         },
         {
           "id": "by-surabhi",
@@ -774,27 +711,6 @@
             "en": "Odiya Samaj Munich e.V. is an Indian community organization based in München, Bayern.",
             "de": "Odiya Samaj Munich e.V. ist eine indische Gemeinschaftsorganisation in München, Bayern.",
             "hi": "Odiya Samaj Munich e.V. बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
-          },
-          "founded": "",
-          "members": 0,
-          "keyPersons": [],
-          "website": "",
-          "color": "#FF9933"
-        },
-        {
-          "id": "by-art-of-living-munich",
-          "name": "Art of Living Munich",
-          "city": "München",
-          "logo": "germany/Bayern/veriens/ART_OF_LIVING/logo.png",
-          "category": {
-            "en": "Wellness & Spiritual",
-            "de": "Wellness & Spiritual",
-            "hi": "Wellness & Spiritual"
-          },
-          "description": {
-            "en": "Art of Living Munich is an Indian community organization based in München, Bayern.",
-            "de": "Art of Living Munich ist eine indische Gemeinschaftsorganisation in München, Bayern.",
-            "hi": "Art of Living Munich बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
           },
           "founded": "",
           "members": 0,
