@@ -764,76 +764,142 @@ function handleContactSubmit(e) {
 
 // ── Logo Grid (Home Hero) ────────────────────────────────────
 function buildLogoConstellation() {
-  const container = document.getElementById('hero-logo-grid');
-  if (!container) return;
+  const track = document.getElementById('hero-strip-track');
+  if (!track) return;
 
   const allVereine = VEREINE.states.flatMap(s => s.vereine).filter(v => v.logo);
-  const gridSize = 36;
+  if (!allVereine.length) return;
+
+  // Calculate how many cells per row to fill viewport + buffer
+  const cellW = 140;
+  const viewW = window.innerWidth;
+  const perRow = Math.ceil(viewW / cellW) + 4; // visible + buffer
+  const totalNeeded = perRow * 3;
+
+  // Shuffle and guarantee no duplicates across all visible cells
   const shuffled = [...allVereine].sort(() => Math.random() - 0.5);
-  const logos = [];
-  while (logos.length < gridSize) {
-    logos.push(...shuffled.slice(0, gridSize - logos.length));
+  const pool = [];
+  while (pool.length < totalNeeded) {
+    const batch = [...allVereine].sort(() => Math.random() - 0.5);
+    pool.push(...batch);
+  }
+  // Remove consecutive duplicates
+  const assigned = [];
+  const usedIds = new Set();
+  for (const v of pool) {
+    if (assigned.length >= totalNeeded) break;
+    if (!usedIds.has(v.id)) {
+      assigned.push(v);
+      usedIds.add(v.id);
+    }
+  }
+  // If we need more (more cells than unique vereine), allow reuse but not adjacent
+  while (assigned.length < totalNeeded) {
+    for (const v of shuffled) {
+      if (assigned.length >= totalNeeded) break;
+      const last = assigned.slice(-perRow); // check no duplicate in same row-window
+      if (!last.some(a => a.id === v.id)) {
+        assigned.push(v);
+      }
+    }
   }
 
-  container.innerHTML = '';
-  const cellData = []; // track which verein is in each cell
+  track.innerHTML = '';
+  const rows = [];
+  const allCellData = []; // flat array of {cell, vereinIdx, rowIdx, colIdx}
+  const displayedIds = new Set(); // track currently visible IDs
 
-  logos.slice(0, gridSize).forEach((v, i) => {
-    const cell = document.createElement('div');
-    cell.className = 'grid-logo-cell';
-    cell.style.setProperty('--i', i);
-    cell.innerHTML = `
-      <div class="grid-cell-img-wrap">
+  for (let r = 0; r < 3; r++) {
+    const row = document.createElement('div');
+    row.className = 'hero-strip-row';
+    row.style.animationDuration = (30 + r * 8) + 's';
+    row.style.animationDelay = -(r * 5) + 's';
+
+    // Direction: alternate rows scroll different directions
+    const direction = r % 2 === 0 ? 'scrollLeft' : 'scrollRight';
+    row.classList.add(direction);
+
+    const rowVereine = assigned.slice(r * perRow, (r + 1) * perRow);
+    // Double up for seamless loop
+    const doubledVereine = [...rowVereine, ...rowVereine];
+
+    doubledVereine.forEach((v, ci) => {
+      const cell = document.createElement('div');
+      cell.className = 'hero-strip-cell';
+      cell.innerHTML = `
         <img src="${v.logo}" alt="${v.name}" loading="lazy"
              onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22/>'"/>
-      </div>
-      <div class="grid-cell-name">${v.name}</div>
-      <div class="grid-cell-glow"></div>
-    `;
-    container.appendChild(cell);
-    cellData.push({ cell, currentIdx: allVereine.indexOf(v) });
-  });
+        <div class="strip-cell-name">${v.name}</div>
+        <div class="strip-cell-glow"></div>
+      `;
+      row.appendChild(cell);
+      if (ci < perRow) {
+        allCellData.push({ cell, verein: v, rowIdx: r, colIdx: ci });
+        displayedIds.add(v.id);
+      }
+    });
 
-  const cells = container.querySelectorAll('.grid-logo-cell');
-  const totalCells = cells.length;
+    track.appendChild(row);
+    rows.push(row);
+  }
 
-  // ── Cycle logos every 2 seconds (swap 3-5 random cells) ──
+  // ── Periodic logo swap: every 2.5s swap 2-3 random cells, no duplicates ──
   function cycleLogos() {
-    const swapCount = 3 + Math.floor(Math.random() * 3);
-    for (let s = 0; s < swapCount; s++) {
-      const cellIdx = Math.floor(Math.random() * totalCells);
-      const cd = cellData[cellIdx];
-      const newIdx = Math.floor(Math.random() * allVereine.length);
-      const v = allVereine[newIdx];
-      cd.currentIdx = newIdx;
+    const swapCount = 2 + Math.floor(Math.random() * 2);
+    const indices = [];
+    while (indices.length < swapCount && indices.length < allCellData.length) {
+      const idx = Math.floor(Math.random() * allCellData.length);
+      if (!indices.includes(idx)) indices.push(idx);
+    }
+
+    // Build set of currently displayed IDs (excluding cells being swapped)
+    const currentIds = new Set();
+    allCellData.forEach((cd, i) => {
+      if (!indices.includes(i)) currentIds.add(cd.verein.id);
+    });
+
+    for (const idx of indices) {
+      const cd = allCellData[idx];
+      // Pick a verein not currently displayed
+      let candidate = null;
+      const shuffledV = [...allVereine].sort(() => Math.random() - 0.5);
+      for (const v of shuffledV) {
+        if (!currentIds.has(v.id)) {
+          candidate = v;
+          break;
+        }
+      }
+      if (!candidate) candidate = shuffledV[0]; // fallback
+
+      currentIds.add(candidate.id);
 
       const cell = cd.cell;
       cell.classList.add('swap-out');
+      const newV = candidate;
       setTimeout(() => {
         const img = cell.querySelector('img');
-        const name = cell.querySelector('.grid-cell-name');
-        if (img) img.src = v.logo;
-        if (img) img.alt = v.name;
-        if (name) name.textContent = v.name;
+        const name = cell.querySelector('.strip-cell-name');
+        if (img) { img.src = newV.logo; img.alt = newV.name; }
+        if (name) name.textContent = newV.name;
+        cd.verein = newV;
         cell.classList.remove('swap-out');
         cell.classList.add('swap-in');
-        setTimeout(() => cell.classList.remove('swap-in'), 600);
-      }, 400);
+        setTimeout(() => cell.classList.remove('swap-in'), 400);
+      }, 350);
     }
-    setTimeout(cycleLogos, 2000);
-  }
-  setTimeout(cycleLogos, 2500);
 
-  // ── Indo-German flag color wave across grid ──
-  // Indian: saffron #FF9933, white, green #138808
-  // German: black #1A1A1A, red #DD0000, gold #FFCC00
+    setTimeout(cycleLogos, 2500);
+  }
+  setTimeout(cycleLogos, 3000);
+
+  // ── Indo-German flag color wave ──
   const flagColors = [
-    { r:255, g:153, b:51  }, // saffron
-    { r:255, g:204, b:0   }, // german gold
-    { r:221, g:0,   b:0   }, // german red
-    { r:19,  g:136, b:8   }, // india green
-    { r:0,   g:0,   b:128 }, // india navy
-    { r:255, g:153, b:51  }, // saffron (loop)
+    { r:255, g:153, b:51  },
+    { r:255, g:204, b:0   },
+    { r:221, g:0,   b:0   },
+    { r:19,  g:136, b:8   },
+    { r:0,   g:0,   b:128 },
+    { r:255, g:153, b:51  },
   ];
 
   function lerpColor(c1, c2, t) {
@@ -845,35 +911,31 @@ function buildLogoConstellation() {
   }
 
   function getFlagColor(t) {
-    // t is 0..1, maps across the color stops
     const scaled = t * (flagColors.length - 1);
     const idx = Math.floor(scaled);
     const frac = scaled - idx;
-    const c1 = flagColors[Math.min(idx, flagColors.length - 1)];
-    const c2 = flagColors[Math.min(idx + 1, flagColors.length - 1)];
-    return lerpColor(c1, c2, frac);
+    return lerpColor(
+      flagColors[Math.min(idx, flagColors.length - 1)],
+      flagColors[Math.min(idx + 1, flagColors.length - 1)],
+      frac
+    );
   }
 
   let waveOffset = 0;
   function flagWave() {
-    waveOffset += 0.003;
+    waveOffset += 0.002;
     if (waveOffset > 1) waveOffset -= 1;
-    const cols = 6;
-    const maxDiag = cols + Math.ceil(totalCells / cols);
-    cells.forEach((cell, i) => {
-      const row = Math.floor(i / cols);
-      const col = i % cols;
-      const diag = (row + col) / maxDiag;
+
+    allCellData.forEach((cd) => {
+      const diag = (cd.rowIdx * 0.15 + cd.colIdx * 0.08);
       const t = (diag + waveOffset) % 1;
       const c = getFlagColor(t);
       const intensity = 0.5 + 0.5 * Math.sin(t * Math.PI * 2);
-      const glowEl = cell.querySelector('.grid-cell-glow');
-      if (glowEl) {
-        const alpha = 0.06 + intensity * 0.14;
-        const borderAlpha = 0.1 + intensity * 0.2;
-        glowEl.style.background = `radial-gradient(circle, rgba(${c.r},${c.g},${c.b},${alpha}) 0%, transparent 70%)`;
-        cell.style.borderColor = `rgba(${c.r},${c.g},${c.b},${borderAlpha})`;
-        cell.style.boxShadow = `inset 0 0 20px rgba(${c.r},${c.g},${c.b},${alpha * 0.5})`;
+      const glow = cd.cell.querySelector('.strip-cell-glow');
+      if (glow) {
+        const alpha = 0.04 + intensity * 0.1;
+        glow.style.background = `radial-gradient(circle, rgba(${c.r},${c.g},${c.b},${alpha}) 0%, transparent 70%)`;
+        cd.cell.style.borderColor = `rgba(${c.r},${c.g},${c.b},${0.08 + intensity * 0.15})`;
       }
     });
     requestAnimationFrame(flagWave);
