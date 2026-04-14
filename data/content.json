@@ -1,8 +1,8 @@
 {
   "meta": {
     "siteName": {
-      "en": "Indischer DachDeutschland Deutschland",
-      "de": "Indischer DachDeutschland Deutschland",
+      "en": "Indischer Dachverband Deutschland",
+      "de": "Indischer Dachverband Deutschland",
       "hi": "एकता भारत वर्बांड"
     },
     "tagline": {
@@ -12,7 +12,7 @@
     },
     "description": {
       "en": "The umbrella association representing Indian community organizations across Germany.",
-      "de": "Der DachDeutschland der indischen Gemeinschaftsorganisationen in Deutschland.",
+      "de": "Der Dachverband der indischen Gemeinschaftsorganisationen in Deutschland.",
       "hi": "जर्मनी में भारतीय सामुदायिक संगठनों का प्रतिनिधित्व करने वाला छत्र संगठन।"
     }
   },
@@ -82,8 +82,8 @@
       "hi": "जर्मनी में 1985 से"
     },
     "intro": {
-      "en": "Indischer DachDeutschland Deutschland brings together Indian Vereine from all 16 German states — preserving culture, building bridges, and shaping the future of the Indian diaspora in Germany.",
-      "de": "Indischer DachDeutschland Deutschland vereint indische Vereine aus allen 16 deutschen Bundesländern — Kultur bewahrend, Brücken bauend und die Zukunft der indischen Diaspora in Deutschland gestaltend.",
+      "en": "Indischer Dachverband Deutschland brings together Indian Vereine from all 16 German states — preserving culture, building bridges, and shaping the future of the Indian diaspora in Germany.",
+      "de": "Indischer Dachverband Deutschland vereint indische Vereine aus allen 16 deutschen Bundesländern — Kultur bewahrend, Brücken bauend und die Zukunft der indischen Diaspora in Deutschland gestaltend.",
       "hi": "इंडिशर डाखफरबांड डॉयचलैंड सभी 16 जर्मन राज्यों के भारतीय वेराइने को एकजुट करता है — संस्कृति का संरक्षण करता है, पुल बनाता है और जर्मनी में भारतीय प्रवासियों के भविष्य को आकार देता है।"
     },
     "stats": [
@@ -168,8 +168,8 @@
       "hi": "हमारी कहानी"
     },
     "founding": {
-      "en": "Founded in 1985 in Frankfurt, Indischer DachDeutschland Deutschland was born from the shared dream of a handful of Indian Vereine to speak with one voice. Over four decades, it has grown into the largest representative body of the Indian diaspora in Germany, spanning all 16 Bundesländer.",
-      "de": "1985 in Frankfurt gegründet, entstand der Indische DachDeutschland Deutschland aus dem gemeinsamen Traum einiger indischer Vereine, mit einer Stimme zu sprechen. Über vier Jahrzehnte ist er zur größten Vertretung der indischen Diaspora in Deutschland herangewachsen und erstreckt sich über alle 16 Bundesländer.",
+      "en": "Founded in 1985 in Frankfurt, Indischer Dachverband Deutschland was born from the shared dream of a handful of Indian Vereine to speak with one voice. Over four decades, it has grown into the largest representative body of the Indian diaspora in Germany, spanning all 16 Bundesländer.",
+      "de": "1985 in Frankfurt gegründet, entstand der Indische Dachverband Deutschland aus dem gemeinsamen Traum einiger indischer Vereine, mit einer Stimme zu sprechen. Über vier Jahrzehnte ist er zur größten Vertretung der indischen Diaspora in Deutschland herangewachsen und erstreckt sich über alle 16 Bundesländer.",
       "hi": "1985 में फ्रैंकफर्ट में स्थापित, इंडिशर डाखफरबांड डॉयचलैंड की स्थापना कुछ भारतीय वेराइने के एक स्वर में बोलने के साझा सपने से हुई थी। चार दशकों में, यह जर्मनी में भारतीय प्रवासियों की सबसे बड़ी प्रतिनिधि संस्था बन गई है, जो सभी 16 बुंडेसलैंडर में फैली है।"
     },
     "chairTitle": {
@@ -650,7 +650,7 @@
       "hi": "संपर्क"
     },
     "address": "Kaiserstraße 42, 60329 Frankfurt am Main, Germany",
-    "email": "info@indischer-dachDeutschland.de",
+    "email": "info@indischer-Dachverband.de",
     "phone": "+49 69 1234 5678",
     "formLabels": {
       "name": {
@@ -688,9 +688,9 @@
         "hi": "इम्प्रेसम"
       },
       "content": {
-        "en": "Indischer DachDeutschland Deutschland e.V.\nKaiserstraße 42, 60329 Frankfurt am Main\nGermany\n\nRegistered: Amtsgericht Frankfurt am Main, VR 12345\nVAT ID: DE123456789\n\nChairperson: Dr. Rajesh Sharma\nEmail: info@indischer-dachDeutschland.de\nPhone: +49 69 1234 5678",
-        "de": "Indischer DachDeutschland Deutschland e.V.\nKaiserstraße 42, 60329 Frankfurt am Main\nDeutschland\n\nRegistriert: Amtsgericht Frankfurt am Main, VR 12345\nUSt-IdNr.: DE123456789\n\nVorsitzender: Dr. Rajesh Sharma\nE-Mail: info@indischer-dachDeutschland.de\nTelefon: +49 69 1234 5678",
-        "hi": "इंडिशर डाखफरबांड डॉयचलैंड e.V.\nकाइज़रस्ट्रेसे 42, 60329 फ्रैंकफर्ट एम मेन\nजर्मनी\n\nपंजीकृत: अम्त्सगेरिख्त फ्रैंकफर्ट एम मेन, VR 12345\nVAT ID: DE123456789\n\nअध्यक्ष: डॉ. राजेश शर्मा\nईमेल: info@indischer-dachDeutschland.de\nफोन: +49 69 1234 5678"
+        "en": "Indischer Dachverband Deutschland e.V.\nKaiserstraße 42, 60329 Frankfurt am Main\nGermany\n\nRegistered: Amtsgericht Frankfurt am Main, VR 12345\nVAT ID: DE123456789\n\nChairperson: Dr. Rajesh Sharma\nEmail: info@indischer-Dachverband.de\nPhone: +49 69 1234 5678",
+        "de": "Indischer Dachverband Deutschland e.V.\nKaiserstraße 42, 60329 Frankfurt am Main\nDeutschland\n\nRegistriert: Amtsgericht Frankfurt am Main, VR 12345\nUSt-IdNr.: DE123456789\n\nVorsitzender: Dr. Rajesh Sharma\nE-Mail: info@indischer-Dachverband.de\nTelefon: +49 69 1234 5678",
+        "hi": "इंडिशर डाखफरबांड डॉयचलैंड e.V.\nकाइज़रस्ट्रेसे 42, 60329 फ्रैंकफर्ट एम मेन\nजर्मनी\n\nपंजीकृत: अम्त्सगेरिख्त फ्रैंकफर्ट एम मेन, VR 12345\nVAT ID: DE123456789\n\nअध्यक्ष: डॉ. राजेश शर्मा\nईमेल: info@indischer-Dachverband.de\nफोन: +49 69 1234 5678"
       }
     },
     "privacy": {
