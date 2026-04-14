@@ -1,0 +1,484 @@
+{
+  "states": [
+    {
+      "id": "by",
+      "name": "Bayern",
+      "vereine": [
+        {
+          "id": "by-skm",
+          "name": "SKM München e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/Logos/7krv1atvpqvcgkp7krvr4ruc4i7zz2gr/81ccb74b7b0a-SKM_Logo_Transparent_Background.png",
+          "category": { "en": "Cultural & Social", "de": "Kulturell & Sozial", "hi": "सांस्कृतिक और सामाजिक" },
+          "description": {
+            "en": "One of München's most active Indian cultural organizations, organizing festivals, language classes, and community gatherings.",
+            "de": "Eine der aktivsten indischen Kulturorganisationen Münchens, die Festivals, Sprachkurse und Gemeinschaftstreffen veranstaltet.",
+            "hi": "म्यूनिख की सबसे सक्रिय भारतीय सांस्कृतिक संगठनों में से एक, जो त्योहार, भाषा कक्षाएं और सामुदायिक सभाएं आयोजित करती है।"
+          },
+          "founded": "1990",
+          "members": 280,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-sanatan",
+          "name": "Sanatan Dharma e.V. Bayern",
+          "city": "München",
+          "logo": "germany/Bayern/Logos/9o5okwaojksuloo867bgsb9o5ok9seb3/96962de6dc33-Sanatan_EV_Logo.jpg",
+          "category": { "en": "Spiritual & Cultural", "de": "Spirituell & Kulturell", "hi": "आध्यात्मिक और सांस्कृतिक" },
+          "description": {
+            "en": "Dedicated to preserving Sanatan Dharma traditions, organizing pujas, discourses, and spiritual events for the Indian community in Bavaria.",
+            "de": "Gewidmet der Bewahrung der Sanatan Dharma-Traditionen, mit Pujas, Diskursen und spirituellen Veranstaltungen für die indische Gemeinschaft in Bayern.",
+            "hi": "सनातन धर्म परंपराओं के संरक्षण को समर्पित, बावेरिया में भारतीय समुदाय के लिए पूजा, प्रवचन और आध्यात्मिक कार्यक्रम आयोजित करता है।"
+          },
+          "founded": "1995",
+          "members": 200,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#138808"
+        },
+        {
+          "id": "by-aol",
+          "name": "Art of Living Bayern e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/Logos/dkz02yiffxk4ort1b6g5ndkz02yic77h/cf0f85091c14-AoL_Logo.jpg",
+          "category": { "en": "Wellness & Spiritual", "de": "Wohlbefinden & Spirituell", "hi": "स्वास्थ्य और आध्यात्मिक" },
+          "description": {
+            "en": "The Art of Living Foundation's Bayern chapter, offering meditation, yoga, Sudarshan Kriya, and wellbeing programs to the community.",
+            "de": "Der Bayern-Zweig der Art of Living Foundation, der Meditation, Yoga, Sudarshan Kriya und Wellbeing-Programme anbietet.",
+            "hi": "आर्ट ऑफ लिविंग फाउंडेशन की बावेरिया शाखा, समुदाय को ध्यान, योग, सुदर्शन क्रिया और कल्याण कार्यक्रम प्रदान करती है।"
+          },
+          "founded": "2001",
+          "members": 320,
+          "keyPersons": [],
+          "website": "https://www.artofliving.org",
+          "color": "#E63946"
+        },
+        {
+          "id": "by-svt",
+          "name": "SVT München e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/Logos/dmpt2esy8acwrftfbd4dmpt2esw9ipbv/3e8e5e8575eb-SVT_Official_Logo.png",
+          "category": { "en": "Cultural", "de": "Kulturell", "hi": "सांस्कृतिक" },
+          "description": {
+            "en": "A vibrant cultural association promoting Indian arts, music, and traditions among the Indian diaspora in München.",
+            "de": "Ein lebendiger Kulturverein zur Förderung indischer Kunst, Musik und Traditionen unter der indischen Diaspora in München.",
+            "hi": "म्यूनिख में भारतीय प्रवासियों के बीच भारतीय कला, संगीत और परंपराओं को बढ़ावा देने वाला एक जीवंत सांस्कृतिक संगठन।"
+          },
+          "founded": "2005",
+          "members": 150,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#6A4C93"
+        },
+        {
+          "id": "by-durga-franken",
+          "name": "Durga Puja Gesellschaft Franken e.V.",
+          "city": "Nürnberg",
+          "logo": "germany/Bayern/Logos/e1s7wrls8opdmzie1s7wrmutmp8qn1ek/93966af25561-logo_Durga_puja_franken_final_06.jpg",
+          "category": { "en": "Religious & Cultural", "de": "Religiös & Kulturell", "hi": "धार्मिक और सांस्कृतिक" },
+          "description": {
+            "en": "Organizes one of Bavaria's most celebrated Durga Puja festivals, bringing Bengalis and all Indians together for the grand five-day celebration.",
+            "de": "Organisiert eines der gefeiertsten Durga-Puja-Feste Bayerns und bringt Bengalen und alle Inder für das große fünftägige Fest zusammen.",
+            "hi": "बावेरिया के सबसे प्रसिद्ध दुर्गा पूजा त्योहारों में से एक का आयोजन करता है, बंगालियों और सभी भारतीयों को भव्य पांच दिवसीय उत्सव के लिए एक साथ लाता है।"
+          },
+          "founded": "1998",
+          "members": 180,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#F4A261"
+        },
+        {
+          "id": "by-aig",
+          "name": "AIG München e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/Logos/htmnp6nr8kvtwn75htmnu15ub4ysnda2/2d32136edf28-AIG_2024_Round.png",
+          "category": { "en": "Social & Integration", "de": "Sozial & Integration", "hi": "सामाजिक और एकीकरण" },
+          "description": {
+            "en": "Supporting the social integration and welfare of Indian immigrants in the greater München area through community programs and advisory services.",
+            "de": "Unterstützung der sozialen Integration und des Wohlergehens indischer Einwanderer im Großraum München durch Gemeinschaftsprogramme und Beratungsdienste.",
+            "hi": "सामुदायिक कार्यक्रमों और सलाहकार सेवाओं के माध्यम से म्यूनिख क्षेत्र में भारतीय अप्रवासियों के सामाजिक एकीकरण और कल्याण का समर्थन करता है।"
+          },
+          "founded": "2018",
+          "members": 120,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#2A9D8F"
+        },
+        {
+          "id": "by-kkf",
+          "name": "KKF Bayern e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/Logos/i3s4uz1awm6vmon42vk0zvi3s4u8yzqv/eb4c4a15276f-KKFLogo.png",
+          "category": { "en": "Arts & Culture", "de": "Kunst & Kultur", "hi": "कला और संस्कृति" },
+          "description": {
+            "en": "A performing arts group showcasing classical and contemporary Indian dance, music, and theatre in Bayern.",
+            "de": "Eine Gruppe für darstellende Künste, die klassischen und zeitgenössischen indischen Tanz, Musik und Theater in Bayern präsentiert.",
+            "hi": "बावेरिया में शास्त्रीय और समकालीन भारतीय नृत्य, संगीत और रंगमंच प्रस्तुत करने वाला एक प्रदर्शन कला समूह।"
+          },
+          "founded": "2008",
+          "members": 90,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#1D3557"
+        },
+        {
+          "id": "by-diga",
+          "name": "DIGA München e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/Logos/n0d6uhbn6scscfufpn0d6uhjysh7hhd8/219b8559eec9-DIGA_LOGO.png",
+          "category": { "en": "Cultural & Networking", "de": "Kulturell & Netzwerk", "hi": "सांस्कृतिक और नेटवर्किंग" },
+          "description": {
+            "en": "A dynamic networking and cultural platform for Indian professionals and families in München, known for its monthly community meetups.",
+            "de": "Eine dynamische Vernetzungs- und Kulturplattform für indische Fachleute und Familien in München, bekannt für monatliche Gemeinschaftstreffen.",
+            "hi": "म्यूनिख में भारतीय पेशेवरों और परिवारों के लिए एक गतिशील नेटवर्किंग और सांस्कृतिक मंच, अपनी मासिक सामुदायिक बैठकों के लिए जाना जाता है।"
+          },
+          "founded": "2012",
+          "members": 250,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#CC0000"
+        },
+        {
+          "id": "by-xorai",
+          "name": "Xorai München e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/Logos/rkum03rvft4t59xyt3rkum03qwqdota6/1e2bf16ff51d-Logo_Xorai_Munich_eV.png",
+          "category": { "en": "Regional Cultural", "de": "Regionale Kultur", "hi": "क्षेत्रीय सांस्कृतिक" },
+          "description": {
+            "en": "Celebrating the rich heritage of Assam and Northeast India in München — Bihu, Sattriya dance, and the unique culture of India's northeast.",
+            "de": "Feier des reichen Erbes von Assam und Nordostindien in München — Bihu, Sattriya-Tanz und die einzigartige Kultur des indischen Nordostens.",
+            "hi": "म्यूनिख में असम और उत्तरपूर्व भारत की समृद्ध विरासत का जश्न — बिहू, सत्रिया नृत्य और भारत के उत्तरपूर्व की अनूठी संस्कृति।"
+          },
+          "founded": "2016",
+          "members": 85,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-mgs",
+          "name": "MGS Bayern e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/Logos/tr7cu7i960eomll8enutr7cu7r39p0e5/6f5e58f4aa4e-MGS_logo_1.jpeg",
+          "category": { "en": "Sports & Community", "de": "Sport & Gemeinschaft", "hi": "खेल और समुदाय" },
+          "description": {
+            "en": "Promoting sports — cricket, kabaddi, badminton — and active community life among Indians in Bayern.",
+            "de": "Förderung von Sport — Cricket, Kabaddi, Badminton — und aktivem Gemeinschaftsleben unter Indern in Bayern.",
+            "hi": "बावेरिया में भारतीयों के बीच खेल — क्रिकेट, कबड्डी, बैडमिंटन — और सक्रिय सामुदायिक जीवन को बढ़ावा देता है।"
+          },
+          "founded": "2010",
+          "members": 160,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#138808"
+        },
+        {
+          "id": "by-matri",
+          "name": "Matri Mandir München e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/Logos/vqu3et9ta4uo3o2ey06zvqu3eya81ud6/a4b95b76ee58-Matri_Mandir_Munich_Logo.jpg",
+          "category": { "en": "Spiritual & Devotional", "de": "Spirituell & Andächtig", "hi": "आध्यात्मिक और भक्ति" },
+          "description": {
+            "en": "A devotional and spiritual centre in München conducting regular bhajans, kirtans, Satsangs, and Indian religious observances.",
+            "de": "Ein Andachts- und Spiritualitätszentrum in München mit regelmäßigen Bhajans, Kirtans, Satsangs und indischen religiösen Riten.",
+            "hi": "म्यूनिख में एक भक्ति और आध्यात्मिक केंद्र जो नियमित भजन, कीर्तन, सत्संग और भारतीय धार्मिक अनुष्ठान आयोजित करता है।"
+          },
+          "founded": "2007",
+          "members": 140,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#E76F51"
+        },
+        {
+          "id": "by-up",
+          "name": "UP Verein Bayern e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/Logos/y0dqkxdk9etqvkdudwy0dq5t1hbepizo/6dab13f094f3-UPVerienLogo.JPG",
+          "category": { "en": "Regional Cultural", "de": "Regionale Kultur", "hi": "क्षेत्रीय सांस्कृतिक" },
+          "description": {
+            "en": "Representing the culture, cuisine, and traditions of Uttar Pradesh in Bayern — celebrating Holi, Diwali, and Chhath Puja with great fervour.",
+            "de": "Vertretung der Kultur, Küche und Traditionen von Uttar Pradesh in Bayern — Feier von Holi, Diwali und Chhath Puja mit großem Enthusiasmus.",
+            "hi": "बावेरिया में उत्तर प्रदेश की संस्कृति, व्यंजन और परंपराओं का प्रतिनिधित्व — होली, दिवाली और छठ पूजा को बड़े उत्साह से मनाता है।"
+          },
+          "founded": "2013",
+          "members": 110,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#F4A261"
+        },
+        {
+          "id": "by-surabhi",
+          "name": "Surabhi e.V. München",
+          "city": "München",
+          "logo": "germany/Bayern/Logos/41jde6l3byidl741jde6why12e5ka3ck/45428bfa0e2b-Surabhi_Logo.JPG",
+          "category": { "en": "Music & Arts", "de": "Musik & Kunst", "hi": "संगीत और कला" },
+          "description": {
+            "en": "A dedicated platform for Indian classical and devotional music in München, hosting regular concerts, workshops, and youth music programs.",
+            "de": "Eine Plattform für indische klassische und Andachtsmusik in München, mit regelmäßigen Konzerten, Workshops und Jugendmusikseminaren.",
+            "hi": "म्यूनिख में भारतीय शास्त्रीय और भक्ति संगीत के लिए एक समर्पित मंच, नियमित संगीत कार्यक्रम, कार्यशालाएं और युवा संगीत कार्यक्रम आयोजित करता है।"
+          },
+          "founded": "2003",
+          "members": 100,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#6A4C93"
+        },
+        {
+          "id": "by-icf",
+          "name": "ICF München e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/Logos/cwx3hc3fkz8ejsbpqwvcwx3hrv2ozpum/20373618f629-ICF_Logo_6Kx6K.png",
+          "category": { "en": "Community Forum", "de": "Gemeinschaftsforum", "hi": "सामुदायिक मंच" },
+          "description": {
+            "en": "Indian Community Forum München — a broad-based platform uniting Indians of all backgrounds in Bayern for community welfare and cultural events.",
+            "de": "Indian Community Forum München — eine breite Plattform, die Inder aller Hintergründe in Bayern für Gemeinwohlaktivitäten und Kulturveranstaltungen vereint.",
+            "hi": "इंडियन कम्युनिटी फोरम म्यूनिख — सामुदायिक कल्याण और सांस्कृतिक कार्यक्रमों के लिए बावेरिया में सभी पृष्ठभूमि के भारतीयों को एकजुट करने वाला एक व्यापक मंच।"
+          },
+          "founded": "1985",
+          "members": 500,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#FFCC00"
+        }
+      ]
+    },
+    {
+      "id": "bw",
+      "name": "Baden-Württemberg",
+      "vereine": [
+        {
+          "id": "bw1",
+          "name": "Indische Kulturvereinigung Stuttgart e.V.",
+          "city": "Stuttgart",
+          "logo": null,
+          "category": { "en": "Cultural", "de": "Kulturell", "hi": "सांस्कृतिक" },
+          "description": {
+            "en": "Stuttgart's premier Indian cultural society with a strong focus on classical arts — Bharatanatyam, Carnatic music, and Sanskrit.",
+            "de": "Stuttgarts führende indische Kulturgesellschaft mit einem starken Fokus auf klassische Künste — Bharatanatyam, Karnatische Musik und Sanskrit.",
+            "hi": "स्टुटगार्ट की प्रमुख भारतीय सांस्कृतिक सोसायटी जिसका शास्त्रीय कलाओं पर मजबूत ध्यान है।"
+          },
+          "founded": "1983",
+          "members": 350,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#FF9933"
+        },
+        {
+          "id": "bw2",
+          "name": "Gujarati Samaj Mannheim e.V.",
+          "city": "Mannheim",
+          "logo": null,
+          "category": { "en": "Regional Cultural", "de": "Regionale Kultur", "hi": "क्षेत्रीय सांस्कृतिक" },
+          "description": {
+            "en": "A proud community of Gujarati Indians in Mannheim celebrating Navratri, Uttarayan, and Gujarati New Year with traditional fervour.",
+            "de": "Eine stolze Gemeinschaft gujaratischer Inder in Mannheim.",
+            "hi": "मैनहाइम में गुजराती भारतीयों का एक गर्वित समुदाय।"
+          },
+          "founded": "1997",
+          "members": 190,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#2A9D8F"
+        }
+      ]
+    },
+    {
+      "id": "be",
+      "name": "Berlin",
+      "vereine": [
+        {
+          "id": "be1",
+          "name": "Indische Gemeinschaft Berlin e.V.",
+          "city": "Berlin",
+          "logo": null,
+          "category": { "en": "Cultural & Political", "de": "Kulturell & Politisch", "hi": "सांस्कृतिक और राजनीतिक" },
+          "description": {
+            "en": "Berlin's flagship Indian organization, known for advocacy work with the German government and organizing the city's largest Holi and Diwali celebrations.",
+            "de": "Berlins führende indische Organisation, bekannt für Lobbyarbeit bei der deutschen Regierung.",
+            "hi": "बर्लिन का प्रमुख भारतीय संगठन।"
+          },
+          "founded": "1978",
+          "members": 800,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#138808"
+        },
+        {
+          "id": "be2",
+          "name": "Bengali Cultural Society Berlin e.V.",
+          "city": "Berlin",
+          "logo": null,
+          "category": { "en": "Regional Cultural", "de": "Regionale Kultur", "hi": "क्षेत्रीय सांस्कृतिक" },
+          "description": {
+            "en": "Preserving Bengali language, Rabindra Sangeet, Durga Puja traditions in the German capital.",
+            "de": "Bewahrung der bengalischen Sprache und Traditionen in der deutschen Hauptstadt.",
+            "hi": "जर्मन राजधानी में बंगाली भाषा और परंपराओं का संरक्षण।"
+          },
+          "founded": "1992",
+          "members": 230,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#E76F51"
+        }
+      ]
+    },
+    {
+      "id": "nw",
+      "name": "Nordrhein-Westfalen",
+      "vereine": [
+        {
+          "id": "nw1",
+          "name": "Indische Kulturgesellschaft Düsseldorf e.V.",
+          "city": "Düsseldorf",
+          "logo": null,
+          "category": { "en": "Cultural", "de": "Kulturell", "hi": "सांस्कृतिक" },
+          "description": {
+            "en": "The premier Indian cultural organization in NRW, known for its spectacular cultural shows and Indian film evenings.",
+            "de": "Die führende indische Kulturorganisation in NRW.",
+            "hi": "NRW में प्रमुख भारतीय सांस्कृतिक संगठन।"
+          },
+          "founded": "1980",
+          "members": 600,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#6A4C93"
+        },
+        {
+          "id": "nw2",
+          "name": "India Verein Köln e.V.",
+          "city": "Köln",
+          "logo": null,
+          "category": { "en": "Social & Cultural", "de": "Sozial & Kulturell", "hi": "सामाजिक और सांस्कृतिक" },
+          "description": {
+            "en": "Serving the Indian community in Cologne since 1982, providing social support, cultural events, and integration services.",
+            "de": "Seit 1982 dient dieser Verein der indischen Gemeinschaft in Köln.",
+            "hi": "1982 से कोलोन में भारतीय समुदाय की सेवा करता है।"
+          },
+          "founded": "1982",
+          "members": 320,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#E63946"
+        }
+      ]
+    },
+    {
+      "id": "he",
+      "name": "Hessen",
+      "vereine": [
+        {
+          "id": "he1",
+          "name": "Indischer Verein Frankfurt e.V.",
+          "city": "Frankfurt",
+          "logo": null,
+          "category": { "en": "Cultural & Business", "de": "Kulturell & Wirtschaft", "hi": "सांस्कृतिक और व्यापार" },
+          "description": {
+            "en": "Frankfurt's central Indian community hub, connecting business professionals, cultural enthusiasts, and families in the financial capital of Germany.",
+            "de": "Frankfurts zentrales indisches Gemeinschaftszentrum.",
+            "hi": "फ्रैंकफर्ट का केंद्रीय भारतीय सामुदायिक केंद्र।"
+          },
+          "founded": "1972",
+          "members": 520,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#1D3557"
+        }
+      ]
+    },
+    {
+      "id": "hh",
+      "name": "Hamburg",
+      "vereine": [
+        {
+          "id": "hh1",
+          "name": "India Verein Hamburg e.V.",
+          "city": "Hamburg",
+          "logo": null,
+          "category": { "en": "Cultural & Social", "de": "Kulturell & Sozial", "hi": "सांस्कृतिक और सामाजिक" },
+          "description": {
+            "en": "The oldest Indian organization in northern Germany, a vibrant hub for Indians in Hamburg.",
+            "de": "Die älteste indische Organisation in Norddeutschland.",
+            "hi": "उत्तरी जर्मनी में सबसे पुराना भारतीय संगठन।"
+          },
+          "founded": "1968",
+          "members": 410,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#6A4C93"
+        }
+      ]
+    },
+    {
+      "id": "sn",
+      "name": "Sachsen",
+      "vereine": [
+        {
+          "id": "sn1",
+          "name": "Indische Gemeinschaft Dresden e.V.",
+          "city": "Dresden",
+          "logo": null,
+          "category": { "en": "Cultural", "de": "Kulturell", "hi": "सांस्कृतिक" },
+          "description": {
+            "en": "A growing community in eastern Germany celebrating Indian culture and building bridges between Indian and Saxon communities.",
+            "de": "Eine wachsende Gemeinschaft in Ostdeutschland.",
+            "hi": "पूर्वी जर्मनी में एक बढ़ता हुआ समुदाय।"
+          },
+          "founded": "2005",
+          "members": 130,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#F4A261"
+        }
+      ]
+    },
+    {
+      "id": "ni",
+      "name": "Niedersachsen",
+      "vereine": [
+        {
+          "id": "ni1",
+          "name": "Indische Vereinigung Hannover e.V.",
+          "city": "Hannover",
+          "logo": null,
+          "category": { "en": "Cultural & Sports", "de": "Kulturell & Sport", "hi": "सांस्कृतिक और खेल" },
+          "description": {
+            "en": "Active in both cultural celebrations and sports — known for their annual cricket tournament and Diwali mela.",
+            "de": "Aktiv bei Kulturfeiern und Sport — bekannt für ihr Cricket-Turnier und die Diwali-Mela.",
+            "hi": "सांस्कृतिक उत्सव और खेल दोनों में सक्रिय।"
+          },
+          "founded": "1990",
+          "members": 210,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#138808"
+        }
+      ]
+    },
+    {
+      "id": "bb",
+      "name": "Brandenburg",
+      "vereine": [
+        {
+          "id": "bb1",
+          "name": "Indische Gemeinschaft Brandenburg e.V.",
+          "city": "Potsdam",
+          "logo": null,
+          "category": { "en": "Cultural & Social", "de": "Kulturell & Sozial", "hi": "सांस्कृतिक और सामाजिक" },
+          "description": {
+            "en": "Serving Indians in the Brandenburg/Potsdam area, connecting the community with cultural events and networking opportunities.",
+            "de": "Dient Indern im Raum Brandenburg/Potsdam mit Kulturveranstaltungen und Vernetzungsmöglichkeiten.",
+            "hi": "ब्रांडेनबर्ग/पॉट्सडैम क्षेत्र में भारतीयों की सेवा करता है।"
+          },
+          "founded": "2010",
+          "members": 70,
+          "keyPersons": [],
+          "website": "https://example.com",
+          "color": "#2A9D8F"
+        }
+      ]
+    }
+  ],
+  "featured": ["by-icf", "by-skm", "be1", "nw1"]
+}

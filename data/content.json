@@ -1,0 +1,726 @@
+{
+  "meta": {
+    "siteName": {
+      "en": "Ekta Bharat Verband",
+      "de": "Ekta Bharat Verband",
+      "hi": "एकता भारत वर्बांड"
+    },
+    "tagline": {
+      "en": "Uniting Indian Communities Across Germany",
+      "de": "Indische Gemeinschaften in Deutschland vereinen",
+      "hi": "जर्मनी में भारतीय समुदायों को एकजुट करना"
+    },
+    "description": {
+      "en": "The umbrella association representing Indian community organizations across Germany.",
+      "de": "Der Dachverband der indischen Gemeinschaftsorganisationen in Deutschland.",
+      "hi": "जर्मनी में भारतीय सामुदायिक संगठनों का प्रतिनिधित्व करने वाला छत्र संगठन।"
+    }
+  },
+  "nav": {
+    "home": {
+      "en": "Home",
+      "de": "Startseite",
+      "hi": "होम"
+    },
+    "about": {
+      "en": "About Us",
+      "de": "Über uns",
+      "hi": "हमारे बारे में"
+    },
+    "vereine": {
+      "en": "Vereine",
+      "de": "Vereine",
+      "hi": "वेराइने"
+    },
+    "events": {
+      "en": "Events",
+      "de": "Veranstaltungen",
+      "hi": "कार्यक्रम"
+    },
+    "gallery": {
+      "en": "Gallery",
+      "de": "Galerie",
+      "hi": "गैलरी"
+    },
+    "news": {
+      "en": "News",
+      "de": "Nachrichten",
+      "hi": "समाचार"
+    },
+    "join": {
+      "en": "Join Us",
+      "de": "Mitglied werden",
+      "hi": "जुड़ें"
+    },
+    "contact": {
+      "en": "Contact",
+      "de": "Kontakt",
+      "hi": "संपर्क"
+    }
+  },
+  "home": {
+    "heroHeadline": {
+      "en": [
+        "Ekta.",
+        "Bharat.",
+        "Verband."
+      ],
+      "de": [
+        "Ekta.",
+        "Bharat.",
+        "Verband."
+      ],
+      "hi": [
+        "एकता।",
+        "भारत।",
+        "वर्बांड।"
+      ]
+    },
+    "heroSub": {
+      "en": "In Germany since 1985",
+      "de": "In Deutschland seit 1985",
+      "hi": "जर्मनी में 1985 से"
+    },
+    "intro": {
+      "en": "Indischer Dachverband Deutschland brings together Indian Vereine from all 16 German states — preserving culture, building bridges, and shaping the future of the Indian diaspora in Germany.",
+      "de": "Indischer Dachverband Deutschland vereint indische Vereine aus allen 16 deutschen Bundesländern — Kultur bewahrend, Brücken bauend und die Zukunft der indischen Diaspora in Deutschland gestaltend.",
+      "hi": "इंडिशर डाखफरबांड डॉयचलैंड सभी 16 जर्मन राज्यों के भारतीय वेराइने को एकजुट करता है — संस्कृति का संरक्षण करता है, पुल बनाता है और जर्मनी में भारतीय प्रवासियों के भविष्य को आकार देता है।"
+    },
+    "stats": [
+      {
+        "number": "16",
+        "label": {
+          "en": "German States",
+          "de": "Bundesländer",
+          "hi": "जर्मन राज्य"
+        }
+      },
+      {
+        "number": "80+",
+        "label": {
+          "en": "Member Vereine",
+          "de": "Mitgliedsvereine",
+          "hi": "सदस्य वेराइने"
+        }
+      },
+      {
+        "number": "50,000+",
+        "label": {
+          "en": "Community Members",
+          "de": "Gemeinschaftsmitglieder",
+          "hi": "समुदाय सदस्य"
+        }
+      },
+      {
+        "number": "40+",
+        "label": {
+          "en": "Years of Unity",
+          "de": "Jahre der Einheit",
+          "hi": "एकता के वर्ष"
+        }
+      }
+    ],
+    "ctaJoin": {
+      "en": "Join the Community",
+      "de": "Der Gemeinschaft beitreten",
+      "hi": "समुदाय से जुड़ें"
+    },
+    "ctaVereine": {
+      "en": "Explore Vereine",
+      "de": "Vereine entdecken",
+      "hi": "वेराइने खोजें"
+    },
+    "featuredTitle": {
+      "en": "Featured Vereine",
+      "de": "Ausgewählte Vereine",
+      "hi": "विशेष वेराइने"
+    }
+  },
+  "about": {
+    "title": {
+      "en": "About Us",
+      "de": "Über uns",
+      "hi": "हमारे बारे में"
+    },
+    "visionTitle": {
+      "en": "Our Vision",
+      "de": "Unsere Vision",
+      "hi": "हमारी दृष्टि"
+    },
+    "vision": {
+      "en": "A united, vibrant, and empowered Indian community in Germany that celebrates its heritage while contributing meaningfully to German society.",
+      "de": "Eine vereinte, lebendige und gestärkte indische Gemeinschaft in Deutschland, die ihr Erbe feiert und gleichzeitig einen bedeutungsvollen Beitrag zur deutschen Gesellschaft leistet.",
+      "hi": "जर्मनी में एक एकजुट, जीवंत और सशक्त भारतीय समुदाय जो अपनी विरासत का जश्न मनाते हुए जर्मन समाज में सार्थक योगदान दे।"
+    },
+    "missionTitle": {
+      "en": "Our Mission",
+      "de": "Unsere Mission",
+      "hi": "हमारा मिशन"
+    },
+    "mission": {
+      "en": "To coordinate, support, and amplify the work of Indian Vereine across Germany — fostering cultural exchange, diaspora solidarity, and civic participation.",
+      "de": "Die Arbeit indischer Vereine in ganz Deutschland zu koordinieren, zu unterstützen und zu verstärken — kulturellen Austausch, Diaspora-Solidarität und bürgerschaftliches Engagement zu fördern.",
+      "hi": "पूरे जर्मनी में भारतीय वेराइने के काम का समन्वय, समर्थन और विस्तार करना — सांस्कृतिक आदान-प्रदान, प्रवासी एकजुटता और नागरिक भागीदारी को बढ़ावा देना।"
+    },
+    "foundingTitle": {
+      "en": "Our Story",
+      "de": "Unsere Geschichte",
+      "hi": "हमारी कहानी"
+    },
+    "founding": {
+      "en": "Founded in 1985 in Frankfurt, Indischer Dachverband Deutschland was born from the shared dream of a handful of Indian Vereine to speak with one voice. Over four decades, it has grown into the largest representative body of the Indian diaspora in Germany, spanning all 16 Bundesländer.",
+      "de": "1985 in Frankfurt gegründet, entstand der Indische Dachverband Deutschland aus dem gemeinsamen Traum einiger indischer Vereine, mit einer Stimme zu sprechen. Über vier Jahrzehnte ist er zur größten Vertretung der indischen Diaspora in Deutschland herangewachsen und erstreckt sich über alle 16 Bundesländer.",
+      "hi": "1985 में फ्रैंकफर्ट में स्थापित, इंडिशर डाखफरबांड डॉयचलैंड की स्थापना कुछ भारतीय वेराइने के एक स्वर में बोलने के साझा सपने से हुई थी। चार दशकों में, यह जर्मनी में भारतीय प्रवासियों की सबसे बड़ी प्रतिनिधि संस्था बन गई है, जो सभी 16 बुंडेसलैंडर में फैली है।"
+    },
+    "chairTitle": {
+      "en": "A Message from the Chairperson",
+      "de": "Eine Nachricht vom Vorsitzenden",
+      "hi": "अध्यक्ष का संदेश"
+    },
+    "chairMessage": {
+      "en": "\"Our strength lies in our diversity. Every Verein, every community member, every cultural event adds a thread to the tapestry of our shared story. Together, we honour our past and build a future rooted in pride, purpose, and partnership.\"",
+      "de": "\"Unsere Stärke liegt in unserer Vielfalt. Jeder Verein, jedes Gemeinschaftsmitglied, jede Kulturveranstaltung fügt unserem gemeinsamen Erbe einen Faden hinzu. Gemeinsam ehren wir unsere Vergangenheit und bauen eine Zukunft auf, die in Stolz, Zweck und Partnerschaft verwurzelt ist.\"",
+      "hi": "\"हमारी शक्ति हमारी विविधता में है। हर वेराइन, हर समुदाय का सदस्य, हर सांस्कृतिक कार्यक्रम हमारी साझा कहानी की बुनावट में एक धागा जोड़ता है। मिलकर हम अपने अतीत का सम्मान करते हैं और गर्व, उद्देश्य और साझेदारी में निहित भविष्य बनाते हैं।\""
+    },
+    "chairName": "Dr. Rajesh Sharma",
+    "chairRole": {
+      "en": "Chairperson, IDD",
+      "de": "Vorsitzender, IDD",
+      "hi": "अध्यक्ष, IDD"
+    },
+    "leadership": [
+      {
+        "name": "Dr. Rajesh Sharma",
+        "role": {
+          "en": "Chairperson",
+          "de": "Vorsitzender",
+          "hi": "अध्यक्ष"
+        },
+        "state": "Bayern"
+      },
+      {
+        "name": "Priya Nair",
+        "role": {
+          "en": "Vice Chairperson",
+          "de": "Stellv. Vorsitzende",
+          "hi": "उपाध्यक्ष"
+        },
+        "state": "Nordrhein-Westfalen"
+      },
+      {
+        "name": "Arun Mehta",
+        "role": {
+          "en": "Secretary General",
+          "de": "Generalsekretär",
+          "hi": "महासचिव"
+        },
+        "state": "Hessen"
+      },
+      {
+        "name": "Sunita Patel",
+        "role": {
+          "en": "Treasurer",
+          "de": "Schatzmeisterin",
+          "hi": "कोषाध्यक्ष"
+        },
+        "state": "Baden-Württemberg"
+      },
+      {
+        "name": "Vikram Singh",
+        "role": {
+          "en": "Cultural Director",
+          "de": "Kulturdirektor",
+          "hi": "सांस्कृतिक निदेशक"
+        },
+        "state": "Berlin"
+      },
+      {
+        "name": "Deepa Krishnan",
+        "role": {
+          "en": "PR & Communications",
+          "de": "PR & Kommunikation",
+          "hi": "जनसंपर्क एवं संचार"
+        },
+        "state": "Hamburg"
+      }
+    ]
+  },
+  "events": {
+    "title": {
+      "en": "Events",
+      "de": "Veranstaltungen",
+      "hi": "कार्यक्रम"
+    },
+    "upcomingLabel": {
+      "en": "Upcoming",
+      "de": "Bevorstehend",
+      "hi": "आगामी"
+    },
+    "pastLabel": {
+      "en": "Past Events",
+      "de": "Vergangene Veranstaltungen",
+      "hi": "पिछले कार्यक्रम"
+    },
+    "items": [
+      {
+        "id": "e1",
+        "title": {
+          "en": "Diwali Mahotsav 2025",
+          "de": "Diwali Mahotsav 2025",
+          "hi": "दिवाली महोत्सव 2025"
+        },
+        "date": "2025-10-20",
+        "location": "Frankfurt, Hessen",
+        "category": {
+          "en": "Cultural",
+          "de": "Kulturell",
+          "hi": "सांस्कृतिक"
+        },
+        "description": {
+          "en": "The grand annual Diwali celebration bringing together all IDD member Vereine for an evening of lights, music, dance, and unity.",
+          "de": "Die große jährliche Diwali-Feier, die alle IDD-Mitgliedsvereine für einen Abend voller Lichter, Musik, Tanz und Einheit zusammenbringt.",
+          "hi": "भव्य वार्षिक दिवाली उत्सव जो सभी IDD सदस्य वेराइने को रोशनी, संगीत, नृत्य और एकता की शाम के लिए एक साथ लाता है।"
+        },
+        "upcoming": true,
+        "image": "diwali"
+      },
+      {
+        "id": "e2",
+        "title": {
+          "en": "Indo-German Business Summit",
+          "de": "Deutsch-Indischer Wirtschaftsgipfel",
+          "hi": "भारत-जर्मन व्यापार शिखर सम्मेलन"
+        },
+        "date": "2025-09-15",
+        "location": "München, Bayern",
+        "category": {
+          "en": "Business",
+          "de": "Wirtschaft",
+          "hi": "व्यापार"
+        },
+        "description": {
+          "en": "A premier networking summit connecting Indian entrepreneurs and professionals in Germany with business opportunities across both nations.",
+          "de": "Ein führender Networking-Gipfel, der indische Unternehmer und Fachleute in Deutschland mit Geschäftsmöglichkeiten in beiden Ländern verbindet.",
+          "hi": "एक प्रमुख नेटवर्किंग शिखर सम्मेलन जो जर्मनी में भारतीय उद्यमियों और पेशेवरों को दोनों देशों में व्यापार के अवसरों से जोड़ता है।"
+        },
+        "upcoming": true,
+        "image": "business"
+      },
+      {
+        "id": "e3",
+        "title": {
+          "en": "Holi Spring Festival",
+          "de": "Holi Frühlingsfest",
+          "hi": "होली वसंत महोत्सव"
+        },
+        "date": "2025-03-14",
+        "location": "Berlin",
+        "category": {
+          "en": "Cultural",
+          "de": "Kulturell",
+          "hi": "सांस्कृतिक"
+        },
+        "description": {
+          "en": "Germany's largest Holi celebration, welcoming over 5,000 attendees from the Indian community and German friends.",
+          "de": "Deutschlands größte Holi-Feier mit über 5.000 Teilnehmern aus der indischen Gemeinschaft und deutschen Freunden.",
+          "hi": "जर्मनी का सबसे बड़ा होली उत्सव, जिसमें भारतीय समुदाय और जर्मन मित्रों के 5,000 से अधिक उपस्थित लोगों का स्वागत किया गया।"
+        },
+        "upcoming": false,
+        "image": "holi"
+      },
+      {
+        "id": "e4",
+        "title": {
+          "en": "Republic Day Celebration 2025",
+          "de": "Tag der Republik Feier 2025",
+          "hi": "गणतंत्र दिवस समारोह 2025"
+        },
+        "date": "2025-01-26",
+        "location": "Hamburg",
+        "category": {
+          "en": "National",
+          "de": "National",
+          "hi": "राष्ट्रीय"
+        },
+        "description": {
+          "en": "Commemorating India's Republic Day with flag hoisting, cultural performances, and a special address by the Indian Consul General.",
+          "de": "Feier des indischen Republiktages mit Flaggenhissung, Kulturvorführungen und einer Sonderansprache des Indischen Generalkonsuls.",
+          "hi": "ध्वजारोहण, सांस्कृतिक प्रस्तुतियों और भारतीय महावाणिज्यदूत के विशेष संबोधन के साथ भारत के गणतंत्र दिवस का स्मरण।"
+        },
+        "upcoming": false,
+        "image": "republic"
+      }
+    ]
+  },
+  "gallery": {
+    "title": {
+      "en": "Gallery",
+      "de": "Galerie",
+      "hi": "गैलरी"
+    },
+    "subtitle": {
+      "en": "Moments of culture, celebration, and community across Germany.",
+      "de": "Momente der Kultur, Feier und Gemeinschaft in ganz Deutschland.",
+      "hi": "जर्मनी भर में संस्कृति, उत्सव और समुदाय के पल।"
+    },
+    "categories": {
+      "all": {
+        "en": "All",
+        "de": "Alle",
+        "hi": "सभी"
+      },
+      "cultural": {
+        "en": "Cultural",
+        "de": "Kulturell",
+        "hi": "सांस्कृतिक"
+      },
+      "sports": {
+        "en": "Sports",
+        "de": "Sport",
+        "hi": "खेल"
+      },
+      "community": {
+        "en": "Community",
+        "de": "Gemeinschaft",
+        "hi": "समुदाय"
+      }
+    },
+    "items": [
+      {
+        "id": "g1",
+        "category": "cultural",
+        "caption": {
+          "en": "Diwali 2024 — Frankfurt",
+          "de": "Diwali 2024 — Frankfurt",
+          "hi": "दिवाली 2024 — फ्रैंकफर्ट"
+        },
+        "color": "#FF9933"
+      },
+      {
+        "id": "g2",
+        "category": "cultural",
+        "caption": {
+          "en": "Holi Festival — Berlin",
+          "de": "Holi Festival — Berlin",
+          "hi": "होली महोत्सव — बर्लिन"
+        },
+        "color": "#E63946"
+      },
+      {
+        "id": "g3",
+        "category": "community",
+        "caption": {
+          "en": "Annual Assembly 2024",
+          "de": "Jahresversammlung 2024",
+          "hi": "वार्षिक सभा 2024"
+        },
+        "color": "#138808"
+      },
+      {
+        "id": "g4",
+        "category": "sports",
+        "caption": {
+          "en": "Cricket Cup — München",
+          "de": "Cricket Cup — München",
+          "hi": "क्रिकेट कप — म्यूनिख"
+        },
+        "color": "#1D3557"
+      },
+      {
+        "id": "g5",
+        "category": "cultural",
+        "caption": {
+          "en": "Navratri Garba — Stuttgart",
+          "de": "Navratri Garba — Stuttgart",
+          "hi": "नवरात्रि गरबा — स्टुटगार्ट"
+        },
+        "color": "#F4A261"
+      },
+      {
+        "id": "g6",
+        "category": "community",
+        "caption": {
+          "en": "Youth Leadership Camp",
+          "de": "Jugend-Führungscamp",
+          "hi": "युवा नेतृत्व शिविर"
+        },
+        "color": "#2A9D8F"
+      },
+      {
+        "id": "g7",
+        "category": "sports",
+        "caption": {
+          "en": "Kabaddi Tournament — Hamburg",
+          "de": "Kabaddi-Turnier — Hamburg",
+          "hi": "कबड्डी टूर्नामेंट — हैम्बर्ग"
+        },
+        "color": "#E76F51"
+      },
+      {
+        "id": "g8",
+        "category": "cultural",
+        "caption": {
+          "en": "Classical Dance Evening",
+          "de": "Klassischer Tanzabend",
+          "hi": "शास्त्रीय नृत्य संध्या"
+        },
+        "color": "#6A4C93"
+      }
+    ]
+  },
+  "join": {
+    "title": {
+      "en": "Join Us",
+      "de": "Mitglied werden",
+      "hi": "हमसे जुड़ें"
+    },
+    "subtitle": {
+      "en": "Become part of Germany's largest Indian community network.",
+      "de": "Werden Sie Teil des größten indischen Gemeinschaftsnetzwerks Deutschlands.",
+      "hi": "जर्मनी के सबसे बड़े भारतीय सामुदायिक नेटवर्क का हिस्सा बनें।"
+    },
+    "benefits": [
+      {
+        "icon": "🤝",
+        "title": {
+          "en": "National Representation",
+          "de": "Nationale Vertretung",
+          "hi": "राष्ट्रीय प्रतिनिधित्व"
+        },
+        "desc": {
+          "en": "Your Verein's voice in national and European forums.",
+          "de": "Die Stimme Ihres Vereins in nationalen und europäischen Foren.",
+          "hi": "राष्ट्रीय और यूरोपीय मंचों पर आपके वेराइन की आवाज।"
+        }
+      },
+      {
+        "icon": "🎭",
+        "title": {
+          "en": "Cultural Resources",
+          "de": "Kulturelle Ressourcen",
+          "hi": "सांस्कृतिक संसाधन"
+        },
+        "desc": {
+          "en": "Access to shared event infrastructure, artists, and funding.",
+          "de": "Zugang zu gemeinsamer Veranstaltungsinfrastruktur, Künstlern und Finanzierung.",
+          "hi": "साझा कार्यक्रम बुनियादी ढांचे, कलाकारों और फंडिंग तक पहुंच।"
+        }
+      },
+      {
+        "icon": "📣",
+        "title": {
+          "en": "Visibility & Outreach",
+          "de": "Sichtbarkeit & Reichweite",
+          "hi": "दृश्यता और पहुंच"
+        },
+        "desc": {
+          "en": "Featured listing on our website and social channels.",
+          "de": "Empfohlene Auflistung auf unserer Website und in sozialen Kanälen.",
+          "hi": "हमारी वेबसाइट और सोशल चैनलों पर विशेष सूचीकरण।"
+        }
+      },
+      {
+        "icon": "⚖️",
+        "title": {
+          "en": "Legal & Advisory Support",
+          "de": "Rechts- & Beratungsunterstützung",
+          "hi": "कानूनी और सलाहकार सहायता"
+        },
+        "desc": {
+          "en": "Guidance on German law, registration, and Vereinsrecht.",
+          "de": "Beratung zu deutschem Recht, Registrierung und Vereinsrecht.",
+          "hi": "जर्मन कानून, पंजीकरण और वेराइनस्रेख्त पर मार्गदर्शन।"
+        }
+      },
+      {
+        "icon": "🌐",
+        "title": {
+          "en": "Network Access",
+          "de": "Netzwerkzugang",
+          "hi": "नेटवर्क पहुंच"
+        },
+        "desc": {
+          "en": "Connect with 80+ Vereine across all 16 German states.",
+          "de": "Verbinden Sie sich mit 80+ Vereinen in allen 16 deutschen Bundesländern.",
+          "hi": "सभी 16 जर्मन राज्यों में 80+ वेराइने से जुड़ें।"
+        }
+      },
+      {
+        "icon": "📚",
+        "title": {
+          "en": "Training & Workshops",
+          "de": "Schulungen & Workshops",
+          "hi": "प्रशिक्षण और कार्यशालाएं"
+        },
+        "desc": {
+          "en": "Leadership, fundraising, and governance workshops.",
+          "de": "Workshops zu Führung, Fundraising und Governance.",
+          "hi": "नेतृत्व, फंडरेजिंग और शासन कार्यशालाएं।"
+        }
+      }
+    ],
+    "ctaLabel": {
+      "en": "Apply for Membership",
+      "de": "Mitgliedschaft beantragen",
+      "hi": "सदस्यता के लिए आवेदन करें"
+    },
+    "eligibility": {
+      "title": {
+        "en": "Who can join?",
+        "de": "Wer kann beitreten?",
+        "hi": "कौन जुड़ सकता है?"
+      },
+      "text": {
+        "en": "Any registered Indian community Verein (e.V.) operating in Germany is eligible to apply for IDD membership. Individual memberships are also available for community leaders and advocates.",
+        "de": "Jeder eingetragene indische Gemeinschaftsverein (e.V.) in Deutschland kann die IDD-Mitgliedschaft beantragen. Individuelle Mitgliedschaften sind auch für Gemeinschaftsführer und -fürsprecher verfügbar.",
+        "hi": "जर्मनी में कार्यरत कोई भी पंजीकृत भारतीय सामुदायिक वेराइन (e.V.) IDD सदस्यता के लिए आवेदन करने के लिए पात्र है। समुदाय नेताओं और समर्थकों के लिए व्यक्तिगत सदस्यता भी उपलब्ध है।"
+      }
+    }
+  },
+  "news": {
+    "title": {
+      "en": "News",
+      "de": "Nachrichten",
+      "hi": "समाचार"
+    },
+    "items": [
+      {
+        "id": "n1",
+        "date": "2025-04-10",
+        "category": {
+          "en": "Announcement",
+          "de": "Ankündigung",
+          "hi": "घोषणा"
+        },
+        "title": {
+          "en": "IDD Welcomes 5 New Member Vereine in 2025",
+          "de": "IDD begrüßt 5 neue Mitgliedsvereine im Jahr 2025",
+          "hi": "IDD ने 2025 में 5 नए सदस्य वेराइने का स्वागत किया"
+        },
+        "excerpt": {
+          "en": "The IDD family continues to grow. This quarter, five new Vereine from Sachsen, Thüringen, and Rheinland-Pfalz have joined our network.",
+          "de": "Die IDD-Familie wächst weiter. In diesem Quartal haben sich fünf neue Vereine aus Sachsen, Thüringen und Rheinland-Pfalz unserem Netzwerk angeschlossen.",
+          "hi": "IDD परिवार बढ़ता रहता है। इस तिमाही में, सैक्सोनी, थुरिंगिया और राइनलैंड-पफाल्ज़ से पांच नए वेराइने हमारे नेटवर्क में शामिल हुए हैं।"
+        }
+      },
+      {
+        "id": "n2",
+        "date": "2025-03-22",
+        "category": {
+          "en": "Policy",
+          "de": "Politik",
+          "hi": "नीति"
+        },
+        "title": {
+          "en": "IDD Submits Diaspora Policy Recommendations to Bundestag",
+          "de": "IDD reicht Diaspora-Politikempfehlungen beim Bundestag ein",
+          "hi": "IDD ने बुंडेस्टाग को प्रवासी नीति सिफारिशें प्रस्तुत कीं"
+        },
+        "excerpt": {
+          "en": "In a landmark submission, IDD presented a comprehensive policy paper on the rights and representation of the Indian diaspora in Germany.",
+          "de": "In einer wegweisenden Einreichung präsentierte IDD ein umfassendes Grundsatzpapier zu den Rechten und der Vertretung der indischen Diaspora in Deutschland.",
+          "hi": "एक ऐतिहासिक प्रस्तुति में, IDD ने जर्मनी में भारतीय प्रवासियों के अधिकारों और प्रतिनिधित्व पर एक व्यापक नीति पत्र प्रस्तुत किया।"
+        }
+      },
+      {
+        "id": "n3",
+        "date": "2025-02-14",
+        "category": {
+          "en": "Community",
+          "de": "Gemeinschaft",
+          "hi": "समुदाय"
+        },
+        "title": {
+          "en": "Youth Leadership Programme Launches Nationwide",
+          "de": "Jugend-Führungsprogramm startet bundesweit",
+          "hi": "युवा नेतृत्व कार्यक्रम राष्ट्रव्यापी शुरू"
+        },
+        "excerpt": {
+          "en": "IDD launches a flagship 6-month leadership programme for young Indians between the ages of 18–30 across Germany.",
+          "de": "IDD startet ein Flaggschiff-6-Monats-Führungsprogramm für junge Inder im Alter von 18–30 Jahren in ganz Deutschland.",
+          "hi": "IDD पूरे जर्मनी में 18-30 वर्ष की आयु के युवा भारतीयों के लिए एक प्रमुख 6 महीने का नेतृत्व कार्यक्रम शुरू करता है।"
+        }
+      }
+    ]
+  },
+  "contact": {
+    "title": {
+      "en": "Contact",
+      "de": "Kontakt",
+      "hi": "संपर्क"
+    },
+    "address": "Kaiserstraße 42, 60329 Frankfurt am Main, Germany",
+    "email": "info@indischer-dachverband.de",
+    "phone": "+49 69 1234 5678",
+    "formLabels": {
+      "name": {
+        "en": "Your Name",
+        "de": "Ihr Name",
+        "hi": "आपका नाम"
+      },
+      "email": {
+        "en": "Email",
+        "de": "E-Mail",
+        "hi": "ईमेल"
+      },
+      "subject": {
+        "en": "Subject",
+        "de": "Betreff",
+        "hi": "विषय"
+      },
+      "message": {
+        "en": "Message",
+        "de": "Nachricht",
+        "hi": "संदेश"
+      },
+      "send": {
+        "en": "Send Message",
+        "de": "Nachricht senden",
+        "hi": "संदेश भेजें"
+      }
+    }
+  },
+  "legal": {
+    "impressum": {
+      "title": {
+        "en": "Impressum",
+        "de": "Impressum",
+        "hi": "इम्प्रेसम"
+      },
+      "content": {
+        "en": "Indischer Dachverband Deutschland e.V.\nKaiserstraße 42, 60329 Frankfurt am Main\nGermany\n\nRegistered: Amtsgericht Frankfurt am Main, VR 12345\nVAT ID: DE123456789\n\nChairperson: Dr. Rajesh Sharma\nEmail: info@indischer-dachverband.de\nPhone: +49 69 1234 5678",
+        "de": "Indischer Dachverband Deutschland e.V.\nKaiserstraße 42, 60329 Frankfurt am Main\nDeutschland\n\nRegistriert: Amtsgericht Frankfurt am Main, VR 12345\nUSt-IdNr.: DE123456789\n\nVorsitzender: Dr. Rajesh Sharma\nE-Mail: info@indischer-dachverband.de\nTelefon: +49 69 1234 5678",
+        "hi": "इंडिशर डाखफरबांड डॉयचलैंड e.V.\nकाइज़रस्ट्रेसे 42, 60329 फ्रैंकफर्ट एम मेन\nजर्मनी\n\nपंजीकृत: अम्त्सगेरिख्त फ्रैंकफर्ट एम मेन, VR 12345\nVAT ID: DE123456789\n\nअध्यक्ष: डॉ. राजेश शर्मा\nईमेल: info@indischer-dachverband.de\nफोन: +49 69 1234 5678"
+      }
+    },
+    "privacy": {
+      "title": {
+        "en": "Privacy Policy",
+        "de": "Datenschutzerklärung",
+        "hi": "गोपनीयता नीति"
+      },
+      "content": {
+        "en": "We take your privacy seriously. This website collects no personal data beyond what you voluntarily submit via our contact form. All data is processed in accordance with GDPR (EU) 2016/679.",
+        "de": "Wir nehmen Ihre Privatsphäre ernst. Diese Website erhebt keine personenbezogenen Daten über das hinaus, was Sie freiwillig über unser Kontaktformular eingeben. Alle Daten werden gemäß DSGVO (EU) 2016/679 verarbeitet.",
+        "hi": "हम आपकी गोपनीयता को गंभीरता से लेते हैं। यह वेबसाइट उससे परे कोई व्यक्तिगत डेटा एकत्र नहीं करती जो आप हमारे संपर्क फ़ॉर्म के माध्यम से स्वेच्छा से सबमिट करते हैं। सभी डेटा GDPR (EU) 2016/679 के अनुसार संसाधित किया जाता है।"
+      }
+    }
+  },
+  "footer": {
+    "rights": {
+      "en": "All rights reserved.",
+      "de": "Alle Rechte vorbehalten.",
+      "hi": "सर्वाधिकार सुरक्षित।"
+    },
+    "impressum": {
+      "en": "Impressum",
+      "de": "Impressum",
+      "hi": "इम्प्रेसम"
+    },
+    "privacy": {
+      "en": "Privacy",
+      "de": "Datenschutz",
+      "hi": "गोपनीयता"
+    }
+  }
+}
