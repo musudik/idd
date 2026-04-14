@@ -513,22 +513,17 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 }
 
 .hero-main-logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 260px;
-  height: 260px;
+  width: 140px;
+  height: 140px;
   object-fit: contain;
-  z-index: 3;
-  filter: drop-shadow(0 8px 32px rgba(0,0,0,0.12));
+  margin-bottom: 24px;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.1));
   animation: heroLogoPulse 4s ease-in-out infinite;
-  pointer-events: none;
 }
 
 @keyframes heroLogoPulse {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); filter: drop-shadow(0 8px 32px rgba(0,0,0,0.12)); }
-  50%      { transform: translate(-50%, -50%) scale(1.04); filter: drop-shadow(0 12px 40px rgba(255,153,51,0.2)); }
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 4px 16px rgba(0,0,0,0.1)); }
+  50%      { transform: scale(1.04); filter: drop-shadow(0 8px 24px rgba(255,153,51,0.2)); }
 }
 
 .hero-visual::before {
@@ -2008,7 +2003,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   .hero-sub     { font-size: 11px; }
   .hero-intro   { font-size: 15px; }
   .hero-ctas    { flex-direction: column; gap: 10px; }
-  .hero-main-logo { width: 160px; height: 160px; }
+  .hero-main-logo { width: 100px; height: 100px; margin-bottom: 16px; }
   .btn          { justify-content: center; width: 100%; max-width: 280px; }
 
   /* ── Hero Logo Grid (mobile) ── */
