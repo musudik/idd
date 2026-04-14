@@ -1575,6 +1575,9 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
+/* -- Mobile Vereine Nav (hidden on desktop) ----------------- */
+.mobile-vereine-nav { display: none; }
+
 /* -- RESPONSIVE -------------------------------------------- */
 @media (max-width: 1024px) {
   .hero { grid-template-columns: 1fr; }
@@ -1582,68 +1585,236 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   .hero-text { padding: 80px 40px; min-height: 70vh; }
   .about-grid { grid-template-columns: 1fr; }
   .contact-layout { grid-template-columns: 1fr; }
-  .vereine-layout { grid-template-columns: 180px 1fr 1fr; }
+  .vereine-layout { grid-template-columns: 200px 1fr 1fr; }
 }
 
+/* ── 768 px — full mobile ─────────────────────────────────── */
 @media (max-width: 768px) {
-  .sidebar { display: none; }
-  .mobile-header { display: flex; }
-  .mobile-drawer { display: block; }
+  /* Core layout */
+  .sidebar        { display: none; }
+  .mobile-header  { display: flex; }
+  .mobile-drawer  { display: block; }
+  .main-content   { margin-left: 0; padding-top: 56px; }
+  .site-footer    { margin-left: 0; padding: 24px 20px; }
+  .footer-inner   { flex-direction: column; align-items: flex-start; gap: 16px; }
 
-  .main-content { margin-left: 0; padding-top: 56px; }
-  .site-footer  { margin-left: 0; padding: 24px 20px; }
-  .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
-
-  .page { padding: 40px 20px 60px; }
+  /* Generic page padding */
+  .page { padding: 36px 18px 60px; }
   .page-home { padding: 0; }
-  .page-vereine { padding: 40px 0 0; }
-  .page-vereine .page-header { padding: 0 20px; }
+
+  /* Pages that need custom treatment */
   .page-about, .page-events, .page-gallery, .page-news,
-  .page-join, .page-contact, .page-legal { padding: 40px 20px 60px; }
+  .page-join, .page-contact, .page-legal { padding: 36px 18px 60px; }
 
-  .hero-text { padding: 56px 20px; }
-  .hero-headline { font-size: clamp(40px, 10vw, 60px); }
-  .hero-ctas { flex-direction: column; }
-  .btn { justify-content: center; }
+  /* ── Hero ── */
+  .hero-text    { padding: 48px 20px 56px; }
+  .hero-headline { font-size: clamp(38px, 10vw, 56px); }
+  .hero-sub     { font-size: 11px; }
+  .hero-intro   { font-size: 15px; }
+  .hero-ctas    { flex-direction: column; gap: 10px; }
+  .btn          { justify-content: center; width: 100%; max-width: 280px; }
 
+  /* ── Stats ── */
   .stats-inner { grid-template-columns: 1fr 1fr; }
-  .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+  .stat-item   { border-right: none; border-bottom: 1px solid var(--border); }
   .stat-item:nth-child(odd) { border-right: 1px solid var(--border); }
+  .stat-number { font-size: 40px; }
 
-  .home-section-wrap { padding: 40px 20px; }
+  /* ── Home featured ── */
+  .home-section-wrap { padding: 0; }
+  .page-home .section { padding: 40px 18px 56px !important; }
 
-  .vereine-layout {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    height: auto;
+  /* ── ═══════════════════════════════════════════════
+       VEREINE DIRECTORY — MOBILE DRILL-DOWN
+       ═══════════════════════════════════════════════ */
+
+  /* Remove padding so the directory fills edge-to-edge */
+  .page-vereine {
+    padding: 0;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 56px); /* full viewport below mobile header */
   }
 
-  .vereine-col, .detail-col { max-height: 300px; }
+  .page-vereine .page-header {
+    padding: 24px 18px 20px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
 
-  .chair-quote { padding: 36px 24px; }
-  .chair-quote blockquote { font-size: 18px; }
+  /* Mobile back-nav bar */
+  .mobile-vereine-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 18px;
+    height: 48px;
+    background: var(--bg-2);
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
 
-  .event-card { grid-template-columns: 60px 1fr; }
-  .event-badge { display: none; }
+  .mobile-back-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--saffron);
+    padding: 6px 0;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: opacity var(--dur);
+  }
 
-  .news-item { grid-template-columns: 1fr; }
-  .news-date-block { display: none; }
+  .mobile-back-btn:hover { opacity: 0.7; }
+  .back-arrow { font-size: 18px; line-height: 1; }
 
-  .join-eligibility { padding: 32px 24px; }
+  .mobile-breadcrumb {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-left: auto;
+  }
 
-  .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  /* The 3-panel layout container */
+  .vereine-layout {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    display: block;   /* override desktop grid */
+    border-top: none;
+  }
 
+  /* Each panel: absolute, full-size, slides horizontally */
+  .states-col,
+  .vereine-col,
+  .detail-col {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    border-right: none;
+    background: var(--bg);
+  }
+
+  .detail-col { background: var(--bg-2); }
+
+  /* ── Step classes control which panel is visible ── */
+  /* Step 1: States */
+  .step-states .states-col  { transform: translateX(0); }
+  .step-states .vereine-col { transform: translateX(100%); }
+  .step-states .detail-col  { transform: translateX(200%); }
+
+  /* Step 2: Vereine list */
+  .step-vereine .states-col  { transform: translateX(-30%); }  /* subtle parallax */
+  .step-vereine .vereine-col { transform: translateX(0); }
+  .step-vereine .detail-col  { transform: translateX(100%); }
+
+  /* Step 3: Detail */
+  .step-detail .states-col  { transform: translateX(-30%); }
+  .step-detail .vereine-col { transform: translateX(-30%); }
+  .step-detail .detail-col  { transform: translateX(0); }
+
+  /* State items — slightly larger tap targets on mobile */
+  .state-item {
+    padding: 20px 18px;
+    font-size: 13px;
+    border-left-width: 0;
+    border-left: none;
+  }
+
+  .state-item.active {
+    border-left: none;
+    border-right: 3px solid var(--saffron);
+    background: rgba(255,153,51,0.06);
+  }
+
+  .state-item::after {
+    content: '›';
+    font-size: 20px;
+    color: var(--text-muted);
+    margin-left: 8px;
+  }
+
+  /* Verein rows on mobile */
+  .verein-row {
+    padding: 18px 18px;
+    border-left-width: 0;
+    border-left: none;
+  }
+
+  .verein-row.active {
+    border-left: none;
+    border-right: 3px solid var(--accent-color, var(--saffron));
+  }
+
+  .verein-row::after {
+    content: '›';
+    float: right;
+    font-size: 20px;
+    color: var(--text-muted);
+  }
+
+  .verein-row-name { font-size: 16px; }
+
+  /* Detail panel on mobile */
+  .verein-detail { padding: 28px 18px; }
+  .detail-name   { font-size: 26px; }
+
+  /* ── About ── */
+  .about-grid  { grid-template-columns: 1fr; }
+  .about-block { padding: 28px 20px; }
+  .chair-quote { padding: 28px 20px; margin: 32px 0; }
+  .chair-quote blockquote { font-size: 17px; }
+  .chair-quote-mark { font-size: 80px; top: 8px; left: 16px; }
   .leadership-grid { grid-template-columns: repeat(2, 1fr); }
 
-  .cookie-banner { padding: 16px 20px; }
+  /* ── Events ── */
+  .event-card   { grid-template-columns: 56px 1fr; gap: 16px; padding: 20px 18px; }
+  .event-badge  { display: none; }
+  .event-day    { font-size: 36px; }
+
+  /* ── News ── */
+  .news-item          { grid-template-columns: 1fr; padding: 24px 18px; }
+  .news-date-block    { display: none; }
+
+  /* ── Gallery ── */
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Always show captions on mobile (no hover) */
+  .gallery-caption { transform: translateY(0); background: linear-gradient(to top, rgba(0,0,0,0.75) 60%, transparent); }
+
+  /* ── Join ── */
+  .join-eligibility { padding: 28px 20px; }
+  .benefits-grid    { grid-template-columns: 1fr; }
+
+  /* ── Contact ── */
+  .contact-layout { grid-template-columns: 1fr; gap: 32px; }
+
+  /* ── Cookie ── */
+  .cookie-banner { padding: 14px 18px; flex-direction: column; gap: 12px; align-items: flex-start; }
+  .cookie-actions { width: 100%; justify-content: flex-end; }
 }
 
+/* ── 480 px — small phones ────────────────────────────────── */
 @media (max-width: 480px) {
-  .hero-headline { font-size: 36px; }
-  .page-title { font-size: 32px; }
-  .stats-inner { grid-template-columns: 1fr; }
-  .stat-item { border-right: none !important; }
+  .hero-headline  { font-size: 34px; }
+  .page-title     { font-size: 30px; }
+  .stats-inner    { grid-template-columns: 1fr; }
+  .stat-item      { border-right: none !important; }
   .leadership-grid { grid-template-columns: 1fr; }
-  .benefits-grid { grid-template-columns: 1fr; }
-  .featured-grid { grid-template-columns: 1fr; }
+  .benefits-grid  { grid-template-columns: 1fr; }
+  .featured-grid  { grid-template-columns: 1fr; }
+  .gallery-grid   { grid-template-columns: 1fr; }
+  .event-card     { grid-template-columns: 1fr; }
+  .event-date-block { display: none; }
+  .about-block    { padding: 22px 16px; }
+  .section-title  { font-size: 26px; }
 }

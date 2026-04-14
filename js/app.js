@@ -173,10 +173,11 @@ function renderHome() {
       </div>
     `).join('') + `</div>`;
 
-  // Wrap stats + featured in padding container
+  // Responsive padding for featured section
   const homeSection = document.querySelector('.page-home .section');
   if (homeSection) {
-    homeSection.style.padding = '0 64px 64px';
+    const isMobile = window.innerWidth <= 768;
+    homeSection.style.padding = isMobile ? '0 0 56px' : '0 64px 64px';
   }
 }
 
@@ -211,43 +212,79 @@ function renderAbout() {
 
 // ── VEREINE ──────────────────────────────────────────────────
 function renderVereine() {
-  const titleMap = { en:'Vereine Directory', de:'Vereineverzeichnis', hi:'वेराइने निर्देशिका' };
-  const hintVereine = { en:'← Select a state to see its Vereine', de:'← Bundesland auswählen', hi:'← राज्य चुनें' };
-  const hintDetail  = { en:'← Hover or click a Verein for details', de:'← Verein auswählen', hi:'← वेराइन चुनें' };
+  const titleMap   = { en:'Vereine Directory', de:'Vereineverzeichnis', hi:'वेराइने निर्देशिका' };
+  const hintVereine = { en:'Select a state to browse Vereine', de:'Bundesland auswählen', hi:'राज्य चुनें' };
+  const hintDetail  = { en:'Select a Verein to view details', de:'Verein auswählen', hi:'वेराइन चुनें' };
+  const backLabels  = { en:'Back', de:'Zurück', hi:'वापस' };
 
   setText('vereine-title', titleMap[lang]);
   setText('vereine-hint',  hintVereine[lang]);
   setText('detail-hint',   hintDetail[lang]);
+  setText('back-label',    backLabels[lang]);
 
+  const layout     = document.getElementById('vereine-layout');
   const statesCol  = document.getElementById('states-col');
   const vereineCol = document.getElementById('vereine-col');
   const detailCol  = document.getElementById('detail-col');
+  const backBtn    = document.getElementById('mobile-back-btn');
+  const breadcrumb = document.getElementById('mobile-breadcrumb');
 
-  // Build state list
+  const isMobile = () => window.innerWidth <= 768;
+
+  // ── Step management (mobile only) ──
+  let mobileStep = 'states'; // 'states' | 'vereine' | 'detail'
+  let activeStateName = '';
+
+  function setStep(step, label) {
+    mobileStep = step;
+    layout.className = layout.className.replace(/step-\S+/g, '').trim();
+    layout.classList.add('step-' + step);
+
+    if (!isMobile()) return;
+
+    if (step === 'states') {
+      backBtn.style.display = 'none';
+      breadcrumb.textContent = '';
+    } else if (step === 'vereine') {
+      backBtn.style.display = 'flex';
+      breadcrumb.textContent = activeStateName;
+    } else if (step === 'detail') {
+      backBtn.style.display = 'flex';
+      breadcrumb.textContent = label || '';
+    }
+  }
+
+  backBtn.addEventListener('click', () => {
+    if (mobileStep === 'detail')  setStep('vereine', activeStateName);
+    else if (mobileStep === 'vereine') setStep('states');
+  });
+
+  // ── Build state list ──
   statesCol.innerHTML = VEREINE.states.map(s => `
-    <div class="state-item" data-state="${s.id}" tabindex="0">
+    <div class="state-item" data-state="${s.id}" tabindex="0" role="button">
       <span>${s.name}</span>
       <span class="state-count">${s.vereine.length}</span>
     </div>
   `).join('');
 
-  let activeStateId = null;
+  let activeStateId  = null;
   let activeVereinId = null;
 
-  function selectState(stateId) {
-    activeStateId = stateId;
+  function selectState(stateId, fromInteraction) {
+    activeStateId  = stateId;
     activeVereinId = null;
 
-    // Update state highlights
     statesCol.querySelectorAll('.state-item').forEach(el => {
       el.classList.toggle('active', el.dataset.state === stateId);
     });
 
     const state = VEREINE.states.find(s => s.id === stateId);
     if (!state) return;
+    activeStateName = state.name;
 
     vereineCol.innerHTML = state.vereine.map(v => `
-      <div class="verein-row" data-verein="${v.id}" style="--accent-color:${v.color}" tabindex="0">
+      <div class="verein-row" data-verein="${v.id}"
+           style="--accent-color:${v.color}" tabindex="0" role="button">
         <div class="verein-row-name">${v.name}</div>
         <div class="verein-row-city">${v.city}</div>
       </div>
@@ -256,18 +293,24 @@ function renderVereine() {
     detailCol.innerHTML = `<p class="detail-hint">${hintDetail[lang]}</p>`;
 
     vereineCol.querySelectorAll('.verein-row').forEach(el => {
-      el.addEventListener('click', () => selectVerein(el.dataset.verein));
-      el.addEventListener('mouseenter', () => selectVerein(el.dataset.verein));
-      el.addEventListener('keypress', e => { if(e.key==='Enter') selectVerein(el.dataset.verein); });
+      el.addEventListener('click',      () => selectVerein(el.dataset.verein, true));
+      el.addEventListener('mouseenter', () => { if (!isMobile()) selectVerein(el.dataset.verein, false); });
+      el.addEventListener('keypress',   e  => { if (e.key === 'Enter') selectVerein(el.dataset.verein, true); });
     });
 
-    // Auto-preview first verein
-    if (state.vereine.length > 0) {
-      selectVerein(state.vereine[0].id);
+    // On mobile: slide to step 2
+    if (isMobile() && fromInteraction) {
+      setStep('vereine');
+      vereineCol.scrollTop = 0;
+    }
+
+    // On desktop: auto-preview first verein
+    if (!isMobile() && state.vereine.length > 0) {
+      selectVerein(state.vereine[0].id, false);
     }
   }
 
-  function selectVerein(vereinId) {
+  function selectVerein(vereinId, fromInteraction) {
     activeVereinId = vereinId;
 
     vereineCol.querySelectorAll('.verein-row').forEach(el => {
@@ -278,10 +321,10 @@ function renderVereine() {
     const v = allVereine.find(x => x.id === vereinId);
     if (!v) return;
 
-    const foundedLabel  = { en:'Founded', de:'Gegründet', hi:'स्थापित' };
-    const membersLabel  = { en:'Members', de:'Mitglieder', hi:'सदस्य' };
-    const personsLabel  = { en:'Key Persons', de:'Schlüsselpersonen', hi:'प्रमुख व्यक्ति' };
-    const visitLabel    = { en:'Visit Website ↗', de:'Website besuchen ↗', hi:'वेबसाइट देखें ↗' };
+    const foundedLabel = { en:'Founded', de:'Gegründet', hi:'स्थापित' };
+    const membersLabel = { en:'Members', de:'Mitglieder', hi:'सदस्य' };
+    const personsLabel = { en:'Key Persons', de:'Schlüsselpersonen', hi:'प्रमुख व्यक्ति' };
+    const visitLabel   = { en:'Visit Website ↗', de:'Website besuchen ↗', hi:'वेबसाइट देखें ↗' };
 
     detailCol.innerHTML = `
       <div class="verein-detail">
@@ -325,18 +368,43 @@ function renderVereine() {
         </a>
       </div>
     `;
+
+    // On mobile: slide to step 3
+    if (isMobile() && fromInteraction) {
+      setStep('detail', v.name);
+      detailCol.scrollTop = 0;
+    }
   }
 
   // Wire up state items
   statesCol.querySelectorAll('.state-item').forEach(el => {
-    el.addEventListener('click', () => selectState(el.dataset.state));
-    el.addEventListener('mouseenter', () => selectState(el.dataset.state));
-    el.addEventListener('keypress', e => { if(e.key==='Enter') selectState(el.dataset.state); });
+    el.addEventListener('click',      () => selectState(el.dataset.state, true));
+    el.addEventListener('mouseenter', () => { if (!isMobile()) selectState(el.dataset.state, false); });
+    el.addEventListener('keypress',   e  => { if (e.key === 'Enter') selectState(el.dataset.state, true); });
   });
 
-  // Auto-select first state
+  // Respond to window resize (desktop ↔ mobile switch)
+  const resizeHandler = () => {
+    if (!isMobile()) {
+      // Reset to desktop 3-col view
+      layout.className = layout.className.replace(/step-\S+/g, '').trim();
+      layout.classList.add('step-states');
+      backBtn.style.display  = 'none';
+      breadcrumb.textContent = '';
+      if (activeStateId) selectState(activeStateId, false);
+    }
+  };
+  window.addEventListener('resize', resizeHandler);
+
+  // Auto-select first state on desktop, or just show states list on mobile
   if (VEREINE.states.length > 0) {
-    selectState(VEREINE.states[0].id);
+    if (!isMobile()) {
+      selectState(VEREINE.states[0].id, false);
+    }
+    // Mark first state visually even on mobile
+    statesCol.querySelector('.state-item')?.classList.add('active');
+    activeStateId  = VEREINE.states[0].id;
+    activeStateName = VEREINE.states[0].name;
   }
 }
 

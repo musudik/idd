@@ -165,7 +165,17 @@
         <div class="page-header-line"></div>
         <h1 class="page-title" id="vereine-title"></h1>
       </div>
-      <div class="vereine-layout">
+
+      <!-- Mobile back-navigation bar (hidden on desktop) -->
+      <div class="mobile-vereine-nav" id="mobile-vereine-nav">
+        <button class="mobile-back-btn" id="mobile-back-btn" style="display:none">
+          <span class="back-arrow">←</span>
+          <span id="back-label">Back</span>
+        </button>
+        <span class="mobile-breadcrumb" id="mobile-breadcrumb"></span>
+      </div>
+
+      <div class="vereine-layout step-states" id="vereine-layout">
         <div class="states-col" id="states-col"></div>
         <div class="vereine-col" id="vereine-col">
           <p class="vereine-hint" id="vereine-hint"></p>
