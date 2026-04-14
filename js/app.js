@@ -732,55 +732,87 @@ function buildLogoConstellation() {
   if (!container) return;
 
   const allVereine = VEREINE.states.flatMap(s => s.vereine).filter(v => v.logo);
-  // Fill grid — repeat logos if needed to fill ~36 cells
   const gridSize = 36;
-  const shuffled = allVereine.sort(() => Math.random() - 0.5);
+  const shuffled = [...allVereine].sort(() => Math.random() - 0.5);
   const logos = [];
   while (logos.length < gridSize) {
     logos.push(...shuffled.slice(0, gridSize - logos.length));
   }
 
   container.innerHTML = '';
+  const cellData = []; // track which verein is in each cell
+
   logos.slice(0, gridSize).forEach((v, i) => {
     const cell = document.createElement('div');
     cell.className = 'grid-logo-cell';
     cell.style.setProperty('--i', i);
     cell.innerHTML = `
-      <img src="${v.logo}" alt="${v.name}" loading="lazy"
-           onerror="this.style.display='none'" />
+      <div class="grid-cell-img-wrap">
+        <img src="${v.logo}" alt="${v.name}" loading="lazy"
+             onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22/>'"/>
+      </div>
+      <div class="grid-cell-name">${v.name}</div>
       <div class="grid-cell-glow"></div>
     `;
     container.appendChild(cell);
+    cellData.push({ cell, currentIdx: allVereine.indexOf(v) });
   });
 
-  // Progressive light sweep animation
-  let lightIndex = 0;
   const cells = container.querySelectorAll('.grid-logo-cell');
   const totalCells = cells.length;
 
-  function sweepLight() {
-    cells.forEach((cell, i) => {
-      cell.classList.remove('lit');
-    });
-    // Light a cluster of 3-5 cells around the current index
-    const clusterSize = 3 + Math.floor(Math.random() * 3);
-    for (let j = 0; j < clusterSize; j++) {
-      const idx = (lightIndex + j) % totalCells;
-      cells[idx].classList.add('lit');
-    }
-    lightIndex = (lightIndex + 1) % totalCells;
-    setTimeout(sweepLight, 600 + Math.random() * 400);
-  }
-  setTimeout(sweepLight, 1500);
+  // ── Cycle logos every 2 seconds (swap 3-5 random cells) ──
+  function cycleLogos() {
+    const swapCount = 3 + Math.floor(Math.random() * 3);
+    for (let s = 0; s < swapCount; s++) {
+      const cellIdx = Math.floor(Math.random() * totalCells);
+      const cd = cellData[cellIdx];
+      const newIdx = Math.floor(Math.random() * allVereine.length);
+      const v = allVereine[newIdx];
+      cd.currentIdx = newIdx;
 
-  // Random subtle pulse on individual logos
-  function randomPulse() {
-    const idx = Math.floor(Math.random() * totalCells);
-    cells[idx].classList.add('pulse-once');
-    setTimeout(() => cells[idx].classList.remove('pulse-once'), 1200);
-    setTimeout(randomPulse, 2000 + Math.random() * 3000);
+      const cell = cd.cell;
+      cell.classList.add('swap-out');
+      setTimeout(() => {
+        const img = cell.querySelector('img');
+        const name = cell.querySelector('.grid-cell-name');
+        if (img) img.src = v.logo;
+        if (img) img.alt = v.name;
+        if (name) name.textContent = v.name;
+        cell.classList.remove('swap-out');
+        cell.classList.add('swap-in');
+        setTimeout(() => cell.classList.remove('swap-in'), 600);
+      }, 400);
+    }
+    setTimeout(cycleLogos, 2000);
   }
-  setTimeout(randomPulse, 3000);
+  setTimeout(cycleLogos, 2500);
+
+  // ── RGB light pan across grid ──
+  let rgbAngle = 0;
+  function rgbPan() {
+    rgbAngle = (rgbAngle + 0.8) % 360;
+    const cols = 6;
+    cells.forEach((cell, i) => {
+      const row = Math.floor(i / cols);
+      const col = i % cols;
+      // Diagonal wave position
+      const pos = (row + col) / (cols + Math.ceil(totalCells / cols));
+      // Phase offset creates traveling wave
+      const phase = (pos * 360 + rgbAngle) % 360;
+      const hue = phase;
+      const intensity = 0.5 + 0.5 * Math.sin((phase * Math.PI) / 180);
+      const glowEl = cell.querySelector('.grid-cell-glow');
+      if (glowEl) {
+        const alpha = 0.04 + intensity * 0.08;
+        const borderAlpha = 0.05 + intensity * 0.12;
+        glowEl.style.background = `radial-gradient(circle, hsla(${hue},80%,60%,${alpha}) 0%, transparent 70%)`;
+        cell.style.borderColor = `hsla(${hue},70%,50%,${borderAlpha})`;
+      }
+    });
+    requestAnimationFrame(rgbPan);
+  }
+  requestAnimationFrame(rgbPan);
 }
 
 // ── Utility ──────────────────────────────────────────────────
