@@ -9,7 +9,11 @@
           "name": "SKM München e.V.",
           "city": "München",
           "logo": "germany/Bayern/Logos/7krv1atvpqvcgkp7krvr4ruc4i7zz2gr/81ccb74b7b0a-SKM_Logo_Transparent_Background.png",
-          "category": { "en": "Cultural & Social", "de": "Kulturell & Sozial", "hi": "सांस्कृतिक और सामाजिक" },
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Kulturell & Sozial",
+            "hi": "सांस्कृतिक और सामाजिक"
+          },
           "description": {
             "en": "One of München's most active Indian cultural organizations, organizing festivals, language classes, and community gatherings.",
             "de": "Eine der aktivsten indischen Kulturorganisationen Münchens, die Festivals, Sprachkurse und Gemeinschaftstreffen veranstaltet.",
@@ -26,7 +30,11 @@
           "name": "Sanatan Dharma e.V. Bayern",
           "city": "München",
           "logo": "germany/Bayern/Logos/9o5okwaojksuloo867bgsb9o5ok9seb3/96962de6dc33-Sanatan_EV_Logo.jpg",
-          "category": { "en": "Spiritual & Cultural", "de": "Spirituell & Kulturell", "hi": "आध्यात्मिक और सांस्कृतिक" },
+          "category": {
+            "en": "Spiritual & Cultural",
+            "de": "Spirituell & Kulturell",
+            "hi": "आध्यात्मिक और सांस्कृतिक"
+          },
           "description": {
             "en": "Dedicated to preserving Sanatan Dharma traditions, organizing pujas, discourses, and spiritual events for the Indian community in Bavaria.",
             "de": "Gewidmet der Bewahrung der Sanatan Dharma-Traditionen, mit Pujas, Diskursen und spirituellen Veranstaltungen für die indische Gemeinschaft in Bayern.",
@@ -43,7 +51,11 @@
           "name": "Art of Living Bayern e.V.",
           "city": "München",
           "logo": "germany/Bayern/Logos/dkz02yiffxk4ort1b6g5ndkz02yic77h/cf0f85091c14-AoL_Logo.jpg",
-          "category": { "en": "Wellness & Spiritual", "de": "Wohlbefinden & Spirituell", "hi": "स्वास्थ्य और आध्यात्मिक" },
+          "category": {
+            "en": "Wellness & Spiritual",
+            "de": "Wohlbefinden & Spirituell",
+            "hi": "स्वास्थ्य और आध्यात्मिक"
+          },
           "description": {
             "en": "The Art of Living Foundation's Bayern chapter, offering meditation, yoga, Sudarshan Kriya, and wellbeing programs to the community.",
             "de": "Der Bayern-Zweig der Art of Living Foundation, der Meditation, Yoga, Sudarshan Kriya und Wellbeing-Programme anbietet.",
@@ -60,7 +72,11 @@
           "name": "SVT München e.V.",
           "city": "München",
           "logo": "germany/Bayern/Logos/dmpt2esy8acwrftfbd4dmpt2esw9ipbv/3e8e5e8575eb-SVT_Official_Logo.png",
-          "category": { "en": "Cultural", "de": "Kulturell", "hi": "सांस्कृतिक" },
+          "category": {
+            "en": "Cultural",
+            "de": "Kulturell",
+            "hi": "सांस्कृतिक"
+          },
           "description": {
             "en": "A vibrant cultural association promoting Indian arts, music, and traditions among the Indian diaspora in München.",
             "de": "Ein lebendiger Kulturverein zur Förderung indischer Kunst, Musik und Traditionen unter der indischen Diaspora in München.",
@@ -77,7 +93,11 @@
           "name": "Durga Puja Gesellschaft Franken e.V.",
           "city": "Nürnberg",
           "logo": "germany/Bayern/Logos/e1s7wrls8opdmzie1s7wrmutmp8qn1ek/93966af25561-logo_Durga_puja_franken_final_06.jpg",
-          "category": { "en": "Religious & Cultural", "de": "Religiös & Kulturell", "hi": "धार्मिक और सांस्कृतिक" },
+          "category": {
+            "en": "Religious & Cultural",
+            "de": "Religiös & Kulturell",
+            "hi": "धार्मिक और सांस्कृतिक"
+          },
           "description": {
             "en": "Organizes one of Bavaria's most celebrated Durga Puja festivals, bringing Bengalis and all Indians together for the grand five-day celebration.",
             "de": "Organisiert eines der gefeiertsten Durga-Puja-Feste Bayerns und bringt Bengalen und alle Inder für das große fünftägige Fest zusammen.",
@@ -94,7 +114,11 @@
           "name": "AIG München e.V.",
           "city": "München",
           "logo": "germany/Bayern/Logos/htmnp6nr8kvtwn75htmnu15ub4ysnda2/2d32136edf28-AIG_2024_Round.png",
-          "category": { "en": "Social & Integration", "de": "Sozial & Integration", "hi": "सामाजिक और एकीकरण" },
+          "category": {
+            "en": "Social & Integration",
+            "de": "Sozial & Integration",
+            "hi": "सामाजिक और एकीकरण"
+          },
           "description": {
             "en": "Supporting the social integration and welfare of Indian immigrants in the greater München area through community programs and advisory services.",
             "de": "Unterstützung der sozialen Integration und des Wohlergehens indischer Einwanderer im Großraum München durch Gemeinschaftsprogramme und Beratungsdienste.",
@@ -111,7 +135,11 @@
           "name": "KKF Bayern e.V.",
           "city": "München",
           "logo": "germany/Bayern/Logos/i3s4uz1awm6vmon42vk0zvi3s4u8yzqv/eb4c4a15276f-KKFLogo.png",
-          "category": { "en": "Arts & Culture", "de": "Kunst & Kultur", "hi": "कला और संस्कृति" },
+          "category": {
+            "en": "Arts & Culture",
+            "de": "Kunst & Kultur",
+            "hi": "कला और संस्कृति"
+          },
           "description": {
             "en": "A performing arts group showcasing classical and contemporary Indian dance, music, and theatre in Bayern.",
             "de": "Eine Gruppe für darstellende Künste, die klassischen und zeitgenössischen indischen Tanz, Musik und Theater in Bayern präsentiert.",
@@ -128,7 +156,11 @@
           "name": "DIGA München e.V.",
           "city": "München",
           "logo": "germany/Bayern/Logos/n0d6uhbn6scscfufpn0d6uhjysh7hhd8/219b8559eec9-DIGA_LOGO.png",
-          "category": { "en": "Cultural & Networking", "de": "Kulturell & Netzwerk", "hi": "सांस्कृतिक और नेटवर्किंग" },
+          "category": {
+            "en": "Cultural & Networking",
+            "de": "Kulturell & Netzwerk",
+            "hi": "सांस्कृतिक और नेटवर्किंग"
+          },
           "description": {
             "en": "A dynamic networking and cultural platform for Indian professionals and families in München, known for its monthly community meetups.",
             "de": "Eine dynamische Vernetzungs- und Kulturplattform für indische Fachleute und Familien in München, bekannt für monatliche Gemeinschaftstreffen.",
@@ -145,7 +177,11 @@
           "name": "Xorai München e.V.",
           "city": "München",
           "logo": "germany/Bayern/Logos/rkum03rvft4t59xyt3rkum03qwqdota6/1e2bf16ff51d-Logo_Xorai_Munich_eV.png",
-          "category": { "en": "Regional Cultural", "de": "Regionale Kultur", "hi": "क्षेत्रीय सांस्कृतिक" },
+          "category": {
+            "en": "Regional Cultural",
+            "de": "Regionale Kultur",
+            "hi": "क्षेत्रीय सांस्कृतिक"
+          },
           "description": {
             "en": "Celebrating the rich heritage of Assam and Northeast India in München — Bihu, Sattriya dance, and the unique culture of India's northeast.",
             "de": "Feier des reichen Erbes von Assam und Nordostindien in München — Bihu, Sattriya-Tanz und die einzigartige Kultur des indischen Nordostens.",
@@ -162,7 +198,11 @@
           "name": "MGS Bayern e.V.",
           "city": "München",
           "logo": "germany/Bayern/Logos/tr7cu7i960eomll8enutr7cu7r39p0e5/6f5e58f4aa4e-MGS_logo_1.jpeg",
-          "category": { "en": "Sports & Community", "de": "Sport & Gemeinschaft", "hi": "खेल और समुदाय" },
+          "category": {
+            "en": "Sports & Community",
+            "de": "Sport & Gemeinschaft",
+            "hi": "खेल और समुदाय"
+          },
           "description": {
             "en": "Promoting sports — cricket, kabaddi, badminton — and active community life among Indians in Bayern.",
             "de": "Förderung von Sport — Cricket, Kabaddi, Badminton — und aktivem Gemeinschaftsleben unter Indern in Bayern.",
@@ -179,7 +219,11 @@
           "name": "Matri Mandir München e.V.",
           "city": "München",
           "logo": "germany/Bayern/Logos/vqu3et9ta4uo3o2ey06zvqu3eya81ud6/a4b95b76ee58-Matri_Mandir_Munich_Logo.jpg",
-          "category": { "en": "Spiritual & Devotional", "de": "Spirituell & Andächtig", "hi": "आध्यात्मिक और भक्ति" },
+          "category": {
+            "en": "Spiritual & Devotional",
+            "de": "Spirituell & Andächtig",
+            "hi": "आध्यात्मिक और भक्ति"
+          },
           "description": {
             "en": "A devotional and spiritual centre in München conducting regular bhajans, kirtans, Satsangs, and Indian religious observances.",
             "de": "Ein Andachts- und Spiritualitätszentrum in München mit regelmäßigen Bhajans, Kirtans, Satsangs und indischen religiösen Riten.",
@@ -196,7 +240,11 @@
           "name": "UP Verein Bayern e.V.",
           "city": "München",
           "logo": "germany/Bayern/Logos/y0dqkxdk9etqvkdudwy0dq5t1hbepizo/6dab13f094f3-UPVerienLogo.JPG",
-          "category": { "en": "Regional Cultural", "de": "Regionale Kultur", "hi": "क्षेत्रीय सांस्कृतिक" },
+          "category": {
+            "en": "Regional Cultural",
+            "de": "Regionale Kultur",
+            "hi": "क्षेत्रीय सांस्कृतिक"
+          },
           "description": {
             "en": "Representing the culture, cuisine, and traditions of Uttar Pradesh in Bayern — celebrating Holi, Diwali, and Chhath Puja with great fervour.",
             "de": "Vertretung der Kultur, Küche und Traditionen von Uttar Pradesh in Bayern — Feier von Holi, Diwali und Chhath Puja mit großem Enthusiasmus.",
@@ -213,7 +261,11 @@
           "name": "Surabhi e.V. München",
           "city": "München",
           "logo": "germany/Bayern/Logos/41jde6l3byidl741jde6why12e5ka3ck/45428bfa0e2b-Surabhi_Logo.JPG",
-          "category": { "en": "Music & Arts", "de": "Musik & Kunst", "hi": "संगीत और कला" },
+          "category": {
+            "en": "Music & Arts",
+            "de": "Musik & Kunst",
+            "hi": "संगीत और कला"
+          },
           "description": {
             "en": "A dedicated platform for Indian classical and devotional music in München, hosting regular concerts, workshops, and youth music programs.",
             "de": "Eine Plattform für indische klassische und Andachtsmusik in München, mit regelmäßigen Konzerten, Workshops und Jugendmusikseminaren.",
@@ -230,7 +282,11 @@
           "name": "ICF München e.V.",
           "city": "München",
           "logo": "germany/Bayern/Logos/cwx3hc3fkz8ejsbpqwvcwx3hrv2ozpum/20373618f629-ICF_Logo_6Kx6K.png",
-          "category": { "en": "Community Forum", "de": "Gemeinschaftsforum", "hi": "सामुदायिक मंच" },
+          "category": {
+            "en": "Community Forum",
+            "de": "Gemeinschaftsforum",
+            "hi": "सामुदायिक मंच"
+          },
           "description": {
             "en": "Indian Community Forum München — a broad-based platform uniting Indians of all backgrounds in Bayern for community welfare and cultural events.",
             "de": "Indian Community Forum München — eine breite Plattform, die Inder aller Hintergründe in Bayern für Gemeinwohlaktivitäten und Kulturveranstaltungen vereint.",
@@ -241,6 +297,972 @@
           "keyPersons": [],
           "website": "https://example.com",
           "color": "#FFCC00"
+        },
+        {
+          "id": "by-sivaalayam-e-v",
+          "name": "Sivaalayam e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/SIVAALAYAM_EV/logo.png",
+          "category": {
+            "en": "Spiritual & Cultural",
+            "de": "Spiritual & Cultural",
+            "hi": "Spiritual & Cultural"
+          },
+          "description": {
+            "en": "Sivaalayam e.V. is an Indian community organization based in München, Bayern.",
+            "de": "Sivaalayam e.V. ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Sivaalayam e.V. बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-munich-kannadigaru-e-v",
+          "name": "Munich Kannadigaru e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/MUNICH_KANNADIGARU_EV/logo.png",
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Cultural & Social",
+            "hi": "Cultural & Social"
+          },
+          "description": {
+            "en": "Munich Kannadigaru e.V. is an Indian community organization based in München, Bayern.",
+            "de": "Munich Kannadigaru e.V. ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Munich Kannadigaru e.V. बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-urja-munich-ug",
+          "name": "Urja Munich UG",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/URJA_MUNICH_UG/logo.png",
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Cultural & Social",
+            "hi": "Cultural & Social"
+          },
+          "description": {
+            "en": "Urja Munich UG is an Indian community organization based in München, Bayern.",
+            "de": "Urja Munich UG ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Urja Munich UG बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-migrationsbeirat-m-nchen",
+          "name": "Migrationsbeirat München",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/MIGRATIONSBEIRAT_MUENCHEN/logo.png",
+          "category": {
+            "en": "Civic & Community",
+            "de": "Civic & Community",
+            "hi": "Civic & Community"
+          },
+          "description": {
+            "en": "Migrationsbeirat München is an Indian community organization based in München, Bayern.",
+            "de": "Migrationsbeirat München ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Migrationsbeirat München बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-maharashtra-mandal-munich-e-v",
+          "name": "Maharashtra Mandal Munich e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/MAHARASHTRA_MANDAL_MUNICH_EV/logo.png",
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Cultural & Social",
+            "hi": "Cultural & Social"
+          },
+          "description": {
+            "en": "Maharashtra Mandal Munich e.V. is an Indian community organization based in München, Bayern.",
+            "de": "Maharashtra Mandal Munich e.V. ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Maharashtra Mandal Munich e.V. बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-sathyug-dharshan-trust",
+          "name": "Sathyug Dharshan Trust",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/SATHYUG_DHARSHAN_TRUST/logo.png",
+          "category": {
+            "en": "Spiritual & Charitable",
+            "de": "Spiritual & Charitable",
+            "hi": "Spiritual & Charitable"
+          },
+          "description": {
+            "en": "Sathyug Dharshan Trust is an Indian community organization based in München, Bayern.",
+            "de": "Sathyug Dharshan Trust ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Sathyug Dharshan Trust बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-yakshadhruva-patla-foundation-",
+          "name": "Yakshadhruva Patla Foundation Europe e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/YAKSHADHRUVA_PATLA_FOUNDATION_EUROPE_EV/logo.png",
+          "category": {
+            "en": "Cultural & Arts",
+            "de": "Cultural & Arts",
+            "hi": "Cultural & Arts"
+          },
+          "description": {
+            "en": "Yakshadhruva Patla Foundation Europe e.V. is an Indian community organization based in München, Bayern.",
+            "de": "Yakshadhruva Patla Foundation Europe e.V. ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Yakshadhruva Patla Foundation Europe e.V. बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-bihar-and-jharkhand-fraternity",
+          "name": "Bihar and Jharkhand Fraternity Munich",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/BIHAR_AND_JHARKHAND_FRATERNITY_MUNICH/logo.png",
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Cultural & Social",
+            "hi": "Cultural & Social"
+          },
+          "description": {
+            "en": "Bihar and Jharkhand Fraternity Munich is an Indian community organization based in München, Bayern.",
+            "de": "Bihar and Jharkhand Fraternity Munich ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Bihar and Jharkhand Fraternity Munich बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-igca",
+          "name": "IGCA",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/IGCA/logo.jpeg",
+          "category": {
+            "en": "Cultural & Arts",
+            "de": "Cultural & Arts",
+            "hi": "Cultural & Arts"
+          },
+          "description": {
+            "en": "IGCA is an Indian community organization based in München, Bayern.",
+            "de": "IGCA ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "IGCA बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-delhi-in-germany-e-v",
+          "name": "Delhi in Germany e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/DELHI_IN_GERMANY_EV/logo.png",
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Cultural & Social",
+            "hi": "Cultural & Social"
+          },
+          "description": {
+            "en": "Delhi in Germany e.V. is an Indian community organization based in München, Bayern.",
+            "de": "Delhi in Germany e.V. ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Delhi in Germany e.V. बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-deutsch-indische-gesellschaft-",
+          "name": "Deutsch Indische Gesellschaft Augsburg e.V.",
+          "city": "Augsburg",
+          "logo": "germany/Bayern/veriens/DEUTSCH_INDISCHE_GESELLSCHAFT_AUGSBURG_EV/logo.png",
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Cultural & Social",
+            "hi": "Cultural & Social"
+          },
+          "description": {
+            "en": "Deutsch Indische Gesellschaft Augsburg e.V. is an Indian community organization based in Augsburg, Bayern.",
+            "de": "Deutsch Indische Gesellschaft Augsburg e.V. ist eine indische Gemeinschaftsorganisation in Augsburg, Bayern.",
+            "hi": "Deutsch Indische Gesellschaft Augsburg e.V. बावेरिया के Augsburg में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-mana-telugu-association-e-v",
+          "name": "Mana Telugu Association e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/MANA_TELUGU_ASSOCIATION_EV/logo.png",
+          "category": {
+            "en": "Cultural & Linguistic",
+            "de": "Cultural & Linguistic",
+            "hi": "Cultural & Linguistic"
+          },
+          "description": {
+            "en": "Mana Telugu Association e.V. is an Indian community organization based in München, Bayern.",
+            "de": "Mana Telugu Association e.V. ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Mana Telugu Association e.V. बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-shiva-vishnu-temple-franken",
+          "name": "Shiva Vishnu Temple Franken",
+          "city": "Franken",
+          "logo": "germany/Bayern/veriens/SHIVA_VISHNU_TEMPLE_FRANKEN/logo.png",
+          "category": {
+            "en": "Spiritual & Cultural",
+            "de": "Spiritual & Cultural",
+            "hi": "Spiritual & Cultural"
+          },
+          "description": {
+            "en": "Shiva Vishnu Temple Franken is an Indian community organization based in Franken, Bayern.",
+            "de": "Shiva Vishnu Temple Franken ist eine indische Gemeinschaftsorganisation in Franken, Bayern.",
+            "hi": "Shiva Vishnu Temple Franken बावेरिया के Franken में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-kashmiri-association",
+          "name": "Kashmiri Association",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/KASHMIRI_ASSOCIATION/logo.png",
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Cultural & Social",
+            "hi": "Cultural & Social"
+          },
+          "description": {
+            "en": "Kashmiri Association is an Indian community organization based in München, Bayern.",
+            "de": "Kashmiri Association ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Kashmiri Association बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-pravasi-rajasthani-in-munich",
+          "name": "Pravasi Rajasthani in Munich",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/PRAVASI_RAJASTHANI_IN_MUNICH/logo.png",
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Cultural & Social",
+            "hi": "Cultural & Social"
+          },
+          "description": {
+            "en": "Pravasi Rajasthani in Munich is an Indian community organization based in München, Bayern.",
+            "de": "Pravasi Rajasthani in Munich ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Pravasi Rajasthani in Munich बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-up-families-in-munich-e-v",
+          "name": "UP Families in Munich e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/UP_FAMILIES_IN_MUNICH_EV/logo.png",
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Cultural & Social",
+            "hi": "Cultural & Social"
+          },
+          "description": {
+            "en": "UP Families in Munich e.V. is an Indian community organization based in München, Bayern.",
+            "de": "UP Families in Munich e.V. ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "UP Families in Munich e.V. बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-teentech-munich-e-v",
+          "name": "TeenTech Munich e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/TEENTECH_MUNICH_EV/logo.png",
+          "category": {
+            "en": "Youth & Education",
+            "de": "Youth & Education",
+            "hi": "Youth & Education"
+          },
+          "description": {
+            "en": "TeenTech Munich e.V. is an Indian community organization based in München, Bayern.",
+            "de": "TeenTech Munich e.V. ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "TeenTech Munich e.V. बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-swadeshi-indian-student-associ",
+          "name": "Swadeshi Indian Student Association Passau",
+          "city": "Passau",
+          "logo": "germany/Bayern/veriens/SWADESHI_INDIAN_STUDENT_ASSOCIATION_PASSAU/logo.png",
+          "category": {
+            "en": "Student & Youth",
+            "de": "Student & Youth",
+            "hi": "Student & Youth"
+          },
+          "description": {
+            "en": "Swadeshi Indian Student Association Passau is an Indian community organization based in Passau, Bayern.",
+            "de": "Swadeshi Indian Student Association Passau ist eine indische Gemeinschaftsorganisation in Passau, Bayern.",
+            "hi": "Swadeshi Indian Student Association Passau बावेरिया के Passau में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-sanatan-munich",
+          "name": "Sanatan Munich",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/SANATAN_MUNICH/logo.png",
+          "category": {
+            "en": "Spiritual & Cultural",
+            "de": "Spiritual & Cultural",
+            "hi": "Spiritual & Cultural"
+          },
+          "description": {
+            "en": "Sanatan Munich is an Indian community organization based in München, Bayern.",
+            "de": "Sanatan Munich ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Sanatan Munich बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-santulan-veda-e-v",
+          "name": "Santulan Veda e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/SANTULAN_VEDA_EV/logo.png",
+          "category": {
+            "en": "Spiritual & Wellness",
+            "de": "Spiritual & Wellness",
+            "hi": "Spiritual & Wellness"
+          },
+          "description": {
+            "en": "Santulan Veda e.V. is an Indian community organization based in München, Bayern.",
+            "de": "Santulan Veda e.V. ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Santulan Veda e.V. बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-klassischer-indischer-tanz-deu",
+          "name": "Klassischer Indischer Tanz Deutschland e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/KLASSISCHER_INDISCHER_TANZ_DEUTSCHLAND_EV/logo.png",
+          "category": {
+            "en": "Cultural & Arts",
+            "de": "Cultural & Arts",
+            "hi": "Cultural & Arts"
+          },
+          "description": {
+            "en": "Klassischer Indischer Tanz Deutschland e.V. is an Indian community organization based in München, Bayern.",
+            "de": "Klassischer Indischer Tanz Deutschland e.V. ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Klassischer Indischer Tanz Deutschland e.V. बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-indien-institut-e-v-m-nchen",
+          "name": "Indien-Institut e.V. München",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/INDIEN-INSTITUT_EV_MUNCHEN/logo.png",
+          "category": {
+            "en": "Cultural & Educational",
+            "de": "Cultural & Educational",
+            "hi": "Cultural & Educational"
+          },
+          "description": {
+            "en": "Indien-Institut e.V. München is an Indian community organization based in München, Bayern.",
+            "de": "Indien-Institut e.V. München ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Indien-Institut e.V. München बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-odiya-samaj-munich-e-v",
+          "name": "Odiya Samaj Munich e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/ODIYA_SAMAJ_MUNICH_EV/logo.png",
+          "category": {
+            "en": "Cultural & Linguistic",
+            "de": "Cultural & Linguistic",
+            "hi": "Cultural & Linguistic"
+          },
+          "description": {
+            "en": "Odiya Samaj Munich e.V. is an Indian community organization based in München, Bayern.",
+            "de": "Odiya Samaj Munich e.V. ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Odiya Samaj Munich e.V. बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-art-of-living-munich",
+          "name": "Art of Living Munich",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/ART_OF_LIVING/logo.png",
+          "category": {
+            "en": "Wellness & Spiritual",
+            "de": "Wellness & Spiritual",
+            "hi": "Wellness & Spiritual"
+          },
+          "description": {
+            "en": "Art of Living Munich is an Indian community organization based in München, Bayern.",
+            "de": "Art of Living Munich ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Art of Living Munich बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-bathukamma-telangana",
+          "name": "Bathukamma Telangana",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/BATHUKAMMA_TELANGANA/logo.png",
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Cultural & Social",
+            "hi": "Cultural & Social"
+          },
+          "description": {
+            "en": "Bathukamma Telangana is an Indian community organization based in München, Bayern.",
+            "de": "Bathukamma Telangana ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Bathukamma Telangana बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-gurdwara-sri-guru-nanak-sabha-",
+          "name": "Gurdwara Sri Guru Nanak Sabha e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/GURDWARA_SRI_GURU_NANAK_SABHA_EV/logo.png",
+          "category": {
+            "en": "Spiritual & Cultural",
+            "de": "Spiritual & Cultural",
+            "hi": "Spiritual & Cultural"
+          },
+          "description": {
+            "en": "Gurdwara Sri Guru Nanak Sabha e.V. is an Indian community organization based in München, Bayern.",
+            "de": "Gurdwara Sri Guru Nanak Sabha e.V. ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Gurdwara Sri Guru Nanak Sabha e.V. बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-hindi-parivaar-munich-e-v",
+          "name": "Hindi Parivaar Munich e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/HINDI_PARIVAAR_MUNICH_EV/logo.png",
+          "category": {
+            "en": "Cultural & Linguistic",
+            "de": "Cultural & Linguistic",
+            "hi": "Cultural & Linguistic"
+          },
+          "description": {
+            "en": "Hindi Parivaar Munich e.V. is an Indian community organization based in München, Bayern.",
+            "de": "Hindi Parivaar Munich e.V. ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Hindi Parivaar Munich e.V. बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-hss-munich",
+          "name": "HSS Munich",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/HSS_MUNICH/logo.png",
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Cultural & Social",
+            "hi": "Cultural & Social"
+          },
+          "description": {
+            "en": "HSS Munich is an Indian community organization based in München, Bayern.",
+            "de": "HSS Munich ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "HSS Munich बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-india-culture-forum-stuttgart-",
+          "name": "India Culture Forum Stuttgart e.V.",
+          "city": "Stuttgart",
+          "logo": "germany/Bayern/veriens/INDIA_CULTURE_FORUM_STUTTGART_EV/logo.png",
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Cultural & Social",
+            "hi": "Cultural & Social"
+          },
+          "description": {
+            "en": "India Culture Forum Stuttgart e.V. is an Indian community organization based in Stuttgart, Bayern.",
+            "de": "India Culture Forum Stuttgart e.V. ist eine indische Gemeinschaftsorganisation in Stuttgart, Bayern.",
+            "hi": "India Culture Forum Stuttgart e.V. बावेरिया के Stuttgart में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-indian-association-in-passau",
+          "name": "Indian Association in Passau",
+          "city": "Passau",
+          "logo": "germany/Bayern/veriens/INDIAN_ASSOCIATION_IN_PASSAU/logo.png",
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Cultural & Social",
+            "hi": "Cultural & Social"
+          },
+          "description": {
+            "en": "Indian Association in Passau is an Indian community organization based in Passau, Bayern.",
+            "de": "Indian Association in Passau ist eine indische Gemeinschaftsorganisation in Passau, Bayern.",
+            "hi": "Indian Association in Passau बावेरिया के Passau में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-indian-nomads-in-ingolstadt-e-",
+          "name": "Indian Nomads in Ingolstadt e.V.",
+          "city": "Ingolstadt",
+          "logo": "germany/Bayern/veriens/INDIAN_NOMADS_IN_INGOLSTADT_EV/logo.png",
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Cultural & Social",
+            "hi": "Cultural & Social"
+          },
+          "description": {
+            "en": "Indian Nomads in Ingolstadt e.V. is an Indian community organization based in Ingolstadt, Bayern.",
+            "de": "Indian Nomads in Ingolstadt e.V. ist eine indische Gemeinschaftsorganisation in Ingolstadt, Bayern.",
+            "hi": "Indian Nomads in Ingolstadt e.V. बावेरिया के Ingolstadt में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-kerala-samajam-munich-e-v",
+          "name": "Kerala Samajam Munich e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/KERALA_SAMAJAM_MUNICH_EV/logo.png",
+          "category": {
+            "en": "Cultural & Linguistic",
+            "de": "Cultural & Linguistic",
+            "hi": "Cultural & Linguistic"
+          },
+          "description": {
+            "en": "Kerala Samajam Munich e.V. is an Indian community organization based in München, Bayern.",
+            "de": "Kerala Samajam Munich e.V. ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Kerala Samajam Munich e.V. बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-matri-mandir-munich",
+          "name": "Matri Mandir Munich",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/MATRI_MANDIR_MUNICH/logo.png",
+          "category": {
+            "en": "Spiritual & Cultural",
+            "de": "Spiritual & Cultural",
+            "hi": "Spiritual & Cultural"
+          },
+          "description": {
+            "en": "Matri Mandir Munich is an Indian community organization based in München, Bayern.",
+            "de": "Matri Mandir Munich ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Matri Mandir Munich बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-sampriti-m-nchen-e-v",
+          "name": "Sampriti München e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/SAMPRITI_MUNCHEN_EV/logo.png",
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Cultural & Social",
+            "hi": "Cultural & Social"
+          },
+          "description": {
+            "en": "Sampriti München e.V. is an Indian community organization based in München, Bayern.",
+            "de": "Sampriti München e.V. ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Sampriti München e.V. बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-sant-nirankari-mission-e-v",
+          "name": "Sant Nirankari Mission e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/SANT_NIRANKARI_MISSION_EV/logo.png",
+          "category": {
+            "en": "Spiritual & Cultural",
+            "de": "Spiritual & Cultural",
+            "hi": "Spiritual & Cultural"
+          },
+          "description": {
+            "en": "Sant Nirankari Mission e.V. is an Indian community organization based in München, Bayern.",
+            "de": "Sant Nirankari Mission e.V. ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Sant Nirankari Mission e.V. बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-shivpratishthan-munich",
+          "name": "Shivpratishthan Munich",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/SHIVPRATISHTHAN_MUNICH/logo.png",
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Cultural & Social",
+            "hi": "Cultural & Social"
+          },
+          "description": {
+            "en": "Shivpratishthan Munich is an Indian community organization based in München, Bayern.",
+            "de": "Shivpratishthan Munich ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Shivpratishthan Munich बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-shree-jagannath-seva-germany",
+          "name": "Shree Jagannath Seva Germany",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/SHREE_JAGANNATH_SEVA_GERMANY/logo.png",
+          "category": {
+            "en": "Spiritual & Cultural",
+            "de": "Spiritual & Cultural",
+            "hi": "Spiritual & Cultural"
+          },
+          "description": {
+            "en": "Shree Jagannath Seva Germany is an Indian community organization based in München, Bayern.",
+            "de": "Shree Jagannath Seva Germany ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Shree Jagannath Seva Germany बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-sirigannadakoota-munich-e-v",
+          "name": "Sirigannadakoota Munich e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/SIRIGANNADAKOOTA_MUNICH_EV/logo.png",
+          "category": {
+            "en": "Cultural & Linguistic",
+            "de": "Cultural & Linguistic",
+            "hi": "Cultural & Linguistic"
+          },
+          "description": {
+            "en": "Sirigannadakoota Munich e.V. is an Indian community organization based in München, Bayern.",
+            "de": "Sirigannadakoota Munich e.V. ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Sirigannadakoota Munich e.V. बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-telugu-association-germany-e-v",
+          "name": "Telugu Association Germany e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/TELUGU_ASSOCIATION_GERMANY_EV/logo.png",
+          "category": {
+            "en": "Cultural & Linguistic",
+            "de": "Cultural & Linguistic",
+            "hi": "Cultural & Linguistic"
+          },
+          "description": {
+            "en": "Telugu Association Germany e.V. is an Indian community organization based in München, Bayern.",
+            "de": "Telugu Association Germany e.V. ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Telugu Association Germany e.V. बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-m-nchen-tamil-sangam-e-v",
+          "name": "München Tamil Sangam e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/MUNCHEN_TAMIL_SANGAM_EV/logo.png",
+          "category": {
+            "en": "Cultural & Linguistic",
+            "de": "Cultural & Linguistic",
+            "hi": "Cultural & Linguistic"
+          },
+          "description": {
+            "en": "München Tamil Sangam e.V. is an Indian community organization based in München, Bayern.",
+            "de": "München Tamil Sangam e.V. ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "München Tamil Sangam e.V. बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-vatashakti",
+          "name": "Vatashakti",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/VATASHAKTI/logo.png",
+          "category": {
+            "en": "Environmental & Social",
+            "de": "Environmental & Social",
+            "hi": "Environmental & Social"
+          },
+          "description": {
+            "en": "Vatashakti is an Indian community organization based in München, Bayern.",
+            "de": "Vatashakti ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Vatashakti बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-xorai-munich-e-v",
+          "name": "Xorai Munich e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/XORAI-MUNICH_EV/logo.png",
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Cultural & Social",
+            "hi": "Cultural & Social"
+          },
+          "description": {
+            "en": "Xorai Munich e.V. is an Indian community organization based in München, Bayern.",
+            "de": "Xorai Munich e.V. ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Xorai Munich e.V. बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-munich-gujarati-samaj-e-v",
+          "name": "Munich Gujarati Samaj e.V.",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/MUNICH_GUJARATI_SAMAJ_EV/logo.png",
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Cultural & Social",
+            "hi": "Cultural & Social"
+          },
+          "description": {
+            "en": "Munich Gujarati Samaj e.V. is an Indian community organization based in München, Bayern.",
+            "de": "Munich Gujarati Samaj e.V. ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Munich Gujarati Samaj e.V. बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-munich-indian-students-associa",
+          "name": "Munich Indian Students Association (MISA)",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/MUNICH_INDIAN_STUDENTS_ASSOCIATION/logo.png",
+          "category": {
+            "en": "Student & Youth",
+            "de": "Student & Youth",
+            "hi": "Student & Youth"
+          },
+          "description": {
+            "en": "Munich Indian Students Association (MISA) is an Indian community organization based in München, Bayern.",
+            "de": "Munich Indian Students Association (MISA) ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Munich Indian Students Association (MISA) बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-punjabi-mela-organization",
+          "name": "Punjabi Mela Organization",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/PUNJABI_MELA_ORGANIZATION/logo.png",
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Cultural & Social",
+            "hi": "Cultural & Social"
+          },
+          "description": {
+            "en": "Punjabi Mela Organization is an Indian community organization based in München, Bayern.",
+            "de": "Punjabi Mela Organization ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Punjabi Mela Organization बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
+        },
+        {
+          "id": "by-rajasthan-foundation-germany-m",
+          "name": "Rajasthan Foundation Germany (Munich Chapter)",
+          "city": "München",
+          "logo": "germany/Bayern/veriens/RAJASTHAN_FOUNDATION_GERMANY_MUNICH_CHAPTER/logo.png",
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Cultural & Social",
+            "hi": "Cultural & Social"
+          },
+          "description": {
+            "en": "Rajasthan Foundation Germany (Munich Chapter) is an Indian community organization based in München, Bayern.",
+            "de": "Rajasthan Foundation Germany (Munich Chapter) ist eine indische Gemeinschaftsorganisation in München, Bayern.",
+            "hi": "Rajasthan Foundation Germany (Munich Chapter) बावेरिया के München में स्थित एक भारतीय सामुदायिक संगठन है।"
+          },
+          "founded": "",
+          "members": 0,
+          "keyPersons": [],
+          "website": "",
+          "color": "#FF9933"
         }
       ]
     },
@@ -253,7 +1275,11 @@
           "name": "Indische Kulturvereinigung Stuttgart e.V.",
           "city": "Stuttgart",
           "logo": null,
-          "category": { "en": "Cultural", "de": "Kulturell", "hi": "सांस्कृतिक" },
+          "category": {
+            "en": "Cultural",
+            "de": "Kulturell",
+            "hi": "सांस्कृतिक"
+          },
           "description": {
             "en": "Stuttgart's premier Indian cultural society with a strong focus on classical arts — Bharatanatyam, Carnatic music, and Sanskrit.",
             "de": "Stuttgarts führende indische Kulturgesellschaft mit einem starken Fokus auf klassische Künste — Bharatanatyam, Karnatische Musik und Sanskrit.",
@@ -270,7 +1296,11 @@
           "name": "Gujarati Samaj Mannheim e.V.",
           "city": "Mannheim",
           "logo": null,
-          "category": { "en": "Regional Cultural", "de": "Regionale Kultur", "hi": "क्षेत्रीय सांस्कृतिक" },
+          "category": {
+            "en": "Regional Cultural",
+            "de": "Regionale Kultur",
+            "hi": "क्षेत्रीय सांस्कृतिक"
+          },
           "description": {
             "en": "A proud community of Gujarati Indians in Mannheim celebrating Navratri, Uttarayan, and Gujarati New Year with traditional fervour.",
             "de": "Eine stolze Gemeinschaft gujaratischer Inder in Mannheim.",
@@ -293,7 +1323,11 @@
           "name": "Indische Gemeinschaft Berlin e.V.",
           "city": "Berlin",
           "logo": null,
-          "category": { "en": "Cultural & Political", "de": "Kulturell & Politisch", "hi": "सांस्कृतिक और राजनीतिक" },
+          "category": {
+            "en": "Cultural & Political",
+            "de": "Kulturell & Politisch",
+            "hi": "सांस्कृतिक और राजनीतिक"
+          },
           "description": {
             "en": "Berlin's flagship Indian organization, known for advocacy work with the German government and organizing the city's largest Holi and Diwali celebrations.",
             "de": "Berlins führende indische Organisation, bekannt für Lobbyarbeit bei der deutschen Regierung.",
@@ -310,7 +1344,11 @@
           "name": "Bengali Cultural Society Berlin e.V.",
           "city": "Berlin",
           "logo": null,
-          "category": { "en": "Regional Cultural", "de": "Regionale Kultur", "hi": "क्षेत्रीय सांस्कृतिक" },
+          "category": {
+            "en": "Regional Cultural",
+            "de": "Regionale Kultur",
+            "hi": "क्षेत्रीय सांस्कृतिक"
+          },
           "description": {
             "en": "Preserving Bengali language, Rabindra Sangeet, Durga Puja traditions in the German capital.",
             "de": "Bewahrung der bengalischen Sprache und Traditionen in der deutschen Hauptstadt.",
@@ -333,7 +1371,11 @@
           "name": "Indische Kulturgesellschaft Düsseldorf e.V.",
           "city": "Düsseldorf",
           "logo": null,
-          "category": { "en": "Cultural", "de": "Kulturell", "hi": "सांस्कृतिक" },
+          "category": {
+            "en": "Cultural",
+            "de": "Kulturell",
+            "hi": "सांस्कृतिक"
+          },
           "description": {
             "en": "The premier Indian cultural organization in NRW, known for its spectacular cultural shows and Indian film evenings.",
             "de": "Die führende indische Kulturorganisation in NRW.",
@@ -350,7 +1392,11 @@
           "name": "India Verein Köln e.V.",
           "city": "Köln",
           "logo": null,
-          "category": { "en": "Social & Cultural", "de": "Sozial & Kulturell", "hi": "सामाजिक और सांस्कृतिक" },
+          "category": {
+            "en": "Social & Cultural",
+            "de": "Sozial & Kulturell",
+            "hi": "सामाजिक और सांस्कृतिक"
+          },
           "description": {
             "en": "Serving the Indian community in Cologne since 1982, providing social support, cultural events, and integration services.",
             "de": "Seit 1982 dient dieser Verein der indischen Gemeinschaft in Köln.",
@@ -373,7 +1419,11 @@
           "name": "Indischer Verein Frankfurt e.V.",
           "city": "Frankfurt",
           "logo": null,
-          "category": { "en": "Cultural & Business", "de": "Kulturell & Wirtschaft", "hi": "सांस्कृतिक और व्यापार" },
+          "category": {
+            "en": "Cultural & Business",
+            "de": "Kulturell & Wirtschaft",
+            "hi": "सांस्कृतिक और व्यापार"
+          },
           "description": {
             "en": "Frankfurt's central Indian community hub, connecting business professionals, cultural enthusiasts, and families in the financial capital of Germany.",
             "de": "Frankfurts zentrales indisches Gemeinschaftszentrum.",
@@ -396,7 +1446,11 @@
           "name": "India Verein Hamburg e.V.",
           "city": "Hamburg",
           "logo": null,
-          "category": { "en": "Cultural & Social", "de": "Kulturell & Sozial", "hi": "सांस्कृतिक और सामाजिक" },
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Kulturell & Sozial",
+            "hi": "सांस्कृतिक और सामाजिक"
+          },
           "description": {
             "en": "The oldest Indian organization in northern Germany, a vibrant hub for Indians in Hamburg.",
             "de": "Die älteste indische Organisation in Norddeutschland.",
@@ -419,7 +1473,11 @@
           "name": "Indische Gemeinschaft Dresden e.V.",
           "city": "Dresden",
           "logo": null,
-          "category": { "en": "Cultural", "de": "Kulturell", "hi": "सांस्कृतिक" },
+          "category": {
+            "en": "Cultural",
+            "de": "Kulturell",
+            "hi": "सांस्कृतिक"
+          },
           "description": {
             "en": "A growing community in eastern Germany celebrating Indian culture and building bridges between Indian and Saxon communities.",
             "de": "Eine wachsende Gemeinschaft in Ostdeutschland.",
@@ -442,7 +1500,11 @@
           "name": "Indische Vereinigung Hannover e.V.",
           "city": "Hannover",
           "logo": null,
-          "category": { "en": "Cultural & Sports", "de": "Kulturell & Sport", "hi": "सांस्कृतिक और खेल" },
+          "category": {
+            "en": "Cultural & Sports",
+            "de": "Kulturell & Sport",
+            "hi": "सांस्कृतिक और खेल"
+          },
           "description": {
             "en": "Active in both cultural celebrations and sports — known for their annual cricket tournament and Diwali mela.",
             "de": "Aktiv bei Kulturfeiern und Sport — bekannt für ihr Cricket-Turnier und die Diwali-Mela.",
@@ -465,7 +1527,11 @@
           "name": "Indische Gemeinschaft Brandenburg e.V.",
           "city": "Potsdam",
           "logo": null,
-          "category": { "en": "Cultural & Social", "de": "Kulturell & Sozial", "hi": "सांस्कृतिक और सामाजिक" },
+          "category": {
+            "en": "Cultural & Social",
+            "de": "Kulturell & Sozial",
+            "hi": "सांस्कृतिक और सामाजिक"
+          },
           "description": {
             "en": "Serving Indians in the Brandenburg/Potsdam area, connecting the community with cultural events and networking opportunities.",
             "de": "Dient Indern im Raum Brandenburg/Potsdam mit Kulturveranstaltungen und Vernetzungsmöglichkeiten.",
@@ -480,5 +1546,10 @@
       ]
     }
   ],
-  "featured": ["by-icf", "by-skm", "be1", "nw1"]
+  "featured": [
+    "by-icf",
+    "by-skm",
+    "be1",
+    "nw1"
+  ]
 }
