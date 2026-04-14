@@ -5,27 +5,36 @@
 
 /* -- Design Tokens ------------------------------------------ */
 :root {
-  /* Tricolor palette */
-  --saffron:        #FF9933;
-  --saffron-light:  #FFB366;
-  --saffron-dark:   #CC7A1F;
-  --german-gold:    #FFCC00;
-  --german-red:     #CC0000;
-  --india-green:    #138808;
-  --india-green-lt: #1DAD0A;
+  /* Tricolor palette — deepened for light-bg contrast */
+  --saffron:        #D96B0C;
+  --saffron-light:  #F08030;
+  --saffron-dark:   #A84F08;
+  --german-gold:    #C89A00;
+  --german-red:     #B00000;
+  --india-green:    #0A6B04;
+  --india-green-lt: #138808;
 
-  /* Base */
-  --bg:             #0C0C0C;
-  --bg-2:           #141414;
-  --bg-3:           #1C1C1C;
-  --bg-4:           #242424;
-  --border:         rgba(255,255,255,0.08);
-  --border-warm:    rgba(255,153,51,0.2);
+  /* Base — warm cream / light */
+  --bg:             #FAF8F3;
+  --bg-2:           #FFFFFF;
+  --bg-3:           #F3F0E8;
+  --bg-4:           #EAE6DC;
+  --border:         rgba(26, 18, 8, 0.10);
+  --border-warm:    rgba(217, 107, 12, 0.22);
 
-  /* Text */
-  --text-primary:   #F0EDE8;
-  --text-secondary: #A09890;
-  --text-muted:     #5A5550;
+  /* Text — warm dark scale */
+  --text-primary:   #1C1410;
+  --text-secondary: #5C5040;
+  --text-muted:     #A09080;
+
+  /* Sidebar — intentionally dark for contrast */
+  --sidebar-bg:     #18130E;
+  --sidebar-text:   #B0A898;
+  --sidebar-border: rgba(255, 255, 255, 0.07);
+
+  /* Card shadow */
+  --shadow-sm:      0 1px 4px rgba(26,18,8,0.07), 0 0 0 1px rgba(26,18,8,0.06);
+  --shadow-md:      0 4px 16px rgba(26,18,8,0.09), 0 0 0 1px rgba(26,18,8,0.06);
 
   /* Sidebar */
   --sidebar-w:      72px;
@@ -72,8 +81,8 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   position: fixed;
   left: 0; top: 0; bottom: 0;
   width: var(--sidebar-w);
-  background: var(--bg-2);
-  border-right: 1px solid var(--border);
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -135,7 +144,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   font-size: 22px;
   font-weight: 600;
   letter-spacing: 0.12em;
-  color: var(--text-primary);
+  color: #F0EDE8;
   opacity: 0;
   transition: opacity var(--dur) var(--ease);
 }
@@ -154,7 +163,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   align-items: center;
   gap: 14px;
   padding: 10px 16px;
-  color: var(--text-secondary);
+  color: var(--sidebar-text);
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -213,10 +222,10 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.05em;
-  color: var(--text-muted);
+  color: var(--sidebar-text);
   padding: 4px 6px;
   border-radius: 3px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--sidebar-border);
   transition: all var(--dur);
   text-transform: uppercase;
 }
@@ -233,8 +242,8 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   position: fixed;
   top: 0; left: 0; right: 0;
   height: 56px;
-  background: var(--bg-2);
-  border-bottom: 1px solid var(--border);
+  background: var(--sidebar-bg);
+  border-bottom: 1px solid var(--sidebar-border);
   z-index: 300;
   align-items: center;
   justify-content: space-between;
@@ -257,7 +266,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 0.1em;
-  color: var(--text-primary);
+  color: #F0EDE8;
 }
 
 .mobile-nav-right {
@@ -279,7 +288,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 .hamburger span {
   display: block;
   width: 22px; height: 1.5px;
-  background: var(--text-primary);
+  background: #F0EDE8;
   transition: all var(--dur);
 }
 
@@ -292,8 +301,8 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   display: none;
   position: fixed;
   top: 56px; left: 0; right: 0;
-  background: var(--bg-2);
-  border-bottom: 1px solid var(--border);
+  background: var(--sidebar-bg);
+  border-bottom: 1px solid var(--sidebar-border);
   z-index: 299;
   transform: translateY(-100%);
   transition: transform var(--dur-slow) var(--ease-out);
@@ -305,7 +314,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 .mobile-nav-list li a {
   display: block;
   padding: 12px 24px;
-  color: var(--text-secondary);
+  color: var(--sidebar-text);
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.06em;
@@ -487,8 +496,8 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: var(--bg-2);
-  border-left: 1px solid var(--border);
+  background: linear-gradient(145deg, #2A1A08 0%, #3D2510 40%, #1A2B0A 100%);
+  border-left: none;
   position: relative;
   overflow: hidden;
 }
@@ -497,10 +506,10 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center,
-    rgba(255,153,51,0.06) 0%,
-    rgba(19,136,8,0.04) 40%,
-    transparent 70%);
+  background: radial-gradient(circle at 60% 40%,
+    rgba(217,107,12,0.22) 0%,
+    rgba(10,107,4,0.14) 50%,
+    transparent 75%);
 }
 
 .hero-mandala {
@@ -519,18 +528,18 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 
 .r1 {
   width: 100%; height: 100%;
-  border-color: rgba(255,153,51,0.3);
+  border-color: rgba(240,128,48,0.45);
   animation-duration: 60s;
 }
 .r2 {
   width: 68%; height: 68%;
-  border-color: rgba(19,136,8,0.3);
+  border-color: rgba(19,136,8,0.45);
   animation-duration: 40s;
   animation-direction: reverse;
 }
 .r3 {
   width: 40%; height: 40%;
-  border-color: rgba(204,0,0,0.2);
+  border-color: rgba(200,154,0,0.4);
   animation-duration: 25s;
 }
 
@@ -552,9 +561,9 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 
 /* -- Stats Strip -------------------------------------------- */
 .stats-strip {
-  background: var(--bg-2);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, #2A1A08 0%, #1A2B0A 100%);
+  border-top: none;
+  border-bottom: none;
 }
 
 .stats-inner {
@@ -564,7 +573,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 
 .stat-item {
   padding: 36px 32px;
-  border-right: 1px solid var(--border);
+  border-right: 1px solid rgba(255,255,255,0.1);
   text-align: center;
 }
 
@@ -574,7 +583,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   font-family: 'Cormorant Garamond', serif;
   font-size: 52px;
   font-weight: 300;
-  color: var(--saffron);
+  color: #FFB060;
   line-height: 1;
   display: block;
 }
@@ -584,7 +593,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-secondary);
+  color: rgba(240,237,232,0.65);
   margin-top: 8px;
   display: block;
 }
@@ -603,10 +612,11 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 .verein-card {
   background: var(--bg-2);
   padding: 32px;
-  transition: background var(--dur);
+  transition: background var(--dur), box-shadow var(--dur);
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
 
 .verein-card::before {
@@ -618,7 +628,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   transition: height var(--dur-slow) var(--ease-out);
 }
 
-.verein-card:hover { background: var(--bg-3); }
+.verein-card:hover { background: var(--bg-3); box-shadow: var(--shadow-md); }
 .verein-card:hover::before { height: 100%; }
 
 .verein-card-name {
@@ -717,10 +727,12 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 /* -- Chair Quote -------------------------------------------- */
 .chair-quote {
   position: relative;
-  background: var(--bg-2);
+  background: linear-gradient(135deg, #FAF3E8 0%, #F5EDD8 100%);
   border: 1px solid var(--border-warm);
+  border-left: 4px solid var(--saffron);
   padding: 56px 64px;
   margin: 64px 0;
+  box-shadow: var(--shadow-sm);
 }
 
 .chair-quote-mark {
@@ -788,10 +800,11 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 .leader-card {
   background: var(--bg-2);
   padding: 28px 24px;
-  transition: background var(--dur);
+  transition: background var(--dur), box-shadow var(--dur);
+  box-shadow: var(--shadow-sm);
 }
 
-.leader-card:hover { background: var(--bg-3); }
+.leader-card:hover { background: var(--bg-3); box-shadow: var(--shadow-md); }
 
 .leader-initials {
   width: 44px; height: 44px;
@@ -923,7 +936,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 /* -- Verein Detail Panel ----------------------------------- */
 .detail-col {
   overflow-y: auto;
-  background: var(--bg-2);
+  background: var(--bg-3);
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
 }
@@ -1086,10 +1099,10 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   grid-template-columns: 80px 1fr auto;
   gap: 28px;
   align-items: start;
-  transition: background var(--dur);
+  transition: background var(--dur), box-shadow var(--dur);
 }
 
-.event-card:hover { background: var(--bg-3); }
+.event-card:hover { background: var(--bg-3); box-shadow: var(--shadow-md); }
 
 .event-date-block {
   text-align: center;
@@ -1298,10 +1311,11 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 .benefit-card {
   background: var(--bg-2);
   padding: 36px 32px;
-  transition: background var(--dur);
+  transition: background var(--dur), box-shadow var(--dur);
+  box-shadow: var(--shadow-sm);
 }
 
-.benefit-card:hover { background: var(--bg-3); }
+.benefit-card:hover { background: var(--bg-3); box-shadow: var(--shadow-md); }
 
 .benefit-icon {
   font-size: 28px;
@@ -1323,10 +1337,12 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 }
 
 .join-eligibility {
-  background: var(--bg-2);
+  background: linear-gradient(135deg, #FAF3E8 0%, #F5EDD8 100%);
   border: 1px solid var(--border-warm);
+  border-left: 4px solid var(--india-green);
   padding: 48px 56px;
   max-width: 680px;
+  box-shadow: var(--shadow-sm);
 }
 
 .join-eligibility h3 {
@@ -1393,14 +1409,21 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 .form-group input,
 .form-group textarea {
   background: var(--bg-2);
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--border);
   color: var(--text-primary);
   padding: 12px 16px;
   font-size: 15px;
-  border-radius: 2px;
+  border-radius: 3px;
   outline: none;
-  transition: border-color var(--dur);
+  transition: border-color var(--dur), box-shadow var(--dur);
   resize: vertical;
+  box-shadow: inset 0 1px 3px rgba(26,18,8,0.05);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--saffron);
+  box-shadow: 0 0 0 3px rgba(217,107,12,0.12);
 }
 
 .form-group input:focus,
@@ -1421,8 +1444,8 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 /* -- FOOTER ------------------------------------------------ */
 .site-footer {
   margin-left: var(--sidebar-w);
-  background: var(--bg-2);
-  border-top: 1px solid var(--border);
+  background: var(--sidebar-bg);
+  border-top: none;
   padding: 32px 64px;
 }
 
@@ -1440,7 +1463,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   gap: 10px;
   font-family: 'Cormorant Garamond', serif;
   font-size: 16px;
-  color: var(--text-secondary);
+  color: var(--sidebar-text);
 }
 
 .footer-logo-mark { font-size: 20px; color: var(--saffron); }
@@ -1455,7 +1478,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: rgba(176,168,152,0.7);
   transition: color var(--dur);
 }
 
@@ -1463,14 +1486,14 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 
 .footer-copy {
   font-size: 12px;
-  color: var(--text-muted);
+  color: rgba(160,152,136,0.6);
 }
 
 /* -- COOKIE BANNER ----------------------------------------- */
 .cookie-banner {
   position: fixed;
   bottom: 0; left: 0; right: 0;
-  background: var(--bg-3);
+  background: var(--sidebar-bg);
   border-top: 1px solid var(--border-warm);
   padding: 16px 32px;
   display: flex;
@@ -1488,7 +1511,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 
 .cookie-banner p {
   font-size: 13px;
-  color: var(--text-secondary);
+  color: var(--sidebar-text);
   flex: 1;
   min-width: 200px;
 }
@@ -1616,8 +1639,8 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 
   /* ── Stats ── */
   .stats-inner { grid-template-columns: 1fr 1fr; }
-  .stat-item   { border-right: none; border-bottom: 1px solid var(--border); }
-  .stat-item:nth-child(odd) { border-right: 1px solid var(--border); }
+  .stat-item   { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .stat-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.12); }
   .stat-number { font-size: 40px; }
 
   /* ── Home featured ── */
