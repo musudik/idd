@@ -22,21 +22,30 @@
     </div>
   </div>
 
-  <!-- Mobile Top Nav -->
-  <header class="mobile-header" id="mobile-header">
-    <div class="mobile-logo-area">
-      <img src="assets/images/IDD.png" alt="IDD Logo" class="mobile-logo-img" />
-      <span class="mobile-site-name">IDD</span>
-    </div>
-    <div class="mobile-nav-right">
-      <div class="lang-switcher" id="lang-switcher-mobile">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="de">DE</button>
-        <button class="lang-btn" data-lang="hi">HI</button>
+  <!-- Top Navigation -->
+  <header class="top-nav" id="top-nav">
+    <div class="top-nav-accent"></div>
+    <div class="top-nav-inner">
+      <a class="top-nav-brand" href="#section-home" onclick="event.preventDefault(); hideVereineView(); scrollToSection('section-home');">
+        <img src="assets/images/IDD.png" alt="IDD Logo" class="top-nav-logo" />
+        <div class="top-nav-brand-text">
+          <span class="top-nav-brand-name">Indischer Dachverband</span>
+          <span class="top-nav-brand-sub">Deutschland</span>
+        </div>
+      </a>
+      <nav class="top-nav-links-wrap" id="top-nav-links-wrap">
+        <ul class="top-nav-links" id="top-nav-links"></ul>
+      </nav>
+      <div class="top-nav-right">
+        <div class="lang-switcher top-nav-lang" id="lang-switcher-desktop">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="de">DE</button>
+          <button class="lang-btn" data-lang="hi">हि</button>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </header>
 
@@ -45,22 +54,6 @@
     <ul class="mobile-nav-list" id="mobile-nav-list"></ul>
   </nav>
   <div class="drawer-overlay" id="drawer-overlay"></div>
-
-  <!-- Desktop Left Nav -->
-  <nav class="sidebar" id="sidebar">
-    <div class="sidebar-logo">
-      <img src="assets/images/IDD.png" alt="IDD Logo" class="sidebar-logo-img" />
-      <span class="sidebar-brand">IDD</span>
-    </div>
-    <ul class="sidebar-nav" id="sidebar-nav"></ul>
-    <div class="sidebar-footer">
-      <div class="lang-switcher" id="lang-switcher-desktop">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="de">DE</button>
-        <button class="lang-btn" data-lang="hi">हि</button>
-      </div>
-    </div>
-  </nav>
 
   <!-- Main Content -->
   <main class="main-content" id="main-content">
@@ -71,15 +64,18 @@
       <!-- HOME ─────────────────────────────────────────────── -->
       <section id="section-home" class="sp-section page page-home">
         <div class="hero">
-          <div class="hero-text">
+          <div class="hero-carousel" id="hero-carousel"></div>
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
             <img src="assets/images/IDD.png" alt="Indischer Dachverband Deutschland" class="hero-main-logo" />
             <div class="hero-headline" id="hero-headline"></div>
             <p class="hero-sub" id="hero-sub"></p>
             <p class="hero-intro" id="hero-intro"></p>
             <div class="hero-ctas">
-              <a href="#section-join" class="btn btn-primary" id="cta-join"></a>
-              <button class="btn btn-outline" id="cta-vereine" onclick="showVereineView()"></button>
+              <a href="#section-join" class="btn btn-hero-primary" id="cta-join"></a>
+              <button class="btn btn-hero-outline" id="cta-vereine" onclick="showVereineView()"></button>
             </div>
+            <div class="hero-indicators" id="hero-indicators"></div>
           </div>
         </div>
         <div class="hero-strip" id="hero-strip">

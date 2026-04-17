@@ -44,12 +44,12 @@ async function init() {
   await loadData();
   buildNav();
   setupLangSwitchers();
-  setupSidebar();
   setupMobileMenu();
   setupScrollSpy();
   setupCookieBanner();
   renderAllSections();
   renderFooter();
+  initHeroCarousel();
 
   // Check hash on load
   const hash = location.hash.replace('#', '');
@@ -64,12 +64,51 @@ async function init() {
   document.getElementById('vereine-back-to-main')?.addEventListener('click', hideVereineView);
 }
 
-// ── Sidebar: dynamic push (JS-controlled) ────────────────────
-function setupSidebar() {
-  const sidebar = document.getElementById('sidebar');
-  if (!sidebar) return;
-  sidebar.addEventListener('mouseenter', () => document.body.classList.add('sidebar-expanded'));
-  sidebar.addEventListener('mouseleave', () => document.body.classList.remove('sidebar-expanded'));
+// ── Sidebar: removed (now using top nav) ─────────────────────
+
+// ── Hero Carousel ────────────────────────────────────────────
+function initHeroCarousel() {
+  const carousel    = document.getElementById('hero-carousel');
+  const indicators  = document.getElementById('hero-indicators');
+  if (!carousel) return;
+
+  const slides = [
+    { bg: 'linear-gradient(135deg, #2A0800 0%, #7C2206 25%, #C24A00 55%, #FF8C00 80%, #FFB347 100%)' },
+    { bg: 'linear-gradient(135deg, #001508 0%, #003A18 30%, #0D6B10 60%, #1DA00E 85%, #5CB85C 100%)' },
+    { bg: 'linear-gradient(150deg, #0A0015 0%, #1A0040 30%, #2B006B 55%, #4400A8 75%, #6600CC 100%)' },
+    { bg: 'linear-gradient(135deg, #1A0A00 0%, #522000 30%, #9B4400 55%, #CC7700 78%, #FFAA00 100%)' },
+    { bg: 'linear-gradient(130deg, #0A1500 0%, #1C3300 30%, #2E5500 55%, #3D6B00 75%, #557700 100%)' },
+  ];
+
+  slides.forEach((slide, i) => {
+    const el = document.createElement('div');
+    el.className = 'hero-slide' + (i === 0 ? ' active' : '');
+    el.style.backgroundImage = slide.bg;
+    carousel.appendChild(el);
+  });
+
+  if (indicators) {
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+      dot.addEventListener('click', () => goToSlide(i));
+      indicators.appendChild(dot);
+    });
+  }
+
+  let current = 0;
+  function goToSlide(idx) {
+    const slideEls = carousel.querySelectorAll('.hero-slide');
+    const dotEls   = indicators ? indicators.querySelectorAll('.hero-dot') : [];
+    slideEls[current].classList.remove('active');
+    if (dotEls[current]) dotEls[current].classList.remove('active');
+    current = idx;
+    slideEls[current].classList.add('active');
+    if (dotEls[current]) dotEls[current].classList.add('active');
+  }
+
+  setInterval(() => goToSlide((current + 1) % slides.length), 6000);
 }
 
 // ── Navigation ───────────────────────────────────────────────
@@ -79,30 +118,34 @@ function buildNav() {
     label: t(CONTENT.nav[item.key]) || item.key
   }));
 
-  // Desktop sidebar
-  const sidebarNav = document.getElementById('sidebar-nav');
-  sidebarNav.innerHTML = navItems.map(item => `
-    <li>
-      <a href="#${item.isPage ? 'vereine' : item.section}"
-         data-nav="${item.key}"
-         data-section="${item.section || ''}"
-         data-ispage="${item.isPage ? '1' : '0'}">
-        <span class="nav-icon">${item.icon}</span>
-        <span class="nav-label">${item.label}</span>
-      </a>
-    </li>
-  `).join('');
+  // Desktop top nav
+  const topNavLinks = document.getElementById('top-nav-links');
+  if (topNavLinks) {
+    topNavLinks.innerHTML = navItems.map(item => `
+      <li>
+        <a href="#${item.isPage ? 'vereine' : item.section}"
+           data-nav="${item.key}"
+           data-section="${item.section || ''}"
+           data-ispage="${item.isPage ? '1' : '0'}">
+          <span class="nav-icon">${item.icon}</span>
+          <span class="nav-label">${item.label}</span>
+        </a>
+      </li>
+    `).join('');
+  }
 
   // Mobile drawer
   const mobileNav = document.getElementById('mobile-nav-list');
-  mobileNav.innerHTML = navItems.map(item => `
-    <li>
-      <a href="#${item.isPage ? 'vereine' : item.section}"
-         data-nav="${item.key}"
-         data-section="${item.section || ''}"
-         data-ispage="${item.isPage ? '1' : '0'}">${item.label}</a>
-    </li>
-  `).join('');
+  if (mobileNav) {
+    mobileNav.innerHTML = navItems.map(item => `
+      <li>
+        <a href="#${item.isPage ? 'vereine' : item.section}"
+           data-nav="${item.key}"
+           data-section="${item.section || ''}"
+           data-ispage="${item.isPage ? '1' : '0'}">${item.label}</a>
+      </li>
+    `).join('');
+  }
 
   // Wire nav clicks
   document.querySelectorAll('[data-nav]').forEach(el => {
@@ -132,7 +175,7 @@ function scrollToSection(sectionId) {
 function setNavActive(key) {
   document.querySelectorAll('[data-nav]').forEach(el => {
     el.classList.toggle('active', el.dataset.nav === key);
-    el.classList.remove('scroll-active');
+    if (el.dataset.nav !== key) el.classList.remove('scroll-active');
   });
 }
 
@@ -980,15 +1023,18 @@ function setupMobileMenu() {
   const hamburger = document.getElementById('hamburger');
   const drawer    = document.getElementById('mobile-drawer');
   const overlay   = document.getElementById('drawer-overlay');
+  if (!hamburger || !drawer) return;
 
   hamburger.addEventListener('click', () => {
     const isOpen = drawer.classList.toggle('open');
     hamburger.classList.toggle('open', isOpen);
-    overlay.style.display = isOpen ? 'block' : 'none';
-    setTimeout(() => { if (isOpen) overlay.classList.add('show'); }, 10);
+    if (overlay) {
+      overlay.style.display = isOpen ? 'block' : 'none';
+      setTimeout(() => { if (isOpen) overlay.classList.add('show'); }, 10);
+    }
   });
 
-  overlay.addEventListener('click', closeMobileMenu);
+  if (overlay) overlay.addEventListener('click', closeMobileMenu);
 }
 
 function closeMobileMenu() {
@@ -1009,66 +1055,57 @@ function buildLogoConstellation() {
   const allVereine = VEREINE.states.flatMap(s => s.vereine).filter(v => v.logo);
   if (!allVereine.length) return;
 
-  const cellW = 140;
-  const viewW = window.innerWidth;
-  const perRow = Math.ceil(viewW / cellW) + 4;
-  const totalNeeded = perRow * 3;
+  const cellW    = 130;
+  const viewW    = window.innerWidth;
+  const perRow   = Math.ceil(viewW / cellW) + 4;
 
   const shuffled = [...allVereine].sort(() => Math.random() - 0.5);
   const pool = [];
-  while (pool.length < totalNeeded) pool.push(...[...allVereine].sort(() => Math.random() - 0.5));
+  while (pool.length < perRow * 2) pool.push(...[...allVereine].sort(() => Math.random() - 0.5));
 
   const assigned = [];
-  const usedIds = new Set();
+  const usedIds  = new Set();
   for (const v of pool) {
-    if (assigned.length >= totalNeeded) break;
+    if (assigned.length >= perRow) break;
     if (!usedIds.has(v.id)) { assigned.push(v); usedIds.add(v.id); }
   }
-  while (assigned.length < totalNeeded) {
+  while (assigned.length < perRow) {
     for (const v of shuffled) {
-      if (assigned.length >= totalNeeded) break;
-      const last = assigned.slice(-perRow);
-      if (!last.some(a => a.id === v.id)) assigned.push(v);
+      if (assigned.length >= perRow) break;
+      assigned.push(v);
     }
   }
 
   track.innerHTML = '';
   const allCellData = [];
 
-  for (let r = 0; r < 3; r++) {
-    const row = document.createElement('div');
-    row.className = 'hero-strip-row';
-    row.style.animationDuration = (30 + r * 8) + 's';
-    row.style.animationDelay = -(r * 5) + 's';
-    row.classList.add(r % 2 === 0 ? 'scrollLeft' : 'scrollRight');
+  const row = document.createElement('div');
+  row.className = 'hero-strip-row scrollLeft';
+  row.style.animationDuration = '38s';
 
-    const rowVereine = assigned.slice(r * perRow, (r + 1) * perRow);
-    const doubled = [...rowVereine, ...rowVereine];
+  const doubled = [...assigned, ...assigned];
+  doubled.forEach((v, ci) => {
+    const cell = document.createElement('div');
+    cell.className = 'hero-strip-cell';
+    cell.innerHTML = `
+      <img src="${v.logo}" alt="${v.name}" loading="lazy"
+           onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22/>'"/>
+      <div class="strip-cell-name">${v.name}</div>
+      <div class="strip-cell-glow"></div>
+    `;
+    row.appendChild(cell);
+    if (ci < assigned.length) allCellData.push({ cell, verein: v, rowIdx: 0, colIdx: ci });
+  });
 
-    doubled.forEach((v, ci) => {
-      const cell = document.createElement('div');
-      cell.className = 'hero-strip-cell';
-      cell.innerHTML = `
-        <img src="${v.logo}" alt="${v.name}" loading="lazy"
-             onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22/>'"/>
-        <div class="strip-cell-name">${v.name}</div>
-        <div class="strip-cell-glow"></div>
-      `;
-      row.appendChild(cell);
-      if (ci < perRow) allCellData.push({ cell, verein: v, rowIdx: r, colIdx: ci });
-    });
-
-    track.appendChild(row);
-  }
+  track.appendChild(row);
 
   function cycleLogos() {
     const swapCount = 2 + Math.floor(Math.random() * 2);
-    const indices = [];
+    const indices   = [];
     while (indices.length < swapCount && indices.length < allCellData.length) {
       const idx = Math.floor(Math.random() * allCellData.length);
       if (!indices.includes(idx)) indices.push(idx);
     }
-
     const currentIds = new Set();
     allCellData.forEach((cd, i) => { if (!indices.includes(i)) currentIds.add(cd.verein.id); });
 
@@ -1102,29 +1139,28 @@ function buildLogoConstellation() {
 
   // Flag color wave
   const flagColors = [
-    { r:255,g:153,b:51  },
-    { r:255,g:204,b:0   },
-    { r:221,g:0,  b:0   },
-    { r:19, g:136,b:8   },
-    { r:0,  g:0,  b:128 },
-    { r:255,g:153,b:51  },
+    { r:255, g:153, b:51  },
+    { r:255, g:204, b:0   },
+    { r:221, g:0,   b:0   },
+    { r:19,  g:136, b:8   },
+    { r:0,   g:0,   b:128 },
+    { r:255, g:153, b:51  },
   ];
   function lerpColor(c1, c2, t) {
     return { r:Math.round(c1.r+(c2.r-c1.r)*t), g:Math.round(c1.g+(c2.g-c1.g)*t), b:Math.round(c1.b+(c2.b-c1.b)*t) };
   }
   function getFlagColor(t) {
     const scaled = t*(flagColors.length-1);
-    const idx = Math.floor(scaled);
+    const idx    = Math.floor(scaled);
     return lerpColor(flagColors[Math.min(idx,flagColors.length-1)], flagColors[Math.min(idx+1,flagColors.length-1)], scaled-idx);
   }
   let waveOffset = 0;
   function flagWave() {
-    waveOffset += 0.002;
+    waveOffset += 0.0015;
     if (waveOffset > 1) waveOffset -= 1;
     allCellData.forEach(cd => {
-      const diag = (cd.rowIdx * 0.15 + cd.colIdx * 0.08);
-      const tVal = (diag + waveOffset) % 1;
-      const c = getFlagColor(tVal);
+      const tVal = (cd.colIdx * 0.06 + waveOffset) % 1;
+      const c    = getFlagColor(tVal);
       const intensity = 0.5 + 0.5 * Math.sin(tVal * Math.PI * 2);
       const glow = cd.cell.querySelector('.strip-cell-glow');
       if (glow) {
