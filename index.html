@@ -40,7 +40,7 @@
         <div class="lang-switcher top-nav-lang" id="lang-switcher-desktop">
           <button class="lang-btn active" data-lang="en">EN</button>
           <button class="lang-btn" data-lang="de">DE</button>
-          <button class="lang-btn" data-lang="hi">à¤¹à¤¿</button>
+          <button class="lang-btn" data-lang="hi">&#x0939;&#x093F;</button>
         </div>
         <button class="hamburger" id="hamburger" aria-label="Menu">
           <span></span><span></span><span></span>
@@ -66,25 +66,31 @@
         <div class="hero">
           <div class="hero-carousel" id="hero-carousel"></div>
           <div class="hero-overlay"></div>
-          <div class="hero-content">
-            <img src="assets/images/IDD.png" alt="Indischer Dachverband Deutschland" class="hero-main-logo" />
-            <div class="hero-headline" id="hero-headline"></div>
-            <p class="hero-sub" id="hero-sub"></p>
-            <p class="hero-intro" id="hero-intro"></p>
-            <div class="hero-ctas">
-              <a href="#section-join" class="btn btn-hero-primary" id="cta-join"></a>
-              <button class="btn btn-hero-outline" id="cta-vereine" onclick="showVereineView()"></button>
+
+          <!-- Main hero content row -->
+          <div class="hero-body">
+            <div class="hero-content">
+              <img src="assets/images/IDD.png" alt="Indischer Dachverband Deutschland" class="hero-main-logo" />
+              <div class="hero-headline" id="hero-headline"></div>
+              <p class="hero-sub" id="hero-sub"></p>
+              <p class="hero-intro" id="hero-intro"></p>
+              <div class="hero-ctas">
+                <a href="#section-join" class="btn btn-hero-primary" id="cta-join"></a>
+                <button class="btn btn-hero-outline" id="cta-vereine" onclick="showVereineView()"></button>
+              </div>
+              <div class="hero-indicators" id="hero-indicators"></div>
             </div>
-            <div class="hero-indicators" id="hero-indicators"></div>
+
+            <!-- Stats panel — right side of hero -->
+            <div class="hero-stats" id="stats-inner"></div>
           </div>
-        </div>
-        <div class="hero-strip" id="hero-strip">
-          <div class="hero-strip-track" id="hero-strip-track"></div>
-          <div class="hero-strip-overlay hero-strip-overlay--left"></div>
-          <div class="hero-strip-overlay hero-strip-overlay--right"></div>
-        </div>
-        <div class="stats-strip">
-          <div class="stats-inner" id="stats-inner"></div>
+
+          <!-- Logo strip — bottom of hero, inside the dark overlay -->
+          <div class="hero-strip hero-strip--inset" id="hero-strip">
+            <div class="hero-strip-track" id="hero-strip-track"></div>
+            <div class="hero-strip-overlay hero-strip-overlay--left"></div>
+            <div class="hero-strip-overlay hero-strip-overlay--right"></div>
+          </div>
         </div>
         <div class="section home-section-featured">
           <h2 class="section-title" id="featured-title"></h2>
@@ -261,15 +267,15 @@
         <div class="contact-layout">
           <div class="contact-info">
             <div class="contact-item">
-              <span class="contact-icon">ðŸ“</span>
+              <span class="contact-icon">&#x1F4CD;</span>
               <span id="contact-address"></span>
             </div>
             <div class="contact-item">
-              <span class="contact-icon">âœ‰ï¸</span>
+              <span class="contact-icon">&#x2709;&#xFE0F;</span>
               <a id="contact-email" href="mailto:info@indischer-dachverband.de"></a>
             </div>
             <div class="contact-item">
-              <span class="contact-icon">ðŸ“ž</span>
+              <span class="contact-icon">&#x1F4DE;</span>
               <span id="contact-phone"></span>
             </div>
             <div class="contact-social" id="contact-social"></div>
