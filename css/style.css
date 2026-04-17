@@ -93,8 +93,15 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 .top-nav-accent {
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #FF9933 0%, #FF9933 33%, #FFFFFF 33%, #FFFFFF 44%, #138808 44%, #138808 56%, #FFFFFF 56%, #FFFFFF 67%, #000000 67%, #000000 78%, #DD0000 78%, #DD0000 89%, #FFCC00 89%, #FFCC00 100%);
+  height: 4px;
+  background: linear-gradient(90deg,
+    #FF9933 0%,          #FF9933 16.6667%,
+    #FFFFFF 16.6667%,    #FFFFFF 33.3333%,
+    #138808 33.3333%,    #138808 50%,
+    #1A1A1A 50%,         #1A1A1A 66.6667%,
+    #DD0000 66.6667%,    #DD0000 83.3333%,
+    #FFCC00 83.3333%,    #FFCC00 100%
+  );
 }
 
 .top-nav-inner {
@@ -476,17 +483,30 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   100% { transform: scale(1.03); }
 }
 
-/* Dark gradient overlay */
+/* Indo-German flag color mesh overlay */
 .hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    120deg,
-    rgba(10, 4, 0, 0.78) 0%,
-    rgba(15, 10, 2, 0.62) 55%,
-    rgba(5, 17, 5, 0.40) 100%
-  );
+  background:
+    radial-gradient(ellipse at 10% 70%, rgba(255,153,51,0.52) 0%, transparent 45%),
+    radial-gradient(ellipse at 35% 20%, rgba(255,204,0,0.30) 0%, transparent 38%),
+    radial-gradient(ellipse at 70% 80%, rgba(19,136,8,0.38) 0%, transparent 42%),
+    radial-gradient(ellipse at 85% 25%, rgba(221,0,0,0.32) 0%, transparent 40%),
+    radial-gradient(ellipse at 55% 55%, rgba(0,0,128,0.22) 0%, transparent 50%),
+    linear-gradient(155deg,
+      rgba(8,3,0,0.92) 0%,
+      rgba(20,8,0,0.86) 25%,
+      rgba(5,18,5,0.80) 55%,
+      rgba(10,10,26,0.85) 100%
+    );
+  animation: heroOverlayPulse 10s ease-in-out infinite alternate;
+}
+
+@keyframes heroOverlayPulse {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.92; }
+  100% { opacity: 1; }
 }
 
 .hero-content {
