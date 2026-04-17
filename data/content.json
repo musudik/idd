@@ -16,48 +16,6 @@
       "hi": "जर्मनी में भारतीय सामुदायिक संगठनों का प्रतिनिधित्व करने वाला छत्र संगठन।"
     }
   },
-  "nav": {
-    "home": {
-      "en": "Home",
-      "de": "Startseite",
-      "hi": "होम"
-    },
-    "about": {
-      "en": "About Us",
-      "de": "Über uns",
-      "hi": "हमारे बारे में"
-    },
-    "vereine": {
-      "en": "Vereine",
-      "de": "Vereine",
-      "hi": "वेराइने"
-    },
-    "events": {
-      "en": "Events",
-      "de": "Veranstaltungen",
-      "hi": "कार्यक्रम"
-    },
-    "gallery": {
-      "en": "Gallery",
-      "de": "Galerie",
-      "hi": "गैलरी"
-    },
-    "news": {
-      "en": "News",
-      "de": "Nachrichten",
-      "hi": "समाचार"
-    },
-    "join": {
-      "en": "Join Us",
-      "de": "Mitglied werden",
-      "hi": "जुड़ें"
-    },
-    "contact": {
-      "en": "Contact",
-      "de": "Kontakt",
-      "hi": "संपर्क"
-    }
-  },
   "home": {
     "heroHeadline": {
       "en": [
@@ -706,6 +664,146 @@
       }
     }
   },
+  "mission": {
+    "title": {
+      "en": "Areas of Collective Action",
+      "de": "Bereiche kollektiven Handelns",
+      "hi": "सामूहिक कार्रवाई के क्षेत्र"
+    },
+    "subtitle": {
+      "en": "Together, we achieve more than any one organization can.",
+      "de": "Gemeinsam erreichen wir mehr als eine Organisation allein.",
+      "hi": "मिलकर हम किसी एक संगठन से अधिक हासिल कर सकते हैं।"
+    },
+    "areas": [
+      {
+        "icon": "⚖️",
+        "title": { "en": "Policy Influence", "de": "Politischer Einfluss", "hi": "नीति प्रभाव" },
+        "desc": { "en": "Shape immigration law, credential recognition, and family visa rules. A strategic voice in India-Germany bilateral relations and government forums.", "de": "Gestaltung von Einwanderungsrecht, Anerkennung von Abschlüssen und Familienvisaregeln.", "hi": "आप्रवासन कानून, क्रेडेंशियल मान्यता और पारिवारिक वीजा नियमों को आकार देना।" }
+      },
+      {
+        "icon": "🌐",
+        "title": { "en": "National Network", "de": "Nationales Netzwerk", "hi": "राष्ट्रीय नेटवर्क" },
+        "desc": { "en": "An annual India Diaspora Forum bringing all 16 states together. Cross-state business networks, mentorship programmes, and coordinated national campaigns.", "de": "Ein jährliches Indien-Diaspora-Forum, das alle 16 Bundesländer zusammenbringt.", "hi": "एक वार्षिक भारत प्रवासी फोरम जो सभी 16 राज्यों को एक साथ लाता है।" }
+      },
+      {
+        "icon": "📢",
+        "title": { "en": "Visibility & Recognition", "de": "Sichtbarkeit & Anerkennung", "hi": "दृश्यता और मान्यता" },
+        "desc": { "en": "Strategic media campaigns and an annual recognition programme showcasing the Indian diaspora's deep contribution to German economy and society.", "de": "Strategische Medienkampagnen und ein jährliches Anerkennungsprogramm.", "hi": "रणनीतिक मीडिया अभियान और एक वार्षिक मान्यता कार्यक्रम।" }
+      },
+      {
+        "icon": "🔗",
+        "title": { "en": "Talent Bridge", "de": "Talentbrücke", "hi": "प्रतिभा सेतु" },
+        "desc": { "en": "Connecting German businesses to India's skilled workforce. Addressing Germany's skills shortage with targeted integration and onboarding support.", "de": "Verbindung deutscher Unternehmen mit Indiens Fachkräften.", "hi": "जर्मन व्यापार को भारत के कुशल कार्यबल से जोड़ना।" }
+      },
+      {
+        "icon": "🎓",
+        "title": { "en": "Diaspora Empowerment", "de": "Diaspora-Stärkung", "hi": "प्रवासी सशक्तिकरण" },
+        "desc": { "en": "Scholarships, student mentoring, crisis support, shared legal expertise, and celebrating Indian culture while accelerating integration into German society.", "de": "Stipendien, Studentenmentoring, Krisenunterstützung und gemeinsame Rechtsexpertise.", "hi": "छात्रवृत्ति, छात्र मेंटरिंग, संकट समर्थन और साझा कानूनी विशेषज्ञता।" }
+      },
+      {
+        "icon": "🎭",
+        "title": { "en": "Cultural Preservation", "de": "Kulturerhalt", "hi": "सांस्कृतिक संरक्षण" },
+        "desc": { "en": "Preserving the richness of India's 28 states and 7 union territories within Germany — every language, tradition, and art form celebrated.", "de": "Bewahrung der Vielfalt Indiens in Deutschland — jede Sprache, Tradition und Kunstform.", "hi": "जर्मनी में भारत के 28 राज्यों की समृद्धि को संरक्षित करना।" }
+      }
+    ]
+  },
+  "structure": {
+    "title": { "en": "Federal & Regional Structure", "de": "Bundes- und Regionalstruktur", "hi": "संघीय और क्षेत्रीय संरचना" },
+    "subtitle": { "en": "IDD operates at two levels — national coordination and genuine local autonomy.", "de": "IDD operiert auf zwei Ebenen — nationale Koordination und echte lokale Autonomie.", "hi": "IDD दो स्तरों पर काम करता है — राष्ट्रीय समन्वय और स्थानीय स्वायत्तता।" },
+    "federal": {
+      "label": { "en": "FEDERAL LEVEL (BUNDESVERBAND)", "de": "BUNDESEBENE", "hi": "संघीय स्तर" },
+      "title": { "en": "National Coordination & Voice", "de": "Nationale Koordination & Stimme", "hi": "राष्ट्रीय समन्वय और आवाज़" },
+      "desc": { "en": "The registered non-profit entity based in Frankfurt. Engages the Bundestag, federal ministries, and the Embassy of India. Sets strategic direction and provides shared infrastructure for all member Vereine across Germany.", "de": "Das eingetragene gemeinnützige Unternehmen mit Sitz in Frankfurt.", "hi": "फ्रैंकफर्ट में स्थित पंजीकृत गैर-लाभकारी संस्था।" },
+      "features": [
+        { "icon": "🏛️", "en": "Federal advocacy", "de": "Bundesweite Interessenvertretung", "hi": "संघीय वकालत" },
+        { "icon": "⚖️", "en": "Shared legal & compliance", "de": "Gemeinsame Rechts- & Compliance", "hi": "साझा कानूनी सहायता" },
+        { "icon": "💻", "en": "Digital infrastructure", "de": "Digitale Infrastruktur", "hi": "डिजिटल बुनियादी ढांचा" },
+        { "icon": "📢", "en": "Media & communications", "de": "Medien & Kommunikation", "hi": "मीडिया और संचार" }
+      ]
+    },
+    "regional": {
+      "label": { "en": "REGIONAL CHAPTERS (LANDESVERBÄNDE)", "de": "REGIONALVERBÄNDE", "hi": "क्षेत्रीय अध्याय" },
+      "title": { "en": "State-Level Autonomy & Action", "de": "Autonomie auf Landesebene", "hi": "राज्य-स्तरीय स्वायत्तता" },
+      "desc": { "en": "Regional chapters across all 16 German federal states, each with elected local leadership, its own priorities, and direct access to state-level institutions — with the state in the driver's seat.", "de": "Regionalverbände in allen 16 deutschen Bundesländern mit gewählter Lokalführung.", "hi": "सभी 16 जर्मन संघीय राज्यों में क्षेत्रीय अध्याय।" },
+      "features": [
+        { "icon": "🤝", "en": "State-level advocacy", "de": "Interessenvertretung auf Landesebene", "hi": "राज्य-स्तरीय वकालत" },
+        { "icon": "🏛️", "en": "Elected regional board", "de": "Gewählter Regionalvorstand", "hi": "निर्वाचित क्षेत्रीय बोर्ड" },
+        { "icon": "📂", "en": "Own project funding", "de": "Eigene Projektfinanzierung", "hi": "स्वयं की परियोजना निधि" },
+        { "icon": "🗺️", "en": "Local event coordination", "de": "Lokale Veranstaltungskoordination", "hi": "स्थानीय कार्यक्रम समन्वय" }
+      ]
+    }
+  },
+  "principles": {
+    "title": { "en": "Our Principles", "de": "Unsere Grundsätze", "hi": "हमारे सिद्धांत" },
+    "subtitle": { "en": "IDD is built on a firm set of values that guide everything we do.", "de": "IDD basiert auf einem festen Wertekanon, der alles leitet, was wir tun.", "hi": "IDD मजबूत मूल्यों पर बना है जो हमारे हर काम का मार्गदर्शन करते हैं।" },
+    "items": [
+      {
+        "icon": "🏛️",
+        "title": { "en": "Commitment to the German Basic Law", "de": "Verpflichtung zum Grundgesetz", "hi": "जर्मन मूल कानून के प्रति प्रतिबद्धता" },
+        "desc": { "en": "IDD embraces the values of the German Basic Law — democracy, rule of law, human dignity, equality, and tolerance.", "de": "IDD bekennt sich zu den Werten des Grundgesetzes.", "hi": "IDD जर्मन मूल कानून के मूल्यों को अपनाता है।" }
+      },
+      {
+        "icon": "🕊️",
+        "title": { "en": "Political Neutrality", "de": "Politische Neutralität", "hi": "राजनीतिक तटस्थता" },
+        "desc": { "en": "IDD is strictly non-partisan. Our advocacy is issue-based, factual, and independent of party politics.", "de": "IDD ist strikt überparteilich.", "hi": "IDD सख्त रूप से गैर-दलीय है।" }
+      },
+      {
+        "icon": "🤝",
+        "title": { "en": "Religious Neutrality & Inclusion", "de": "Religiöse Neutralität & Inklusion", "hi": "धार्मिक तटस्थता और समावेश" },
+        "desc": { "en": "India is home to extraordinary diversity. IDD reflects this richness by welcoming organizations from every Indian state and community in Germany.", "de": "IDD spiegelt Indiens Reichtum wider und begrüßt Organisationen aus allen indischen Bundesstaaten.", "hi": "IDD भारत की असाधारण विविधता को दर्शाता है।" }
+      },
+      {
+        "icon": "📋",
+        "title": { "en": "Respect for Member Autonomy", "de": "Respekt vor Mitgliederautonomie", "hi": "सदस्य स्वायत्तता का सम्मान" },
+        "desc": { "en": "IDD complements and empowers its member Vereine. It does not direct them. Every member retains full independence in identity, governance, and operations.", "de": "IDD ergänzt und stärkt seine Mitgliedsvereine.", "hi": "IDD अपने सदस्य वेराइने को सशक्त बनाता है।" }
+      },
+      {
+        "icon": "🔍",
+        "title": { "en": "Transparency & Accountability", "de": "Transparenz & Rechenschaftspflicht", "hi": "पारदर्शिता और जवाबदेही" },
+        "desc": { "en": "As a registered non-profit, IDD operates with full financial transparency. Governance decisions are made democratically by member delegates.", "de": "Als eingetragene gemeinnützige Organisation agiert IDD mit vollständiger finanzieller Transparenz.", "hi": "एक पंजीकृत गैर-लाभकारी संस्था के रूप में IDD पूर्ण वित्तीय पारदर्शिता के साथ काम करता है।" }
+      }
+    ]
+  },
+  "advisors": {
+    "title": { "en": "Advisory Board", "de": "Beirat", "hi": "सलाहकार बोर्ड" },
+    "subtitle": { "en": "Distinguished advisors from business, politics, academia, and civil society.", "de": "Hervorragende Berater aus Wirtschaft, Politik, Wissenschaft und Zivilgesellschaft.", "hi": "व्यापार, राजनीति, शिक्षा और सिविल सोसाइटी के प्रतिष्ठित सलाहकार।" },
+    "members": [
+      { "name": { "en": "To be announced", "de": "Wird bekannt gegeben", "hi": "जल्द घोषित" }, "role": { "en": "Business Leader", "de": "Unternehmer", "hi": "व्यापार नेता" }, "org": "" },
+      { "name": { "en": "To be announced", "de": "Wird bekannt gegeben", "hi": "जल्द घोषित" }, "role": { "en": "Policy Expert", "de": "Politikexperte", "hi": "नीति विशेषज्ञ" }, "org": "" },
+      { "name": { "en": "To be announced", "de": "Wird bekannt gegeben", "hi": "जल्द घोषित" }, "role": { "en": "Academic", "de": "Akademiker", "hi": "शिक्षाविद" }, "org": "" },
+      { "name": { "en": "To be announced", "de": "Wird bekannt gegeben", "hi": "जल्द घोषित" }, "role": { "en": "Civil Society", "de": "Zivilgesellschaft", "hi": "सिविल सोसाइटी" }, "org": "" }
+    ]
+  },
+  "donate": {
+    "title": { "en": "Support IDD", "de": "IDD Unterstützen", "hi": "IDD को सहायता करें" },
+    "subtitle": { "en": "Your contribution powers the work that unifies and uplifts 50,000+ community members.", "de": "Ihr Beitrag treibt die Arbeit an, die 50.000+ Gemeinschaftsmitglieder vereint.", "hi": "आपका योगदान 50,000+ समुदाय सदस्यों को एकजुट करने वाले कार्य को शक्ति देता है।" },
+    "reasons": [
+      { "icon": "🏛️", "title": { "en": "Build lasting institutions", "de": "Dauerhafte Institutionen aufbauen", "hi": "स्थायी संस्थाएं बनाएं" }, "desc": { "en": "Fund the legal, digital, and operational infrastructure our community needs for generations.", "de": "Finanzieren Sie die Infrastruktur, die unsere Gemeinschaft braucht.", "hi": "हमारी समुदाय की जरूरत के बुनियादी ढांचे का समर्थन करें।" } },
+      { "icon": "🎓", "title": { "en": "Fund scholarships", "de": "Stipendien finanzieren", "hi": "छात्रवृत्ति का समर्थन करें" }, "desc": { "en": "Direct support for Indian students and young professionals navigating education and careers in Germany.", "de": "Direkte Unterstützung für indische Studierende in Deutschland.", "hi": "जर्मनी में भारतीय छात्रों के लिए सीधा समर्थन।" } },
+      { "icon": "📢", "title": { "en": "Amplify our voice", "de": "Unsere Stimme verstärken", "hi": "हमारी आवाज बुलंद करें" }, "desc": { "en": "Enable advocacy, media campaigns, and representation in policy discussions that shape 50,000+ lives.", "de": "Ermöglichen Sie Interessenvertretung und Medienkampagnen.", "hi": "50,000+ लोगों के जीवन को प्रभावित करने वाली नीति चर्चाओं में प्रतिनिधित्व।" } },
+      { "icon": "📄", "title": { "en": "Tax-deductible donations", "de": "Steuerlich absetzbar", "hi": "कर-कटौती योग्य दान" }, "desc": { "en": "Donations are welcomed via bank transfer. Donation receipts available upon request.", "de": "Spenden sind willkommen per Banküberweisung.", "hi": "बैंक हस्तांतरण के माध्यम से दान का स्वागत है।" } }
+    ],
+    "amounts": [25, 50, 100, 250, 500],
+    "ctaLabel": { "en": "Donate", "de": "Spenden", "hi": "दान करें" },
+    "formLabels": {
+      "name": { "en": "Your Full Name", "de": "Ihr vollständiger Name", "hi": "आपका पूरा नाम" },
+      "email": { "en": "Email Address", "de": "E-Mail-Adresse", "hi": "ईमेल पता" },
+      "message": { "en": "Message / Dedication (optional)", "de": "Nachricht / Widmung (optional)", "hi": "संदेश / समर्पण (वैकल्पिक)" }
+    }
+  },
+  "nav": {
+    "home": { "en": "Home", "de": "Startseite", "hi": "होम" },
+    "about": { "en": "About", "de": "Über uns", "hi": "हमारे बारे में" },
+    "vereine": { "en": "Vereine", "de": "Vereine", "hi": "वेराइने" },
+    "mission": { "en": "Mission", "de": "Mission", "hi": "मिशन" },
+    "events": { "en": "Events", "de": "Veranstaltungen", "hi": "कार्यक्रम" },
+    "gallery": { "en": "Gallery", "de": "Galerie", "hi": "गैलरी" },
+    "news": { "en": "News", "de": "Nachrichten", "hi": "समाचार" },
+    "join": { "en": "Join", "de": "Mitglied", "hi": "जुड़ें" },
+    "donate": { "en": "Donate", "de": "Spenden", "hi": "दान" },
+    "contact": { "en": "Contact", "de": "Kontakt", "hi": "संपर्क" }
+  },
   "footer": {
     "rights": {
       "en": "All rights reserved.",
@@ -721,6 +819,11 @@
       "en": "Privacy",
       "de": "Datenschutz",
       "hi": "गोपनीयता"
+    },
+    "social": {
+      "linkedin": "https://www.linkedin.com/",
+      "instagram": "https://www.instagram.com/",
+      "whatsapp": "https://chat.whatsapp.com/"
     }
   }
 }

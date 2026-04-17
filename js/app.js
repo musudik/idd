@@ -1,26 +1,26 @@
 /* ============================================================
    INDISCHER DACHVERBAND DEUTSCHLAND — app.js
-   SPA Router · i18n · Page Renderers
+   Single-Page SPA · i18n · Dynamic Sidebar · All Sections
    ============================================================ */
 
 // ── State ────────────────────────────────────────────────────
 let CONTENT  = null;
 let VEREINE  = null;
 let lang     = localStorage.getItem('idd-lang') || 'en';
-let currentPage = 'home';
+let inVereineView = false;
 
-const PAGES = ['home','about','vereine','events','gallery','news','join','contact','impressum','privacy'];
-
-const NAV_ICONS = {
-  home:      '⌂',
-  about:     '◉',
-  vereine:   '❋',
-  events:    '◈',
-  gallery:   '▣',
-  news:      '◎',
-  join:      '✦',
-  contact:   '◌',
-};
+const NAV_ITEMS = [
+  { key: 'home',       icon: '⌂',  section: 'section-home'       },
+  { key: 'about',      icon: '◉',  section: 'section-about'      },
+  { key: 'vereine',    icon: '❋',  isPage: true                   },
+  { key: 'mission',    icon: '◈',  section: 'section-mission'    },
+  { key: 'events',     icon: '◎',  section: 'section-events'     },
+  { key: 'gallery',    icon: '▣',  section: 'section-gallery'    },
+  { key: 'news',       icon: '◙',  section: 'section-news'       },
+  { key: 'join',       icon: '✦',  section: 'section-join'       },
+  { key: 'donate',     icon: '◆',  section: 'section-donate'     },
+  { key: 'contact',    icon: '◌',  section: 'section-contact'    },
+];
 
 // ── i18n helper ──────────────────────────────────────────────
 function t(obj) {
@@ -44,28 +44,49 @@ async function init() {
   await loadData();
   buildNav();
   setupLangSwitchers();
-  setupHashRouter();
-  setupCookieBanner();
+  setupSidebar();
   setupMobileMenu();
+  setupScrollSpy();
+  setupCookieBanner();
+  renderAllSections();
   renderFooter();
-  // Route to initial page
-  const hash = location.hash.replace('#', '') || 'home';
-  navigateTo(PAGES.includes(hash) ? hash : 'home');
+
+  // Check hash on load
+  const hash = location.hash.replace('#', '');
+  if (hash === 'vereine') {
+    showVereineView(false);
+  } else if (hash) {
+    const el = document.getElementById(hash) || document.getElementById('section-' + hash);
+    if (el) requestAnimationFrame(() => el.scrollIntoView({ behavior: 'smooth' }));
+  }
+
+  // Wire vereine back button
+  document.getElementById('vereine-back-to-main')?.addEventListener('click', hideVereineView);
+}
+
+// ── Sidebar: dynamic push (JS-controlled) ────────────────────
+function setupSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  if (!sidebar) return;
+  sidebar.addEventListener('mouseenter', () => document.body.classList.add('sidebar-expanded'));
+  sidebar.addEventListener('mouseleave', () => document.body.classList.remove('sidebar-expanded'));
 }
 
 // ── Navigation ───────────────────────────────────────────────
 function buildNav() {
-  const navItems = Object.keys(NAV_ICONS).map(key => ({
-    key,
-    label: t(CONTENT.nav[key]),
-    icon: NAV_ICONS[key]
+  const navItems = NAV_ITEMS.map(item => ({
+    ...item,
+    label: t(CONTENT.nav[item.key]) || item.key
   }));
 
   // Desktop sidebar
   const sidebarNav = document.getElementById('sidebar-nav');
   sidebarNav.innerHTML = navItems.map(item => `
     <li>
-      <a href="#${item.key}" data-page="${item.key}">
+      <a href="#${item.isPage ? 'vereine' : item.section}"
+         data-nav="${item.key}"
+         data-section="${item.section || ''}"
+         data-ispage="${item.isPage ? '1' : '0'}">
         <span class="nav-icon">${item.icon}</span>
         <span class="nav-label">${item.label}</span>
       </a>
@@ -75,71 +96,126 @@ function buildNav() {
   // Mobile drawer
   const mobileNav = document.getElementById('mobile-nav-list');
   mobileNav.innerHTML = navItems.map(item => `
-    <li><a href="#${item.key}" data-page="${item.key}">${item.label}</a></li>
+    <li>
+      <a href="#${item.isPage ? 'vereine' : item.section}"
+         data-nav="${item.key}"
+         data-section="${item.section || ''}"
+         data-ispage="${item.isPage ? '1' : '0'}">${item.label}</a>
+    </li>
   `).join('');
-}
 
-function updateNavActive(page) {
-  document.querySelectorAll('[data-page]').forEach(el => {
-    el.classList.toggle('active', el.dataset.page === page);
+  // Wire nav clicks
+  document.querySelectorAll('[data-nav]').forEach(el => {
+    el.addEventListener('click', e => {
+      e.preventDefault();
+      const key = el.dataset.nav;
+      const isPage = el.dataset.ispage === '1';
+      const section = el.dataset.section;
+
+      closeMobileMenu();
+
+      if (isPage) {
+        showVereineView(true);
+      } else {
+        if (inVereineView) hideVereineView();
+        scrollToSection(section);
+      }
+    });
   });
 }
 
-// ── Hash Router ──────────────────────────────────────────────
-function setupHashRouter() {
-  window.addEventListener('hashchange', () => {
-    const hash = location.hash.replace('#', '') || 'home';
-    navigateTo(PAGES.includes(hash) ? hash : 'home');
+function scrollToSection(sectionId) {
+  const el = document.getElementById(sectionId);
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
+
+function setNavActive(key) {
+  document.querySelectorAll('[data-nav]').forEach(el => {
+    el.classList.toggle('active', el.dataset.nav === key);
+    el.classList.remove('scroll-active');
   });
 }
 
-function navigateTo(page) {
-  currentPage = page;
-  updateNavActive(page);
-  renderPage(page);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  closeMobileMenu();
+// ── Vereine View Toggle ──────────────────────────────────────
+function showVereineView(scroll = true) {
+  inVereineView = true;
+  document.getElementById('single-page-view').style.display = 'none';
+  const vv = document.getElementById('vereine-view');
+  vv.style.display = 'block';
+  setNavActive('vereine');
+  renderVereine();
+  if (scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
+  history.replaceState(null, '', '#vereine');
+
+  // Update back label
+  const backLabel = document.getElementById('vereine-back-label');
+  if (backLabel) backLabel.textContent = { en: 'Back to Main', de: 'Zurück', hi: 'वापस' }[lang] || 'Back to Main';
 }
 
-// ── Page Renderer ────────────────────────────────────────────
-function renderPage(page) {
-  const main = document.getElementById('main-content');
-  const tpl = document.getElementById(`page-${page}`);
-  if (!tpl) return;
+function hideVereineView() {
+  inVereineView = false;
+  document.getElementById('vereine-view').style.display = 'none';
+  document.getElementById('single-page-view').style.display = 'block';
+  setNavActive('home');
+  history.replaceState(null, '', '#section-home');
+}
 
-  main.innerHTML = '';
-  const node = tpl.content.cloneNode(true);
-  main.appendChild(node);
+// ── Scroll Spy ──────────────────────────────────────────────
+function setupScrollSpy() {
+  const sections = NAV_ITEMS
+    .filter(i => i.section)
+    .map(i => ({ key: i.key, el: document.getElementById(i.section) }))
+    .filter(i => i.el);
 
-  const renderers = {
-    home:       renderHome,
-    about:      renderAbout,
-    vereine:    renderVereine,
-    events:     renderEvents,
-    gallery:    renderGallery,
-    news:       renderNews,
-    join:       renderJoin,
-    contact:    renderContact,
-    impressum:  renderImpressum,
-    privacy:    renderPrivacy,
-  };
+  const obs = new IntersectionObserver(entries => {
+    if (inVereineView) return;
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const item = sections.find(s => s.el === entry.target);
+        if (item) {
+          document.querySelectorAll('[data-nav]').forEach(el => {
+            const active = el.dataset.nav === item.key;
+            el.classList.toggle('scroll-active', active);
+            el.classList.toggle('active', active);
+          });
+        }
+      }
+    });
+  }, { threshold: 0.15 });
 
-  if (renderers[page]) renderers[page]();
+  sections.forEach(s => obs.observe(s.el));
+}
+
+// ── Render ALL Sections (single-page) ────────────────────────
+function renderAllSections() {
+  renderHome();
+  renderAbout();
+  renderMission();
+  renderStructure();
+  renderPrinciples();
+  renderEvents();
+  renderGallery();
+  renderNews();
+  renderLeadership();
+  renderJoin();
+  renderDonate();
+  renderContact();
+  renderImpressum();
+  renderPrivacy();
 }
 
 // ── HOME ─────────────────────────────────────────────────────
 function renderHome() {
   const h = CONTENT.home;
 
-  // Hero headline
   const headlines = t(h.heroHeadline);
   document.getElementById('hero-headline').innerHTML =
     headlines.map(line => `<span class="line">${line}</span>`).join('');
 
-  setText('hero-sub',   t(h.heroSub));
-  setText('hero-intro', t(h.intro));
-  setText('cta-join',   t(h.ctaJoin));
-  setText('cta-vereine',t(h.ctaVereine));
+  setText('hero-sub',    t(h.heroSub));
+  setText('hero-intro',  t(h.intro));
+  setText('cta-join',    t(h.ctaJoin));
+  setText('cta-vereine', t(h.ctaVereine));
 
   // Stats
   const statsEl = document.getElementById('stats-inner');
@@ -152,36 +228,26 @@ function renderHome() {
 
   // Featured Vereine
   setText('featured-title', t(h.featuredTitle));
-
   const featuredIds = VEREINE.featured;
   const allVereine  = VEREINE.states.flatMap(s => s.vereine);
   const featured    = featuredIds.map(id => allVereine.find(v => v.id === id)).filter(Boolean);
 
   const featuredEl = document.getElementById('featured-grid');
-  featuredEl.innerHTML = `<div class="home-section-wrap" style="padding:0; display:contents">` +
-    featured.map(v => `
-      <div class="verein-card" style="--accent-color:${v.color}" onclick="location.hash='vereine'">
-        ${v.logo ? `
-          <div class="verein-card-logo">
-            <img src="${v.logo}" alt="${v.name} logo" loading="lazy"
-                 onerror="this.parentElement.style.display='none'" />
-          </div>
-        ` : ''}
-        <div class="verein-card-name">${v.name}</div>
-        <div class="verein-card-city">${v.city}</div>
-        <span class="verein-card-category">${t(v.category)}</span>
-      </div>
-    `).join('') + `</div>`;
+  featuredEl.innerHTML = featured.map(v => `
+    <div class="verein-card" style="--accent-color:${v.color}" onclick="showVereineView(true)">
+      ${v.logo ? `
+        <div class="verein-card-logo">
+          <img src="${v.logo}" alt="${v.name} logo" loading="lazy"
+               onerror="this.parentElement.style.display='none'" />
+        </div>
+      ` : ''}
+      <div class="verein-card-name">${v.name}</div>
+      <div class="verein-card-city">${v.city}</div>
+      <span class="verein-card-category">${t(v.category)}</span>
+    </div>
+  `).join('');
 
-  // ── Home Logo Constellation ──
   buildLogoConstellation();
-
-  // Responsive padding for featured section
-  const homeSection = document.querySelector('.page-home .section');
-  if (homeSection) {
-    const isMobile = window.innerWidth <= 768;
-    homeSection.style.padding = isMobile ? '0 0 56px' : '0 64px 64px';
-  }
 
   // Card glow tracking
   document.querySelectorAll('.verein-card').forEach(card => {
@@ -206,260 +272,72 @@ function renderAbout() {
   setText('chair-message',  t(a.chairMessage));
   setText('chair-name',     a.chairName);
   setText('chair-role',     t(a.chairRole));
-  setText('leadership-title', { en:'Leadership', de:'Führung', hi:'नेतृत्व' }[lang] || 'Leadership');
 
-  const grid = document.getElementById('leadership-grid');
-  grid.innerHTML = a.leadership.map(l => {
-    const initials = l.name.split(' ').map(w => w[0]).join('').slice(0,2);
-    return `
-      <div class="leader-card">
-        <div class="leader-initials">${initials}</div>
-        <div class="leader-name">${l.name}</div>
-        <div class="leader-role">${t(l.role)}</div>
-        <div class="leader-state">${l.state}</div>
-      </div>
-    `;
-  }).join('');
+  // Chair avatar initials
+  const avatarEl = document.getElementById('chair-avatar-initials');
+  if (avatarEl) {
+    avatarEl.textContent = a.chairName.split(' ').map(w => w[0]).join('').slice(0,2);
+  }
 }
 
-// ── VEREINE ──────────────────────────────────────────────────
-function renderVereine() {
-  const titleMap   = { en:'Vereine Directory', de:'Vereineverzeichnis', hi:'वेराइने निर्देशिका' };
-  const hintVereine = { en:'Select a state to browse Vereine', de:'Bundesland auswählen', hi:'राज्य चुनें' };
-  const hintDetail  = { en:'Select a Verein to view details', de:'Verein auswählen', hi:'वेराइन चुनें' };
-  const backLabels  = { en:'Back', de:'Zurück', hi:'वापस' };
+// ── MISSION / COLLECTIVE ACTION ──────────────────────────────
+function renderMission() {
+  const m = CONTENT.mission;
+  setText('mission-section-title',    t(m.title));
+  setText('mission-section-subtitle', t(m.subtitle));
 
-  setText('vereine-title', titleMap[lang]);
-  setText('vereine-hint',  hintVereine[lang]);
-  setText('detail-hint',   hintDetail[lang]);
-  setText('back-label',    backLabels[lang]);
-
-  const layout     = document.getElementById('vereine-layout');
-  const statesCol  = document.getElementById('states-col');
-  const vereineCol = document.getElementById('vereine-col');
-  const detailCol  = document.getElementById('detail-col');
-  const backBtn    = document.getElementById('mobile-back-btn');
-  const breadcrumb = document.getElementById('mobile-breadcrumb');
-
-  const isMobile = () => window.innerWidth <= 768;
-
-  // ── Step management (mobile only) ──
-  let mobileStep = 'states'; // 'states' | 'vereine' | 'detail'
-  let activeStateName = '';
-
-  function setStep(step, label) {
-    mobileStep = step;
-    layout.className = layout.className.replace(/step-\S+/g, '').trim();
-    layout.classList.add('step-' + step);
-
-    if (!isMobile()) return;
-
-    if (step === 'states') {
-      backBtn.style.display = 'none';
-      breadcrumb.textContent = '';
-    } else if (step === 'vereine') {
-      backBtn.style.display = 'flex';
-      breadcrumb.textContent = activeStateName;
-    } else if (step === 'detail') {
-      backBtn.style.display = 'flex';
-      breadcrumb.textContent = label || '';
-    }
-  }
-
-  backBtn.addEventListener('click', () => {
-    if (mobileStep === 'detail')  setStep('vereine', activeStateName);
-    else if (mobileStep === 'vereine') setStep('states');
-  });
-
-  // ── Build state list ──
-  statesCol.innerHTML = VEREINE.states.map(s => `
-    <div class="state-item" data-state="${s.id}" tabindex="0" role="button">
-      <span>${s.name}</span>
-      <span class="state-count">${s.vereine.length}</span>
+  const grid = document.getElementById('mission-grid');
+  grid.innerHTML = m.areas.map(area => `
+    <div class="mission-card">
+      <span class="mission-card-icon">${area.icon}</span>
+      <div class="mission-card-title">${t(area.title)}</div>
+      <p class="mission-card-desc">${t(area.desc)}</p>
     </div>
   `).join('');
+}
 
-  let activeStateId  = null;
-  let activeVereinId = null;
+// ── FEDERAL & REGIONAL STRUCTURE ─────────────────────────────
+function renderStructure() {
+  const s = CONTENT.structure;
+  setText('structure-title',    t(s.title));
+  setText('structure-subtitle', t(s.subtitle));
 
-  function selectState(stateId, fromInteraction) {
-    activeStateId  = stateId;
-    activeVereinId = null;
+  const grid = document.getElementById('structure-grid');
 
-    statesCol.querySelectorAll('.state-item').forEach(el => {
-      el.classList.toggle('active', el.dataset.state === stateId);
-    });
-
-    const state = VEREINE.states.find(s => s.id === stateId);
-    if (!state) return;
-    activeStateName = state.name;
-
-    // Sort vereine alphabetically by name
-    const sortedVereine = [...state.vereine].sort((a, b) => a.name.localeCompare(b.name));
-
-    vereineCol.innerHTML = sortedVereine.map(v => `
-      <div class="verein-row" data-verein="${v.id}"
-           style="--accent-color:${v.color}" tabindex="0" role="button">
-        ${v.logo ? `<div class="verein-row-logo"><img src="${v.logo}" alt="" loading="lazy" onerror="this.parentElement.style.display='none'" /></div>` : ''}
-        <div class="verein-row-info">
-          <div class="verein-row-name">${v.name}</div>
-          <div class="verein-row-city">${v.city}</div>
-        </div>
+  function buildPanel(data, mod) {
+    const featuresHTML = data.features.map(f => `
+      <div class="structure-feature">
+        <span class="structure-feature-icon">${f.icon}</span>
+        <span>${f[lang] || f.en}</span>
       </div>
     `).join('');
-
-    detailCol.innerHTML = `<p class="detail-hint">${hintDetail[lang]}</p>`;
-
-    vereineCol.querySelectorAll('.verein-row').forEach(el => {
-      el.addEventListener('click',      () => selectVerein(el.dataset.verein, true));
-      el.addEventListener('mouseenter', () => { if (!isMobile()) selectVerein(el.dataset.verein, false); });
-      el.addEventListener('keypress',   e  => { if (e.key === 'Enter') selectVerein(el.dataset.verein, true); });
-    });
-
-    // On mobile: slide to step 2
-    if (isMobile() && fromInteraction) {
-      setStep('vereine');
-      vereineCol.scrollTop = 0;
-    }
-
-    // On desktop: auto-preview first verein
-    if (!isMobile() && state.vereine.length > 0) {
-      selectVerein(state.vereine[0].id, false);
-    }
-  }
-
-  function selectVerein(vereinId, fromInteraction) {
-    activeVereinId = vereinId;
-
-    vereineCol.querySelectorAll('.verein-row').forEach(el => {
-      el.classList.toggle('active', el.dataset.verein === vereinId);
-    });
-
-    const allVereine = VEREINE.states.flatMap(s => s.vereine);
-    const v = allVereine.find(x => x.id === vereinId);
-    if (!v) return;
-
-    const foundedLabel = { en:'Founded', de:'Gegründet', hi:'स्थापित' };
-    const membersLabel = { en:'Members', de:'Mitglieder', hi:'सदस्य' };
-    const personsLabel = { en:'Key Persons', de:'Schlüsselpersonen', hi:'प्रमुख व्यक्ति' };
-    const visitLabel   = { en:'Visit Website ↗', de:'Website besuchen ↗', hi:'वेबसाइट देखें ↗' };
-    const aboutLabel   = { en:'About', de:'Über', hi:'के बारे में' };
-    const contactLabel = { en:'Get in Touch', de:'Kontakt', hi:'संपर्क करें' };
-
-    // Unique animation theme per verein (deterministic from id hash)
-    const hash = vereinId.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
-    const themes = ['theme-wave', 'theme-glow', 'theme-prism', 'theme-aurora', 'theme-ember'];
-    const theme = themes[hash % themes.length];
-    const patterns = ['◆', '✦', '◈', '❋', '✧', '◎', '▣', '◉'];
-    const pattern = patterns[hash % patterns.length];
-
-    detailCol.innerHTML = `
-      <div class="verein-detail ${theme}" style="--accent:${v.color}">
-        <!-- Hero stripe -->
-        <div class="detail-hero-stripe">
-          <div class="stripe-bg"></div>
-          <div class="stripe-pattern">${(pattern + ' ').repeat(20)}</div>
-          <div class="stripe-content">
-            ${v.logo ? `
-              <div class="detail-logo-wrap">
-                <img src="${v.logo}" alt="${v.name} logo" class="detail-logo" loading="lazy"
-                     onerror="this.parentElement.innerHTML='<span class=\\'logo-fallback\\' style=\\'color:${v.color}\\'>${pattern}</span>'" />
-              </div>
-            ` : `<div class="detail-logo-wrap">
-              <span class="logo-fallback" style="color:${v.color}">${pattern}</span>
-            </div>`}
-          </div>
-        </div>
-
-        <!-- Body -->
-        <div class="detail-body">
-          <div class="detail-category" style="color:${v.color}">
-            <span>${t(v.category)}</span>
-          </div>
-          <h2 class="detail-name">${v.name}</h2>
-          <div class="detail-city">📍 ${v.city}</div>
-
-          <div class="detail-stats-row">
-            ${v.founded ? `<div class="detail-stat" style="--accent:${v.color}">
-              <div class="detail-stat-value">${v.founded}</div>
-              <div class="detail-stat-label">${foundedLabel[lang]}</div>
-            </div>` : ''}
-            <div class="detail-stat" style="--accent:${v.color}">
-              <div class="detail-stat-value">${v.members > 0 ? v.members.toLocaleString() : '—'}</div>
-              <div class="detail-stat-label">${membersLabel[lang]}</div>
-            </div>
-          </div>
-
-          <div class="detail-section">
-            <div class="detail-section-title">${aboutLabel[lang]}</div>
-            <p class="detail-desc">${t(v.description)}</p>
-          </div>
-
-          ${v.keyPersons && v.keyPersons.length ? `
-            <div class="detail-section">
-              <div class="detail-section-title">${personsLabel[lang]}</div>
-              <div class="detail-persons-grid">
-                ${v.keyPersons.map(p => `
-                  <div class="person-card" style="--accent:${v.color}">
-                    <div class="person-avatar" style="background:${v.color}">${p.name.charAt(0)}</div>
-                    <strong>${p.name}</strong>
-                    <span>${t(p.role)}</span>
-                  </div>
-                `).join('')}
-              </div>
-            </div>
-          ` : ''}
-
-          ${v.website && v.website !== 'https://example.com' ? `
-            <div class="detail-section">
-              <div class="detail-section-title">${contactLabel[lang]}</div>
-              <a href="${v.website}" target="_blank" rel="noopener" class="detail-cta"
-                 style="background:${v.color}; border-color:${v.color}">
-                ${visitLabel[lang]}
-              </a>
-            </div>
-          ` : ''}
-        </div>
+    return `
+      <div class="structure-panel structure-panel--${mod}">
+        <span class="structure-panel-label">${t(data.label)}</span>
+        <h3 class="structure-panel-title">${t(data.title)}</h3>
+        <p class="structure-panel-desc">${t(data.desc)}</p>
+        <div class="structure-features">${featuresHTML}</div>
       </div>
     `;
-
-    // On mobile: slide to step 3
-    if (isMobile() && fromInteraction) {
-      setStep('detail', v.name);
-      detailCol.scrollTop = 0;
-    }
   }
 
-  // Wire up state items
-  statesCol.querySelectorAll('.state-item').forEach(el => {
-    el.addEventListener('click',      () => selectState(el.dataset.state, true));
-    el.addEventListener('mouseenter', () => { if (!isMobile()) selectState(el.dataset.state, false); });
-    el.addEventListener('keypress',   e  => { if (e.key === 'Enter') selectState(el.dataset.state, true); });
-  });
+  grid.innerHTML = buildPanel(s.federal, 'federal') + buildPanel(s.regional, 'regional');
+}
 
-  // Respond to window resize (desktop ↔ mobile switch)
-  const resizeHandler = () => {
-    if (!isMobile()) {
-      // Reset to desktop 3-col view
-      layout.className = layout.className.replace(/step-\S+/g, '').trim();
-      layout.classList.add('step-states');
-      backBtn.style.display  = 'none';
-      breadcrumb.textContent = '';
-      if (activeStateId) selectState(activeStateId, false);
-    }
-  };
-  window.addEventListener('resize', resizeHandler);
+// ── PRINCIPLES ───────────────────────────────────────────────
+function renderPrinciples() {
+  const p = CONTENT.principles;
+  setText('principles-title',    t(p.title));
+  setText('principles-subtitle', t(p.subtitle));
 
-  // Auto-select first state on desktop, or just show states list on mobile
-  if (VEREINE.states.length > 0) {
-    if (!isMobile()) {
-      selectState(VEREINE.states[0].id, false);
-    }
-    // Mark first state visually even on mobile
-    statesCol.querySelector('.state-item')?.classList.add('active');
-    activeStateId  = VEREINE.states[0].id;
-    activeStateName = VEREINE.states[0].name;
-  }
+  const grid = document.getElementById('principles-grid');
+  grid.innerHTML = p.items.map(item => `
+    <div class="principle-card">
+      <span class="principle-icon">${item.icon}</span>
+      <div class="principle-title">${t(item.title)}</div>
+      <p class="principle-desc">${t(item.desc)}</p>
+    </div>
+  `).join('');
 }
 
 // ── EVENTS ───────────────────────────────────────────────────
@@ -577,15 +455,73 @@ function renderNews() {
   }).join('');
 }
 
-// ── JOIN ─────────────────────────────────────────────────────
+// ── LEADERSHIP + ADVISORS ────────────────────────────────────
+function renderLeadership() {
+  const a = CONTENT.about;
+  const labels = { en:'Leadership', de:'Führung', hi:'नेतृत्व' };
+  setText('leadership-section-title', labels[lang] || 'Leadership');
+
+  const grid = document.getElementById('leadership-grid');
+  grid.innerHTML = a.leadership.map(l => {
+    const initials = l.name.split(' ').map(w => w[0]).join('').slice(0,2);
+    return `
+      <div class="leader-card">
+        <div class="leader-initials">${initials}</div>
+        <div class="leader-name">${l.name}</div>
+        <div class="leader-role">${t(l.role)}</div>
+        <div class="leader-state">${l.state}</div>
+      </div>
+    `;
+  }).join('');
+
+  // Advisors
+  const adv = CONTENT.advisors;
+  setText('advisors-title', t(adv.title));
+  setText('advisors-subtitle', t(adv.subtitle));
+
+  const advGrid = document.getElementById('advisors-grid');
+  advGrid.innerHTML = adv.members.map(m => `
+    <div class="advisor-card">
+      <div class="advisor-avatar">?</div>
+      <div class="advisor-name">${t(m.name)}</div>
+      <div class="advisor-role">${t(m.role)}</div>
+    </div>
+  `).join('');
+}
+
+// ── JOIN / MEMBERSHIP ────────────────────────────────────────
 function renderJoin() {
   const j = CONTENT.join;
-  setText('join-title',      t(j.title));
-  setText('join-subtitle',   t(j.subtitle));
-  setText('eligibility-title', t(j.eligibility.title));
-  setText('eligibility-text',  t(j.eligibility.text));
-  setText('join-cta',          t(j.ctaLabel));
+  setText('join-title',       t(j.title));
+  setText('join-subtitle',    t(j.subtitle));
+  setText('eligibility-title',t(j.eligibility.title));
+  setText('eligibility-text', t(j.eligibility.text));
+  setText('join-cta',         t(j.ctaLabel));
 
+  // Membership types
+  const typesEl = document.getElementById('membership-types');
+  const membershipTypes = [
+    {
+      badge: { en: 'REGULAR MEMBERSHIP', de: 'ORDENTLICHE MITGLIEDSCHAFT', hi: 'नियमित सदस्यता' },
+      title: { en: 'For Registered Vereine', de: 'Für eingetragene Vereine', hi: 'पंजीकृत वेराइने के लिए' },
+      desc:  { en: 'For registered charitable organizations (e.V.) operating in Germany.', de: 'Für eingetragene gemeinnützige Organisationen in Deutschland.', hi: 'जर्मनी में कार्यरत पंजीकृत धर्मार्थ संगठनों के लिए।' }
+    },
+    {
+      badge: { en: 'ASSOCIATE MEMBERSHIP', de: 'FÖRDERMITGLIEDSCHAFT', hi: 'सहयोगी सदस्यता' },
+      title: { en: 'For Individuals & Supporters', de: 'Für Einzelpersonen & Förderer', hi: 'व्यक्तियों और समर्थकों के लिए' },
+      desc:  { en: 'For individuals and supporters who share our vision for the Indian diaspora in Germany.', de: 'Für Einzelpersonen, die unsere Vision für die indische Diaspora in Deutschland teilen.', hi: 'उन व्यक्तियों के लिए जो जर्मनी में भारतीय प्रवासियों के लिए हमारी दृष्टि साझा करते हैं।' }
+    }
+  ];
+
+  typesEl.innerHTML = membershipTypes.map((mt, i) => `
+    <div class="membership-type-card ${i === 0 ? 'selected' : ''}" onclick="selectMembershipType(this)">
+      <div class="membership-type-badge">${t(mt.badge)}</div>
+      <div class="membership-type-title">${t(mt.title)}</div>
+      <p class="membership-type-desc">${t(mt.desc)}</p>
+    </div>
+  `).join('');
+
+  // Benefits
   const grid = document.getElementById('benefits-grid');
   grid.innerHTML = j.benefits.map(b => `
     <div class="benefit-card">
@@ -596,16 +532,89 @@ function renderJoin() {
   `).join('');
 }
 
+function selectMembershipType(el) {
+  document.querySelectorAll('.membership-type-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+// ── DONATE ───────────────────────────────────────────────────
+function renderDonate() {
+  const d = CONTENT.donate;
+  setText('donate-title',    t(d.title));
+  setText('donate-subtitle', t(d.subtitle));
+
+  const formTitleLabels = { en: 'Make a Contribution', de: 'Beitrag leisten', hi: 'योगदान करें' };
+  setText('donate-form-title', formTitleLabels[lang] || formTitleLabels.en);
+
+  // Reasons
+  const reasonsEl = document.getElementById('donate-reasons');
+  reasonsEl.innerHTML = d.reasons.map(r => `
+    <div class="donate-reason-card">
+      <span class="donate-reason-icon">${r.icon}</span>
+      <div>
+        <div class="donate-reason-title">${t(r.title)}</div>
+        <p class="donate-reason-desc">${t(r.desc)}</p>
+      </div>
+    </div>
+  `).join('');
+
+  // Amount selector
+  const amountEl = document.getElementById('amount-selector');
+  const customLabel = { en: 'Custom', de: 'Eigener Betrag', hi: 'कस्टम' };
+  let selectedAmount = d.amounts[1]; // default €50
+
+  function updateAmounts() {
+    amountEl.querySelectorAll('.amount-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.amount === String(selectedAmount));
+    });
+  }
+
+  amountEl.innerHTML = d.amounts.map(amt => `
+    <button class="amount-btn" data-amount="${amt}">€${amt}</button>
+  `).join('') + `<button class="amount-btn amount-btn--custom" data-amount="custom">${customLabel[lang] || customLabel.en}</button>`;
+
+  amountEl.querySelectorAll('.amount-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      selectedAmount = btn.dataset.amount;
+      updateAmounts();
+    });
+  });
+
+  updateAmounts();
+
+  // Form labels
+  setText('label-donate-name',    t(d.formLabels.name));
+  setText('label-donate-email',   t(d.formLabels.email));
+  setText('label-donate-message', t(d.formLabels.message));
+  setText('btn-donate',           t(d.ctaLabel));
+
+  document.getElementById('input-donate-name')?.setAttribute('placeholder', t(d.formLabels.name));
+  document.getElementById('input-donate-email')?.setAttribute('placeholder', t(d.formLabels.email));
+}
+
+function handleDonateSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('[type=submit]');
+  const successMsgs = { en:'Thank you for your support!', de:'Vielen Dank für Ihre Unterstützung!', hi:'आपके सहयोग के लिए धन्यवाद!' };
+  const orig = btn.textContent;
+  btn.textContent = '✓ ' + successMsgs[lang];
+  btn.style.background = 'var(--india-green)';
+  setTimeout(() => {
+    btn.textContent = orig;
+    btn.style.background = '';
+    e.target.reset();
+  }, 3000);
+}
+
 // ── CONTACT ──────────────────────────────────────────────────
 function renderContact() {
   const c = CONTENT.contact;
-  setText('contact-title',  t(c.title));
+  setText('contact-title',   t(c.title));
   setText('contact-address', c.address);
   setText('contact-phone',   c.phone);
 
   const emailEl = document.getElementById('contact-email');
-  emailEl.textContent = c.email;
-  emailEl.href = `mailto:${c.email}`;
+  if (emailEl) { emailEl.textContent = c.email; emailEl.href = `mailto:${c.email}`; }
 
   const fl = c.formLabels;
   setText('label-name',    t(fl.name));
@@ -614,42 +623,292 @@ function renderContact() {
   setText('label-message', t(fl.message));
   setText('btn-send',      t(fl.send));
 
-  document.querySelectorAll('#input-name, #input-email, #input-subject, #input-message').forEach(el => {
-    const labelId = 'label-' + el.id.replace('input-','');
-    const lbl = document.getElementById(labelId);
-    if (lbl) el.placeholder = lbl.textContent;
+  ['name','email','subject','message'].forEach(field => {
+    const el = document.getElementById('input-' + field);
+    const lbl = document.getElementById('label-' + field);
+    if (el && lbl) el.placeholder = lbl.textContent;
   });
+
+  // Social links
+  const socialEl = document.getElementById('contact-social');
+  if (socialEl && CONTENT.footer?.social) {
+    socialEl.innerHTML = buildSocialLinks();
+  }
 }
 
-// ── LEGAL ────────────────────────────────────────────────────
+function buildSocialLinks() {
+  const s = CONTENT.footer.social;
+  const links = [
+    { key: 'linkedin',  icon: '🔗', label: 'LinkedIn',  href: s.linkedin  },
+    { key: 'instagram', icon: '📸', label: 'Instagram', href: s.instagram },
+    { key: 'whatsapp',  icon: '💬', label: 'WhatsApp',  href: s.whatsapp  },
+  ];
+  return links.map(l => `
+    <a href="${l.href}" target="_blank" rel="noopener noreferrer" class="social-link">
+      <span class="social-icon">${l.icon}</span>${l.label}
+    </a>
+  `).join('');
+}
+
+function handleContactSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('[type=submit]');
+  const successMsgs = { en:"Message sent! We'll get back to you soon.", de:'Nachricht gesendet!', hi:'संदेश भेजा गया!' };
+  const orig = btn.textContent;
+  btn.textContent = '✓ ' + successMsgs[lang];
+  btn.style.background = 'var(--india-green)';
+  setTimeout(() => {
+    btn.textContent = orig;
+    btn.style.background = '';
+    e.target.reset();
+  }, 3000);
+}
+
+// ── IMPRESSUM & PRIVACY ──────────────────────────────────────
 function renderImpressum() {
   const imp = CONTENT.legal.impressum;
   setText('impressum-title',   t(imp.title));
-  setText('impressum-content', t(imp.content));
+  setHTML('impressum-content', t(imp.content).replace(/\n/g, '<br>'));
 }
 
 function renderPrivacy() {
   const priv = CONTENT.legal.privacy;
   setText('privacy-title',   t(priv.title));
-  setText('privacy-content', t(priv.content));
+  setHTML('privacy-content', t(priv.content).replace(/\n/g, '<br>'));
 }
 
 // ── FOOTER ───────────────────────────────────────────────────
 function renderFooter() {
   document.getElementById('footer-year').textContent = new Date().getFullYear();
+  updateFooterText();
 }
 
-// Re-render footer text on lang change
 function updateFooterText() {
   if (!CONTENT) return;
-  const el = document.getElementById('footer-sitename');
-  if (el) el.textContent = t(CONTENT.meta.siteName);
-  const imp = document.getElementById('footer-impressum');
-  if (imp) imp.textContent = t(CONTENT.footer.impressum);
-  const prv = document.getElementById('footer-privacy');
-  if (prv) prv.textContent = t(CONTENT.footer.privacy);
-  const rts = document.getElementById('footer-rights');
-  if (rts) rts.textContent = t(CONTENT.footer.rights);
+  setText('footer-sitename', t(CONTENT.meta.siteName));
+  setText('footer-impressum', t(CONTENT.footer.impressum));
+  setText('footer-privacy',   t(CONTENT.footer.privacy));
+  setText('footer-rights',    t(CONTENT.footer.rights));
+
+  const footerSocial = document.getElementById('footer-social');
+  if (footerSocial && CONTENT.footer?.social) {
+    footerSocial.innerHTML = buildSocialLinks();
+  }
+}
+
+// ── VEREINE DIRECTORY ────────────────────────────────────────
+function renderVereine() {
+  const titleMap    = { en:'Vereine Directory', de:'Vereineverzeichnis', hi:'वेराइने निर्देशिका' };
+  const hintVereine = { en:'Select a state to browse Vereine', de:'Bundesland auswählen', hi:'राज्य चुनें' };
+  const hintDetail  = { en:'Select a Verein to view details', de:'Verein auswählen', hi:'वेराइन चुनें' };
+  const backLabels  = { en:'Back', de:'Zurück', hi:'वापस' };
+
+  setText('vereine-title', titleMap[lang]);
+  setText('vereine-hint',  hintVereine[lang]);
+  setText('detail-hint',   hintDetail[lang]);
+  setText('back-label',    backLabels[lang]);
+
+  const layout     = document.getElementById('vereine-layout');
+  const statesCol  = document.getElementById('states-col');
+  const vereineCol = document.getElementById('vereine-col');
+  const detailCol  = document.getElementById('detail-col');
+  const backBtn    = document.getElementById('mobile-back-btn');
+  const breadcrumb = document.getElementById('mobile-breadcrumb');
+
+  const isMobile = () => window.innerWidth <= 768;
+
+  let mobileStep = 'states';
+  let activeStateName = '';
+
+  function setStep(step, label) {
+    mobileStep = step;
+    layout.className = layout.className.replace(/step-\S+/g, '').trim();
+    layout.classList.add('step-' + step);
+
+    if (!isMobile()) return;
+
+    if (step === 'states') {
+      backBtn.style.display = 'none';
+      breadcrumb.textContent = '';
+    } else if (step === 'vereine') {
+      backBtn.style.display = 'flex';
+      breadcrumb.textContent = activeStateName;
+    } else if (step === 'detail') {
+      backBtn.style.display = 'flex';
+      breadcrumb.textContent = label || '';
+    }
+  }
+
+  backBtn.addEventListener('click', () => {
+    if (mobileStep === 'detail')   setStep('vereine', activeStateName);
+    else if (mobileStep === 'vereine') setStep('states');
+  });
+
+  statesCol.innerHTML = VEREINE.states.map(s => `
+    <div class="state-item" data-state="${s.id}" tabindex="0" role="button">
+      <span>${s.name}</span>
+      <span class="state-count">${s.vereine.length}</span>
+    </div>
+  `).join('');
+
+  let activeStateId  = null;
+  let activeVereinId = null;
+
+  function selectState(stateId, fromInteraction) {
+    activeStateId  = stateId;
+    activeVereinId = null;
+
+    statesCol.querySelectorAll('.state-item').forEach(el => {
+      el.classList.toggle('active', el.dataset.state === stateId);
+    });
+
+    const state = VEREINE.states.find(s => s.id === stateId);
+    if (!state) return;
+    activeStateName = state.name;
+
+    const sortedVereine = [...state.vereine].sort((a, b) => a.name.localeCompare(b.name));
+
+    vereineCol.innerHTML = sortedVereine.map(v => `
+      <div class="verein-row" data-verein="${v.id}"
+           style="--accent-color:${v.color}" tabindex="0" role="button">
+        ${v.logo ? `<div class="verein-row-logo"><img src="${v.logo}" alt="" loading="lazy" onerror="this.parentElement.style.display='none'" /></div>` : ''}
+        <div class="verein-row-info">
+          <div class="verein-row-name">${v.name}</div>
+          <div class="verein-row-city">${v.city}</div>
+        </div>
+      </div>
+    `).join('');
+
+    detailCol.innerHTML = `<p class="detail-hint">${hintDetail[lang]}</p>`;
+
+    vereineCol.querySelectorAll('.verein-row').forEach(el => {
+      el.addEventListener('click',      () => selectVerein(el.dataset.verein, true));
+      el.addEventListener('mouseenter', () => { if (!isMobile()) selectVerein(el.dataset.verein, false); });
+      el.addEventListener('keypress',   e  => { if (e.key === 'Enter') selectVerein(el.dataset.verein, true); });
+    });
+
+    if (isMobile() && fromInteraction) {
+      setStep('vereine');
+      vereineCol.scrollTop = 0;
+    }
+
+    if (!isMobile() && state.vereine.length > 0) {
+      selectVerein(state.vereine[0].id, false);
+    }
+  }
+
+  function selectVerein(vereinId, fromInteraction) {
+    activeVereinId = vereinId;
+
+    vereineCol.querySelectorAll('.verein-row').forEach(el => {
+      el.classList.toggle('active', el.dataset.verein === vereinId);
+    });
+
+    const allVereine = VEREINE.states.flatMap(s => s.vereine);
+    const v = allVereine.find(x => x.id === vereinId);
+    if (!v) return;
+
+    const foundedLabel = { en:'Founded', de:'Gegründet', hi:'स्थापित' };
+    const membersLabel = { en:'Members', de:'Mitglieder', hi:'सदस्य' };
+    const personsLabel = { en:'Key Persons', de:'Schlüsselpersonen', hi:'प्रमुख व्यक्ति' };
+    const visitLabel   = { en:'Visit Website ↗', de:'Website besuchen ↗', hi:'वेबसाइट देखें ↗' };
+    const aboutLabel   = { en:'About', de:'Über', hi:'के बारे में' };
+    const contactLabel = { en:'Get in Touch', de:'Kontakt', hi:'संपर्क करें' };
+
+    const hash = vereinId.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
+    const themes = ['theme-wave', 'theme-glow', 'theme-prism', 'theme-aurora', 'theme-ember'];
+    const theme = themes[hash % themes.length];
+    const patterns = ['◆', '✦', '◈', '❋', '✧', '◎', '▣', '◉'];
+    const pattern = patterns[hash % patterns.length];
+
+    detailCol.innerHTML = `
+      <div class="verein-detail ${theme}" style="--accent:${v.color}">
+        <div class="detail-hero-stripe">
+          <div class="stripe-bg"></div>
+          <div class="stripe-pattern">${(pattern + ' ').repeat(20)}</div>
+          <div class="stripe-content">
+            ${v.logo ? `
+              <div class="detail-logo-wrap">
+                <img src="${v.logo}" alt="${v.name} logo" class="detail-logo" loading="lazy"
+                     onerror="this.parentElement.innerHTML='<span class=\\'logo-fallback\\' style=\\'color:${v.color}\\'>${pattern}</span>'" />
+              </div>
+            ` : `<div class="detail-logo-wrap"><span class="logo-fallback" style="color:${v.color}">${pattern}</span></div>`}
+          </div>
+        </div>
+        <div class="detail-body">
+          <div class="detail-category" style="color:${v.color}"><span>${t(v.category)}</span></div>
+          <h2 class="detail-name">${v.name}</h2>
+          <div class="detail-city">📍 ${v.city}</div>
+          <div class="detail-stats-row">
+            ${v.founded ? `<div class="detail-stat" style="--accent:${v.color}">
+              <div class="detail-stat-value">${v.founded}</div>
+              <div class="detail-stat-label">${foundedLabel[lang]}</div>
+            </div>` : ''}
+            <div class="detail-stat" style="--accent:${v.color}">
+              <div class="detail-stat-value">${v.members > 0 ? v.members.toLocaleString() : '—'}</div>
+              <div class="detail-stat-label">${membersLabel[lang]}</div>
+            </div>
+          </div>
+          <div class="detail-section">
+            <div class="detail-section-title">${aboutLabel[lang]}</div>
+            <p class="detail-desc">${t(v.description)}</p>
+          </div>
+          ${v.keyPersons && v.keyPersons.length ? `
+            <div class="detail-section">
+              <div class="detail-section-title">${personsLabel[lang]}</div>
+              <div class="detail-persons-grid">
+                ${v.keyPersons.map(p => `
+                  <div class="person-card" style="--accent:${v.color}">
+                    <div class="person-avatar" style="background:${v.color}">${p.name.charAt(0)}</div>
+                    <strong>${p.name}</strong>
+                    <span>${t(p.role)}</span>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          ` : ''}
+          ${v.website && v.website !== 'https://example.com' ? `
+            <div class="detail-section">
+              <div class="detail-section-title">${contactLabel[lang]}</div>
+              <a href="${v.website}" target="_blank" rel="noopener" class="detail-cta"
+                 style="background:${v.color}; border-color:${v.color}">${visitLabel[lang]}</a>
+            </div>
+          ` : ''}
+        </div>
+      </div>
+    `;
+
+    if (isMobile() && fromInteraction) {
+      setStep('detail', v.name);
+      detailCol.scrollTop = 0;
+    }
+  }
+
+  statesCol.querySelectorAll('.state-item').forEach(el => {
+    el.addEventListener('click',      () => selectState(el.dataset.state, true));
+    el.addEventListener('mouseenter', () => { if (!isMobile()) selectState(el.dataset.state, false); });
+    el.addEventListener('keypress',   e  => { if (e.key === 'Enter') selectState(el.dataset.state, true); });
+  });
+
+  const resizeHandler = () => {
+    if (!isMobile()) {
+      layout.className = layout.className.replace(/step-\S+/g, '').trim();
+      layout.classList.add('step-states');
+      backBtn.style.display  = 'none';
+      breadcrumb.textContent = '';
+      if (activeStateId) selectState(activeStateId, false);
+    }
+  };
+  window.addEventListener('resize', resizeHandler);
+
+  if (VEREINE.states.length > 0) {
+    if (!isMobile()) {
+      selectState(VEREINE.states[0].id, false);
+    }
+    statesCol.querySelector('.state-item')?.classList.add('active');
+    activeStateId   = VEREINE.states[0].id;
+    activeStateName = VEREINE.states[0].name;
+  }
 }
 
 // ── Language Switcher ────────────────────────────────────────
@@ -666,15 +925,13 @@ function setupLangSwitchers() {
       b.classList.toggle('active', b.dataset.lang === lang);
     });
 
-    // Re-build nav labels & re-render current page
+    document.body.classList.toggle('devanagari', lang === 'hi');
+
     buildNav();
-    updateNavActive(currentPage);
-    renderPage(currentPage);
+    renderAllSections();
+    if (inVereineView) renderVereine();
     updateFooterText();
     updateCookieBannerText();
-
-    // Devanagari font class on body
-    document.body.classList.toggle('devanagari', lang === 'hi');
   });
 }
 
@@ -696,9 +953,8 @@ function updateCookieBannerText() {
 }
 
 function setupCookieBanner() {
-  const banner  = document.getElementById('cookie-banner');
-  const accept  = document.getElementById('cookie-accept');
-  const more    = document.getElementById('cookie-more');
+  const banner = document.getElementById('cookie-banner');
+  const accept = document.getElementById('cookie-accept');
 
   if (localStorage.getItem('idd-cookies-accepted')) {
     banner.classList.add('hide');
@@ -706,7 +962,6 @@ function setupCookieBanner() {
   }
 
   updateCookieBannerText();
-
   setTimeout(() => banner.classList.add('show'), 1200);
 
   accept.addEventListener('click', () => {
@@ -715,9 +970,8 @@ function setupCookieBanner() {
     banner.classList.add('hide');
   });
 
-  more.addEventListener('click', () => {
-    navigateTo('privacy');
-    location.hash = 'privacy';
+  document.getElementById('cookie-more')?.addEventListener('click', () => {
+    scrollToSection('section-impressum');
   });
 }
 
@@ -747,22 +1001,7 @@ function closeMobileMenu() {
   setTimeout(() => { overlay.style.display = 'none'; }, 300);
 }
 
-// ── Contact form handler ─────────────────────────────────────
-function handleContactSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('[type=submit]');
-  const successMsgs = { en:'Message sent! We\'ll get back to you soon.', de:'Nachricht gesendet!', hi:'संदेश भेजा गया!' };
-  const orig = btn.textContent;
-  btn.textContent = '✓ ' + (successMsgs[lang]);
-  btn.style.background = 'var(--india-green)';
-  setTimeout(() => {
-    btn.textContent = orig;
-    btn.style.background = '';
-    e.target.reset();
-  }, 3000);
-}
-
-// ── Logo Grid (Home Hero) ────────────────────────────────────
+// ── Logo Constellation (Home Hero) ───────────────────────────
 function buildLogoConstellation() {
   const track = document.getElementById('hero-strip-track');
   if (!track) return;
@@ -770,60 +1009,43 @@ function buildLogoConstellation() {
   const allVereine = VEREINE.states.flatMap(s => s.vereine).filter(v => v.logo);
   if (!allVereine.length) return;
 
-  // Calculate how many cells per row to fill viewport + buffer
   const cellW = 140;
   const viewW = window.innerWidth;
-  const perRow = Math.ceil(viewW / cellW) + 4; // visible + buffer
+  const perRow = Math.ceil(viewW / cellW) + 4;
   const totalNeeded = perRow * 3;
 
-  // Shuffle and guarantee no duplicates across all visible cells
   const shuffled = [...allVereine].sort(() => Math.random() - 0.5);
   const pool = [];
-  while (pool.length < totalNeeded) {
-    const batch = [...allVereine].sort(() => Math.random() - 0.5);
-    pool.push(...batch);
-  }
-  // Remove consecutive duplicates
+  while (pool.length < totalNeeded) pool.push(...[...allVereine].sort(() => Math.random() - 0.5));
+
   const assigned = [];
   const usedIds = new Set();
   for (const v of pool) {
     if (assigned.length >= totalNeeded) break;
-    if (!usedIds.has(v.id)) {
-      assigned.push(v);
-      usedIds.add(v.id);
-    }
+    if (!usedIds.has(v.id)) { assigned.push(v); usedIds.add(v.id); }
   }
-  // If we need more (more cells than unique vereine), allow reuse but not adjacent
   while (assigned.length < totalNeeded) {
     for (const v of shuffled) {
       if (assigned.length >= totalNeeded) break;
-      const last = assigned.slice(-perRow); // check no duplicate in same row-window
-      if (!last.some(a => a.id === v.id)) {
-        assigned.push(v);
-      }
+      const last = assigned.slice(-perRow);
+      if (!last.some(a => a.id === v.id)) assigned.push(v);
     }
   }
 
   track.innerHTML = '';
-  const rows = [];
-  const allCellData = []; // flat array of {cell, vereinIdx, rowIdx, colIdx}
-  const displayedIds = new Set(); // track currently visible IDs
+  const allCellData = [];
 
   for (let r = 0; r < 3; r++) {
     const row = document.createElement('div');
     row.className = 'hero-strip-row';
     row.style.animationDuration = (30 + r * 8) + 's';
     row.style.animationDelay = -(r * 5) + 's';
-
-    // Direction: alternate rows scroll different directions
-    const direction = r % 2 === 0 ? 'scrollLeft' : 'scrollRight';
-    row.classList.add(direction);
+    row.classList.add(r % 2 === 0 ? 'scrollLeft' : 'scrollRight');
 
     const rowVereine = assigned.slice(r * perRow, (r + 1) * perRow);
-    // Double up for seamless loop
-    const doubledVereine = [...rowVereine, ...rowVereine];
+    const doubled = [...rowVereine, ...rowVereine];
 
-    doubledVereine.forEach((v, ci) => {
+    doubled.forEach((v, ci) => {
       const cell = document.createElement('div');
       cell.className = 'hero-strip-cell';
       cell.innerHTML = `
@@ -833,17 +1055,12 @@ function buildLogoConstellation() {
         <div class="strip-cell-glow"></div>
       `;
       row.appendChild(cell);
-      if (ci < perRow) {
-        allCellData.push({ cell, verein: v, rowIdx: r, colIdx: ci });
-        displayedIds.add(v.id);
-      }
+      if (ci < perRow) allCellData.push({ cell, verein: v, rowIdx: r, colIdx: ci });
     });
 
     track.appendChild(row);
-    rows.push(row);
   }
 
-  // ── Periodic logo swap: every 2.5s swap 2-3 random cells, no duplicates ──
   function cycleLogos() {
     const swapCount = 2 + Math.floor(Math.random() * 2);
     const indices = [];
@@ -852,34 +1069,26 @@ function buildLogoConstellation() {
       if (!indices.includes(idx)) indices.push(idx);
     }
 
-    // Build set of currently displayed IDs (excluding cells being swapped)
     const currentIds = new Set();
-    allCellData.forEach((cd, i) => {
-      if (!indices.includes(i)) currentIds.add(cd.verein.id);
-    });
+    allCellData.forEach((cd, i) => { if (!indices.includes(i)) currentIds.add(cd.verein.id); });
 
     for (const idx of indices) {
       const cd = allCellData[idx];
-      // Pick a verein not currently displayed
       let candidate = null;
       const shuffledV = [...allVereine].sort(() => Math.random() - 0.5);
       for (const v of shuffledV) {
-        if (!currentIds.has(v.id)) {
-          candidate = v;
-          break;
-        }
+        if (!currentIds.has(v.id)) { candidate = v; break; }
       }
-      if (!candidate) candidate = shuffledV[0]; // fallback
-
+      if (!candidate) candidate = shuffledV[0];
       currentIds.add(candidate.id);
 
       const cell = cd.cell;
       cell.classList.add('swap-out');
       const newV = candidate;
       setTimeout(() => {
-        const img = cell.querySelector('img');
+        const img  = cell.querySelector('img');
         const name = cell.querySelector('.strip-cell-name');
-        if (img) { img.src = newV.logo; img.alt = newV.name; }
+        if (img)  { img.src = newV.logo; img.alt = newV.name; }
         if (name) name.textContent = newV.name;
         cd.verein = newV;
         cell.classList.remove('swap-out');
@@ -887,50 +1096,36 @@ function buildLogoConstellation() {
         setTimeout(() => cell.classList.remove('swap-in'), 400);
       }, 350);
     }
-
     setTimeout(cycleLogos, 2500);
   }
   setTimeout(cycleLogos, 3000);
 
-  // ── Indo-German flag color wave ──
+  // Flag color wave
   const flagColors = [
-    { r:255, g:153, b:51  },
-    { r:255, g:204, b:0   },
-    { r:221, g:0,   b:0   },
-    { r:19,  g:136, b:8   },
-    { r:0,   g:0,   b:128 },
-    { r:255, g:153, b:51  },
+    { r:255,g:153,b:51  },
+    { r:255,g:204,b:0   },
+    { r:221,g:0,  b:0   },
+    { r:19, g:136,b:8   },
+    { r:0,  g:0,  b:128 },
+    { r:255,g:153,b:51  },
   ];
-
   function lerpColor(c1, c2, t) {
-    return {
-      r: Math.round(c1.r + (c2.r - c1.r) * t),
-      g: Math.round(c1.g + (c2.g - c1.g) * t),
-      b: Math.round(c1.b + (c2.b - c1.b) * t),
-    };
+    return { r:Math.round(c1.r+(c2.r-c1.r)*t), g:Math.round(c1.g+(c2.g-c1.g)*t), b:Math.round(c1.b+(c2.b-c1.b)*t) };
   }
-
   function getFlagColor(t) {
-    const scaled = t * (flagColors.length - 1);
+    const scaled = t*(flagColors.length-1);
     const idx = Math.floor(scaled);
-    const frac = scaled - idx;
-    return lerpColor(
-      flagColors[Math.min(idx, flagColors.length - 1)],
-      flagColors[Math.min(idx + 1, flagColors.length - 1)],
-      frac
-    );
+    return lerpColor(flagColors[Math.min(idx,flagColors.length-1)], flagColors[Math.min(idx+1,flagColors.length-1)], scaled-idx);
   }
-
   let waveOffset = 0;
   function flagWave() {
     waveOffset += 0.002;
     if (waveOffset > 1) waveOffset -= 1;
-
-    allCellData.forEach((cd) => {
+    allCellData.forEach(cd => {
       const diag = (cd.rowIdx * 0.15 + cd.colIdx * 0.08);
-      const t = (diag + waveOffset) % 1;
-      const c = getFlagColor(t);
-      const intensity = 0.5 + 0.5 * Math.sin(t * Math.PI * 2);
+      const tVal = (diag + waveOffset) % 1;
+      const c = getFlagColor(tVal);
+      const intensity = 0.5 + 0.5 * Math.sin(tVal * Math.PI * 2);
       const glow = cd.cell.querySelector('.strip-cell-glow');
       if (glow) {
         const alpha = 0.04 + intensity * 0.1;

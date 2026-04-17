@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <defs>
+    <style>
+      .wordmark { font-family: 'Inter','Helvetica Neue','Segoe UI','Nunito Sans',Arial,sans-serif; font-weight: 600; }
+      .wordmark-light { font-family: 'Inter','Helvetica Neue','Segoe UI','Nunito Sans',Arial,sans-serif; font-weight: 400; letter-spacing: 0.18em; }
+      .wordmark-black { font-family: 'Inter','Helvetica Neue','Segoe UI','Nunito Sans',Arial,sans-serif; font-weight: 700; }
+    </style>
+
+  </defs>
+  <g id="background"></g>
+  <g id="roots" stroke="#000080" stroke-width="9" fill="none" stroke-linecap="round">
+    <path d="M 310 680 C 280 720, 200 735, 140 760"/>
+    <path d="M 310 680 C 340 720, 420 735, 480 760"/>
+    <path d="M 310 680 C 300 735, 260 770, 230 800"/>
+    <path d="M 310 680 C 320 735, 360 770, 390 800"/>
+    <circle cx="140" cy="760" r="5" fill="#FF9933" stroke="none"/>
+    <circle cx="480" cy="760" r="5" fill="#FF9933" stroke="none"/>
+  </g>
+  <g id="trunk">
+      <path d="M 294.00 470.00 L 326.00 470.00 L 346.00 680.00 L 274.00 680.00 Z" fill="#000080"/>
+  </g>
+  <g id="canopy">
+      <ellipse cx="180.00" cy="380.00" rx="37.65" ry="51.58" transform="rotate(-31.04 180.00 380.00)" fill="#FF9933" opacity="0.95"/>
+      <ellipse cx="240.00" cy="330.00" rx="30.68" ry="50.68" transform="rotate(16.52 240.00 330.00)" fill="#FFCE00" opacity="0.95"/>
+      <ellipse cx="310.00" cy="300.00" rx="35.36" ry="46.47" transform="rotate(7.42 310.00 300.00)" fill="#138808" opacity="0.95"/>
+      <ellipse cx="380.00" cy="330.00" rx="34.85" ry="48.65" transform="rotate(-23.91 380.00 330.00)" fill="#000080" opacity="0.95"/>
+      <ellipse cx="440.00" cy="380.00" rx="33.45" ry="47.15" transform="rotate(15.61 440.00 380.00)" fill="#DD0000" opacity="0.95"/>
+      <ellipse cx="210.00" cy="440.00" rx="37.96" ry="51.60" transform="rotate(3.09 210.00 440.00)" fill="#FF9933" opacity="0.95"/>
+      <ellipse cx="270.00" cy="400.00" rx="33.56" ry="46.15" transform="rotate(-32.49 270.00 400.00)" fill="#FFCE00" opacity="0.95"/>
+      <ellipse cx="340.00" cy="390.00" rx="30.22" ry="47.72" transform="rotate(-12.71 340.00 390.00)" fill="#138808" opacity="0.95"/>
+      <ellipse cx="400.00" cy="420.00" rx="33.04" ry="51.13" transform="rotate(1.80 400.00 420.00)" fill="#FF9933" opacity="0.95"/>
+      <ellipse cx="450.00" cy="450.00" rx="34.48" ry="45.89" transform="rotate(-33.33 450.00 450.00)" fill="#FFCE00" opacity="0.95"/>
+      <ellipse cx="160.00" cy="460.00" rx="32.60" ry="45.09" transform="rotate(0.72 160.00 460.00)" fill="#138808" opacity="0.95"/>
+      <ellipse cx="470.00" cy="490.00" rx="37.99" ry="49.40" transform="rotate(-22.27 470.00 490.00)" fill="#DD0000" opacity="0.95"/>
+      <ellipse cx="310.00" cy="240.00" rx="22.00" ry="54.00" transform="rotate(0.00 310.00 240.00)" fill="#FFCE00" opacity="1.00"/>
+  </g>
+  <g id="text" text-anchor="start">
+    <text class="wordmark-black" x="540" y="430" font-size="72" fill="#111111">Indischer</text>
+    <text class="wordmark-black" x="540" y="510" font-size="72" fill="#000080">Dachverband</text>
+    <text class="wordmark-light" x="540" y="585" font-size="56" fill="#FF9933" letter-spacing="6">DEUTSCHLAND</text>
+    <line x1="540" y1="615" x2="760" y2="615" stroke="#FFCE00" stroke-width="4" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -18,6 +18,387 @@
     <p id="cookie-text"></p>
     <div class="cookie-actions">
       <button id="cookie-accept" class="btn-cookie-accept"></button>
+      <a href="#section-impressum" id="cookie-more" class="cookie-link"></a>
+    </div>
+  </div>
+
+  <!-- Mobile Top Nav -->
+  <header class="mobile-header" id="mobile-header">
+    <div class="mobile-logo-area">
+      <img src="assets/images/IDD.png" alt="IDD Logo" class="mobile-logo-img" />
+      <span class="mobile-site-name">IDD</span>
+    </div>
+    <div class="mobile-nav-right">
+      <div class="lang-switcher" id="lang-switcher-mobile">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="de">DE</button>
+        <button class="lang-btn" data-lang="hi">HI</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <nav class="mobile-drawer" id="mobile-drawer">
+    <ul class="mobile-nav-list" id="mobile-nav-list"></ul>
+  </nav>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+
+  <!-- Desktop Left Nav -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <img src="assets/images/IDD.png" alt="IDD Logo" class="sidebar-logo-img" />
+      <span class="sidebar-brand">IDD</span>
+    </div>
+    <ul class="sidebar-nav" id="sidebar-nav"></ul>
+    <div class="sidebar-footer">
+      <div class="lang-switcher" id="lang-switcher-desktop">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="de">DE</button>
+        <button class="lang-btn" data-lang="hi">हि</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content" id="main-content">
+
+    <!-- ═══════════════════ SINGLE PAGE VIEW ═══════════════════ -->
+    <div id="single-page-view">
+
+      <!-- HOME ─────────────────────────────────────────────── -->
+      <section id="section-home" class="sp-section page page-home">
+        <div class="hero">
+          <div class="hero-text">
+            <img src="assets/images/IDD.png" alt="Indischer Dachverband Deutschland" class="hero-main-logo" />
+            <div class="hero-headline" id="hero-headline"></div>
+            <p class="hero-sub" id="hero-sub"></p>
+            <p class="hero-intro" id="hero-intro"></p>
+            <div class="hero-ctas">
+              <a href="#section-join" class="btn btn-primary" id="cta-join"></a>
+              <button class="btn btn-outline" id="cta-vereine" onclick="showVereineView()"></button>
+            </div>
+          </div>
+        </div>
+        <div class="hero-strip" id="hero-strip">
+          <div class="hero-strip-track" id="hero-strip-track"></div>
+          <div class="hero-strip-overlay hero-strip-overlay--left"></div>
+          <div class="hero-strip-overlay hero-strip-overlay--right"></div>
+        </div>
+        <div class="stats-strip">
+          <div class="stats-inner" id="stats-inner"></div>
+        </div>
+        <div class="section home-section-featured">
+          <h2 class="section-title" id="featured-title"></h2>
+          <div class="featured-grid" id="featured-grid"></div>
+        </div>
+      </section>
+
+      <!-- ABOUT ────────────────────────────────────────────── -->
+      <section id="section-about" class="sp-section page page-about">
+        <div class="page-header">
+          <div class="page-header-line"></div>
+          <h1 class="page-title" id="about-title"></h1>
+        </div>
+        <div class="about-grid">
+          <div class="about-block">
+            <h3 id="vision-title"></h3>
+            <p id="vision-text"></p>
+          </div>
+          <div class="about-block">
+            <h3 id="mission-title"></h3>
+            <p id="mission-text"></p>
+          </div>
+        </div>
+        <div class="about-story">
+          <div class="story-deco"><div class="story-line"></div></div>
+          <div class="story-content">
+            <h3 id="founding-title"></h3>
+            <p id="founding-text"></p>
+          </div>
+        </div>
+        <div class="chair-quote">
+          <div class="chair-quote-mark">"</div>
+          <blockquote id="chair-message"></blockquote>
+          <div class="chair-attr">
+            <div class="chair-avatar" id="chair-avatar-initials">RS</div>
+            <div>
+              <strong id="chair-name"></strong>
+              <span id="chair-role"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MISSION / COLLECTIVE ACTION ──────────────────────── -->
+      <section id="section-mission" class="sp-section page page-mission">
+        <div class="page-header">
+          <div class="page-header-line"></div>
+          <h1 class="page-title" id="mission-section-title"></h1>
+        </div>
+        <p class="section-lead" id="mission-section-subtitle"></p>
+        <div class="mission-grid" id="mission-grid"></div>
+      </section>
+
+      <!-- FEDERAL & REGIONAL STRUCTURE ─────────────────────── -->
+      <section id="section-structure" class="sp-section page page-structure">
+        <div class="page-header">
+          <div class="page-header-line"></div>
+          <h1 class="page-title" id="structure-title"></h1>
+        </div>
+        <p class="section-lead" id="structure-subtitle"></p>
+        <div class="structure-grid" id="structure-grid"></div>
+      </section>
+
+      <!-- PRINCIPLES ───────────────────────────────────────── -->
+      <section id="section-principles" class="sp-section page page-principles">
+        <div class="page-header">
+          <div class="page-header-line"></div>
+          <h1 class="page-title" id="principles-title"></h1>
+        </div>
+        <p class="section-lead" id="principles-subtitle"></p>
+        <div class="principles-grid" id="principles-grid"></div>
+      </section>
+
+      <!-- EVENTS ───────────────────────────────────────────── -->
+      <section id="section-events" class="sp-section page page-events">
+        <div class="page-header">
+          <div class="page-header-line"></div>
+          <h1 class="page-title" id="events-title"></h1>
+        </div>
+        <div class="events-tabs">
+          <button class="event-tab active" data-filter="upcoming" id="tab-upcoming"></button>
+          <button class="event-tab" data-filter="past" id="tab-past"></button>
+        </div>
+        <div class="events-grid" id="events-grid"></div>
+      </section>
+
+      <!-- GALLERY ─────────────────────────────────────────── -->
+      <section id="section-gallery" class="sp-section page page-gallery">
+        <div class="page-header">
+          <div class="page-header-line"></div>
+          <h1 class="page-title" id="gallery-title"></h1>
+          <p class="page-subtitle" id="gallery-subtitle"></p>
+        </div>
+        <div class="gallery-filters" id="gallery-filters"></div>
+        <div class="gallery-grid" id="gallery-grid"></div>
+      </section>
+
+      <!-- NEWS / IN FOCUS ─────────────────────────────────── -->
+      <section id="section-news" class="sp-section page page-news">
+        <div class="page-header">
+          <div class="page-header-line"></div>
+          <h1 class="page-title" id="news-title"></h1>
+        </div>
+        <div class="news-list" id="news-list"></div>
+      </section>
+
+      <!-- LEADERSHIP + ADVISORS ───────────────────────────── -->
+      <section id="section-leadership" class="sp-section page page-about">
+        <div class="page-header">
+          <div class="page-header-line"></div>
+          <h1 class="page-title" id="leadership-section-title"></h1>
+        </div>
+        <div class="leadership-grid" id="leadership-grid"></div>
+        <div class="section" style="margin-top:64px">
+          <h2 class="section-title" id="advisors-title"></h2>
+          <p class="section-lead" id="advisors-subtitle"></p>
+          <div class="advisors-grid" id="advisors-grid"></div>
+        </div>
+      </section>
+
+      <!-- JOIN / MEMBERSHIP ───────────────────────────────── -->
+      <section id="section-join" class="sp-section page page-join">
+        <div class="page-header">
+          <div class="page-header-line"></div>
+          <h1 class="page-title" id="join-title"></h1>
+          <p class="page-subtitle" id="join-subtitle"></p>
+        </div>
+        <div class="membership-types" id="membership-types"></div>
+        <div class="benefits-grid" id="benefits-grid"></div>
+        <div class="join-eligibility">
+          <h3 id="eligibility-title"></h3>
+          <p id="eligibility-text"></p>
+          <a href="#section-contact" class="btn btn-primary" id="join-cta"></a>
+        </div>
+      </section>
+
+      <!-- DONATE ──────────────────────────────────────────── -->
+      <section id="section-donate" class="sp-section page page-donate">
+        <div class="page-header">
+          <div class="page-header-line"></div>
+          <h1 class="page-title" id="donate-title"></h1>
+        </div>
+        <p class="section-lead" id="donate-subtitle"></p>
+        <div class="donate-layout">
+          <div class="donate-reasons" id="donate-reasons"></div>
+          <div class="donate-form-wrap">
+            <h3 class="donate-form-heading" id="donate-form-title"></h3>
+            <div class="amount-selector" id="amount-selector"></div>
+            <form class="donate-form" id="donate-form" onsubmit="handleDonateSubmit(event)">
+              <div class="form-group">
+                <label id="label-donate-name"></label>
+                <input type="text" id="input-donate-name" required />
+              </div>
+              <div class="form-group">
+                <label id="label-donate-email"></label>
+                <input type="email" id="input-donate-email" required />
+              </div>
+              <div class="form-group">
+                <label id="label-donate-message"></label>
+                <textarea id="input-donate-message" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" id="btn-donate"></button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT ─────────────────────────────────────────── -->
+      <section id="section-contact" class="sp-section page page-contact">
+        <div class="page-header">
+          <div class="page-header-line"></div>
+          <h1 class="page-title" id="contact-title"></h1>
+        </div>
+        <div class="contact-layout">
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="contact-icon">📍</span>
+              <span id="contact-address"></span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">✉️</span>
+              <a id="contact-email" href="mailto:info@indischer-dachverband.de"></a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📞</span>
+              <span id="contact-phone"></span>
+            </div>
+            <div class="contact-social" id="contact-social"></div>
+          </div>
+          <form class="contact-form" id="contact-form" onsubmit="handleContactSubmit(event)">
+            <div class="form-group">
+              <label id="label-name"></label>
+              <input type="text" id="input-name" required />
+            </div>
+            <div class="form-group">
+              <label id="label-email"></label>
+              <input type="email" id="input-email" required />
+            </div>
+            <div class="form-group">
+              <label id="label-subject"></label>
+              <input type="text" id="input-subject" required />
+            </div>
+            <div class="form-group">
+              <label id="label-message"></label>
+              <textarea id="input-message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="btn-send"></button>
+          </form>
+        </div>
+      </section>
+
+      <!-- IMPRESSUM & PRIVACY ─────────────────────────────── -->
+      <section id="section-impressum" class="sp-section page page-legal">
+        <div class="page-header">
+          <div class="page-header-line"></div>
+          <h1 class="page-title" id="impressum-title"></h1>
+        </div>
+        <div class="legal-two-col">
+          <div class="legal-content" id="impressum-content"></div>
+          <div>
+            <h2 class="section-title" style="font-size:28px;margin-bottom:24px;" id="privacy-title"></h2>
+            <div class="legal-content" id="privacy-content"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER ──────────────────────────────────────────── -->
+      <footer class="site-footer" id="site-footer">
+        <div class="footer-inner">
+          <div class="footer-brand">
+            <div class="footer-logo-mark">✦</div>
+            <span id="footer-sitename"></span>
+          </div>
+          <div class="footer-social" id="footer-social"></div>
+          <div class="footer-links">
+            <a href="#section-impressum" id="footer-impressum"></a>
+            <a href="#section-impressum" id="footer-privacy"></a>
+          </div>
+          <div class="footer-copy">
+            <span>© <span id="footer-year"></span> Indischer Dachverband Deutschland e.V. — </span>
+            <span id="footer-rights"></span>
+          </div>
+        </div>
+      </footer>
+
+    </div><!-- /#single-page-view -->
+
+    <!-- ═══════════════════ VEREINE PAGE VIEW ═══════════════════ -->
+    <div id="vereine-view" style="display:none">
+
+      <section class="sp-section page page-vereine" id="vereine-section">
+        <div class="page-header" style="padding:0 64px">
+          <div class="page-header-line"></div>
+          <h1 class="page-title" id="vereine-title"></h1>
+        </div>
+
+        <!-- Mobile back-navigation bar -->
+        <div class="mobile-vereine-nav" id="mobile-vereine-nav">
+          <button class="mobile-back-btn" id="mobile-back-btn" style="display:none">
+            <span class="back-arrow">←</span>
+            <span id="back-label">Back</span>
+          </button>
+          <span class="mobile-breadcrumb" id="mobile-breadcrumb"></span>
+        </div>
+
+        <!-- Back to main page -->
+        <div style="padding:0 64px 24px">
+          <button class="btn btn-outline vereine-back-btn" id="vereine-back-to-main">
+            ← <span id="vereine-back-label">Back to Main</span>
+          </button>
+        </div>
+
+        <div class="vereine-layout step-states" id="vereine-layout">
+          <div class="states-col" id="states-col"></div>
+          <div class="vereine-col" id="vereine-col">
+            <p class="vereine-hint" id="vereine-hint"></p>
+          </div>
+          <div class="detail-col" id="detail-col">
+            <p class="detail-hint" id="detail-hint"></p>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /#vereine-view -->
+
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Indischer Dachverband Deutschland — Uniting Indian communities across Germany" />
+  <meta name="keywords" content="Indian community Germany, Indischer Verein, IDD, Indian diaspora Germany, Bharat Deutschland" />
+  <title>Indischer Dachverband Deutschland</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" class="cookie-banner">
+    <p id="cookie-text"></p>
+    <div class="cookie-actions">
+      <button id="cookie-accept" class="btn-cookie-accept"></button>
       <a href="#privacy" id="cookie-more" class="cookie-link"></a>
     </div>
   </div>

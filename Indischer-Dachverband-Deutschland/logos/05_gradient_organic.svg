@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <defs>
+    <style>
+      .wordmark { font-family: 'Inter','Helvetica Neue','Segoe UI','Nunito Sans',Arial,sans-serif; font-weight: 600; }
+      .wordmark-light { font-family: 'Inter','Helvetica Neue','Segoe UI','Nunito Sans',Arial,sans-serif; font-weight: 400; letter-spacing: 0.18em; }
+      .wordmark-black { font-family: 'Inter','Helvetica Neue','Segoe UI','Nunito Sans',Arial,sans-serif; font-weight: 700; }
+    </style>
+    <linearGradient id="canopyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FF9933"/>
+      <stop offset="50%" stop-color="#FFCE00"/>
+      <stop offset="100%" stop-color="#138808"/>
+    </linearGradient>
+    <linearGradient id="trunkGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#111111"/>
+      <stop offset="100%" stop-color="#000080"/>
+    </linearGradient>
+    <radialGradient id="haloGrad" cx="0.5" cy="0.4" r="0.6">
+      <stop offset="0%" stop-color="#FFCE00" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#FFCE00" stop-opacity="0"/>
+    </radialGradient>
+
+  </defs>
+  <g id="background"></g>
+  <g id="halo">
+    <circle cx="500.0" cy="360" r="280" fill="url(#haloGrad)"/>
+  </g>
+  <g id="roots">
+    <path d="M 486.0 640 C 440.0 700, 320.0 720, 250.0 760 Q 280.0 770, 310.0 765 Q 360.0 770, 410.0 745 Q 460.0 720, 486.0 700 Z" fill="#000080" opacity="0.9"/>
+    <path d="M 514.0 640 C 560.0 700, 680.0 720, 750.0 760 Q 720.0 770, 690.0 765 Q 640.0 770, 590.0 745 Q 540.0 720, 514.0 700 Z" fill="#000080" opacity="0.9"/>
+    <path d="M 494.0 640 Q 470.0 720, 450.0 790 Q 490.0 770, 510.0 790 Q 530.0 720, 506.0 640 Z" fill="#000080" opacity="0.9"/>
+    <circle cx="250.0" cy="760" r="8" fill="#DD0000"/>
+    <circle cx="750.0" cy="760" r="8" fill="#DD0000"/>
+    <circle cx="500.0" cy="800" r="8" fill="#FF9933"/>
+  </g>
+  <g id="trunk">
+      <path d="M 482.00 420.00 L 518.00 420.00 L 542.00 640.00 L 458.00 640.00 Z" fill="url(#trunkGrad)"/>
+  </g>
+  <g id="canopy">
+      <ellipse cx="356.95" cy="284.36" rx="26.00" ry="52.00" transform="rotate(-55.82 356.95 284.36)" fill="url(#canopyGrad)" opacity="0.95"/>
+      <ellipse cx="378.05" cy="262.46" rx="26.00" ry="52.00" transform="rotate(-42.94 378.05 262.46)" fill="url(#canopyGrad)" opacity="0.95"/>
+      <ellipse cx="404.01" cy="244.45" rx="26.00" ry="52.00" transform="rotate(-30.84 404.01 244.45)" fill="url(#canopyGrad)" opacity="0.95"/>
+      <ellipse cx="433.80" cy="231.05" rx="26.00" ry="52.00" transform="rotate(-17.61 433.80 231.05)" fill="url(#canopyGrad)" opacity="0.95"/>
+      <ellipse cx="466.23" cy="222.79" rx="26.00" ry="52.00" transform="rotate(-8.58 466.23 222.79)" fill="url(#canopyGrad)" opacity="0.95"/>
+      <ellipse cx="500.00" cy="220.00" rx="26.00" ry="52.00" transform="rotate(5.07 500.00 220.00)" fill="url(#canopyGrad)" opacity="0.95"/>
+      <ellipse cx="533.77" cy="222.79" rx="26.00" ry="52.00" transform="rotate(5.81 533.77 222.79)" fill="url(#canopyGrad)" opacity="0.95"/>
+      <ellipse cx="566.20" cy="231.05" rx="26.00" ry="52.00" transform="rotate(22.51 566.20 231.05)" fill="url(#canopyGrad)" opacity="0.95"/>
+      <ellipse cx="595.99" cy="244.45" rx="26.00" ry="52.00" transform="rotate(39.70 595.99 244.45)" fill="url(#canopyGrad)" opacity="0.95"/>
+      <ellipse cx="621.95" cy="262.46" rx="26.00" ry="52.00" transform="rotate(47.62 621.95 262.46)" fill="url(#canopyGrad)" opacity="0.95"/>
+      <ellipse cx="643.05" cy="284.36" rx="26.00" ry="52.00" transform="rotate(62.11 643.05 284.36)" fill="url(#canopyGrad)" opacity="0.95"/>
+      <ellipse cx="426.16" cy="276.02" rx="26.00" ry="52.00" transform="rotate(-49.33 426.16 276.02)" fill="url(#canopyGrad)" opacity="0.95"/>
+      <ellipse cx="447.83" cy="261.90" rx="26.00" ry="52.00" transform="rotate(-30.16 447.83 261.90)" fill="url(#canopyGrad)" opacity="0.95"/>
+      <ellipse cx="473.01" cy="253.02" rx="26.00" ry="52.00" transform="rotate(-17.94 473.01 253.02)" fill="url(#canopyGrad)" opacity="0.95"/>
+      <ellipse cx="500.00" cy="250.00" rx="26.00" ry="52.00" transform="rotate(0.53 500.00 250.00)" fill="url(#canopyGrad)" opacity="0.95"/>
+      <ellipse cx="526.99" cy="253.02" rx="26.00" ry="52.00" transform="rotate(15.78 526.99 253.02)" fill="url(#canopyGrad)" opacity="0.95"/>
+      <ellipse cx="552.17" cy="261.90" rx="26.00" ry="52.00" transform="rotate(23.95 552.17 261.90)" fill="url(#canopyGrad)" opacity="0.95"/>
+      <ellipse cx="573.84" cy="276.02" rx="26.00" ry="52.00" transform="rotate(41.29 573.84 276.02)" fill="url(#canopyGrad)" opacity="0.95"/>
+      <ellipse cx="391.45" cy="262.59" rx="10.00" ry="24.00" transform="rotate(-27.23 391.45 262.59)" fill="#FFCE00" opacity="1.00"/>
+      <ellipse cx="561.61" cy="288.58" rx="10.00" ry="24.00" transform="rotate(-29.86 561.61 288.58)" fill="#FFCE00" opacity="1.00"/>
+      <ellipse cx="335.43" cy="349.58" rx="10.00" ry="24.00" transform="rotate(-22.76 335.43 349.58)" fill="#FFCE00" opacity="1.00"/>
+      <ellipse cx="664.44" cy="345.57" rx="10.00" ry="24.00" transform="rotate(36.92 664.44 345.57)" fill="#FFCE00" opacity="1.00"/>
+      <ellipse cx="500.00" cy="200.00" rx="18.00" ry="52.00" transform="rotate(0.00 500.00 200.00)" fill="#FF9933" opacity="1.00"/>
+  </g>
+  <g id="text" text-anchor="middle">
+    <text class="wordmark-black" x="500.0" y="870" font-size="76" fill="#000080">Indischer Dachverband</text>
+    <text class="wordmark-light" x="500.0" y="930" font-size="48" fill="#138808" letter-spacing="16">DEUTSCHLAND</text>
+  </g>
+</svg>

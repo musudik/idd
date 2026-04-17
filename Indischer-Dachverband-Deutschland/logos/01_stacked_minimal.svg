@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <defs>
+    <style>
+      .wordmark { font-family: 'Inter','Helvetica Neue','Segoe UI','Nunito Sans',Arial,sans-serif; font-weight: 600; }
+      .wordmark-light { font-family: 'Inter','Helvetica Neue','Segoe UI','Nunito Sans',Arial,sans-serif; font-weight: 400; letter-spacing: 0.18em; }
+      .wordmark-black { font-family: 'Inter','Helvetica Neue','Segoe UI','Nunito Sans',Arial,sans-serif; font-weight: 700; }
+    </style>
+
+  </defs>
+  <g id="background"></g>
+  <g id="roots" stroke="#000080" stroke-width="10" fill="none" stroke-linecap="round">
+    <path d="M 500.00 640 C 460.0 690, 340.0 700, 270.0 735"/>
+    <path d="M 500.00 640 C 540.0 690, 660.0 700, 730.0 735"/>
+    <path d="M 500.00 640 C 480.0 700, 420.0 740, 380.0 775"/>
+    <path d="M 500.00 640 C 520.0 700, 580.0 740, 620.0 775"/>
+    <circle cx="270.0" cy="735" r="6" fill="#FF9933" stroke="none"/>
+    <circle cx="730.0" cy="735" r="6" fill="#FF9933" stroke="none"/>
+    <circle cx="500.0" cy="790" r="6" fill="#FFCE00" stroke="none"/>
+  </g>
+  <g id="trunk">
+      <path d="M 482.00 420.00 L 518.00 420.00 L 542.00 640.00 L 458.00 640.00 Z" fill="#000080"/>
+  </g>
+  <g id="canopy">
+      <ellipse cx="500.00" cy="167.31" rx="47.82" ry="21.77" transform="rotate(5.56 500.00 167.31)" fill="#FF9933" opacity="0.95"/>
+      <ellipse cx="578.06" cy="177.91" rx="47.26" ry="23.37" transform="rotate(24.91 578.06 177.91)" fill="#FFCE00" opacity="0.95"/>
+      <ellipse cx="634.38" cy="232.84" rx="48.18" ry="22.30" transform="rotate(43.88 634.38 232.84)" fill="#138808" opacity="0.95"/>
+      <ellipse cx="680.60" cy="298.78" rx="46.23" ry="23.16" transform="rotate(69.18 680.60 298.78)" fill="#000080" opacity="0.95"/>
+      <ellipse cx="670.20" cy="378.85" rx="48.51" ry="21.09" transform="rotate(109.98 670.20 378.85)" fill="#DD0000" opacity="0.95"/>
+      <ellipse cx="633.31" cy="446.31" rx="48.70" ry="22.14" transform="rotate(129.23 633.31 446.31)" fill="#FF9933" opacity="0.95"/>
+      <ellipse cx="575.64" cy="497.07" rx="44.15" ry="21.67" transform="rotate(153.04 575.64 497.07)" fill="#FFCE00" opacity="0.95"/>
+      <ellipse cx="422.44" cy="501.06" rx="45.17" ry="21.69" transform="rotate(205.65 422.44 501.06)" fill="#000080" opacity="0.95"/>
+      <ellipse cx="363.67" cy="448.72" rx="45.45" ry="21.06" transform="rotate(230.78 363.67 448.72)" fill="#DD0000" opacity="0.95"/>
+      <ellipse cx="317.93" cy="381.56" rx="47.21" ry="21.56" transform="rotate(258.05 317.93 381.56)" fill="#FF9933" opacity="0.95"/>
+      <ellipse cx="314.91" cy="297.75" rx="44.60" ry="22.00" transform="rotate(288.62 314.91 297.75)" fill="#FFCE00" opacity="0.95"/>
+      <ellipse cx="355.81" cy="225.01" rx="48.68" ry="22.27" transform="rotate(311.95 355.81 225.01)" fill="#138808" opacity="0.95"/>
+      <ellipse cx="419.04" cy="171.88" rx="45.52" ry="22.76" transform="rotate(337.01 419.04 171.88)" fill="#000080" opacity="0.95"/>
+      <ellipse cx="500.00" cy="212.35" rx="40.53" ry="19.77" transform="rotate(5.54 500.00 212.35)" fill="#FF9933" opacity="0.95"/>
+      <ellipse cx="571.15" cy="255.21" rx="41.99" ry="19.24" transform="rotate(35.88 571.15 255.21)" fill="#FFCE00" opacity="0.95"/>
+      <ellipse cx="611.74" cy="320.30" rx="41.52" ry="20.02" transform="rotate(80.78 611.74 320.30)" fill="#138808" opacity="0.95"/>
+      <ellipse cx="601.75" cy="398.75" rx="40.54" ry="20.34" transform="rotate(119.02 601.75 398.75)" fill="#FF9933" opacity="0.95"/>
+      <ellipse cx="541.19" cy="453.16" rx="40.45" ry="18.09" transform="rotate(158.29 541.19 453.16)" fill="#FFCE00" opacity="0.95"/>
+      <ellipse cx="462.08" cy="444.18" rx="42.92" ry="19.78" transform="rotate(203.25 462.08 444.18)" fill="#FF9933" opacity="0.95"/>
+      <ellipse cx="397.92" cy="398.94" rx="40.51" ry="20.95" transform="rotate(234.73 397.92 398.94)" fill="#FFCE00" opacity="0.95"/>
+      <ellipse cx="376.49" cy="318.22" rx="42.30" ry="18.70" transform="rotate(280.63 376.49 318.22)" fill="#138808" opacity="0.95"/>
+      <ellipse cx="422.69" cy="247.86" rx="40.89" ry="19.38" transform="rotate(327.24 422.69 247.86)" fill="#FF9933" opacity="0.95"/>
+      <ellipse cx="500.00" cy="190.00" rx="22.00" ry="52.00" transform="rotate(0.00 500.00 190.00)" fill="#FFCE00" opacity="1.00"/>
+  </g>
+  <g id="text" text-anchor="middle">
+    <text class="wordmark-light" x="500.0" y="870" font-size="56" fill="#000080">INDISCHER  DACHVERBAND</text>
+    <text class="wordmark-black" x="500.0" y="935" font-size="64" fill="#111111" letter-spacing="6">DEUTSCHLAND</text>
+  </g>
+</svg>
