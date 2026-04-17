@@ -483,30 +483,43 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   100% { transform: scale(1.03); }
 }
 
-/* Indo-German flag color mesh overlay */
+/* Indo-German flag color wash — cycles through each flag color one at a time */
 .hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background:
-    radial-gradient(ellipse at 10% 70%, rgba(255,153,51,0.52) 0%, transparent 45%),
-    radial-gradient(ellipse at 35% 20%, rgba(255,204,0,0.30) 0%, transparent 38%),
-    radial-gradient(ellipse at 70% 80%, rgba(19,136,8,0.38) 0%, transparent 42%),
-    radial-gradient(ellipse at 85% 25%, rgba(221,0,0,0.32) 0%, transparent 40%),
-    radial-gradient(ellipse at 55% 55%, rgba(0,0,128,0.22) 0%, transparent 50%),
-    linear-gradient(155deg,
-      rgba(8,3,0,0.92) 0%,
-      rgba(20,8,0,0.86) 25%,
-      rgba(5,18,5,0.80) 55%,
-      rgba(10,10,26,0.85) 100%
-    );
-  animation: heroOverlayPulse 10s ease-in-out infinite alternate;
+  /* base dark layer always present */
+  background: linear-gradient(155deg, rgba(6,2,0,0.88) 0%, rgba(4,12,4,0.82) 60%, rgba(6,6,14,0.88) 100%);
+  animation: heroColorCycle 18s ease-in-out infinite;
 }
 
-@keyframes heroOverlayPulse {
-  0%   { opacity: 1; }
-  50%  { opacity: 0.92; }
-  100% { opacity: 1; }
+@keyframes heroColorCycle {
+  /* 🇮🇳 Saffron */
+  0%    { box-shadow: inset 0 0 220px 60px rgba(255,153,51,0.55); }
+  8%    { box-shadow: inset 0 0 220px 60px rgba(255,153,51,0.55); }
+  /* fade to white/neutral */
+  14%   { box-shadow: inset 0 0 220px 60px rgba(255,255,255,0.10); }
+  /* 🇮🇳 Green */
+  20%   { box-shadow: inset 0 0 220px 60px rgba(19,136,8,0.50); }
+  28%   { box-shadow: inset 0 0 220px 60px rgba(19,136,8,0.50); }
+  /* fade */
+  34%   { box-shadow: inset 0 0 220px 60px rgba(255,255,255,0.08); }
+  /* 🇩🇪 Black accent — subtle */
+  38%   { box-shadow: inset 0 0 220px 60px rgba(30,30,30,0.65); }
+  44%   { box-shadow: inset 0 0 220px 60px rgba(30,30,30,0.65); }
+  /* fade */
+  50%   { box-shadow: inset 0 0 220px 60px rgba(255,255,255,0.08); }
+  /* 🇩🇪 Red */
+  56%   { box-shadow: inset 0 0 220px 60px rgba(221,0,0,0.48); }
+  64%   { box-shadow: inset 0 0 220px 60px rgba(221,0,0,0.48); }
+  /* fade */
+  70%   { box-shadow: inset 0 0 220px 60px rgba(255,255,255,0.08); }
+  /* 🇩🇪 Gold */
+  76%   { box-shadow: inset 0 0 220px 60px rgba(255,204,0,0.50); }
+  84%   { box-shadow: inset 0 0 220px 60px rgba(255,204,0,0.50); }
+  /* fade back to saffron */
+  90%   { box-shadow: inset 0 0 220px 60px rgba(255,255,255,0.08); }
+  100%  { box-shadow: inset 0 0 220px 60px rgba(255,153,51,0.55); }
 }
 
 .hero-content {
