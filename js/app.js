@@ -1187,3 +1187,121 @@ function setHTML(id, html) {
 
 // ── Start ────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', init);
+
+// ══════════════════════════════════════════════════════════════
+// EMBLEM HERO — Particle System & Scroll-triggered Reveals
+// ══════════════════════════════════════════════════════════════
+
+(function initEmblemHero() {
+  document.addEventListener('DOMContentLoaded', () => {
+    initEmblemParticles();
+    initConceptCardObserver();
+  });
+
+  // ── Floating Particles (leaf-like, in flag colors) ──
+  function initEmblemParticles() {
+    const canvas = document.getElementById('emblem-particles');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    const FLAG_COLORS = [
+      'rgba(255,153,51,0.6)',   // saffron
+      'rgba(255,255,255,0.3)',  // white
+      'rgba(19,136,8,0.5)',     // green
+      'rgba(40,40,40,0.3)',     // black (subtle)
+      'rgba(221,0,0,0.4)',      // red
+      'rgba(255,204,0,0.5)',    // gold
+    ];
+
+    function resize() {
+      const hero = canvas.parentElement;
+      if (!hero) return;
+      canvas.width = hero.offsetWidth;
+      canvas.height = hero.offsetHeight;
+    }
+
+    function createParticle() {
+      return {
+        x: Math.random() * canvas.width,
+        y: canvas.height + 10,
+        size: Math.random() * 3 + 1,
+        speedY: -(Math.random() * 0.6 + 0.2),
+        speedX: (Math.random() - 0.5) * 0.4,
+        opacity: Math.random() * 0.7 + 0.3,
+        color: FLAG_COLORS[Math.floor(Math.random() * FLAG_COLORS.length)],
+        life: 0,
+        maxLife: Math.random() * 400 + 200,
+        wobbleSpeed: Math.random() * 0.02 + 0.01,
+        wobbleAmp: Math.random() * 30 + 10,
+      };
+    }
+
+    function animate() {
+      if (!canvas.offsetParent) { requestAnimationFrame(animate); return; }
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Spawn new particles
+      if (particles.length < 50 && Math.random() > 0.92) {
+        particles.push(createParticle());
+      }
+
+      particles.forEach((p, i) => {
+        p.life++;
+        p.y += p.speedY;
+        p.x += p.speedX + Math.sin(p.life * p.wobbleSpeed) * 0.3;
+
+        const lifeRatio = p.life / p.maxLife;
+        const alpha = lifeRatio < 0.15 ? lifeRatio / 0.15 :
+                      lifeRatio > 0.8 ? (1 - lifeRatio) / 0.2 : 1;
+
+        ctx.save();
+        ctx.globalAlpha = p.opacity * alpha;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.fill();
+
+        // Add glow
+        ctx.shadowColor = p.color;
+        ctx.shadowBlur = p.size * 4;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size * 0.5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+
+        // Remove dead particles
+        if (p.life > p.maxLife || p.y < -20) {
+          particles.splice(i, 1);
+        }
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+    animate();
+  }
+
+  // ── Intersection Observer for Concept Cards ──
+  function initConceptCardObserver() {
+    const cards = document.querySelectorAll('.concept-card');
+    if (!cards.length) return;
+
+    // Reset animation state — cards start hidden
+    cards.forEach(card => {
+      card.style.animationPlayState = 'paused';
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+    cards.forEach(card => observer.observe(card));
+  }
+})();

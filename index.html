@@ -65,29 +65,89 @@
 
       <!-- HOME â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
       <section id="section-home" class="sp-section page page-home">
-        <div class="hero">
+        <div class="hero hero--emblem">
           <div class="hero-carousel" id="hero-carousel"></div>
           <div class="hero-overlay"></div>
 
-          <!-- Main hero content row -->
-          <div class="hero-body">
-            <div class="hero-content">
-              <img src="assets/images/IDD.png" alt="Indischer Dachverband Deutschland" class="hero-main-logo" />
-              <div class="hero-headline" id="hero-headline"></div>
-              <p class="hero-sub" id="hero-sub"></p>
-              <p class="hero-intro" id="hero-intro"></p>
-              <div class="hero-ctas">
-                <a href="#section-join" class="btn btn-hero-primary" id="cta-join"></a>
-                <button class="btn btn-hero-outline" id="cta-vereine" onclick="showVereineView()"></button>
+          <!-- Floating particles canvas -->
+          <canvas class="emblem-particles" id="emblem-particles"></canvas>
+
+          <!-- ═══ EMBLEM SHOWCASE ═══ -->
+          <div class="hero-body hero-body--emblem">
+
+            <!-- Massive Logo with Concentric Glow Rings -->
+            <div class="emblem-stage">
+              <div class="emblem-ring-system">
+                <div class="emblem-ring emblem-ring--1"></div>
+                <div class="emblem-ring emblem-ring--2"></div>
+                <div class="emblem-ring emblem-ring--3"></div>
+                <div class="emblem-ring emblem-ring--4"></div>
               </div>
-              <div class="hero-indicators" id="hero-indicators"></div>
+              <div class="emblem-logo-wrap">
+                <img src="assets/images/IDD.png" alt="Indischer Dachverband Deutschland" class="emblem-logo" />
+              </div>
             </div>
 
-            <!-- Stats panel — right side of hero -->
-            <div class="hero-stats" id="stats-inner"></div>
+            <!-- Core Tagline with Shimmer -->
+            <div class="emblem-tagline">
+              <span class="emblem-tagline-word" style="--word-color: #FF9933; --delay: 0.8s;">Rooted in India.</span>
+              <span class="emblem-tagline-word" style="--word-color: rgba(255,255,255,0.92); --delay: 1.2s;">Growing in Germany.</span>
+              <span class="emblem-tagline-word" style="--word-color: #7DD87D; --delay: 1.6s;">United as one.</span>
+            </div>
+
+            <!-- Logo Concept Cards -->
+            <div class="emblem-concepts" id="emblem-concepts">
+              <div class="concept-card" style="--card-accent: #FF9933; --card-delay: 0.2s;">
+                <div class="concept-card-glow"></div>
+                <div class="concept-card-icon">
+                  <svg viewBox="0 0 40 40" fill="none"><path d="M20 4c0 0-4 6-4 12 0 4 2 6 4 8 2-2 4-4 4-8 0-6-4-12-4-12z" fill="currentColor" opacity="0.7"/><path d="M20 24v12M14 36c0-4 3-7 6-8m6 8c0-4-3-7-6-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8 16c4 2 8 6 12 8M32 16c-4 2-8 6-12 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/></svg>
+                </div>
+                <h4 class="concept-card-title">The Inverted Banyan</h4>
+                <p class="concept-card-text">Roots in India, branches flourishing in Germany — the eternal banyan symbolizes strength, continuity, and the diaspora's journey across generations.</p>
+              </div>
+              <div class="concept-card" style="--card-accent: #DD0000; --card-delay: 0.4s;">
+                <div class="concept-card-glow"></div>
+                <div class="concept-card-icon">
+                  <svg viewBox="0 0 40 40" fill="none"><circle cx="12" cy="14" r="5" fill="#FF9933" opacity="0.8"/><circle cx="20" cy="14" r="5" fill="#fff" opacity="0.6"/><circle cx="28" cy="14" r="5" fill="#138808" opacity="0.8"/><circle cx="12" cy="26" r="5" fill="#1A1A1A" opacity="0.7"/><circle cx="20" cy="26" r="5" fill="#DD0000" opacity="0.8"/><circle cx="28" cy="26" r="5" fill="#FFCC00" opacity="0.8"/></svg>
+                </div>
+                <h4 class="concept-card-title">Colors of Two Nations</h4>
+                <p class="concept-card-text">Saffron, white &amp; green fuse with black, red &amp; gold — not mere coexistence, but a harmonious alignment between origin and future.</p>
+              </div>
+              <div class="concept-card" style="--card-accent: #FFCC00; --card-delay: 0.6s;">
+                <div class="concept-card-glow"></div>
+                <div class="concept-card-icon">
+                  <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="1.5" opacity="0.6"/><circle cx="20" cy="20" r="10" stroke="currentColor" stroke-width="1.2" opacity="0.4"/><circle cx="20" cy="20" r="4" fill="currentColor" opacity="0.7"/></svg>
+                </div>
+                <h4 class="concept-card-title">Circle of Unity</h4>
+                <p class="concept-card-text">The circular form represents oneness and inclusiveness — a neutral, non-partisan platform where all communities find equal representation.</p>
+              </div>
+              <div class="concept-card" style="--card-accent: #138808; --card-delay: 0.8s;">
+                <div class="concept-card-glow"></div>
+                <div class="concept-card-icon">
+                  <svg viewBox="0 0 40 40" fill="none"><text x="4" y="18" font-family="serif" font-size="16" fill="currentColor" opacity="0.8">A</text><text x="18" y="30" font-family="serif" font-size="12" fill="currentColor" opacity="0.5">a</text><path d="M4 34h32" stroke="currentColor" stroke-width="1" opacity="0.3"/></svg>
+                </div>
+                <h4 class="concept-card-title">Three Sacred Words</h4>
+                <p class="concept-card-text">"Indischer" — identity &amp; origin. "Dachverband" — unity &amp; structure. "Deutschland" — growth, belonging &amp; future.</p>
+              </div>
+            </div>
+
+            <!-- Original headline + CTAs + Stats -->
+            <div class="emblem-bottom">
+              <div class="emblem-left">
+                <div class="hero-headline" id="hero-headline"></div>
+                <p class="hero-sub" id="hero-sub"></p>
+                <p class="hero-intro" id="hero-intro"></p>
+                <div class="hero-ctas">
+                  <a href="#section-join" class="btn btn-hero-primary" id="cta-join"></a>
+                  <button class="btn btn-hero-outline" id="cta-vereine" onclick="showVereineView()"></button>
+                </div>
+                <div class="hero-indicators" id="hero-indicators"></div>
+              </div>
+              <div class="hero-stats" id="stats-inner"></div>
+            </div>
           </div>
 
-          <!-- Logo strip — bottom of hero, inside the dark overlay -->
+          <!-- Logo strip — bottom of hero -->
           <div class="hero-strip hero-strip--inset" id="hero-strip">
             <div class="hero-strip-track" id="hero-strip-track"></div>
             <div class="hero-strip-overlay hero-strip-overlay--left"></div>
