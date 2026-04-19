@@ -260,6 +260,36 @@ function renderHome() {
   setText('cta-join',    t(h.ctaJoin));
   setText('cta-vereine', t(h.ctaVereine));
 
+  // Emblem tagline
+  const taglineEl = document.getElementById('emblem-tagline');
+  if (taglineEl && h.emblemTagline) {
+    const taglineColors = ['#FF9933', 'rgba(255,255,255,0.92)', '#7DD87D'];
+    const taglineDelays = ['0.8s', '1.2s', '1.6s'];
+    taglineEl.innerHTML = h.emblemTagline.map((word, i) =>
+      `<span class="emblem-tagline-word" style="--word-color: ${taglineColors[i]}; --delay: ${taglineDelays[i]};">${t(word)}</span>`
+    ).join('');
+  }
+
+  // Concept cards
+  const conceptsEl = document.getElementById('emblem-concepts');
+  if (conceptsEl && h.conceptCards) {
+    const CONCEPT_ICONS = {
+      banyan: '<svg viewBox="0 0 40 40" fill="none"><path d="M20 4c0 0-4 6-4 12 0 4 2 6 4 8 2-2 4-4 4-8 0-6-4-12-4-12z" fill="currentColor" opacity="0.7"/><path d="M20 24v12M14 36c0-4 3-7 6-8m6 8c0-4-3-7-6-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8 16c4 2 8 6 12 8M32 16c-4 2-8 6-12 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/></svg>',
+      colors: '<svg viewBox="0 0 40 40" fill="none"><circle cx="12" cy="14" r="5" fill="#FF9933" opacity="0.8"/><circle cx="20" cy="14" r="5" fill="#fff" opacity="0.6"/><circle cx="28" cy="14" r="5" fill="#138808" opacity="0.8"/><circle cx="12" cy="26" r="5" fill="#1A1A1A" opacity="0.7"/><circle cx="20" cy="26" r="5" fill="#DD0000" opacity="0.8"/><circle cx="28" cy="26" r="5" fill="#FFCC00" opacity="0.8"/></svg>',
+      circle: '<svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="1.5" opacity="0.6"/><circle cx="20" cy="20" r="10" stroke="currentColor" stroke-width="1.2" opacity="0.4"/><circle cx="20" cy="20" r="4" fill="currentColor" opacity="0.7"/></svg>',
+      typography: '<svg viewBox="0 0 40 40" fill="none"><text x="4" y="18" font-family="serif" font-size="16" fill="currentColor" opacity="0.8">A</text><text x="18" y="30" font-family="serif" font-size="12" fill="currentColor" opacity="0.5">a</text><path d="M4 34h32" stroke="currentColor" stroke-width="1" opacity="0.3"/></svg>'
+    };
+    const cardDelays = ['0.2s', '0.4s', '0.6s', '0.8s'];
+    conceptsEl.innerHTML = h.conceptCards.map((card, i) => `
+      <div class="concept-card" style="--card-accent: ${card.accent}; --card-delay: ${cardDelays[i]};">
+        <div class="concept-card-glow"></div>
+        <div class="concept-card-icon">${CONCEPT_ICONS[card.icon] || ''}</div>
+        <h4 class="concept-card-title">${t(card.title)}</h4>
+        <p class="concept-card-text">${t(card.text)}</p>
+      </div>
+    `).join('');
+  }
+
   // Stats
   const statsEl = document.getElementById('stats-inner');
   statsEl.innerHTML = h.stats.map(s => `

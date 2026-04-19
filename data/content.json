@@ -92,7 +92,82 @@
       "en": "Featured Vereine",
       "de": "Ausgewählte Vereine",
       "hi": "विशेष वेराइने"
-    }
+    },
+    "emblemTagline": [
+      {
+        "en": "Rooted in India.",
+        "de": "Verwurzelt in Indien.",
+        "hi": "भारत में जड़ें।"
+      },
+      {
+        "en": "Growing in Germany.",
+        "de": "Wachsend in Deutschland.",
+        "hi": "जर्मनी में विकास।"
+      },
+      {
+        "en": "United as one.",
+        "de": "Vereint als Einheit.",
+        "hi": "एक होकर एकजुट।"
+      }
+    ],
+    "conceptCards": [
+      {
+        "accent": "#FF9933",
+        "icon": "banyan",
+        "title": {
+          "en": "The Banyan Tree",
+          "de": "Der Banyanbaum",
+          "hi": "बरगद का पेड़"
+        },
+        "text": {
+          "en": "Roots in India, branches flourishing in Germany — the eternal banyan symbolizes strength, continuity, and the diaspora's journey across generations.",
+          "de": "Wurzeln in Indien, Zweige gedeihen in Deutschland — der ewige Banyan symbolisiert Stärke, Kontinuität und die Reise der Diaspora über Generationen.",
+          "hi": "भारत में जड़ें, जर्मनी में फलती-फूलती शाखाएँ — शाश्वत बरगद शक्ति, निरंतरता और पीढ़ियों के प्रवासी सफ़र का प्रतीक है।"
+        }
+      },
+      {
+        "accent": "#DD0000",
+        "icon": "colors",
+        "title": {
+          "en": "Colors of Two Nations",
+          "de": "Farben zweier Nationen",
+          "hi": "दो राष्ट्रों के रंग"
+        },
+        "text": {
+          "en": "Saffron, white & green fuse with black, red & gold — not mere coexistence, but a harmonious alignment between origin and future.",
+          "de": "Safran, Weiß und Grün verschmelzen mit Schwarz, Rot und Gold — kein bloßes Nebeneinander, sondern ein harmonischer Einklang zwischen Herkunft und Zukunft.",
+          "hi": "केसरिया, सफ़ेद और हरा काले, लाल और सोने के साथ मिलता है — केवल सहअस्तित्व नहीं, बल्कि मूल और भविष्य के बीच सामंजस्यपूर्ण संरेखण।"
+        }
+      },
+      {
+        "accent": "#FFCC00",
+        "icon": "circle",
+        "title": {
+          "en": "Circle of Unity",
+          "de": "Kreis der Einheit",
+          "hi": "एकता का वृत्त"
+        },
+        "text": {
+          "en": "The circular form represents oneness and inclusiveness — a neutral, non-partisan platform where all communities find equal representation.",
+          "de": "Die kreisförmige Form steht für Einheit und Inklusivität — eine neutrale, überparteiliche Plattform, auf der alle Gemeinschaften gleichberechtigt vertreten sind.",
+          "hi": "वृत्ताकार रूप एकता और समावेशिता का प्रतिनिधित्व करता है — एक तटस्थ, गैर-पक्षपाती मंच जहाँ सभी समुदायों को समान प्रतिनिधित्व मिलता है।"
+        }
+      },
+      {
+        "accent": "#138808",
+        "icon": "typography",
+        "title": {
+          "en": "Three Sacred Words",
+          "de": "Drei heilige Worte",
+          "hi": "तीन पवित्र शब्द"
+        },
+        "text": {
+          "en": "\"Indischer\" — identity & origin. \"Dachverband\" — unity & structure. \"Deutschland\" — growth, belonging & future.",
+          "de": "\"Indischer\" — Identität und Herkunft. \"Dachverband\" — Einheit und Struktur. \"Deutschland\" — Wachstum, Zugehörigkeit und Zukunft.",
+          "hi": "\"इंडिशर\" — पहचान और मूल। \"डाखफरबांड\" — एकता और संरचना। \"डॉयचलैंड\" — विकास, अपनापन और भविष्य।"
+        }
+      }
+    ]
   },
   "about": {
     "title": {
