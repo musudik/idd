@@ -528,53 +528,57 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   opacity: 0;
 }
 
+/* Ring 1 — 🇮🇳 Saffron #FF9933 */
 .emblem-ring--1 {
   width: 110%;
   height: 110%;
   --ring-dur: 5s;
   --ring-delay: 0s;
-  border-color: rgba(255, 153, 51, 0.25);
-  box-shadow: 0 0 40px 8px rgba(255, 153, 51, 0.08),
-              inset 0 0 40px 8px rgba(255, 153, 51, 0.04);
+  border-color: rgba(255, 153, 51, 0.50);
+  box-shadow: 0 0 60px 14px rgba(255, 153, 51, 0.25),
+              inset 0 0 50px 10px rgba(255, 153, 51, 0.12);
 }
 
+/* Ring 2 — 🇩🇪 Gold #FFCC00 */
 .emblem-ring--2 {
   width: 130%;
   height: 130%;
   --ring-dur: 7s;
   --ring-delay: 1.2s;
-  border-color: rgba(255, 204, 0, 0.18);
-  box-shadow: 0 0 50px 10px rgba(255, 204, 0, 0.06),
-              inset 0 0 50px 10px rgba(255, 204, 0, 0.03);
+  border-color: rgba(255, 204, 0, 0.40);
+  box-shadow: 0 0 70px 14px rgba(255, 204, 0, 0.20),
+              inset 0 0 60px 12px rgba(255, 204, 0, 0.10);
 }
 
+/* Ring 3 — 🇮🇳 Green #138808 */
 .emblem-ring--3 {
   width: 155%;
   height: 155%;
   --ring-dur: 9s;
   --ring-delay: 2.4s;
-  border-color: rgba(19, 136, 8, 0.15);
-  box-shadow: 0 0 60px 12px rgba(19, 136, 8, 0.05),
-              inset 0 0 60px 12px rgba(19, 136, 8, 0.02);
+  border-color: rgba(19, 136, 8, 0.40);
+  box-shadow: 0 0 80px 16px rgba(19, 136, 8, 0.18),
+              inset 0 0 70px 14px rgba(19, 136, 8, 0.08);
 }
 
+/* Ring 4 — 🇩🇪 Red #DD0000 */
 .emblem-ring--4 {
   width: 185%;
   height: 185%;
   --ring-dur: 11s;
   --ring-delay: 3.6s;
-  border-color: rgba(221, 0, 0, 0.10);
-  box-shadow: 0 0 80px 16px rgba(221, 0, 0, 0.04),
-              inset 0 0 80px 16px rgba(221, 0, 0, 0.02);
+  border-color: rgba(221, 0, 0, 0.30);
+  box-shadow: 0 0 100px 20px rgba(221, 0, 0, 0.15),
+              inset 0 0 80px 16px rgba(221, 0, 0, 0.07);
 }
 
 @keyframes emblemRingPulse {
   0%, 100% {
-    opacity: 0.3;
+    opacity: 0.5;
     transform: scale(1) rotate(0deg);
   }
   25% {
-    opacity: 0.8;
+    opacity: 1;
     transform: scale(1.04) rotate(2deg);
   }
   50% {
@@ -838,38 +842,38 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
   position: absolute;
   inset: 0;
   z-index: 1;
-  /* base dark layer always present */
-  background: linear-gradient(155deg, rgba(6,2,0,0.88) 0%, rgba(4,12,4,0.82) 60%, rgba(6,6,14,0.88) 100%);
+  /* lighter base so flag washes pop */
+  background: linear-gradient(155deg, rgba(10,4,0,0.72) 0%, rgba(6,16,6,0.68) 60%, rgba(8,8,18,0.72) 100%);
   animation: heroColorCycle 18s ease-in-out infinite;
 }
 
 @keyframes heroColorCycle {
-  /* 🇮🇳 Saffron */
-  0%    { box-shadow: inset 0 0 220px 60px rgba(255,153,51,0.55); }
-  8%    { box-shadow: inset 0 0 220px 60px rgba(255,153,51,0.55); }
-  /* fade to white/neutral */
-  14%   { box-shadow: inset 0 0 220px 60px rgba(255,255,255,0.10); }
-  /* 🇮🇳 Green */
-  20%   { box-shadow: inset 0 0 220px 60px rgba(19,136,8,0.50); }
-  28%   { box-shadow: inset 0 0 220px 60px rgba(19,136,8,0.50); }
+  /* 🇮🇳 Saffron #FF9933 */
+  0%    { box-shadow: inset 0 0 280px 80px rgba(255,153,51,0.75); }
+  8%    { box-shadow: inset 0 0 280px 80px rgba(255,153,51,0.75); }
+  /* 🇮🇳 White #FFFFFF */
+  14%   { box-shadow: inset 0 0 260px 70px rgba(255,255,255,0.25); }
+  /* 🇮🇳 Green #138808 */
+  20%   { box-shadow: inset 0 0 280px 80px rgba(19,136,8,0.70); }
+  28%   { box-shadow: inset 0 0 280px 80px rgba(19,136,8,0.70); }
   /* fade */
-  34%   { box-shadow: inset 0 0 220px 60px rgba(255,255,255,0.08); }
-  /* 🇩🇪 Black accent — subtle */
-  38%   { box-shadow: inset 0 0 220px 60px rgba(30,30,30,0.65); }
-  44%   { box-shadow: inset 0 0 220px 60px rgba(30,30,30,0.65); }
+  34%   { box-shadow: inset 0 0 260px 70px rgba(255,255,255,0.18); }
+  /* 🇩🇪 Black #000000 — subtle shimmer */
+  38%   { box-shadow: inset 0 0 260px 80px rgba(0,0,0,0.50); }
+  44%   { box-shadow: inset 0 0 260px 80px rgba(0,0,0,0.50); }
   /* fade */
-  50%   { box-shadow: inset 0 0 220px 60px rgba(255,255,255,0.08); }
-  /* 🇩🇪 Red */
-  56%   { box-shadow: inset 0 0 220px 60px rgba(221,0,0,0.48); }
-  64%   { box-shadow: inset 0 0 220px 60px rgba(221,0,0,0.48); }
+  50%   { box-shadow: inset 0 0 260px 70px rgba(255,255,255,0.18); }
+  /* 🇩🇪 Red #DD0000 */
+  56%   { box-shadow: inset 0 0 280px 80px rgba(221,0,0,0.70); }
+  64%   { box-shadow: inset 0 0 280px 80px rgba(221,0,0,0.70); }
   /* fade */
-  70%   { box-shadow: inset 0 0 220px 60px rgba(255,255,255,0.08); }
-  /* 🇩🇪 Gold */
-  76%   { box-shadow: inset 0 0 220px 60px rgba(255,204,0,0.50); }
-  84%   { box-shadow: inset 0 0 220px 60px rgba(255,204,0,0.50); }
+  70%   { box-shadow: inset 0 0 260px 70px rgba(255,255,255,0.18); }
+  /* 🇩🇪 Gold #FFCC00 */
+  76%   { box-shadow: inset 0 0 280px 80px rgba(255,204,0,0.72); }
+  84%   { box-shadow: inset 0 0 280px 80px rgba(255,204,0,0.72); }
   /* fade back to saffron */
-  90%   { box-shadow: inset 0 0 220px 60px rgba(255,255,255,0.08); }
-  100%  { box-shadow: inset 0 0 220px 60px rgba(255,153,51,0.55); }
+  90%   { box-shadow: inset 0 0 260px 70px rgba(255,255,255,0.18); }
+  100%  { box-shadow: inset 0 0 280px 80px rgba(255,153,51,0.75); }
 }
 
 .hero-content {
