@@ -1,0 +1,85 @@
+{
+  "states": [
+    {
+      "id": "by",
+      "name": "Bayern",
+      "vereine": []
+    },
+    {
+      "id": "bw",
+      "name": "Baden-Württemberg",
+      "vereine": []
+    },
+    {
+      "id": "be",
+      "name": "Berlin",
+      "vereine": []
+    },
+    {
+      "id": "bb",
+      "name": "Brandenburg",
+      "vereine": []
+    },
+    {
+      "id": "hb",
+      "name": "Bremen",
+      "vereine": []
+    },
+    {
+      "id": "hh",
+      "name": "Hamburg",
+      "vereine": []
+    },
+    {
+      "id": "he",
+      "name": "Hessen",
+      "vereine": []
+    },
+    {
+      "id": "mv",
+      "name": "Mecklenburg-Vorpommern",
+      "vereine": []
+    },
+    {
+      "id": "ni",
+      "name": "Niedersachsen",
+      "vereine": []
+    },
+    {
+      "id": "nw",
+      "name": "Nordrhein-Westfalen",
+      "vereine": []
+    },
+    {
+      "id": "rp",
+      "name": "Rheinland-Pfalz",
+      "vereine": []
+    },
+    {
+      "id": "sl",
+      "name": "Saarland",
+      "vereine": []
+    },
+    {
+      "id": "sn",
+      "name": "Sachsen",
+      "vereine": []
+    },
+    {
+      "id": "st",
+      "name": "Sachsen-Anhalt",
+      "vereine": []
+    },
+    {
+      "id": "sh",
+      "name": "Schleswig-Holstein",
+      "vereine": []
+    },
+    {
+      "id": "th",
+      "name": "Thüringen",
+      "vereine": []
+    }
+  ],
+  "featured": []
+}

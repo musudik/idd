@@ -33,7 +33,7 @@ function t(obj) {
 async function loadData() {
   const [contentRes, vereineRes] = await Promise.all([
     fetch('data/content.json'),
-    fetch('data/vereine.json')
+    fetch('data/vereine_empty.json')
   ]);
   CONTENT = await contentRes.json();
   VEREINE = await vereineRes.json();
@@ -274,9 +274,10 @@ function renderHome() {
   const conceptsEl = document.getElementById('emblem-concepts');
   if (conceptsEl && h.conceptCards) {
     const CONCEPT_ICONS = {
-      banyan: '<svg viewBox="0 0 40 40" fill="none"><path d="M20 4c0 0-4 6-4 12 0 4 2 6 4 8 2-2 4-4 4-8 0-6-4-12-4-12z" fill="currentColor" opacity="0.7"/><path d="M20 24v12M14 36c0-4 3-7 6-8m6 8c0-4-3-7-6-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8 16c4 2 8 6 12 8M32 16c-4 2-8 6-12 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/></svg>',
-      colors: '<svg viewBox="0 0 40 40" fill="none"><circle cx="12" cy="14" r="5" fill="#FF9933" opacity="0.8"/><circle cx="20" cy="14" r="5" fill="#fff" opacity="0.6"/><circle cx="28" cy="14" r="5" fill="#138808" opacity="0.8"/><circle cx="12" cy="26" r="5" fill="#1A1A1A" opacity="0.7"/><circle cx="20" cy="26" r="5" fill="#DD0000" opacity="0.8"/><circle cx="28" cy="26" r="5" fill="#FFCC00" opacity="0.8"/></svg>',
       circle: '<svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="1.5" opacity="0.6"/><circle cx="20" cy="20" r="10" stroke="currentColor" stroke-width="1.2" opacity="0.4"/><circle cx="20" cy="20" r="4" fill="currentColor" opacity="0.7"/></svg>',
+      colors: '<svg viewBox="0 0 40 40" fill="none"><circle cx="12" cy="14" r="5" fill="#FF9933" opacity="0.8"/><circle cx="20" cy="14" r="5" fill="#fff" opacity="0.6"/><circle cx="28" cy="14" r="5" fill="#138808" opacity="0.8"/><circle cx="12" cy="26" r="5" fill="#1A1A1A" opacity="0.7"/><circle cx="20" cy="26" r="5" fill="#DD0000" opacity="0.8"/><circle cx="28" cy="26" r="5" fill="#FFCC00" opacity="0.8"/></svg>',
+      banyan: '<svg viewBox="0 0 40 40" fill="none"><path d="M20 4c0 0-4 6-4 12 0 4 2 6 4 8 2-2 4-4 4-8 0-6-4-12-4-12z" fill="currentColor" opacity="0.7"/><path d="M20 24v12M14 36c0-4 3-7 6-8m6 8c0-4-3-7-6-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8 16c4 2 8 6 12 8M32 16c-4 2-8 6-12 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/></svg>',
+      integration: '<svg viewBox="0 0 40 40" fill="none"><path d="M20 4c0 0-4 6-4 12 0 4 2 6 4 8 2-2 4-4 4-8 0-6-4-12-4-12z" fill="currentColor" opacity="0.7"/><path d="M20 24v12M14 36c0-4 3-7 6-8m6 8c0-4-3-7-6-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8 16c4 2 8 6 12 8M32 16c-4 2-8 6-12 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/></svg>',
       typography: '<svg viewBox="0 0 40 40" fill="none"><text x="4" y="18" font-family="serif" font-size="16" fill="currentColor" opacity="0.8">A</text><text x="18" y="30" font-family="serif" font-size="12" fill="currentColor" opacity="0.5">a</text><path d="M4 34h32" stroke="currentColor" stroke-width="1" opacity="0.3"/></svg>'
     };
     const cardDelays = ['0.2s', '0.4s', '0.6s', '0.8s'];
@@ -530,36 +531,34 @@ function renderNews() {
 
 // ── LEADERSHIP + ADVISORS ────────────────────────────────────
 function renderLeadership() {
-  const a = CONTENT.about;
   const labels = { en:'Leadership', de:'Führung', hi:'नेतृत्व' };
   setText('leadership-section-title', labels[lang] || 'Leadership');
 
+  const tbcLabel = { en: 'To Be Confirmed', de: 'Wird noch bestätigt', hi: 'शीघ्र घोषित किया जाएगा' };
+  const tbcNote  = { en: 'Leadership details will be announced soon.', de: 'Details zur Führung werden in Kürze bekannt gegeben.', hi: 'नेतृत्व विवरण जल्द ही घोषित किया जाएगा।' };
+  const tbcHTML  = `<div style="padding:40px;text-align:center;color:var(--text-muted);font-style:italic;">
+    <div style="font-size:2rem;margin-bottom:12px">⏳</div>
+    <div style="font-size:1.1rem;font-weight:600;margin-bottom:8px">${tbcLabel[lang] || tbcLabel.en}</div>
+    <div style="font-size:0.95rem">${tbcNote[lang] || tbcNote.en}</div>
+  </div>`;
+
   const grid = document.getElementById('leadership-grid');
-  grid.innerHTML = a.leadership.map(l => {
-    const initials = l.name.split(' ').map(w => w[0]).join('').slice(0,2);
-    return `
-      <div class="leader-card">
-        <div class="leader-initials">${initials}</div>
-        <div class="leader-name">${l.name}</div>
-        <div class="leader-role">${t(l.role)}</div>
-        <div class="leader-state">${l.state}</div>
-      </div>
-    `;
-  }).join('');
+  grid.innerHTML = tbcHTML;
 
   // Advisors
   const adv = CONTENT.advisors;
   setText('advisors-title', t(adv.title));
   setText('advisors-subtitle', t(adv.subtitle));
 
+  const advTbcNote = { en: 'Advisory Board members will be announced soon.', de: 'Die Mitglieder des Beirats werden in Kürze bekannt gegeben.', hi: 'सलाहकार बोर्ड के सदस्यों की शीघ्र घोषणा की जाएगी।' };
+  const advTbcHTML = `<div style="padding:40px;text-align:center;color:var(--text-muted);font-style:italic;">
+    <div style="font-size:2rem;margin-bottom:12px">⏳</div>
+    <div style="font-size:1.1rem;font-weight:600;margin-bottom:8px">${tbcLabel[lang] || tbcLabel.en}</div>
+    <div style="font-size:0.95rem">${advTbcNote[lang] || advTbcNote.en}</div>
+  </div>`;
+
   const advGrid = document.getElementById('advisors-grid');
-  advGrid.innerHTML = adv.members.map(m => `
-    <div class="advisor-card">
-      <div class="advisor-avatar">?</div>
-      <div class="advisor-name">${t(m.name)}</div>
-      <div class="advisor-role">${t(m.role)}</div>
-    </div>
-  `).join('');
+  advGrid.innerHTML = advTbcHTML;
 }
 
 // ── JOIN / MEMBERSHIP ────────────────────────────────────────

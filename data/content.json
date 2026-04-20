@@ -35,9 +35,9 @@
       ]
     },
     "heroSub": {
-      "en": "In Germany since 1985",
-      "de": "In Deutschland seit 1985",
-      "hi": "जर्मनी में 1985 से"
+      "en": "एक समुदाय और एक आवाज़",
+      "de": "Eine Gemeinschaft und eine Stimme",
+      "hi": "एक समुदाय और एक आवाज़"
     },
     "intro": {
       "en": "Indischer Dachverband Deutschland brings together Indian Vereine from all 16 German states — preserving culture, building bridges, and shaping the future of the Indian diaspora in Germany.",
@@ -54,27 +54,11 @@
         }
       },
       {
-        "number": "80+",
-        "label": {
-          "en": "Member Vereine",
-          "de": "Mitgliedsvereine",
-          "hi": "सदस्य वेराइने"
-        }
-      },
-      {
-        "number": "50,000+",
+        "number": "300,000+",
         "label": {
           "en": "Community Members",
           "de": "Gemeinschaftsmitglieder",
           "hi": "समुदाय सदस्य"
-        }
-      },
-      {
-        "number": "40+",
-        "label": {
-          "en": "Years of Unity",
-          "de": "Jahre der Einheit",
-          "hi": "एकता के वर्ष"
         }
       }
     ],
@@ -112,17 +96,17 @@
     ],
     "conceptCards": [
       {
-        "accent": "#FF9933",
-        "icon": "banyan",
+        "accent": "#FFCC00",
+        "icon": "circle",
         "title": {
-          "en": "The Banyan Tree",
-          "de": "Der Banyanbaum",
-          "hi": "बरगद का पेड़"
+          "en": "Circle of Unity",
+          "de": "Kreis der Einheit",
+          "hi": "एकता का वृत्त"
         },
         "text": {
-          "en": "Roots in India, branches flourishing in Germany — the eternal banyan symbolizes strength, continuity, and the diaspora's journey across generations.",
-          "de": "Wurzeln in Indien, Zweige gedeihen in Deutschland — der ewige Banyan symbolisiert Stärke, Kontinuität und die Reise der Diaspora über Generationen.",
-          "hi": "भारत में जड़ें, जर्मनी में फलती-फूलती शाखाएँ — शाश्वत बरगद शक्ति, निरंतरता और पीढ़ियों के प्रवासी सफ़र का प्रतीक है।"
+          "en": "The circular form represents oneness and inclusiveness — a neutral, non-partisan platform where all communities find equal representation.",
+          "de": "Die kreisförmige Form steht für Einheit und Inklusivität — eine neutrale, überparteiliche Plattform, auf der alle Gemeinschaften gleichberechtigt vertreten sind.",
+          "hi": "वृत्ताकार रूप एकता और समावेशिता का प्रतिनिधित्व करता है — एक तटस्थ, गैर-पक्षपाती मंच जहाँ सभी समुदायों को समान प्रतिनिधित्व मिलता है।"
         }
       },
       {
@@ -140,17 +124,31 @@
         }
       },
       {
-        "accent": "#FFCC00",
-        "icon": "circle",
+        "accent": "#FF9933",
+        "icon": "banyan",
         "title": {
-          "en": "Circle of Unity",
-          "de": "Kreis der Einheit",
-          "hi": "एकता का वृत्त"
+          "en": "The Banyan Tree",
+          "de": "Der Banyanbaum",
+          "hi": "बरगद का पेड़"
         },
         "text": {
-          "en": "The circular form represents oneness and inclusiveness — a neutral, non-partisan platform where all communities find equal representation.",
-          "de": "Die kreisförmige Form steht für Einheit und Inklusivität — eine neutrale, überparteiliche Plattform, auf der alle Gemeinschaften gleichberechtigt vertreten sind.",
-          "hi": "वृत्ताकार रूप एकता और समावेशिता का प्रतिनिधित्व करता है — एक तटस्थ, गैर-पक्षपाती मंच जहाँ सभी समुदायों को समान प्रतिनिधित्व मिलता है।"
+          "en": "Roots in India, branches flourishing in Germany — the eternal banyan symbolizes strength, continuity, and the diaspora's journey across generations. * “Deutschland” is written on the Indian tricolor, symbolizing Germany’s openness and intention to build strong cultural, social, and future-oriented ties with India.",
+          "de": "Wurzeln in Indien, Zweige gedeihen in Deutschland — der ewige Banyan symbolisiert Stärke, Kontinuität und die Reise der Diaspora über Generationen. * „Deutschland“ ist auf der indischen Trikolore geschrieben und symbolisiert die Offenheit Deutschlands und die Absicht, starke kulturelle, soziale und zukunftsorientierte Verbindungen mit Indien aufzubauen.",
+          "hi": "भारत में जड़ें, जर्मनी में फलती-फूलती शाखाएँ — शाश्वत बरगद शक्ति, निरंतरता और पीढ़ियों के प्रवासी सफ़र का प्रतीक है। * भारतीय तिरंगे पर \"डॉयचलैंड\" लिखा है, जो जर्मनी की खुलापन और भारत के साथ मजबूत सांस्कृतिक, सामाजिक और भविष्योन्मुखी संबंध बनाने की इच्छा को दर्शाता है।"
+        }
+      },
+      {
+        "accent": "#FF9933",
+        "icon": "integration",
+        "title": {
+          "en": "Integration",
+          "de": "Integration",
+          "hi": "एकीकरण"
+        },
+        "text": {
+          "en": "* “Indischer” is written on the German flag, representing the integration of the Indian community within German society — rooted in identity while becoming an integral part of the nation.",
+          "de": "„Indischer“ ist auf der deutschen Flagge geschrieben und symbolisiert die Integration der indischen Gemeinschaft in die deutsche Gesellschaft — verwurzelt in der Identität und gleichzeitig ein integraler Bestandteil der Nation.",
+          "hi": "जर्मन ध्वज पर \"इंडिशर\" लिखा है, जो जर्मन समाज में भारतीय समुदाय के एकीकरण का प्रतिनिधित्व करता है — पहचान में जड़ें जमाए हुए और राष्ट्र का एक अभिन्न हिस्सा बनते हुए।"
         }
       },
       {
