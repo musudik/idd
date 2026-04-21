@@ -526,9 +526,9 @@ function renderEvents() {
 const GALLERY_IMAGES = [
   { src: 'assets/images/gallary/0.jpg',   caption: { en: 'Community Gathering',        de: 'Gemeinschaftstreffen',         hi: 'सामुदायिक आयोजन' },        category: 'community' },
   { src: 'assets/images/gallary/1.jpg',   caption: { en: 'Cultural Celebration',        de: 'Kulturfeier',                  hi: 'सांस्कृतिक उत्सव' },       category: 'cultural'  },
-  { src: 'assets/images/gallary/2.jpg',   caption: { en: 'Festival of Colors',           de: 'Farbenfest',                   hi: 'रंगों का त्योहार' },        category: 'cultural'  },
+  { src: 'assets/images/gallary/2.jpg',   caption: { en: 'Festival of Togetherness',           de: 'Farbenfest',                   hi: 'रंगों का त्योहार' },        category: 'cultural'  },
   { src: 'assets/images/gallary/3.jfif',  caption: { en: 'Community Event',              de: 'Gemeinschaftsveranstaltung',   hi: 'सामुदायिक कार्यक्रम' },     category: 'community' },
-  { src: 'assets/images/gallary/5.jfif',  caption: { en: 'Festival of Togetherness',     de: 'Festival der Gemeinschaft',    hi: 'सामंजस्य का उत्सव' },       category: 'community' },
+  { src: 'assets/images/gallary/5.jfif',  caption: { en: 'Peace March',     de: 'Friedensmarsch',    hi: 'शांति मार्च' },       category: 'community' },
   { src: 'assets/images/gallary/6.webp',  caption: { en: 'IDD Gathering — Bavaria',      de: 'IDD-Treffen — Bayern',         hi: 'IDD आयोजन — बवेरिया' },     category: 'community' },
   { src: 'assets/images/gallary/7.webp',  caption: { en: 'India-Germany Cultural Bridge', de: 'Indisch-Deutsche Kulturbrücke', hi: 'भारत-जर्मनी सांस्कृतिक सेतु' }, category: 'cultural'  },
   { src: 'assets/images/gallary/8.webp',  caption: { en: 'Voices of the Diaspora',       de: 'Stimmen der Diaspora',         hi: 'प्रवासियों की आवाज़' },      category: 'community' },
