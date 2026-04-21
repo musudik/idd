@@ -198,7 +198,7 @@
       </section>
 
       <!-- EVENTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
-      <section id="section-events" class="sp-section page page-events">
+      <section id="section-events" class="sp-section page page-events" style="display:none">
         <div class="page-header">
           <div class="page-header-line"></div>
           <h1 class="page-title" id="events-title"></h1>
@@ -352,19 +352,47 @@
 
       <!-- FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
       <footer class="site-footer" id="site-footer">
+        <!-- Footer top accent bar -->
+        <div class="footer-accent-bar"></div>
         <div class="footer-inner">
-          <div class="footer-brand">
-            <div class="footer-logo-mark">&#x2726;</div>
-            <span id="footer-sitename"></span>
+          <!-- Brand column -->
+          <div class="footer-col footer-col--brand">
+            <div class="footer-brand">
+              <img src="assets/images/IDD.png" alt="IDD Logo" class="footer-logo" />
+              <div class="footer-brand-text">
+                <div class="footer-brand-name" id="footer-sitename"></div>
+                <div class="footer-brand-tagline">Uniting Indian Communities Across Germany</div>
+              </div>
+            </div>
+            <p class="footer-mission">A democratic, non-partisan umbrella organisation representing the Indian diaspora across all 16 German federal states.</p>
           </div>
-          <div class="footer-social" id="footer-social"></div>
-          <div class="footer-links">
-            <a href="#section-impressum" id="footer-impressum"></a>
-            <a href="#section-impressum" id="footer-privacy"></a>
+          <!-- Quick links -->
+          <div class="footer-col footer-col--links">
+            <h4 class="footer-col-heading">Quick Links</h4>
+            <ul class="footer-nav-list">
+              <li><a href="#section-about">About IDD</a></li>
+              <li><a href="#section-mission">Mission</a></li>
+              <li><a href="#section-news">News</a></li>
+              <li><a href="#section-gallery">Gallery</a></li>
+              <li><a href="#section-join">Join</a></li>
+              <li><a href="#section-contact">Contact</a></li>
+            </ul>
           </div>
-          <div class="footer-copy">
-            <span>&#169; <span id="footer-year"></span> Indischer Dachverband Deutschland e.V. &#8212; </span>
-            <span id="footer-rights"></span>
+          <!-- Contact & social -->
+          <div class="footer-col footer-col--contact">
+            <h4 class="footer-col-heading">Connect</h4>
+            <a href="mailto:info@idd-ev.de" class="footer-email">info@idd-ev.de</a>
+            <div class="footer-social" id="footer-social"></div>
+          </div>
+        </div>
+        <!-- Footer bottom bar -->
+        <div class="footer-bottom">
+          <div class="footer-bottom-inner">
+            <span class="footer-copy">&#169; <span id="footer-year"></span> Indischer Dachverband Deutschland e.V. &mdash; <span id="footer-rights"></span></span>
+            <div class="footer-links">
+              <a href="#section-impressum" id="footer-impressum"></a>
+              <a href="#section-impressum" id="footer-privacy"></a>
+            </div>
           </div>
         </div>
       </footer>

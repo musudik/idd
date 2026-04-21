@@ -14,7 +14,6 @@ const NAV_ITEMS = [
   { key: 'about',      icon: '◉',  section: 'section-about'      },
   { key: 'vereine',    icon: '❋',  isPage: true                   },
   { key: 'mission',    icon: '◈',  section: 'section-mission'    },
-  { key: 'events',     icon: '◎',  section: 'section-events'     },
   { key: 'gallery',    icon: '▣',  section: 'section-gallery'    },
   { key: 'news',       icon: '◙',  section: 'section-news'       },
   { key: 'join',       icon: '✦',  section: 'section-join'       },
@@ -104,6 +103,23 @@ function buildNewsTicker() {
   const totalChars = combined.reduce((acc, i) => acc + t(i.text).length, 0);
   const duration = Math.max(30, totalChars * 0.18);
   track.style.animationDuration = duration + 's';
+
+  // Store combined for lang rebuild
+  track._tickerData = combined;
+}
+
+function rebuildTickerText() {
+  const track = document.getElementById('ticker-track');
+  if (!track || !track._tickerData) return;
+  const combined = track._tickerData;
+  const itemsHTML = combined.map(item => `
+    <span class="ticker-item">
+      <span class="ticker-item-date">${item.date}</span>
+      <span class="ticker-item-sep">◆</span>
+      <span>${t(item.text)}</span>
+    </span>
+  `).join('');
+  track.innerHTML = itemsHTML + itemsHTML;
 }
 
 // ── Hero Carousel ────────────────────────────────────────────
@@ -510,11 +526,14 @@ function renderEvents() {
 
 // ── GALLERY ──────────────────────────────────────────────────
 const GALLERY_IMAGES = [
-  { src: 'assets/images/gallary/0.jpg',    caption: { en: 'Community Gathering', de: 'Gemeinschaftstreffen', hi: 'सामुदायिक आयोजन' }, category: 'community' },
-  { src: 'assets/images/gallary/1.jpg',    caption: { en: 'Cultural Celebration', de: 'Kulturfeier', hi: 'सांस्कृतिक उत्सव' }, category: 'cultural' },
-  { src: 'assets/images/gallary/2.jpg',    caption: { en: 'Festival of Colors', de: 'Farbenfest', hi: 'रंगों का त्योहार' }, category: 'cultural' },
-  { src: 'assets/images/gallary/3.jfif',   caption: { en: 'Community Event', de: 'Gemeinschaftsveranstaltung', hi: 'सामुदायिक कार्यक्रम' }, category: 'community' },
-  { src: 'assets/images/gallary/5.jfif',   caption: { en: 'Community Gathering', de: 'Gemeinschaftstreffen', hi: 'सामुदायिक आयोजन' }, category: 'sports' },
+  { src: 'assets/images/gallary/0.jpg',   caption: { en: 'Community Gathering',        de: 'Gemeinschaftstreffen',         hi: 'सामुदायिक आयोजन' },        category: 'community' },
+  { src: 'assets/images/gallary/1.jpg',   caption: { en: 'Cultural Celebration',        de: 'Kulturfeier',                  hi: 'सांस्कृतिक उत्सव' },       category: 'cultural'  },
+  { src: 'assets/images/gallary/2.jpg',   caption: { en: 'Festival of Colors',           de: 'Farbenfest',                   hi: 'रंगों का त्योहार' },        category: 'cultural'  },
+  { src: 'assets/images/gallary/3.jfif',  caption: { en: 'Community Event',              de: 'Gemeinschaftsveranstaltung',   hi: 'सामुदायिक कार्यक्रम' },     category: 'community' },
+  { src: 'assets/images/gallary/5.jfif',  caption: { en: 'Festival of Togetherness',     de: 'Festival der Gemeinschaft',    hi: 'सामंजस्य का उत्सव' },       category: 'community' },
+  { src: 'assets/images/gallary/6.webp',  caption: { en: 'IDD Gathering — Bavaria',      de: 'IDD-Treffen — Bayern',         hi: 'IDD आयोजन — बवेरिया' },     category: 'community' },
+  { src: 'assets/images/gallary/7.webp',  caption: { en: 'India-Germany Cultural Bridge', de: 'Indisch-Deutsche Kulturbrücke', hi: 'भारत-जर्मनी सांस्कृतिक सेतु' }, category: 'cultural'  },
+  { src: 'assets/images/gallary/8.webp',  caption: { en: 'Voices of the Diaspora',       de: 'Stimmen der Diaspora',         hi: 'प्रवासियों की आवाज़' },      category: 'community' },
 ];
 
 function renderGallery() {
@@ -524,10 +543,9 @@ function renderGallery() {
 
   const filtersEl = document.getElementById('gallery-filters');
   const filterDefs = {
-    all:       { en: 'All',       de: 'Alle',      hi: 'सभी' },
-    cultural:  { en: 'Cultural',  de: 'Kulturell', hi: 'सांस्कृतिक' },
+    all:       { en: 'All',       de: 'Alle',         hi: 'सभी' },
     community: { en: 'Community', de: 'Gemeinschaft', hi: 'समुदाय' },
-    sports:    { en: 'Sports',    de: 'Sport',     hi: 'खेल' },
+    cultural:  { en: 'Cultural',  de: 'Kulturell',    hi: 'सांस्कृतिक' },
   };
   filtersEl.innerHTML = Object.entries(filterDefs).map(([key, label]) => `
     <button class="filter-btn ${key === 'all' ? 'active' : ''}" data-cat="${key}">${t(label)}</button>
@@ -822,23 +840,22 @@ function renderContact() {
     if (el && lbl) el.placeholder = lbl.textContent;
   });
 
-  // Social links
+  // Social links removed from contact — shown in footer only
   const socialEl = document.getElementById('contact-social');
-  if (socialEl && CONTENT.footer?.social) {
-    socialEl.innerHTML = buildSocialLinks();
-  }
+  if (socialEl) socialEl.style.display = 'none';
 }
 
 function buildSocialLinks() {
   const s = CONTENT.footer.social;
   const links = [
-    { key: 'linkedin',  icon: '🔗', label: 'LinkedIn',  href: s.linkedin  },
-    { key: 'instagram', icon: '📸', label: 'Instagram', href: s.instagram },
-    { key: 'whatsapp',  icon: '💬', label: 'WhatsApp',  href: s.whatsapp  },
+    { key: 'linkedin',  svg: '<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>', label: 'LinkedIn',  href: s.linkedin  },
+    { key: 'instagram', svg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>', label: 'Instagram', href: s.instagram },
+    { key: 'whatsapp',  svg: '<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>', label: 'WhatsApp',  href: s.whatsapp  },
+    { key: 'youtube',   svg: '<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>', label: 'YouTube',   href: 'https://www.youtube.com/@Idd-ev' },
   ];
   return links.map(l => `
     <a href="${l.href}" target="_blank" rel="noopener noreferrer" class="social-link">
-      <span class="social-icon">${l.icon}</span>${l.label}
+      ${l.svg}<span>${l.label}</span>
     </a>
   `).join('');
 }
@@ -1141,6 +1158,7 @@ function setupLangSwitchers() {
     if (inVereineView) renderVereine();
     updateFooterText();
     updateCookieBannerText();
+    rebuildTickerText();
   });
 }
 
