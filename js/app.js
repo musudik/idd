@@ -400,8 +400,6 @@ function renderAbout() {
   setText('founding-title', t(a.foundingTitle));
   setHTML('founding-text', t(a.founding).split('\n\n').map(p => `<p style="margin-bottom:1em">${p.replace(/\n/g,'<br>')}</p>`).join(''));
   setText('chair-message',  t(a.chairMessage));
-  setText('chair-name',     a.chairName);
-  setText('chair-role',     t(a.chairRole));
 
   // Chair avatar initials
   const avatarEl = document.getElementById('chair-avatar-initials');
