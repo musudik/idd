@@ -277,7 +277,7 @@ function renderHome() {
       circle: '<svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="1.5" opacity="0.6"/><circle cx="20" cy="20" r="10" stroke="currentColor" stroke-width="1.2" opacity="0.4"/><circle cx="20" cy="20" r="4" fill="currentColor" opacity="0.7"/></svg>',
       colors: '<svg viewBox="0 0 40 40" fill="none"><circle cx="12" cy="14" r="5" fill="#FF9933" opacity="0.8"/><circle cx="20" cy="14" r="5" fill="#fff" opacity="0.6"/><circle cx="28" cy="14" r="5" fill="#138808" opacity="0.8"/><circle cx="12" cy="26" r="5" fill="#1A1A1A" opacity="0.7"/><circle cx="20" cy="26" r="5" fill="#DD0000" opacity="0.8"/><circle cx="28" cy="26" r="5" fill="#FFCC00" opacity="0.8"/></svg>',
       banyan: '<svg viewBox="0 0 40 40" fill="none"><path d="M20 4c0 0-4 6-4 12 0 4 2 6 4 8 2-2 4-4 4-8 0-6-4-12-4-12z" fill="currentColor" opacity="0.7"/><path d="M20 24v12M14 36c0-4 3-7 6-8m6 8c0-4-3-7-6-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8 16c4 2 8 6 12 8M32 16c-4 2-8 6-12 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/></svg>',
-      integration: '<svg viewBox="0 0 40 40" fill="none"><path d="M20 4c0 0-4 6-4 12 0 4 2 6 4 8 2-2 4-4 4-8 0-6-4-12-4-12z" fill="currentColor" opacity="0.7"/><path d="M20 24v12M14 36c0-4 3-7 6-8m6 8c0-4-3-7-6-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8 16c4 2 8 6 12 8M32 16c-4 2-8 6-12 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/></svg>',
+      integration: '<svg viewBox="0 0 40 40" fill="none"><rect x="4" y="4" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5" opacity="0.7"/><rect x="22" y="4" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5" opacity="0.5" fill="currentColor" fill-opacity="0.1"/><rect x="4" y="22" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5" opacity="0.5" fill="currentColor" fill-opacity="0.1"/><rect x="22" y="22" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5" opacity="0.7"/><path d="M18 11h4M29 18v4M22 29h-4M11 22v-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="20" cy="20" r="3" fill="currentColor" opacity="0.8"/></svg>',
       typography: '<svg viewBox="0 0 40 40" fill="none"><text x="4" y="18" font-family="serif" font-size="16" fill="currentColor" opacity="0.8">A</text><text x="18" y="30" font-family="serif" font-size="12" fill="currentColor" opacity="0.5">a</text><path d="M4 34h32" stroke="currentColor" stroke-width="1" opacity="0.3"/></svg>'
     };
     const cardDelays = ['0.2s', '0.4s', '0.6s', '0.8s'];
@@ -469,41 +469,122 @@ function renderEvents() {
 }
 
 // ── GALLERY ──────────────────────────────────────────────────
+const GALLERY_IMAGES = [
+  { src: 'assets/images/gallary/0.jpg',    caption: { en: 'Community Gathering', de: 'Gemeinschaftstreffen', hi: 'सामुदायिक आयोजन' }, category: 'community' },
+  { src: 'assets/images/gallary/1.jpg',    caption: { en: 'Cultural Celebration', de: 'Kulturfeier', hi: 'सांस्कृतिक उत्सव' }, category: 'cultural' },
+  { src: 'assets/images/gallary/2.jpg',    caption: { en: 'Festival of Colors', de: 'Farbenfest', hi: 'रंगों का त्योहार' }, category: 'cultural' },
+  { src: 'assets/images/gallary/3.jfif',   caption: { en: 'Community Event', de: 'Gemeinschaftsveranstaltung', hi: 'सामुदायिक कार्यक्रम' }, category: 'community' },
+  { src: 'assets/images/gallary/5.jfif',   caption: { en: 'Sports & Recreation', de: 'Sport & Freizeit', hi: 'खेल और मनोरंजन' }, category: 'sports' },
+];
+
 function renderGallery() {
   const g = CONTENT.gallery;
   setText('gallery-title',    t(g.title));
   setText('gallery-subtitle', t(g.subtitle));
 
   const filtersEl = document.getElementById('gallery-filters');
-  const categories = Object.keys(g.categories);
-  filtersEl.innerHTML = categories.map(cat => `
-    <button class="filter-btn ${cat === 'all' ? 'active' : ''}"
-            data-cat="${cat}">${t(g.categories[cat])}</button>
+  const filterDefs = {
+    all:       { en: 'All',       de: 'Alle',      hi: 'सभी' },
+    cultural:  { en: 'Cultural',  de: 'Kulturell', hi: 'सांस्कृतिक' },
+    community: { en: 'Community', de: 'Gemeinschaft', hi: 'समुदाय' },
+    sports:    { en: 'Sports',    de: 'Sport',     hi: 'खेल' },
+  };
+  filtersEl.innerHTML = Object.entries(filterDefs).map(([key, label]) => `
+    <button class="filter-btn ${key === 'all' ? 'active' : ''}" data-cat="${key}">${t(label)}</button>
   `).join('');
 
   const galleryEl = document.getElementById('gallery-grid');
-  const EMOJIS = { cultural:'🎭', sports:'🏏', community:'🤝' };
 
-  galleryEl.innerHTML = g.items.map(item => `
-    <div class="gallery-item" data-cat="${item.category}">
-      <div class="gallery-placeholder" style="background:${item.color}22">
-        <span style="font-size:48px">${EMOJIS[item.category] || '🖼️'}</span>
+  function renderImages(cat) {
+    const items = cat === 'all' ? GALLERY_IMAGES : GALLERY_IMAGES.filter(i => i.category === cat);
+    galleryEl.innerHTML = items.map((item, idx) => `
+      <div class="gallery-item" data-cat="${item.category}" data-idx="${idx}">
+        <div class="gallery-img-wrap">
+          <img src="${item.src}" alt="${t(item.caption)}" loading="lazy"
+               onerror="this.closest('.gallery-item').style.display='none'" />
+          <div class="gallery-overlay">
+            <button class="gallery-view-btn" onclick="openLightbox(${idx}, '${cat}')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+                <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+              </svg>
+              <span>${{ en:'View', de:'Ansehen', hi:'देखें' }[lang] || 'View'}</span>
+            </button>
+          </div>
+        </div>
+        <div class="gallery-caption">${t(item.caption)}</div>
       </div>
-      <div class="gallery-caption">${t(item.caption)}</div>
-    </div>
-  `).join('');
+    `).join('');
+  }
+
+  renderImages('all');
 
   filtersEl.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       filtersEl.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const cat = btn.dataset.cat;
-      galleryEl.querySelectorAll('.gallery-item').forEach(item => {
-        item.classList.toggle('hidden', cat !== 'all' && item.dataset.cat !== cat);
-      });
+      renderImages(btn.dataset.cat);
     });
   });
 }
+
+// ── LIGHTBOX ─────────────────────────────────────────────────
+function openLightbox(idx, cat) {
+  const items = cat === 'all' ? GALLERY_IMAGES : GALLERY_IMAGES.filter(i => i.category === cat);
+  let current = idx;
+
+  let lb = document.getElementById('gallery-lightbox');
+  if (!lb) {
+    lb = document.createElement('div');
+    lb.id = 'gallery-lightbox';
+    lb.className = 'gallery-lightbox';
+    lb.innerHTML = `
+      <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
+      <div class="lightbox-panel">
+        <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+        <button class="lightbox-prev" id="lb-prev">&#8249;</button>
+        <div class="lightbox-img-wrap">
+          <img id="lb-img" src="" alt="" />
+        </div>
+        <button class="lightbox-next" id="lb-next">&#8250;</button>
+        <div class="lightbox-caption" id="lb-caption"></div>
+        <div class="lightbox-counter" id="lb-counter"></div>
+      </div>
+    `;
+    document.body.appendChild(lb);
+  }
+
+  function show(i) {
+    current = (i + items.length) % items.length;
+    document.getElementById('lb-img').src = items[current].src;
+    document.getElementById('lb-caption').textContent = t(items[current].caption);
+    document.getElementById('lb-counter').textContent = `${current + 1} / ${items.length}`;
+  }
+
+  show(current);
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  document.getElementById('lb-prev').onclick = () => show(current - 1);
+  document.getElementById('lb-next').onclick = () => show(current + 1);
+
+  const keyHandler = e => {
+    if (e.key === 'ArrowLeft') show(current - 1);
+    if (e.key === 'ArrowRight') show(current + 1);
+    if (e.key === 'Escape') closeLightbox();
+  };
+  document.addEventListener('keydown', keyHandler);
+  lb._keyHandler = keyHandler;
+}
+
+function closeLightbox() {
+  const lb = document.getElementById('gallery-lightbox');
+  if (lb) {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    if (lb._keyHandler) document.removeEventListener('keydown', lb._keyHandler);
+  }
+}
+
 
 // ── NEWS ─────────────────────────────────────────────────────
 function renderNews() {
@@ -536,10 +617,10 @@ function renderLeadership() {
 
   const tbcLabel = { en: 'To Be Confirmed', de: 'Wird noch bestätigt', hi: 'शीघ्र घोषित किया जाएगा' };
   const tbcNote  = { en: 'Leadership details will be announced soon.', de: 'Details zur Führung werden in Kürze bekannt gegeben.', hi: 'नेतृत्व विवरण जल्द ही घोषित किया जाएगा।' };
-  const tbcHTML  = `<div style="padding:40px;text-align:center;color:var(--text-muted);font-style:italic;">
-    <div style="font-size:2rem;margin-bottom:12px">⏳</div>
-    <div style="font-size:1.1rem;font-weight:600;margin-bottom:8px">${tbcLabel[lang] || tbcLabel.en}</div>
-    <div style="font-size:0.95rem">${tbcNote[lang] || tbcNote.en}</div>
+  const tbcHTML  = `<div style="padding:60px 40px;text-align:center;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(80px,14vw,160px);font-weight:300;letter-spacing:0.1em;color:var(--saffron);opacity:0.18;line-height:1;user-select:none;">TBC</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,48px);font-weight:300;color:var(--text-primary);margin-top:-16px;margin-bottom:16px;">${tbcLabel[lang] || tbcLabel.en}</div>
+    <div style="font-size:15px;color:var(--text-muted);">${tbcNote[lang] || tbcNote.en}</div>
   </div>`;
 
   const grid = document.getElementById('leadership-grid');
@@ -551,10 +632,10 @@ function renderLeadership() {
   setText('advisors-subtitle', t(adv.subtitle));
 
   const advTbcNote = { en: 'Advisory Board members will be announced soon.', de: 'Die Mitglieder des Beirats werden in Kürze bekannt gegeben.', hi: 'सलाहकार बोर्ड के सदस्यों की शीघ्र घोषणा की जाएगी।' };
-  const advTbcHTML = `<div style="padding:40px;text-align:center;color:var(--text-muted);font-style:italic;">
-    <div style="font-size:2rem;margin-bottom:12px">⏳</div>
-    <div style="font-size:1.1rem;font-weight:600;margin-bottom:8px">${tbcLabel[lang] || tbcLabel.en}</div>
-    <div style="font-size:0.95rem">${advTbcNote[lang] || advTbcNote.en}</div>
+  const advTbcHTML = `<div style="padding:60px 40px;text-align:center;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(80px,14vw,160px);font-weight:300;letter-spacing:0.1em;color:var(--saffron);opacity:0.18;line-height:1;user-select:none;">TBC</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,48px);font-weight:300;color:var(--text-primary);margin-top:-16px;margin-bottom:16px;">${tbcLabel[lang] || tbcLabel.en}</div>
+    <div style="font-size:15px;color:var(--text-muted);">${advTbcNote[lang] || advTbcNote.en}</div>
   </div>`;
 
   const advGrid = document.getElementById('advisors-grid');
