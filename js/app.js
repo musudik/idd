@@ -336,13 +336,15 @@ function renderHome() {
       integration: '<svg viewBox="0 0 40 40" fill="none"><rect x="4" y="4" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5" opacity="0.7"/><rect x="22" y="4" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5" opacity="0.5" fill="currentColor" fill-opacity="0.1"/><rect x="4" y="22" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5" opacity="0.5" fill="currentColor" fill-opacity="0.1"/><rect x="22" y="22" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5" opacity="0.7"/><path d="M18 11h4M29 18v4M22 29h-4M11 22v-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="20" cy="20" r="3" fill="currentColor" opacity="0.8"/></svg>',
       typography: '<svg viewBox="0 0 40 40" fill="none"><text x="4" y="18" font-family="serif" font-size="16" fill="currentColor" opacity="0.8">A</text><text x="18" y="30" font-family="serif" font-size="12" fill="currentColor" opacity="0.5">a</text><path d="M4 34h32" stroke="currentColor" stroke-width="1" opacity="0.3"/></svg>'
     };
-    const cardDelays = ['0.2s', '0.4s', '0.6s', '0.8s'];
+    const cardDelays = ['0.2s', '0.4s', '0.6s', '0.8s', '1.0s'];
     conceptsEl.innerHTML = h.conceptCards.map((card, i) => `
       <div class="concept-card" style="--card-accent: ${card.accent}; --card-delay: ${cardDelays[i]};">
         <div class="concept-card-glow"></div>
         <div class="concept-card-icon">${CONCEPT_ICONS[card.icon] || ''}</div>
-        <h4 class="concept-card-title">${t(card.title)}</h4>
-        <p class="concept-card-text">${t(card.text)}</p>
+        <div class="concept-card-body">
+          <h4 class="concept-card-title">${t(card.title)}</h4>
+          <p class="concept-card-text">${t(card.text)}</p>
+        </div>
       </div>
     `).join('');
   }

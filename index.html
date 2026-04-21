@@ -82,39 +82,47 @@
 
           <!-- ═══ EMBLEM SHOWCASE ═══ -->
           <div class="hero-body hero-body--emblem">
+            <div class="hero-two-col">
 
-            <!-- Massive Logo with Concentric Glow Rings -->
-            <div class="emblem-stage">
-              <div class="emblem-ring-system">
-                <div class="emblem-ring emblem-ring--1"></div>
-                <div class="emblem-ring emblem-ring--2"></div>
-                <div class="emblem-ring emblem-ring--3"></div>
-                <div class="emblem-ring emblem-ring--4"></div>
-              </div>
-              <div class="emblem-logo-wrap">
-                <img src="assets/images/IDD.png" alt="Indischer Dachverband Deutschland" class="emblem-logo" />
-              </div>
-            </div>
-
-            <!-- Core Tagline with Shimmer -->
-            <div class="emblem-tagline" id="emblem-tagline"></div>
-
-            <!-- Logo Concept Cards -->
-            <div class="emblem-concepts" id="emblem-concepts"></div>
-
-            <!-- Original headline + CTAs + Stats -->
-            <div class="emblem-bottom">
-              <div class="emblem-left">
-                <div class="hero-headline" id="hero-headline"></div>
-                <p class="hero-sub" id="hero-sub"></p>
-                <p class="hero-intro" id="hero-intro"></p>
-                <div class="hero-ctas">
-                  <a href="#section-join" class="btn btn-hero-primary" id="cta-join"></a>
-                  <button class="btn btn-hero-outline" id="cta-vereine" onclick="showVereineView()"></button>
+              <!-- LEFT: Logo + tagline + headline + CTAs -->
+              <div class="hero-col-left">
+                <!-- Logo with Concentric Glow Rings -->
+                <div class="emblem-stage">
+                  <div class="emblem-ring-system">
+                    <div class="emblem-ring emblem-ring--1"></div>
+                    <div class="emblem-ring emblem-ring--2"></div>
+                    <div class="emblem-ring emblem-ring--3"></div>
+                    <div class="emblem-ring emblem-ring--4"></div>
+                  </div>
+                  <div class="emblem-logo-wrap">
+                    <img src="assets/images/IDD.png" alt="Indischer Dachverband Deutschland" class="emblem-logo" />
+                  </div>
                 </div>
-                <div class="hero-indicators" id="hero-indicators"></div>
+
+                <!-- Core Tagline -->
+                <div class="emblem-tagline" id="emblem-tagline"></div>
+
+                <!-- Headline + CTAs + Stats -->
+                <div class="emblem-bottom">
+                  <div class="emblem-left">
+                    <div class="hero-headline" id="hero-headline"></div>
+                    <p class="hero-sub" id="hero-sub"></p>
+                    <p class="hero-intro" id="hero-intro"></p>
+                    <div class="hero-ctas">
+                      <a href="#section-join" class="btn btn-hero-primary" id="cta-join"></a>
+                      <button class="btn btn-hero-outline" id="cta-vereine" onclick="showVereineView()"></button>
+                    </div>
+                    <div class="hero-indicators" id="hero-indicators"></div>
+                  </div>
+                  <div class="hero-stats" id="stats-inner"></div>
+                </div>
               </div>
-              <div class="hero-stats" id="stats-inner"></div>
+
+              <!-- RIGHT: 5 Concept Cards -->
+              <div class="hero-col-right">
+                <div class="emblem-concepts" id="emblem-concepts"></div>
+              </div>
+
             </div>
           </div>
 
