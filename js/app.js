@@ -524,13 +524,13 @@ function renderEvents() {
 
 // ── GALLERY ──────────────────────────────────────────────────
 const GALLERY_IMAGES = [
-  { src: 'assets/images/gallary/0.jpg',   caption: { en: 'Community Gathering',        de: 'Gemeinschaftstreffen',         hi: 'सामुदायिक आयोजन' },        category: 'community' },
-  { src: 'assets/images/gallary/1.jpg',   caption: { en: 'Cultural Celebration',        de: 'Kulturfeier',                  hi: 'सांस्कृतिक उत्सव' },       category: 'cultural'  },
-  { src: 'assets/images/gallary/2.jpg',   caption: { en: 'Festival of Togetherness',           de: 'Farbenfest',                   hi: 'रंगों का त्योहार' },        category: 'cultural'  },
-  { src: 'assets/images/gallary/3.jfif',  caption: { en: 'Community Event',              de: 'Gemeinschaftsveranstaltung',   hi: 'सामुदायिक कार्यक्रम' },     category: 'community' },
-  { src: 'assets/images/gallary/5.jfif',  caption: { en: 'Peace March',     de: 'Friedensmarsch',    hi: 'शांति मार्च' },       category: 'community' },
+  { src: 'assets/images/gallary/0.jpg',   caption: { en: 'IDD Logo Launch',        de: 'IDD-Logo Enthüllung',         hi: 'IDD लोगो लॉन्च' },        category: 'community' },
+  { src: 'assets/images/gallary/1.jpg',   caption: { en: 'Cultural Celebration - Lhori 2026',        de: 'Kulturfeier - Lhori 2026',                  hi: 'सांस्कृतिक उत्सव - ल्होरी 2026' },       category: 'cultural'  },
+  { src: 'assets/images/gallary/2.jpg',   caption: { en: 'Festival of Togetherness - Lhori 2026',           de: 'Festival der Zusammengehörigkeit - Lhori 2026',                   hi: 'साथीपन का त्योहार - ल्होरी 2026' },        category: 'cultural'  },
+  { src: 'assets/images/gallary/3.jfif',  caption: { en: 'Bharat Diwali Mela 2025',              de: 'Bharat Diwali Mela 2025',   hi: 'भारत दिवाली मेला 2025' },     category: 'community' },
+  { src: 'assets/images/gallary/5.jfif',  caption: { en: 'Peace March - 2025',     de: 'Friedensmarsch - 2025',    hi: 'शांति मार्च - 2025' },       category: 'community' },
   { src: 'assets/images/gallary/6.webp',  caption: { en: 'IDD Gathering — Bavaria',      de: 'IDD-Treffen — Bayern',         hi: 'IDD आयोजन — बवेरिया' },     category: 'community' },
-  { src: 'assets/images/gallary/7.webp',  caption: { en: 'India-Germany Cultural Bridge', de: 'Indisch-Deutsche Kulturbrücke', hi: 'भारत-जर्मनी सांस्कृतिक सेतु' }, category: 'cultural'  },
+  { src: 'assets/images/gallary/7.webp',  caption: { en: 'Festival of Togetherness - Lhori 2025',           de: 'Festival der Zusammengehörigkeit - Lhori 2025',                   hi: 'साथीपन का त्योहार - ल्होरी 2025' },        category: 'cultural'  },
   { src: 'assets/images/gallary/8.webp',  caption: { en: 'Voices of the Diaspora',       de: 'Stimmen der Diaspora',         hi: 'प्रवासियों की आवाज़' },      category: 'community' },
 ];
 
@@ -844,15 +844,30 @@ function renderContact() {
 }
 
 function buildSocialLinks() {
-  const s = CONTENT.footer.social;
   const links = [
-    { key: 'linkedin',  svg: '<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>', label: 'LinkedIn',  href: s.linkedin  },
-    { key: 'instagram', svg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>', label: 'Instagram', href: s.instagram },
-    { key: 'whatsapp',  svg: '<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>', label: 'WhatsApp',  href: s.whatsapp  },
-    { key: 'youtube',   svg: '<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>', label: 'YouTube',   href: 'https://www.youtube.com/@Idd-ev' },
+    {
+      svg: '<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>',
+      label: 'YouTube', href: 'https://www.youtube.com/@Idd-ev'
+    },
+    {
+      svg: '<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>',
+      label: 'Facebook', href: 'https://www.facebook.com/indischer.dachverband.deutschland/'
+    },
+    {
+      svg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>',
+      label: 'Instagram', href: 'https://www.instagram.com/indischerdachverbandde/'
+    },
+    {
+      svg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
+      label: 'Website', href: 'https://www.idd-ev.de'
+    },
+    {
+      svg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>',
+      label: 'Email', href: 'mailto:info@idd-ev.de'
+    },
   ];
   return links.map(l => `
-    <a href="${l.href}" target="_blank" rel="noopener noreferrer" class="social-link">
+    <a href="${l.href}" ${l.href.startsWith('mailto:') ? '' : 'target="_blank" rel="noopener noreferrer"'} class="social-link">
       ${l.svg}<span>${l.label}</span>
     </a>
   `).join('');
