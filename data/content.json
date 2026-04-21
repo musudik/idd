@@ -616,6 +616,63 @@
     },
     "items": [
       {
+        "id": "n0a",
+        "date": "2026-04-18",
+        "category": {
+          "en": "Milestone",
+          "de": "Meilenstein",
+          "hi": "मील का पत्थर"
+        },
+        "title": {
+          "en": "IDD Logo Officially Launched — 18 April 2026",
+          "de": "IDD-Logo offiziell vorgestellt — 18. April 2026",
+          "hi": "IDD लोगो आधिकारिक रूप से लॉन्च — 18 अप्रैल 2026"
+        },
+        "excerpt": {
+          "en": "The Indischer Dachverband Deutschland proudly unveiled its official logo on 18 April 2026. The emblem — a circle of unity blending the colors of India and Germany — marks a historic moment for the Indian diaspora. The design symbolises roots, belonging, and a shared future.",
+          "de": "Der Indischer Dachverband Deutschland hat am 18. April 2026 stolz sein offizielles Logo vorgestellt. Das Emblem — ein Kreis der Einheit, der die Farben Indiens und Deutschlands verbindet — markiert einen historischen Moment.",
+          "hi": "IDD ने 18 अप्रैल 2026 को अपना आधिकारिक लोगो अनावरण किया। प्रतीक — भारत और जर्मनी के रंगों का एकता वृत्त — भारतीय प्रवासियों के लिए एक ऐतिहासिक क्षण है।"
+        }
+      },
+      {
+        "id": "n0b",
+        "date": "2026-03-05",
+        "category": {
+          "en": "Diplomacy",
+          "de": "Diplomatie",
+          "hi": "कूटनीति"
+        },
+        "title": {
+          "en": "Meeting with Consulate General of India, Munich — March 2026",
+          "de": "Treffen mit dem Generalkonsulat Indien in München — März 2026",
+          "hi": "भारतीय महावाणिज्य दूतावास, म्यूनिख के साथ बैठक — मार्च 2026"
+        },
+        "excerpt": {
+          "en": "Representatives of IDD met with the Consulate General of India in Munich in March 2026 to discuss the formal recognition of IDD as the representative body for the Indian diaspora across Germany. The Consul General expressed strong support for the initiative.",
+          "de": "Vertreter des IDD trafen sich im März 2026 mit dem Generalkonsulat Indien in München, um die formelle Anerkennung des IDD zu besprechen. Das Generalkonsulat zeigte starke Unterstützung.",
+          "hi": "IDD के प्रतिनिधियों ने मार्च 2026 में म्यूनिख में भारतीय महावाणिज्य दूतावास से मुलाकात की। महावाणिज्यदूत ने इस पहल के लिए पूर्ण समर्थन व्यक्त किया।"
+        }
+      },
+      {
+        "id": "n0c",
+        "date": "2026-02-22",
+        "category": {
+          "en": "Community",
+          "de": "Gemeinschaft",
+          "hi": "समुदाय"
+        },
+        "title": {
+          "en": "Festival of Togetherness — All Vereine of Bavaria Unite, Feb 2026",
+          "de": "Festival der Gemeinschaft — Alle bayerischen Vereine vereint, Feb. 2026",
+          "hi": "सामंजस्य का उत्सव — बवेरिया के सभी वेराइने एकजुट, फरवरी 2026"
+        },
+        "excerpt": {
+          "en": "In February 2026, all Indian Vereine across Bavaria came together to celebrate the Festival of Togetherness (FOT). The event brought together hundreds of community members in Munich, showcasing the vibrant culture, traditions, and unity of the Indian diaspora in Bavaria.",
+          "de": "Im Februar 2026 kamen alle indischen Vereine in Bayern zusammen, um das Festival der Gemeinschaft zu feiern. Hunderte von Gemeinschaftsmitgliedern in München feierten die lebendige Kultur der indischen Diaspora.",
+          "hi": "फरवरी 2026 में, बवेरिया के सभी भारतीय वेराइने एकजुट हुए और सामंजस्य का उत्सव मनाया। इस आयोजन में सैकड़ों सामुदायिक सदस्यों ने भाग लिया।"
+        }
+      },
+      {
         "id": "n1",
         "date": "2025-04-10",
         "category": {
@@ -680,9 +737,9 @@
       "de": "Kontakt",
       "hi": "संपर्क"
     },
-    "address": "Kaiserstraße 42, 60329 Frankfurt am Main, Germany",
-    "email": "info@indischer-Dachverband.de",
-    "phone": "+49 69 1234 5678",
+    "address": "TBC",
+    "email": "info@idd-ev.de",
+    "phone": "TBC",
     "formLabels": {
       "name": {
         "en": "Your Name",
@@ -719,9 +776,9 @@
         "hi": "इम्प्रेसम"
       },
       "content": {
-        "en": "Indischer Dachverband Deutschland e.V.\nKaiserstraße 42, 60329 Frankfurt am Main\nGermany\n\nRegistered: Amtsgericht Frankfurt am Main, VR 12345\nVAT ID: DE123456789\n\nChairperson: Dr. Rajesh Sharma\nEmail: info@indischer-Dachverband.de\nPhone: +49 69 1234 5678",
-        "de": "Indischer Dachverband Deutschland e.V.\nKaiserstraße 42, 60329 Frankfurt am Main\nDeutschland\n\nRegistriert: Amtsgericht Frankfurt am Main, VR 12345\nUSt-IdNr.: DE123456789\n\nVorsitzender: Dr. Rajesh Sharma\nE-Mail: info@indischer-Dachverband.de\nTelefon: +49 69 1234 5678",
-        "hi": "इंडिशर डाखफरबांड डॉयचलैंड e.V.\nकाइज़रस्ट्रेसे 42, 60329 फ्रैंकफर्ट एम मेन\nजर्मनी\n\nपंजीकृत: अम्त्सगेरिख्त फ्रैंकफर्ट एम मेन, VR 12345\nVAT ID: DE123456789\n\nअध्यक्ष: डॉ. राजेश शर्मा\nईमेल: info@indischer-Dachverband.de\nफोन: +49 69 1234 5678"
+        "en": "TBC",
+        "de": "TBC",
+        "hi": "TBC"
       }
     },
     "privacy": {

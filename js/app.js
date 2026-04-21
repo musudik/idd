@@ -18,7 +18,6 @@ const NAV_ITEMS = [
   { key: 'gallery',    icon: '▣',  section: 'section-gallery'    },
   { key: 'news',       icon: '◙',  section: 'section-news'       },
   { key: 'join',       icon: '✦',  section: 'section-join'       },
-  { key: 'donate',     icon: '◆',  section: 'section-donate'     },
   { key: 'contact',    icon: '◌',  section: 'section-contact'    },
 ];
 
@@ -50,6 +49,7 @@ async function init() {
   renderAllSections();
   renderFooter();
   initHeroCarousel();
+  buildNewsTicker();
 
   // Check hash on load
   const hash = location.hash.replace('#', '');
@@ -65,6 +65,46 @@ async function init() {
 }
 
 // ── Sidebar: removed (now using top nav) ─────────────────────
+
+// ── News Ticker ──────────────────────────────────────────────
+function buildNewsTicker() {
+  const TIMELINE = [
+    { date: '01 Apr 2026', text: { en: 'FOT Dachverband Satzung Workshop Successfully Conducted — Democracy in Action', de: 'FOT Datzung Workshop erfolgreich durchgeführt — Demokratie in Aktion', hi: 'FOT दत्ज़ुंग कार्यशाला सफलतापूर्वक संपन्न' } },
+    { date: 'Mar 2026',    text: { en: 'Governance & Satzung Workshop: Bringing Together the Minds Who Built Your Verein\'s Foundation', de: 'Governance- und Satzungsworkshop: Die Köpfe zusammenbringen', hi: 'गवर्नेंस और सत्ज़ुंग कार्यशाला' } },
+    { date: '5 Mar 2026',  text: { en: 'Meeting with the Consulate General of India in Munich', de: 'Treffen mit dem Generalkonsulat Indien in München', hi: 'म्यूनिख में भारतीय महावाणिज्य दूतावास के साथ बैठक' } },
+    { date: '28 Feb 2026', text: { en: 'Presenting the IDD Initiative to Political Leadership', de: 'Vorstellung der IDD-Initiative bei der politischen Führung', hi: 'राजनीतिक नेतृत्व को IDD पहल की प्रस्तुति' } },
+    { date: '22 Feb 2026', text: { en: 'Pulse Check Results — Official Go-Ahead from the Community', de: 'Puls-Check-Ergebnisse — Offizielles Go-Ahead der Gemeinschaft', hi: 'पल्स चेक परिणाम — समुदाय से आधिकारिक मंजूरी' } },
+    { date: '1 Feb 2026',  text: { en: 'FOT 2026: Explaining the Need for a Dachverband — Pulse Check from the Community', de: 'FOT 2026: Den Bedarf eines Dachverbands erklären — Puls-Check', hi: 'FOT 2026: दाखफरबांड की आवश्यकता समझाना' } },
+    { date: 'Jan 2025',    text: { en: 'FOT 2025: The Beginning — Getting to Know Each Other', de: 'FOT 2025: Der Anfang — Kennenlernen', hi: 'FOT 2025: शुरुआत — एक दूसरे को जानना' } },
+  ];
+
+  // Also pull latest news items
+  const newsItems = (CONTENT?.news?.items || []).slice(0, 3).map(n => ({
+    date: new Date(n.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }),
+    text: n.title
+  }));
+
+  const combined = [...newsItems, ...TIMELINE];
+  const track = document.getElementById('ticker-track');
+  if (!track) return;
+
+  // Build items HTML — duplicate for seamless loop
+  const itemsHTML = combined.map(item => `
+    <span class="ticker-item">
+      <span class="ticker-item-date">${item.date}</span>
+      <span class="ticker-item-sep">◆</span>
+      <span>${t(item.text)}</span>
+    </span>
+  `).join('');
+
+  // Duplicate so the animation loops seamlessly
+  track.innerHTML = itemsHTML + itemsHTML;
+
+  // Adjust animation duration based on content length
+  const totalChars = combined.reduce((acc, i) => acc + t(i.text).length, 0);
+  const duration = Math.max(30, totalChars * 0.18);
+  track.style.animationDuration = duration + 's';
+}
 
 // ── Hero Carousel ────────────────────────────────────────────
 function initHeroCarousel() {
@@ -474,7 +514,7 @@ const GALLERY_IMAGES = [
   { src: 'assets/images/gallary/1.jpg',    caption: { en: 'Cultural Celebration', de: 'Kulturfeier', hi: 'सांस्कृतिक उत्सव' }, category: 'cultural' },
   { src: 'assets/images/gallary/2.jpg',    caption: { en: 'Festival of Colors', de: 'Farbenfest', hi: 'रंगों का त्योहार' }, category: 'cultural' },
   { src: 'assets/images/gallary/3.jfif',   caption: { en: 'Community Event', de: 'Gemeinschaftsveranstaltung', hi: 'सामुदायिक कार्यक्रम' }, category: 'community' },
-  { src: 'assets/images/gallary/5.jfif',   caption: { en: 'Sports & Recreation', de: 'Sport & Freizeit', hi: 'खेल और मनोरंजन' }, category: 'sports' },
+  { src: 'assets/images/gallary/5.jfif',   caption: { en: 'Community Gathering', de: 'Gemeinschaftstreffen', hi: 'सामुदायिक आयोजन' }, category: 'sports' },
 ];
 
 function renderGallery() {
@@ -805,16 +845,32 @@ function buildSocialLinks() {
 
 function handleContactSubmit(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('[type=submit]');
-  const successMsgs = { en:"Message sent! We'll get back to you soon.", de:'Nachricht gesendet!', hi:'संदेश भेजा गया!' };
+  const form = e.target;
+  const btn = form.querySelector('[type=submit]');
+  const name    = document.getElementById('input-name')?.value    || '';
+  const email   = document.getElementById('input-email')?.value   || '';
+  const subject = document.getElementById('input-subject')?.value || '';
+  const message = document.getElementById('input-message')?.value || '';
+
+  const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+  const mailtoUrl = `mailto:info@idd-ev.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  // Open the user's mail client pre-filled
+  window.location.href = mailtoUrl;
+
+  const successMsgs = {
+    en: "Opening your mail client… Thank you for reaching out!",
+    de: "E-Mail-Programm wird geöffnet… Vielen Dank!",
+    hi: "आपका ईमेल क्लाइंट खुल रहा है… धन्यवाद!"
+  };
   const orig = btn.textContent;
-  btn.textContent = '✓ ' + successMsgs[lang];
+  btn.textContent = '✓ ' + (successMsgs[lang] || successMsgs.en);
   btn.style.background = 'var(--india-green)';
   setTimeout(() => {
     btn.textContent = orig;
     btn.style.background = '';
-    e.target.reset();
-  }, 3000);
+    form.reset();
+  }, 4000);
 }
 
 // ── IMPRESSUM & PRIVACY ──────────────────────────────────────
