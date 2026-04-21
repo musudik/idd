@@ -349,14 +349,11 @@ function renderHome() {
     `).join('');
   }
 
-  // Stats
+  // Stats — inline text above CTA
   const statsEl = document.getElementById('stats-inner');
   statsEl.innerHTML = h.stats.map(s => `
-    <div class="stat-item">
-      <span class="stat-number">${s.number}</span>
-      <span class="stat-label">${t(s.label)}</span>
-    </div>
-  `).join('');
+    <span class="stat-inline"><strong class="stat-inline-num">${s.number}</strong> <span class="stat-inline-label">${t(s.label)}</span></span>
+  `).join('<span class="stat-inline-sep">·</span>');
 
   // Featured Vereine
   setText('featured-title', t(h.featuredTitle));
