@@ -382,7 +382,7 @@ function renderAbout() {
   setText('mission-title',  t(a.missionTitle));
   setText('mission-text',   t(a.mission));
   setText('founding-title', t(a.foundingTitle));
-  setText('founding-text',  t(a.founding));
+  setHTML('founding-text', t(a.founding).split('\n\n').map(p => `<p style="margin-bottom:1em">${p.replace(/\n/g,'<br>')}</p>`).join(''));
   setText('chair-message',  t(a.chairMessage));
   setText('chair-name',     a.chairName);
   setText('chair-role',     t(a.chairRole));

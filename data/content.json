@@ -199,9 +199,9 @@
       "hi": "हमारी कहानी"
     },
     "founding": {
-      "en": "Founded in 1985 in Frankfurt, Indischer Dachverband Deutschland was born from the shared dream of a handful of Indian Vereine to speak with one voice. Over four decades, it has grown into the largest representative body of the Indian diaspora in Germany, spanning all 16 Bundesländer.",
-      "de": "1985 in Frankfurt gegründet, entstand der Indische Dachverband Deutschland aus dem gemeinsamen Traum einiger indischer Vereine, mit einer Stimme zu sprechen. Über vier Jahrzehnte ist er zur größten Vertretung der indischen Diaspora in Deutschland herangewachsen und erstreckt sich über alle 16 Bundesländer.",
-      "hi": "1985 में फ्रैंकफर्ट में स्थापित, इंडिशर डाखफरबांड डॉयचलैंड की स्थापना कुछ भारतीय वेराइने के एक स्वर में बोलने के साझा सपने से हुई थी। चार दशकों में, यह जर्मनी में भारतीय प्रवासियों की सबसे बड़ी प्रतिनिधि संस्था बन गई है, जो सभी 16 बुंडेसलैंडर में फैली है।"
+      "en": "The journey began in January 2025 with the first Festival of Togetherness (FOT 2025) — a gathering where Indian community associations across Bavaria met, interacted, and began building trust. The objective was simple but powerful: open channels of dialogue and lay the groundwork for collaboration.\n\nBuilding on that momentum, FOT 2026 took place on 1 February 2026. Over 75 organisations were invited, 45 Bavarian associations participated alongside two guest Vereine from Baden-Württemberg. Together, they explored the need for a Dachverband — discussing board structure, voting rights, membership models, core focus areas, and even the name for both the Bavaria and national-level federation.\n\nOn 5 March 2026, IDD representatives met the Consulate General of India in Munich, presenting the initiative to political leadership and highlighting the community's determination to build structured, representative collaboration. The Consul General extended strong support.\n\nOn 1 April 2026, the FOT Dachverband Satzung Workshop was successfully conducted — a milestone in democratic participation where every Verein contributed to the foundation of the constitution.\n\nOn 18 April 2026, the official IDD Logo was unveiled — a circle of unity blending the colours of India and Germany, symbolising roots, belonging, and a shared future. What began as a conversation has grown into a movement.",
+      "de": "Die Reise begann im Januar 2025 mit dem ersten Festival der Gemeinschaft (FOT 2025) — einem Treffen, bei dem indische Gemeinschaftsvereine aus ganz Bayern zusammenkamen, um Vertrauen aufzubauen und Dialoge zu eröffnen.\n\nAufbauend auf diesem Schwung fand FOT 2026 am 1. Februar 2026 statt. Über 75 Organisationen wurden eingeladen, 45 bayerische Vereine nahmen teil, gemeinsam mit zwei Gastvereinen aus Baden-Württemberg. Sie diskutierten die Notwendigkeit eines Dachverbands — Vorstandsstruktur, Stimmrechte, Mitgliedschaftsmodelle und Schwerpunktbereiche.\n\nAm 5. März 2026 trafen sich IDD-Vertreter mit dem Generalkonsulat Indien in München und präsentierten die Initiative der politischen Führung. Das Generalkonsulat zeigte starke Unterstützung.\n\nAm 1. April 2026 wurde der FOT Dachverband Satzungsworkshop erfolgreich durchgeführt — ein Meilenstein demokratischer Mitgestaltung.\n\nAm 18. April 2026 wurde das offizielle IDD-Logo enthüllt — ein Symbol für Einheit, Zugehörigkeit und eine gemeinsame Zukunft.",
+      "hi": "यह यात्रा जनवरी 2025 में पहले सामंजस्य उत्सव (FOT 2025) से शुरू हुई — जहाँ बवेरिया के भारतीय सामुदायिक संगठनों ने मिलकर संवाद की नींव रखी।\n\nइसी गति को आगे बढ़ाते हुए, FOT 2026, 1 फरवरी 2026 को आयोजित हुआ। 75 से अधिक संगठनों को आमंत्रित किया गया, 45 बवेरियाई वेराइने और बाडेन-वुर्टेमबर्ग के दो अतिथि वेराइने ने भाग लिया। दाखफरबांड की आवश्यकता पर विस्तार से चर्चा हुई।\n\n5 मार्च 2026 को IDD प्रतिनिधियों ने म्यूनिख में भारतीय महावाणिज्य दूतावास से मुलाकात की। 1 अप्रैल 2026 को FOT दाखफरबांड सत्ज़ुंग कार्यशाला सफलतापूर्वक आयोजित हुई।\n\n18 अप्रैल 2026 को IDD का आधिकारिक लोगो अनावरण किया गया — भारत और जर्मनी के रंगों का एकता वृत्त, जो हमारी जड़ों, अपनेपन और साझे भविष्य का प्रतीक है।"
     },
     "chairTitle": {
       "en": "A Message from the Chairperson",
@@ -670,63 +670,6 @@
           "en": "In February 2026, all Indian Vereine across Bavaria came together to celebrate the Festival of Togetherness (FOT). The event brought together hundreds of community members in Munich, showcasing the vibrant culture, traditions, and unity of the Indian diaspora in Bavaria.",
           "de": "Im Februar 2026 kamen alle indischen Vereine in Bayern zusammen, um das Festival der Gemeinschaft zu feiern. Hunderte von Gemeinschaftsmitgliedern in München feierten die lebendige Kultur der indischen Diaspora.",
           "hi": "फरवरी 2026 में, बवेरिया के सभी भारतीय वेराइने एकजुट हुए और सामंजस्य का उत्सव मनाया। इस आयोजन में सैकड़ों सामुदायिक सदस्यों ने भाग लिया।"
-        }
-      },
-      {
-        "id": "n1",
-        "date": "2025-04-10",
-        "category": {
-          "en": "Announcement",
-          "de": "Ankündigung",
-          "hi": "घोषणा"
-        },
-        "title": {
-          "en": "IDD Welcomes 5 New Member Vereine in 2025",
-          "de": "IDD begrüßt 5 neue Mitgliedsvereine im Jahr 2025",
-          "hi": "IDD ने 2025 में 5 नए सदस्य वेराइने का स्वागत किया"
-        },
-        "excerpt": {
-          "en": "The IDD family continues to grow. This quarter, five new Vereine from Sachsen, Thüringen, and Rheinland-Pfalz have joined our network.",
-          "de": "Die IDD-Familie wächst weiter. In diesem Quartal haben sich fünf neue Vereine aus Sachsen, Thüringen und Rheinland-Pfalz unserem Netzwerk angeschlossen.",
-          "hi": "IDD परिवार बढ़ता रहता है। इस तिमाही में, सैक्सोनी, थुरिंगिया और राइनलैंड-पफाल्ज़ से पांच नए वेराइने हमारे नेटवर्क में शामिल हुए हैं।"
-        }
-      },
-      {
-        "id": "n2",
-        "date": "2025-03-22",
-        "category": {
-          "en": "Policy",
-          "de": "Politik",
-          "hi": "नीति"
-        },
-        "title": {
-          "en": "IDD Submits Diaspora Policy Recommendations to Bundestag",
-          "de": "IDD reicht Diaspora-Politikempfehlungen beim Bundestag ein",
-          "hi": "IDD ने बुंडेस्टाग को प्रवासी नीति सिफारिशें प्रस्तुत कीं"
-        },
-        "excerpt": {
-          "en": "In a landmark submission, IDD presented a comprehensive policy paper on the rights and representation of the Indian diaspora in Germany.",
-          "de": "In einer wegweisenden Einreichung präsentierte IDD ein umfassendes Grundsatzpapier zu den Rechten und der Vertretung der indischen Diaspora in Deutschland.",
-          "hi": "एक ऐतिहासिक प्रस्तुति में, IDD ने जर्मनी में भारतीय प्रवासियों के अधिकारों और प्रतिनिधित्व पर एक व्यापक नीति पत्र प्रस्तुत किया।"
-        }
-      },
-      {
-        "id": "n3",
-        "date": "2025-02-14",
-        "category": {
-          "en": "Community",
-          "de": "Gemeinschaft",
-          "hi": "समुदाय"
-        },
-        "title": {
-          "en": "Youth Leadership Programme Launches Nationwide",
-          "de": "Jugend-Führungsprogramm startet bundesweit",
-          "hi": "युवा नेतृत्व कार्यक्रम राष्ट्रव्यापी शुरू"
-        },
-        "excerpt": {
-          "en": "IDD launches a flagship 6-month leadership programme for young Indians between the ages of 18–30 across Germany.",
-          "de": "IDD startet ein Flaggschiff-6-Monats-Führungsprogramm für junge Inder im Alter von 18–30 Jahren in ganz Deutschland.",
-          "hi": "IDD पूरे जर्मनी में 18-30 वर्ष की आयु के युवा भारतीयों के लिए एक प्रमुख 6 महीने का नेतृत्व कार्यक्रम शुरू करता है।"
         }
       }
     ]
