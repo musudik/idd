@@ -445,6 +445,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300
 .page {
   padding: 60px 64px 80px;
   max-width: 1280px;
+  margin: 0 auto;
   animation: fadeSlideIn 0.5s var(--ease-out) both;
 }
 
